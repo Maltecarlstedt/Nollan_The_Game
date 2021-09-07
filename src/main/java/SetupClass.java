@@ -5,6 +5,8 @@ public class SetupClass extends StateBasedGame {
     public static final int canvasWidth = 1024;
     public static final int canvasHeight = 768;
 
+
+
     public SetupClass(String title) {
         super(title);
     }
@@ -14,6 +16,8 @@ public class SetupClass extends StateBasedGame {
         this.addState(new GameState());
 
     }
+
+
 
 
 
