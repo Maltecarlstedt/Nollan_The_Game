@@ -1,4 +1,5 @@
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
@@ -9,31 +10,28 @@ public class Player {
     private int width, height;
     private Orientation orientation;
 
-    public SpriteSheet MoveRight; // initate a SprtieSheet
-    public Animation MoveRightAni; // initate a Animation
+    public SpriteSheet MoveRight; // initate a SpriteSheet
+    public Animation MoveRightAni; // initate an Animation
 
-    public SpriteSheet MoveLeft; // initate a SprtieSheet
-    public Animation MoveLeftAni; // initate a Animation
+    public SpriteSheet MoveLeft; // initate a SpriteSheet
+    public Animation MoveLeftAni; // initate an Animation
 
-    public SpriteSheet MoveUp; // initate a SprtieSheet
-    public Animation MoveUpAni; // initate a Animation
+    public SpriteSheet MoveUp; // initate a SpriteSheet
+    public Animation MoveUpAni; // initate an Animation
 
-    public SpriteSheet MoveDown; // initate a SprtieSheet
-    public Animation MoveDownAni; // initate a Animation
+    public SpriteSheet MoveDown; // initate a SpriteSheet
+    public Animation MoveDownAni; // initate an Animation
 
-    public Animation currentImage = MoveRightAni;
+    public Image currentImage;
 
-    private int state;
+    public Animation currentAnimation;
 
-
-
-    public float x = 0;
-    public float y = 0;
+    private int state = 0;
 
     public Player(){
         location = new Point(1024/2, 768/2);
-        width = 45;
-        height = 60;
+        width = 64;
+        height = 64;
         orientation = Orientation.IDLE;
 
     }
@@ -45,40 +43,41 @@ public class Player {
         MoveUpAni = new Animation();
 
         for(int i = 0; i <= 3; i++){
-            walkDownAnimation.addFrame(player.getSubImage(i, 0), 200);
+            MoveDownAni.addFrame(MoveDown.getSubImage(i, 0), 200);
         }
         for(int i = 0; i <= 3; i++){
-            walkRightAnimation.addFrame(player.getSubImage(i, 1), 200);
+            MoveRightAni.addFrame(MoveRight.getSubImage(i, 0), 200);
         }
         for(int i = 0; i <= 3; i++){
-            walkLeftAnimation.addFrame(player.getSubImage(i, 2), 200);
+            MoveLeftAni.addFrame(MoveLeft.getSubImage(i, 0), 200);
         }
         for(int i = 0; i <= 3; i++){
-            walkUpAnimation.addFrame(player.getSubImage(i, 3), 200);
+            MoveUpAni.addFrame(MoveUp.getSubImage(i, 0), 200);
         }
     }
 
+    public void spriteSetup() throws SlickException {
+        MoveRight = new SpriteSheet("data/playerAnimation/gubbeRIGHT.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
+        MoveLeft = new SpriteSheet("data/playerAnimation/gubbeLEFT.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
+        MoveUp = new SpriteSheet("data/playerAnimation/gubbeUP.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
+        MoveDown = new SpriteSheet("data/playerAnimation/gubbeDOWN.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
+
+    }
+
     public void initPlayer() throws SlickException {
+        spriteSetup();
+        animationSetup();
 
+        currentImage = MoveDownAni.getImage(1);
 
+    }
 
-        MoveRight = new SpriteSheet("data/playerAnimation/gubbeRIGHT.spritesheet.png",21,24); // declare a SpriteSheet and load it into java with its dimentions
-        MoveRightAni = new Animation(MoveRight, 400); // declare a Animation, loading the SpriteSheet and inputing the Animation Speed
+    public int getHeight() {
+        return height;
+    }
 
-        for(int i = 0; i <= 3; i++){
-            MoveRightAni.addFrame(MoveRight.getSubImage(), 200);
-        }
-
-        MoveLeft = new SpriteSheet("data/playerAnimation/gubbeLEFT.spritesheet.png",21,24); // declare a SpriteSheet and load it into java with its dimentions
-        MoveLeftAni = new Animation(MoveLeft, 400); // declare a Animation, loading the SpriteSheet and inputing the Animation Speed
-
-        MoveUp = new SpriteSheet("data/playerAnimation/gubbeUP.spritesheet.png",21,24); // declare a SpriteSheet and load it into java with its dimentions
-        MoveUpAni = new Animation(MoveUp, 400); // declare a Animation, loading the SpriteSheet and inputing the Animation Speed
-
-        MoveDown = new SpriteSheet("data/playerAnimation/gubbeDOWN.spritesheet.png",21,24); // declare a SpriteSheet and load it into java with its dimentions
-        MoveDownAni = new Animation(MoveDown, 400); // declare a Animation, loading the SpriteSheet and inputing the Animation Speed
-
-
+    public int getWidth() {
+        return width;
     }
 
     public Point getLocation() {
@@ -99,7 +98,7 @@ public class Player {
     }
 
     public void setLocation(Point location) {
-        location = location;
+        this.location = location;
     }
 
     public void move() {
@@ -110,16 +109,52 @@ public class Player {
     public void moveUp() {
         setOrientation(Orientation.UP);
         move();
-        MoveUpAni.draw((float).getLocation().getX(), (float) player1.getLocation().getY(), 45, 60);
+        currentAnimation = MoveUpAni;
         state = 3;
     }
 
     public void moveLeft() {
+        setOrientation(Orientation.LEFT);
+        move();
+        currentAnimation = MoveLeftAni;
+        state = 2;
     }
 
     public void moveRight() {
+        setOrientation(Orientation.RIGHT);
+        move();
+        currentAnimation = MoveRightAni;
+        state = 1;
     }
 
     public void moveDown() {
+        setOrientation(Orientation.DOWN);
+        move();
+        currentAnimation = MoveDownAni;
+        state = 0;
+    }
+
+    public void idlePlayer() {
+
+        switch (state){
+            case 0:
+                this.setOrientation(Orientation.IDLE);
+                currentImage = MoveDownAni.getImage(1);
+                break;
+            case 1:
+                this.setOrientation(Orientation.IDLE);
+                currentImage = MoveRightAni.getImage(1);
+                break;
+            case 2:
+                this.setOrientation(Orientation.IDLE);
+                currentImage = MoveLeftAni.getImage(0);
+                break;
+            case 3:
+                this.setOrientation(Orientation.IDLE);
+                currentImage = MoveUpAni.getImage(1);
+                break;
+                //TODO: DEFAULT STATE FÖR IDLE, NER?
+        }
+
     }
 }

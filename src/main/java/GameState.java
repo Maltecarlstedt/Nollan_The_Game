@@ -32,23 +32,19 @@ public class GameState extends BasicGameState {
         if (input.isKeyDown(Input.KEY_UP))
         {
             player.moveUp();
-            player.currentImage = player.MoveUpAni;
 
-        }
-        if (input.isKeyDown(Input.KEY_LEFT))
+
+        }else if (input.isKeyDown(Input.KEY_LEFT))
         {
             player.moveLeft();
-            player.currentImage = player.MoveLeftAni;
-        }
-        if (input.isKeyDown(Input.KEY_RIGHT))
+        }else if (input.isKeyDown(Input.KEY_RIGHT))
         {
             player.moveRight();
-            player.currentImage = player.MoveRightAni;
-        }
-        if (input.isKeyDown(Input.KEY_DOWN))
+        }else if (input.isKeyDown(Input.KEY_DOWN))
         {
             player.moveDown();
-            player.currentImage = player.MoveDownAni;
+        }else{
+            player.idlePlayer();
         }
 
 
@@ -61,7 +57,11 @@ public class GameState extends BasicGameState {
 
         map.draw(0,0,SetupClass.canvasWidth, SetupClass.canvasHeight);
 
-        player.currentImage.draw(player.x, player.y);
+        if(player.getOrientation() == Orientation.IDLE){//TODO: Ingen logik i render
+            player.currentImage.draw(player.getLocation().x, player.getLocation().y,player.getWidth(),player.getHeight());
+        }else{
+            player.currentAnimation.draw(player.getLocation().x,player.getLocation().y, player.getWidth(), player.getHeight());
+        }
 
     }
 
