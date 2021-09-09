@@ -4,7 +4,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class GameState extends BasicGameState {
 
-
+//hej igen
 
     private Image map;
 
