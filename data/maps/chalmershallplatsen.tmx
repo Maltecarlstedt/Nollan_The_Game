@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="1">
+ <tileset firstgid="1" source="terrain.tsx"/>
+ <tileset firstgid="1025" source="terrain2.tsx"/>
+ <tileset firstgid="2049" source="windows.tsx"/>
+ <tileset firstgid="2305" source="colstuff.tsx"/>
+ <layer id="1" name="Base" width="32" height="24" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJzt0LENACAQw8BXYBJgEmD/mcgWKXBhyfVJVc11p8APN90K/XbH3dAnzPHHH3/88ccff/zx/9f/AXbmbuk=
+  </data>
+ </layer>
+ <layer id="2" name="entren" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxrZWVgaKUhXgbEh/BgKzKxIhArEYGfEbA/igx8m4WBwRFIOxGBQfYvAeKlODA5wJKVNPufAPFTHJhe9r/nwI7JtT8RiJOIwMeg9v/nwI7pAajtf3LsH/X/wPn/OZn5bLjYf3yA7R8Fo2AUjIJRgAkAehhrrA==
+  </data>
+ </layer>
+ <layer id="3" name="someShit" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJxbzMowoGDxqP0UAQsOBgZLILbiQGXTy34PoF2eQOzFgcqml/0RQLsigTiKA5VNL/spBaP2D137P3IxMHzCgj9zjQz7fwLt+YUF/ybB/sMDHP/KA2y/8wDbnzzA9o+CUTAKBg4AAJYAJL8=
+  </data>
+ </layer>
+ <group id="4" name="terrain">
+  <layer id="6" name="bushes" width="32" height="24">
+   <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRQA4w5ETFA23/QLhhpIIPjKTxhysYDYdRMAqGJgAA2OUHsQ==
+  </data>
+  </layer>
+ </group>
+</map>

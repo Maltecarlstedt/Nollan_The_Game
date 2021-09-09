@@ -11,7 +11,7 @@ public class GameState extends BasicGameState {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        map = new TiledMap("data/maps/chalmers_hallplatsen.tmx");
+        map = new TiledMap("data/maps/karhuset.tmx");
         player.initPlayer();
     }
 
