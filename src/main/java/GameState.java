@@ -1,23 +1,18 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.tiled.TiledMap;
 
 public class GameState extends BasicGameState {
 
-
-
-    private Image map;
+    private TiledMap map;
 
     Player player = new Player();
 
-
-
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        map = new Image("data/maps/testMap.png");
+        map = new TiledMap("data/maps/chalmers_hallplatsen.tmx");
         player.initPlayer();
-
-
     }
 
     @Override
@@ -54,8 +49,7 @@ public class GameState extends BasicGameState {
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
-
-        map.draw(0,0,SetupClass.canvasWidth, SetupClass.canvasHeight);
+        map.render(0,0);
 
         if(player.getOrientation() == Orientation.IDLE){//TODO: Ingen logik i render
             player.currentImage.draw(player.getLocation().x, player.getLocation().y,player.getWidth(),player.getHeight());

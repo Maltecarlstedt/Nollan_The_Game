@@ -15,7 +15,6 @@ public class SetupClass extends StateBasedGame {
     public void initStatesList(GameContainer gameContainer) throws SlickException {
         this.addState(new GameState());
     }
-    // steff was here
 
     public static void main(String[] args) throws SlickException {
         AppGameContainer app = new AppGameContainer(new SetupClass("Nollans Första Dag"));
