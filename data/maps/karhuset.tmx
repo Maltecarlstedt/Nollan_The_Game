@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="37" nextobjectid="1">
+ <tileset firstgid="1" source="terrain.tsx"/>
+ <tileset firstgid="1025" source="terrain2.tsx"/>
+ <tileset firstgid="2049" source="newSet.tsx"/>
+ <tileset firstgid="2229" source="colstuff.tsx"/>
+ <layer id="3" name="Base" width="32" height="24" locked="1">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNiYmBgBmIWIGYaALYS0E5lIFYB4oFgD4SfkcN6IPyMHNaj/h9N/6P5f7T8Qy6T6MkeLf9G67/R+n+0/YPcJqEne6S3fwDhV4EcAAwAAA==
+  </data>
+ </layer>
+ <group id="8" name="terrain_behind_stairs" locked="1">
+  <layer id="12" name="grass" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECjNnZWAwx4ItgGL0ANjsBomN2k+P0Mce96PhP5r+6JX/YKkcvRygt/0gd8DccJ2FgSGCTuUfzP+j9GgIjIbAaAiMhsBoCNAzBABqx1dLAAwAAA==
+  </data>
+  </layer>
+  <layer id="13" name="trees" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3UYQ5AMAwF4CY4k8sybsEPxkEYJ8FrsiZO0Eq0yYufX/eWaSqiFgmIxUxwZyRmfyh1t9jg7kjKvq7+DU06H5W759OHgqhDekRGc48Id0HWly97aHwT3AM5sy93oWGzccG92cbd13gDHIthl89u5ct/wMq36NxNb8Ab8Aa8gf828AAkdq13AAwAAA==
+  </data>
+  </layer>
+ </group>
+ <layer id="1" name="stairs" width="32" height="24" locked="1">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu2RsQkAIAwEv9A5dE6X1U00KQLiAJ/CDwTB5o4LoFEBFcgqMAuwbLNmO7sCWR7N2N02y2MY2/f1YN3DueFwe7D4wXk94p/9xh3YXPFUQAVU4LcCBxCo7tYADAAA
+  </data>
+ </layer>
+ <layer id="17" name="stairs2" width="32" height="24" locked="1">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAiM1BO6zMDA8AOKBAv9BdrMyMAyUO+SBdisA8WBzx0DFByw8Bsr+UXtHQ2A0BEZDYDQE6BMCADcK6w0ADAAA
+  </data>
+ </layer>
+ <layer id="18" name="stairs3" width="32" height="24" locked="1">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMDAhcJ+FgeEBEA8U+A+ym5WBYaDcIQ+0WwGIB5s7Bio+YOExUPaP2jsaAqMhMBoCIyUEAM2fC6oADAAA
+  </data>
+ </layer>
+ <group id="4" name="terrain" locked="1">
+  <layer id="5" name="grass" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu2UMQqAQAwEU+gb9Cf6M592/iytu8VCCsEqUTCBsOVchuXMetpAG2gDbeCPBo7JjPvWiK+sfoe4ym02c/hYkRUjrpL8E/y9kE8e+QNLPreSr9uZX+E73rLAQ3YP4u26fxR6iHz2QP6V2T2IfN0vNjObH7t/x3c4yezA0/3Zf8EFwd3bbAAMAAA=
+  </data>
+  </layer>
+  <layer id="20" name="trees" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3QMQ0AIAADwS7438EJOAEz1MUv36TzJ5c4BRRQQAFCYI5k9dR22wfs37Yf2Kfc7SqggAK0wAfo7NRWAAwAAA==
+  </data>
+  </layer>
+  <layer id="19" name="trees2" width="32" height="24" offsetx="-53.4518" offsety="-35.9981">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3QsQ0AIBQCURr3r9VJ9E+iLiNb0BwJ9SVPYggggAACCOQEepOGP/3Elrvbr1D/uHv9F+onzGkigEBW4AOYq0T1AAwAAA==
+  </data>
+  </layer>
+  <layer id="21" name="trees3" width="32" height="24" offsetx="7.63597" offsety="-7.63597">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu2TUQpAABAFt3D/bxSugcI1UDgJRu7g+Xiv5ntqto3wXMAFXMAFXEBXIM8iCihBsRZvB73IP+NdYP3YXyURNTSg2IB3hEnk3/DucIj8J97rcadvfd/jX/dQ/MSXzhv3uCGzAAwAAA==
+  </data>
+  </layer>
+ </group>
+ <group id="15" name="karhuset" locked="1">
+  <layer id="14" name="walls_and_roof" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3SwQmAMAwF0FwcRJ2kdZLqJm6im9hN3MQvGJBQ0UObCm3gUxDhNUmJ4pZviN6y458FmZHY9dXO4XPfp63tSzuV36K3TqS/+j3Ne1Ls38CwIoNw+Q4pfAdrFJke/BXftYp75nOD7TP5bOfw77a2L21NP2Rr+i3eWheI1vs3sG0gpfilz99h92MgWvuvTp3AHydwAP3yZz0ADAAA
+  </data>
+  </layer>
+  <layer id="36" name="gasque_tree" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgoB64x0E9s8gxadR+ckKNenpGw596YTlq0mgIjIbA0A8BUJk40OXi0A/FUR+MhsBoCNAiBAAbuvkUAAwAAA==
+  </data>
+  </layer>
+  <layer id="35" name="gasque_stone" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAtQIgb9AQ6wYsWNqmE/IDFmg3VFYMCF9o/KjITAaAqMhMBoCoyEwGgIjKwQASkEoewAMAAA=
+  </data>
+  </layer>
+  <layer id="24" name="stairs" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAsMxBP6yDKyvZFkH1v5R20dDYDQERkNgNARGQ2A0BLCHAADQJQTIAAwAAA==
+  </data>
+  </layer>
+  <layer id="28" name="stairs2" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAqMhQP0Q+MtCfTNJMVGWlRTVo2pHQ2A0BEZDYDQERkNg5IQAAFE7dlIADAAA
+  </data>
+  </layer>
+  <layer id="29" name="stairs3" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMPxC4C/LwPpJlnVg7R+1fTQERkNgNARGQ2A0BHCFAAD8u2qWAAwAAA==
+  </data>
+  </layer>
+  <layer id="30" name="stairs4" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMBoC1A6BvyzUNpE082RZSVM/qno0BEZDYDQERkNg5IQAAL5DgV4ADAAA
+  </data>
+  </layer>
+  <layer id="31" name="stairs5" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMBoCwy0E/rIMrI9kWQfW/lHbR0NgNARGQ2A0BHCHAABHM7S4AAwAAA==
+  </data>
+  </layer>
+  <layer id="32" name="stairs6" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgIAzuMDMw3AViZIBNDFmemuw/QLv/otmPTYyadiKbtQdo9140+7GJIeuhJvsO0O7R8EcN0dHwx8wTqCEE4VkxMjBYsWKToY8YyO5R++kT1thsGcjw/8sCifuBin9ZYNqLgmJsYTMqNhoCoyEwGgIjOQQA9WdsnwAMAAA=
+  </data>
+  </layer>
+  <layer id="22" name="tungan" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMLxC4AojAwMyprfvkO0GsUfBaAiMhsBoCIyGwGgIDKYQAACdi4+BAAwAAA==
+  </data>
+  </layer>
+  <layer id="23" name="fence" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgoC94yMrAsBCIBwIMBrtp7XdFYNgqoWFlOoa5I9AuJzTsDOTTCyQC7UpCw8l0tJ9e/hzs9pQwMTCUQnEZkB5pYKT7f6TF96h/R0NgNARGQ2CohQAAZRhEQgAMAAA=
+  </data>
+  </layer>
+ </group>
+ <layer id="34" name="water" width="32" height="24" locked="1">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu2TsQkAIAwEU1qqOILoCur+g/npHED4Ih+4+uD4mOlUQAVUQAVUQAXeAjmZVcC6Dvcg+yf8BTA6LHg3aIDdIbrfd8DYgP+e7yD6BrzBAb/vAr6Gq7IADAAA
+  </data>
+ </layer>
+</map>

@@ -1,13 +1,14 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.tiled.TiledMap;
 
 public class GameState extends BasicGameState { //TODO: Ska detta verkligen extenda BasicGameState?
 
     /**
      * Declares our map variable as well as our player.
      */
-    private Image map;
+    private TiledMap map;
 
     Player player = new Player();
 
@@ -18,9 +19,10 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
      * @param stateBasedGame The game holding this state
      * @throws SlickException creates an exception if the map file is not found
      */
+
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        map = new Image("data/maps/testMap.png");
+        map = new TiledMap("data/maps/karhuset.tmx");
         player.initPlayer();
     }
 
@@ -73,8 +75,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
      */
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
-
-        map.draw(0,0,SetupClass.canvasWidth, SetupClass.canvasHeight);
+        map.render(0,0);
 
         //TODO: borde använda graphics.drawImage(player.getCurrentImage, player.getLocation().x, player.getLocation().y)??
         //TODO: Samma med graphics.drawAnimation(...) som ^^^^?
