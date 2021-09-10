@@ -1,3 +1,8 @@
+/**
+ * Creates an enum for the Player's orientation.
+ * The orientation holds the speeds of which the player move in each axis.
+ */
+
 public enum Orientation {
     RIGHT(1,0), UP(0,-1), LEFT(-1,0), DOWN(0,1), IDLE(0,0);
     public int deltaX, deltaY;
