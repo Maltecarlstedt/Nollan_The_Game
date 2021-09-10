@@ -8,7 +8,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
     /**
      * Declares our map variable as well as our player.
      */
-    private TiledMap map;
+    Map map = new Map();
 
     Player player = new Player();
 
@@ -22,7 +22,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        map = new TiledMap("data/maps/karhuset.tmx");
+        map.initMap();
         player.initPlayer();
     }
 
@@ -43,6 +43,8 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         player.MoveDownAni.update(delta); // this line makes sure the speed of the Animation is true
 
         Input input = gameContainer.getInput();
+
+        map.checkIfOutside(player);
 
         if (input.isKeyDown(Input.KEY_UP))
         {
@@ -75,7 +77,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
      */
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
-        map.render(0,0);
+        map.render();
 
         //TODO: borde använda graphics.drawImage(player.getCurrentImage, player.getLocation().x, player.getLocation().y)??
         //TODO: Samma med graphics.drawAnimation(...) som ^^^^?
