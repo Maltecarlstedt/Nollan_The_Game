@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="37" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="40" nextobjectid="1">
  <tileset firstgid="1" source="terrain.tsx"/>
  <tileset firstgid="1025" source="terrain2.tsx"/>
  <tileset firstgid="2049" source="newSet.tsx"/>
@@ -36,25 +36,25 @@
    H4sIAAAAAAAECmNgGAWjITAaAqMhMDAhcJ+FgeEBEA8U+A+ym5WBYaDcIQ+0WwGIB5s7Bio+YOExUPaP2jsaAqMhMBoCIyUEAM2fC6oADAAA
   </data>
  </layer>
- <group id="4" name="terrain" locked="1">
+ <group id="4" name="terrain">
   <layer id="5" name="grass" width="32" height="24">
    <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECu2UMQqAQAwEU+gb9Cf6M592/iytu8VCCsEqUTCBsOVchuXMetpAG2gDbeCPBo7JjPvWiK+sfoe4ym02c/hYkRUjrpL8E/y9kE8e+QNLPreSr9uZX+E73rLAQ3YP4u26fxR6iHz2QP6V2T2IfN0vNjObH7t/x3c4yezA0/3Zf8EFwd3bbAAMAAA=
   </data>
   </layer>
-  <layer id="20" name="trees" width="32" height="24">
+  <layer id="37" name="trees" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECu3QMQ0AIAADwS7438EJOAEz1MUv36TzJ5c4BRRQQAFCYI5k9dR22wfs37Yf2Kfc7SqggAK0wAfo7NRWAAwAAA==
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMBoCAxECsxkHwlaEnbsH2P7bA2w/IiRGWaMhMBoCoyEwskIAAFdjHLEADAAA
   </data>
   </layer>
-  <layer id="19" name="trees2" width="32" height="24" offsetx="-53.4518" offsety="-35.9981">
+  <layer id="38" name="treeeees" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECu3QsQ0AIBQCURr3r9VJ9E+iLiNb0BwJ9SVPYggggAACCOQEepOGP/3Elrvbr1D/uHv9F+onzGkigEBW4AOYq0T1AAwAAA==
+   H4sIAAAAAAAECu3QwQ0AEABD0dp/BUyCSTCLblGH36TnnzyJIYAAAggkBGqRmt/9xIa701+h/nb3+DfUT5jTRAABBH4QeOpsGRAADAAA
   </data>
   </layer>
-  <layer id="21" name="trees3" width="32" height="24" offsetx="7.63597" offsety="-7.63597">
+  <layer id="39" name="moretrees" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECu2TUQpAABAFt3D/bxSugcI1UDgJRu7g+Xiv5ntqto3wXMAFXMAFXEBXIM8iCihBsRZvB73IP+NdYP3YXyURNTSg2IB3hEnk3/DucIj8J97rcadvfd/jX/dQ/MSXzhv3uCGzAAwAAA==
+   H4sIAAAAAAAECu2T2w1AUBAFV+i/Aq9CuBTCpRKMDy04EmeTyX5OMpuN8LiAC7iAC/y5QF1ENNCCYga8IySRf8G7Qhb5Fc0fZ1tGdNCDYhLeCWaRP+PdYBf5D7zn7a74P7Zv8Y1bKH7hbecFGkaO/wAMAAA=
   </data>
   </layer>
  </group>
