@@ -165,7 +165,8 @@ public class Player {
      */
     public void moveUp() {
         setOrientation(Orientation.UP);
-        move();
+        if(this.getLocation().y + orientation.deltaY >= 0)
+            move();
         currentAnimation = MoveUpAni;
         state = 3;
     }
@@ -175,7 +176,8 @@ public class Player {
      */
     public void moveLeft() {
         setOrientation(Orientation.LEFT);
-        move();
+        if(this.getLocation().x + orientation.deltaX >= 0)
+            move();
         currentAnimation = MoveLeftAni;
         state = 2;
     }
@@ -185,7 +187,8 @@ public class Player {
      */
     public void moveRight() {
         setOrientation(Orientation.RIGHT);
-        move();
+        if(this.getLocation().x + orientation.deltaX < (SetupClass.canvasWidth - this.getWidth()))
+            move();
         currentAnimation = MoveRightAni;
         state = 1;
     }
@@ -195,7 +198,8 @@ public class Player {
      */
     public void moveDown() {
         setOrientation(Orientation.DOWN);
-        move();
+        if(this.getLocation().y + orientation.deltaY < (SetupClass.canvasHeight - this.getHeight()))
+            move();
         currentAnimation = MoveDownAni;
         state = 0;
     }
