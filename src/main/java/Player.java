@@ -2,7 +2,6 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
-import org.newdawn.slick.tiled.TiledMap;
 
 import java.awt.*;
 
@@ -155,8 +154,10 @@ public class Player {
      * (check the Orientation enum for more precise explanation)
      */
     public void move() {
-        location.x += orientation.deltaX * 2;
-        location.y += orientation.deltaY * 2;
+        if(checkBorder()) {
+            location.x += orientation.deltaX;
+            location.y += orientation.deltaY;
+        }
     }
 
     /**
@@ -165,8 +166,7 @@ public class Player {
      */
     public void moveUp() {
         setOrientation(Orientation.UP);
-        if(this.getLocation().y + orientation.deltaY >= 0)
-            move();
+        move();
         currentAnimation = MoveUpAni;
         state = 3;
     }
@@ -176,8 +176,7 @@ public class Player {
      */
     public void moveLeft() {
         setOrientation(Orientation.LEFT);
-        if(this.getLocation().x + orientation.deltaX >= 0)
-            move();
+        move();
         currentAnimation = MoveLeftAni;
         state = 2;
     }
@@ -187,8 +186,7 @@ public class Player {
      */
     public void moveRight() {
         setOrientation(Orientation.RIGHT);
-        if(this.getLocation().x + orientation.deltaX < (SetupClass.canvasWidth - this.getWidth()))
-            move();
+        move();
         currentAnimation = MoveRightAni;
         state = 1;
     }
@@ -198,8 +196,7 @@ public class Player {
      */
     public void moveDown() {
         setOrientation(Orientation.DOWN);
-        if(this.getLocation().y + orientation.deltaY < (SetupClass.canvasHeight - this.getHeight()))
-            move();
+        move();
         currentAnimation = MoveDownAni;
         state = 0;
     }
@@ -207,10 +204,11 @@ public class Player {
     /**
      * Sets the still image so that the player just stops in its track. Depending on which state is set,
      * which is given by which key was most lately pressed down.
+     * @return
      */
     public void idlePlayer() {
 
-        switch (state){
+        switch (state) {
             case 0:
                 this.setOrientation(Orientation.IDLE);
                 currentImage = MoveDownAni.getImage(1);
@@ -227,8 +225,35 @@ public class Player {
                 this.setOrientation(Orientation.IDLE);
                 currentImage = MoveUpAni.getImage(1);
                 break;
-                //TODO: DEFAULT STATE FÖR IDLE, NER?
+            //TODO: DEFAULT STATE FÖR IDLE, NER?
         }
 
+    }
+
+    private boolean checkBorder(){
+        if(insideBottom() && insideRight() && insideLeft() && insideUpper())
+            return true;
+        return false;
+    }
+
+    private boolean insideRight(){
+        if(this.getLocation().x + orientation.deltaX <= (SetupClass.canvasWidth - this.getWidth()))
+            return true;
+        return false;
+    }
+    private boolean insideLeft(){
+        if(this.getLocation().x + orientation.deltaX >= 0)
+            return true;
+        return false;
+    }
+    private boolean insideUpper(){
+        if(this.getLocation().y + orientation.deltaY >= 0)
+            return true;
+        return false;
+    }
+    private boolean insideBottom(){
+        if(this.getLocation().y + orientation.deltaY <= (SetupClass.canvasHeight - this.getHeight()))
+            return true;
+        return false;
     }
 }
