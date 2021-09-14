@@ -12,6 +12,10 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
     Player player = new Player();
 
+    beerChugging beerChugg = new beerChugging();
+
+    public int numberOfChugs = 0;
+
 
     /**
      * Initialise this state. It should load any resources it needs at this stage, in our case our map and our player
@@ -24,6 +28,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         map.initMap();
         player.initPlayer();
+        beerChugg.initBeerChugging();
     }
 
     /**
@@ -41,10 +46,16 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         player.MoveUpAni.update(delta); // this line makes sure the speed of the Animation is true
         player.MoveLeftAni.update(delta); // this line makes sure the speed of the Animation is true
         player.MoveDownAni.update(delta); // this line makes sure the speed of the Animation is true
+        //beerChugg.beerAni.update(delta/2);
 
         Input input = gameContainer.getInput();
 
         map.isOutside(player);
+
+        if (input.isKeyPressed(Input.KEY_SPACE)){
+            beerChugg.numberOfChugs = beerChugg.numberOfChugs + 1;
+            beerChugg.chug();
+        }
 
         if (input.isKeyDown(Input.KEY_UP))
         {
@@ -64,7 +75,6 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
             player.idlePlayer();
         }
 
-
     }
 
 
@@ -78,6 +88,8 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         map.render();
+
+        beerChugg.currentBeerImage.draw(beerChugg.getLocation().x,beerChugg.getLocation().y, beerChugg.getWidth(), beerChugg.getHeight());
 
         //TODO: borde använda graphics.drawImage(player.getCurrentImage, player.getLocation().x, player.getLocation().y)??
         //TODO: Samma med graphics.drawAnimation(...) som ^^^^?
