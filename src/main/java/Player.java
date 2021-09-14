@@ -76,10 +76,10 @@ public class Player {
      * @throws SlickException throws an exception if the file for the SpriteSheet is not found.
      */
     public void spriteSetup() throws SlickException {//TODO: Borde skala vår gubbe här direkt till 64x64?
-        MoveRight = new SpriteSheet("data/playerAnimation/gubbeRIGHT.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
-        MoveLeft = new SpriteSheet("data/playerAnimation/gubbeLEFT.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
-        MoveUp = new SpriteSheet("data/playerAnimation/gubbeUP.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
-        MoveDown = new SpriteSheet("data/playerAnimation/gubbeDOWN.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
+        MoveRight = new SpriteSheet("data/playerAnimation/gubbeRIGHT.spritesheet_V2.png",18,18); // declare a SpriteSheet and load it into java with its dimentions
+        MoveLeft = new SpriteSheet("data/playerAnimation/gubbeLEFT.spritesheet_V2.png",18,18); // declare a SpriteSheet and load it into java with its dimentions
+        MoveUp = new SpriteSheet("data/playerAnimation/gubbeUP.spritesheet_V2.png",17,17); // declare a SpriteSheet and load it into java with its dimentions
+        MoveDown = new SpriteSheet("data/playerAnimation/gubbeDOWN.spritesheet_V3.png",17,17); // declare a SpriteSheet and load it into java with its dimentions
 
     }
 
