@@ -22,7 +22,8 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        map.initMap();
+        //map.initMap();
+        map.init(gameContainer);
         player.initPlayer();
     }
 
@@ -77,7 +78,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
      */
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
-        map.render();
+        map.render(gameContainer, graphics);
 
         //TODO: borde använda graphics.drawImage(player.getCurrentImage, player.getLocation().x, player.getLocation().y)??
         //TODO: Samma med graphics.drawAnimation(...) som ^^^^?

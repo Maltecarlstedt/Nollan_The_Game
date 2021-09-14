@@ -13,7 +13,9 @@ public class SetupClass extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
+        this.addState(new StartMenu());
         this.addState(new GameState());
+
     }
 
     public static void main(String[] args) throws SlickException {

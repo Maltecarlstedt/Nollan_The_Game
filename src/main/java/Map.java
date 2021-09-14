@@ -1,25 +1,30 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
-public class Map {
+public class Map extends BasicGame{
 
     private TiledMap tiledMap;
     private int mapState;
 
+    public Map() {
+        super("Map");
+    }
 
-
+/*
     public void initMap() throws SlickException {
-        tiledMap = new TiledMap("data/maps/karhuset.tmx");
+        tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
         mapState = 0;
-       // tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
+
     }
 
     public void render(){
         tiledMap.render(0,0);
     }
-
+*/
 
     public void isOutside(Player player) throws SlickException {
         if (!player.checkBorder()){
@@ -36,7 +41,7 @@ public class Map {
         }
         else {
             tiledMap = new TiledMap("data/maps/karhuset.tmx");
-            player.setLocation(150, 700);
+            player.setLocation(500, 700);
         }
     }
     private int newState(int oldState){
@@ -46,4 +51,22 @@ public class Map {
         else
             return 1;
     }
+
+    @Override
+    public void init(GameContainer gameContainer) throws SlickException {
+        tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
+        mapState = 0;
+    }
+
+    @Override
+    public void update(GameContainer gameContainer, int delta) throws SlickException {
+        int objectLayer = tiledMap.getLayerIndex("entren");
+        tiledMap.getTileId(0,0, objectLayer);
+    }
+
+    @Override
+    public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
+        tiledMap.render(0,0);
+    }
+
 }
