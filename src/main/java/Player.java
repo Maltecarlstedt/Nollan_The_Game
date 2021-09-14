@@ -230,7 +230,7 @@ public class Player {
 
     }
 
-    private boolean checkBorder(){
+    public boolean checkBorder(){
         if(insideBottom() && insideRight() && insideLeft() && insideUpper())
             return true;
         return false;
