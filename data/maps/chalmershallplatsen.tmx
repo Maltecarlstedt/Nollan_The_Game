@@ -5,24 +5,24 @@
  <tileset firstgid="2049" source="windows.tsx"/>
  <tileset firstgid="2305" source="colstuff.tsx"/>
  <layer id="1" name="Base" width="32" height="24" locked="1">
-  <data encoding="base64" compression="zlib">
-   eJzt0LENACAQw8BXYBJgEmD/mcgWKXBhyfVJVc11p8APN90K/XbH3dAnzPHHH3/88ccff/zx/9f/AXbmbuk=
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3QsQ0AIBDDwFdgEmASYP+ZyBYpcGHJ9UlVzXWnwA833Qr9dsfd0CfM8ccff/zxxx9//PH/1/8BRwC+5gAMAAA=
   </data>
  </layer>
  <layer id="2" name="entren" width="32" height="24" locked="1">
-  <data encoding="base64" compression="zlib">
-   eJxrZWVgaKUhXgbEh/BgKzKxIhArEYGfEbA/igx8m4WBwRFIOxGBQfYvAeKlODA5wJKVNPufAPFTHJhe9r/nwI7JtT8RiJOIwMeg9v/nwI7pAajtf3LsH/X/wPn/OZn5bLjYf3yA7R8Fo2AUjIJRgAkAehhrrA==
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmtlZWBopSFeBsSH8GArMrEiECsRgZ8RsD+KDHybhYHBEUg7EYFB9i8B4qU4MDnAkpU0+58A8VMcmF72v+fAjsm1PxGIk4jAx6D2/+fAjukBqO1/cuwf9f/A+f85mflsuNh/fIDtHwWjYBSMglGACQDEhTOCAAwAAA==
   </data>
  </layer>
  <layer id="3" name="someShit" width="32" height="24" locked="1">
-  <data encoding="base64" compression="zlib">
-   eJxbzMowoGDxqP0UAQsOBgZLILbiQGXTy34PoF2eQOzFgcqml/0RQLsigTiKA5VNL/spBaP2D137P3IxMHzCgj9zjQz7fwLt+YUF/ybB/sMDHP/KA2y/8wDbnzzA9o+CUTAKBg4AAJYAJL8=
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAClvMyjCgYPGo/RQBCw4GBksgtuJAZdPLfg+gXZ5A7MWByqaX/RFAuyKBOIoDlU0v+ykFo/YPXfs/cjEwfMKCP3ONDPt/Au35hQX/JsH+wwMc/8oDbL/zANufPMD2j4JRMAoGDgAAmEHizAAMAAA=
   </data>
  </layer>
  <group id="4" name="terrain" locked="1">
   <layer id="6" name="bushes" width="32" height="24">
-   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQA4w5ETFA23/QLhhpIIPjKTxhysYDYdRMAqGJgAA2OUHsQ==
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglFADjDkRMUDbf9AuGGkgg+MpPGHKxgNh1EwCoYmAABZmx4uAAwAAA==
   </data>
   </layer>
  </group>

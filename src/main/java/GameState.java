@@ -44,7 +44,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
         Input input = gameContainer.getInput();
 
-        map.checkIfOutside(player);
+        map.isOutside(player);
 
         if (input.isKeyDown(Input.KEY_UP))
         {
