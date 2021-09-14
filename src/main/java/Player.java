@@ -78,8 +78,8 @@ public class Player {
     public void spriteSetup() throws SlickException {//TODO: Borde skala vår gubbe här direkt till 64x64?
         MoveRight = new SpriteSheet("data/playerAnimation/gubbeRIGHT.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
         MoveLeft = new SpriteSheet("data/playerAnimation/gubbeLEFT.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
-        MoveUp = new SpriteSheet("data/playerAnimation/gubbeUP.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
-        MoveDown = new SpriteSheet("data/playerAnimation/gubbeDOWN.spritesheet.png",1841/4,600); // declare a SpriteSheet and load it into java with its dimentions
+        MoveUp = new SpriteSheet("data/playerAnimation/gubbeUP.spritesheet2.png",17,17); // declare a SpriteSheet and load it into java with its dimentions
+        MoveDown = new SpriteSheet("data/playerAnimation/gubbeDOWN.spritesheet3.png",17,17); // declare a SpriteSheet and load it into java with its dimentions
 
     }
 
