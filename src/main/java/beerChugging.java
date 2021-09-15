@@ -23,7 +23,7 @@ public class beerChugging {
     }
 
     public void initBeerChugging() throws SlickException {//TODO: Borde skala vår gubbe här direkt till 64x64?
-        beer = new SpriteSheet("data/beerChugging/beerChug_Short_V1.png", 17, 17);
+        beer = new SpriteSheet("data/beerChugging/beerchugging_mini_V2.png", 17, 17);
 
         currentBeerImage = beer.getSubImage(0,0);
     }
@@ -42,7 +42,7 @@ public class beerChugging {
 
     public void updateChug(){
 
-        if(chugCount > 6){
+        if(chugCount > 8){
             chugCount = 0;
             currentBeerImage = beer.getSubImage(chugCount,0);
         }
@@ -53,7 +53,7 @@ public class beerChugging {
 
 
     public void chug() {
-        if (numberOfChugs >=  2){
+        if (numberOfChugs >=  1){
             updateChug();
             numberOfChugs = 0;
 
