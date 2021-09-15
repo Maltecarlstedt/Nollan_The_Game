@@ -1,7 +1,6 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.tiled.TiledMap;
 
 public class GameState extends BasicGameState { //TODO: Ska detta verkligen extenda BasicGameState?
 
@@ -13,6 +12,16 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
     Player player = new Player();
 
     beerChugging beerChugg = new beerChugging();
+    JumpingBeer jumpingBeer = new JumpingBeer();
+    ChugIndicator chugIndicator = new ChugIndicator();
+    public int currentTime;
+    public int deltaTime;
+
+    double velocityY;
+    int y0 = 635;
+    double t = 0.0;
+    public double gravity = 9.8;
+
 
     public int numberOfChugs = 0;
 
@@ -29,6 +38,8 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         map.initMap();
         player.initPlayer();
         beerChugg.initBeerChugging();
+        chugIndicator.initChugIndicator();
+        jumpingBeer.initJumpingBeer();
     }
 
     /**
@@ -42,15 +53,25 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
      */
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
+
+        currentTime += delta;
+        deltaTime = delta;
+
         player.MoveRightAni.update(delta); // this line makes sure the speed of the Animation is true
         player.MoveUpAni.update(delta); // this line makes sure the speed of the Animation is true
         player.MoveLeftAni.update(delta); // this line makes sure the speed of the Animation is true
         player.MoveDownAni.update(delta); // this line makes sure the speed of the Animation is true
         //beerChugg.beerAni.update(delta/2);
+        chugIndicator.bar_inidcatorAni.update(delta);
 
         Input input = gameContainer.getInput();
 
         map.isOutside(player);
+        updateJump();
+        if (input.isKeyPressed(Input.KEY_F)){
+            updateJump();
+
+        }
 
         if (input.isKeyPressed(Input.KEY_SPACE)){
             beerChugg.numberOfChugs = beerChugg.numberOfChugs + 1;
@@ -60,7 +81,6 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         if (input.isKeyDown(Input.KEY_UP))
         {
             player.moveUp();
-
 
         }else if (input.isKeyDown(Input.KEY_LEFT))
         {
@@ -77,6 +97,26 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
     }
 
+    public int getCurrentTime(){
+        return currentTime;
+    }
+
+    public void updateJump(){
+        jumpingBeer.location.y = (int) (y0 + velocityY * t + 0.5 * gravity * t * t);
+        if(jumpingBeer.location.y > 635){
+            jumpingBeer.location.y = y0 = 0;
+            t = 0.0;
+        } else {
+            y0 = jumpingBeer.location.y;
+            t += 0.25;
+        }
+        jumpingBeer.jumpingBeer.draw(jumpingBeer.getLocation().x,jumpingBeer.getLocation().y,jumpingBeer.getWidth(),jumpingBeer.getHeight());
+
+
+
+
+    }
+
 
     /**
      * Render this state to the game's graphics context, in our program that is the background image and the player
@@ -90,6 +130,12 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         map.render();
 
         beerChugg.currentBeerImage.draw(beerChugg.getLocation().x,beerChugg.getLocation().y, beerChugg.getWidth(), beerChugg.getHeight());
+        chugIndicator.bar_inidcatorAni.draw(chugIndicator.getLocation().x, chugIndicator.getLocation().y,chugIndicator.getWidth(), chugIndicator.getHeight());
+        jumpingBeer.jumpingBeer.draw(jumpingBeer.getLocation().x,jumpingBeer.getLocation().y,jumpingBeer.getWidth(),jumpingBeer.getHeight());
+
+
+
+
 
         //TODO: borde använda graphics.drawImage(player.getCurrentImage, player.getLocation().x, player.getLocation().y)??
         //TODO: Samma med graphics.drawAnimation(...) som ^^^^?
