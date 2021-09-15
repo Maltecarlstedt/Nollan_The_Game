@@ -18,7 +18,7 @@ public class Player {
     private int width, height;
     private Orientation orientation;
 
-    public SpriteSheet MoveRight; // initate a SpriteSheet
+    public SpriteSheet MoveRight; // iniate a SpriteSheet
     public Animation MoveRightAni; // initate an Animation
 
     public SpriteSheet MoveLeft; // initate a SpriteSheet
@@ -94,6 +94,7 @@ public class Player {
         currentImage = MoveDownAni.getImage(1);
 
     }
+
 
     /**
      * @return player's height
@@ -171,6 +172,7 @@ public class Player {
         state = 3;
     }
 
+
     /**
      * Moves the character to the left, changes state so that if the player is IDLE, the player will use the right IDLE state
      */
@@ -199,6 +201,7 @@ public class Player {
         move();
         currentAnimation = MoveDownAni;
         state = 0;
+
     }
 
     /**
@@ -229,6 +232,8 @@ public class Player {
         }
 
     }
+
+
 
     public boolean checkBorder(){
         if(insideBottom() && insideRight() && insideLeft() && insideUpper())

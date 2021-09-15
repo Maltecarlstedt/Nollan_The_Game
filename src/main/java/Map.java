@@ -14,6 +14,9 @@ public class Map {
         tiledMap = new TiledMap("data/maps/karhuset.tmx");
         mapState = 0;
        // tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
+
+        tiledMap.getWidth();
+
     }
 
     public void render(){
@@ -45,5 +48,9 @@ public class Map {
         }
         else
             return 1;
+    }
+
+    public TiledMap getTiledMap() {
+        return tiledMap;
     }
 }

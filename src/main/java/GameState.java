@@ -42,24 +42,47 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         player.MoveLeftAni.update(delta); // this line makes sure the speed of the Animation is true
         player.MoveDownAni.update(delta); // this line makes sure the speed of the Animation is true
 
+        int objectLayer = map.getTiledMap().getLayerIndex("collision");
         Input input = gameContainer.getInput();
 
         map.isOutside(player);
 
+
         if (input.isKeyDown(Input.KEY_UP))
         {
-            player.moveUp();
-
+            if(map.getTiledMap().getTileId((player.getLocation().x)/32,
+                    (player.getLocation().y - 16)/32 + 2, objectLayer) == 0
+            && map.getTiledMap().getTileId((player.getLocation().x + 64)/32,
+                    (player.getLocation().y - 16)/32 + 2, objectLayer) == 0) {
+                player.moveUp();
+            }
 
         }else if (input.isKeyDown(Input.KEY_LEFT))
         {
-            player.moveLeft();
+            if(map.getTiledMap().getTileId((player.getLocation().x)/32 + 1,
+                    (player.getLocation().y)/32, objectLayer) == 0
+            && map.getTiledMap().getTileId((player.getLocation().x)/32 + 1,
+                    (player.getLocation().y + 64)/32, objectLayer) == 0) {
+                player.moveLeft();
+            }
         }else if (input.isKeyDown(Input.KEY_RIGHT))
         {
-            player.moveRight();
+            if(map.getTiledMap().getTileId((player.getLocation().x)/32 + 2,
+                    (player.getLocation().y + 32)/32, objectLayer) == 0
+            && map.getTiledMap().getTileId((player.getLocation().x)/32 + 2,
+                    (player.getLocation().y)/32, objectLayer) == 0) {
+                player.moveRight();
+            }
+
         }else if (input.isKeyDown(Input.KEY_DOWN))
         {
-            player.moveDown();
+
+            if(map.getTiledMap().getTileId((player.getLocation().x + 64)/32,
+                    (player.getLocation().y)/32 + 2, objectLayer) == 0
+            && map.getTiledMap().getTileId((player.getLocation().x)/32,
+                    (player.getLocation().y)/32 + 2, objectLayer) == 0) {
+                player.moveDown();
+            }
         }else{
             player.idlePlayer();
         }
@@ -91,6 +114,24 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
     }
 
+
+
+    public static boolean checkRightCollision(){
+
+        return false;
+    }
+    public static boolean checkLeftCollision(){
+
+        return false;
+    }
+    public static boolean checkUpCollision(){
+
+        return false;
+    }
+    public static boolean checkDownCollision(){
+
+        return false;
+    }
 
     /**
      * @return the ID of this game state
