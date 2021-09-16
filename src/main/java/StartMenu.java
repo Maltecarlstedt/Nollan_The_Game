@@ -16,7 +16,6 @@ import org.newdawn.slick.tiled.TiledMap;
 public class StartMenu extends BasicGameState {
 
     private TiledMap map;
-    UnicodeFont uFont;
 
 
     @Override
@@ -26,18 +25,12 @@ public class StartMenu extends BasicGameState {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        //Font font = new Font("Serif", Font.BOLD, 20);
-        //uFont = new UnicodeFont(font, font.getSize(), font.isBold(), font.isItalic());
         map = new TiledMap("data/maps/startMenu.tmx");
     }
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         map.render(0,0);
-        //graphics.setFont(uFont);
-        //graphics.setColor(Color.white);
-        graphics.drawString("Hej Nollan! För att börja ditt äventyr på chalmers, tryck S", 206, 384);
-
     }
 
     @Override
