@@ -1,33 +1,26 @@
 import org.newdawn.slick.*;
-import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
-public class Map {
+abstract class MapState {
 
-    private TiledMap tiledMap;
-    private int mapState;
-
-
+    public TiledMap tiledMap;
 
     public void initMap() throws SlickException {
         tiledMap = new TiledMap("data/maps/karhuset.tmx");
-        mapState = 0;
-       // tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
+        //state = MapEnums.KARHUSET;
     }
 
     public void render(){
         tiledMap.render(0,0);
     }
 
-
     public void isOutside(Player player) throws SlickException {
         if (!player.checkBorder()){
-            checkState(mapState, player);
-            mapState = newState(mapState);
+            nextState(player);
         }
     }
 
+    /*
     private void checkState(int mapState, Player player) throws SlickException {
         if (mapState == 0) {
             tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
@@ -39,11 +32,9 @@ public class Map {
             player.setLocation(150, 700);
         }
     }
-    private int newState(int oldState){
-        if (oldState == 1){
-            return 0;
-        }
-        else
-            return 1;
-    }
+
+     */
+
+    public abstract void nextState(Player player) throws SlickException;
+    public abstract void startPosition();
 }

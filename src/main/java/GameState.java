@@ -1,14 +1,13 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.tiled.TiledMap;
 
 public class GameState extends BasicGameState { //TODO: Ska detta verkligen extenda BasicGameState?
 
     /**
      * Declares our map variable as well as our player.
      */
-    Map map = new Map();
+    MapState mapState = new Karhuset();
 
     Player player = new Player();
 
@@ -22,7 +21,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        map.initMap();
+        mapState.initMap();
         player.initPlayer();
     }
 
@@ -44,7 +43,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
         Input input = gameContainer.getInput();
 
-        map.isOutside(player);
+        mapState.isOutside(player);
 
         if (input.isKeyDown(Input.KEY_UP))
         {
@@ -77,7 +76,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
      */
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
-        map.render();
+        mapState.render();
 
         //TODO: borde använda graphics.drawImage(player.getCurrentImage, player.getLocation().x, player.getLocation().y)??
         //TODO: Samma med graphics.drawAnimation(...) som ^^^^?
@@ -99,6 +98,16 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
     public int getID() {
         return 0;
     }
+/*
+    public void changeState(MapState mapState){
+        this.mapState = mapState;
+    }
+
+    public MapState getMapState(){
+        return mapState;
+    }
+
+ */
 }
 
 
