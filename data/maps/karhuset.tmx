@@ -5,7 +5,7 @@
  <tileset firstgid="2049" source="newSet.tsx"/>
  <tileset firstgid="2229" source="colstuff.tsx"/>
  <tileset firstgid="3293" source="../../../tiledMapTest/res/terrain.tsx"/>
- <layer id="40" name="collision" width="32" height="24" opacity="0">
+ <layer id="40" name="collision" width="32" height="24" locked="1">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECu2QXQqAQAiEvUD377jhwwchy+wGuRYohGzOj45ZVyfQCXQCnUBmAudhNvoyPe/aI2//t6v+6M/Ob2SEVuxKG6zCrM7Qil3xn2CVjs+iFm/FA0NX2NkMjdhnPJ/DWcFmYL7i73tUFPdX+fvN7FBxf6b/BZnEhMcADAAA
   </data>

@@ -42,7 +42,6 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         player.MoveLeftAni.update(delta); // this line makes sure the speed of the Animation is true
         player.MoveDownAni.update(delta); // this line makes sure the speed of the Animation is true
 
-        int objectLayer = map.getTiledMap().getLayerIndex("collision");
         Input input = gameContainer.getInput();
 
         map.isOutside(player);
@@ -50,37 +49,32 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
         if (input.isKeyDown(Input.KEY_UP))
         {
-            if(map.getTiledMap().getTileId((player.getLocation().x)/32,
-                    (player.getLocation().y - 16)/32 + 2, objectLayer) == 0
-            && map.getTiledMap().getTileId((player.getLocation().x + 64)/32,
-                    (player.getLocation().y - 16)/32 + 2, objectLayer) == 0) {
+            player.setOrientation(Orientation.UP);
+            player.currentAnimation = player.MoveUpAni;
+            if(map.colliding(player)){
                 player.moveUp();
             }
 
         }else if (input.isKeyDown(Input.KEY_LEFT))
         {
-            if(map.getTiledMap().getTileId((player.getLocation().x)/32 + 1,
-                    (player.getLocation().y)/32, objectLayer) == 0
-            && map.getTiledMap().getTileId((player.getLocation().x)/32 + 1,
-                    (player.getLocation().y + 64)/32, objectLayer) == 0) {
+            player.setOrientation(Orientation.LEFT);
+            player.currentAnimation = player.MoveLeftAni;
+            if(map.colliding(player)){
                 player.moveLeft();
             }
         }else if (input.isKeyDown(Input.KEY_RIGHT))
         {
-            if(map.getTiledMap().getTileId((player.getLocation().x)/32 + 2,
-                    (player.getLocation().y + 32)/32, objectLayer) == 0
-            && map.getTiledMap().getTileId((player.getLocation().x)/32 + 2,
-                    (player.getLocation().y)/32, objectLayer) == 0) {
+            player.setOrientation(Orientation.RIGHT);
+            player.currentAnimation = player.MoveRightAni;
+            if(map.colliding(player)){
                 player.moveRight();
             }
 
         }else if (input.isKeyDown(Input.KEY_DOWN))
         {
-
-            if(map.getTiledMap().getTileId((player.getLocation().x + 64)/32,
-                    (player.getLocation().y)/32 + 2, objectLayer) == 0
-            && map.getTiledMap().getTileId((player.getLocation().x)/32,
-                    (player.getLocation().y)/32 + 2, objectLayer) == 0) {
+            player.setOrientation(Orientation.DOWN);
+            player.currentAnimation = player.MoveDownAni;
+            if(map.colliding(player)){
                 player.moveDown();
             }
         }else{
@@ -107,30 +101,11 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
 
         if(player.getOrientation() == Orientation.IDLE){//TODO: Ingen logik i render
-            player.currentImage.draw(player.getLocation().x, player.getLocation().y,player.getWidth(),player.getHeight());
+            player.currentImage.draw(player.getPlayerLocation().x, player.getPlayerLocation().y,player.getWidth(),player.getHeight());
         }else{
-            player.currentAnimation.draw(player.getLocation().x,player.getLocation().y, player.getWidth(), player.getHeight());
+            player.currentAnimation.draw(player.getPlayerLocation().x, player.getPlayerLocation().y, player.getWidth(), player.getHeight());
         }
 
-    }
-
-
-
-    public static boolean checkRightCollision(){
-
-        return false;
-    }
-    public static boolean checkLeftCollision(){
-
-        return false;
-    }
-    public static boolean checkUpCollision(){
-
-        return false;
-    }
-    public static boolean checkDownCollision(){
-
-        return false;
     }
 
     /**

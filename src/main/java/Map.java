@@ -1,12 +1,14 @@
 import org.newdawn.slick.*;
-import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
+
+import java.awt.*;
 
 public class Map {
 
     private TiledMap tiledMap;
     private int mapState;
+    int collisionLayer;
+    private Rectangle tile = new Rectangle(0,0,32,32);
 
 
 
@@ -16,6 +18,10 @@ public class Map {
        // tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
 
         tiledMap.getWidth();
+        collisionLayer = tiledMap.getLayerIndex("collision");
+        int obj2 = tiledMap.getLayerIndex("water");
+        System.out.println(collisionLayer);
+        System.out.println(obj2);
 
     }
 
@@ -53,4 +59,38 @@ public class Map {
     public TiledMap getTiledMap() {
         return tiledMap;
     }
+
+    public boolean colliding(Player player) {
+        try{
+            return topLeft(player) && topRight(player)
+                    && bottomRight(player) && bottomLeft(player);
+        }catch (IndexOutOfBoundsException e){ //ny map här i think?
+            return false;
+        }
+    }
+
+    private boolean topLeft(Player player){
+        return tiledMap.getTileId( player.newX() / tiledMap.getTileWidth(), player.newY() / tiledMap.getTileHeight(), collisionLayer) == 0;
+    }
+
+    private boolean bottomRight(Player player){
+        return tiledMap.getTileId((player.newX() + player.getWidth()) / tiledMap.getTileWidth(), (player.newY()) / tiledMap.getTileHeight(), collisionLayer) == 0;
+    }
+
+    private boolean bottomLeft(Player player){
+        return tiledMap.getTileId(player.newX()/ tiledMap.getTileWidth(), (player.newY() + player.getHeight()) / tiledMap.getTileHeight(), collisionLayer) == 0;
+    }
+
+    private boolean topRight(Player player){
+        return tiledMap.getTileId((player.newX() + player.getWidth()) / tiledMap.getTileWidth(), (player.newY() + player.getHeight()) / tiledMap.getTileHeight(), collisionLayer) == 0;
+    }
+
+    public int getHeight(){
+        return tiledMap.getHeight() * tiledMap.getTileHeight();
+    }
+
+    public int getWidth(){
+        return tiledMap.getWidth() * tiledMap.getTileWidth();
+    }
+
 }
