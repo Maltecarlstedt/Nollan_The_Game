@@ -25,6 +25,9 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
     public int numberOfChugs = 0;
 
+    public GameState() throws SlickException {
+    }
+
 
     /**
      * Initialise this state. It should load any resources it needs at this stage, in our case our map and our player
@@ -39,7 +42,9 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         player.initPlayer();
         beerChugg.initBeerChugging();
         chugIndicator.initChugIndicator();
-        jumpingBeer.initJumpingBeer();
+
+        jumpingBeer.initJumpingBeer(gameContainer);
+
     }
 
     /**
@@ -54,6 +59,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
 
+        jumpingBeer.update(gameContainer, delta);
         currentTime += delta;
         deltaTime = delta;
 
@@ -67,11 +73,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         Input input = gameContainer.getInput();
 
         map.isOutside(player);
-        updateJump();
-        if (input.isKeyPressed(Input.KEY_F)){
-            updateJump();
 
-        }
 
         if (input.isKeyPressed(Input.KEY_SPACE)){
             beerChugg.numberOfChugs = beerChugg.numberOfChugs + 1;
@@ -97,25 +99,12 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
     }
 
-    public int getCurrentTime(){
-        return currentTime;
-    }
-
-    public void updateJump(){
-        jumpingBeer.location.y = (int) (y0 + velocityY * t + 0.5 * gravity * t * t);
-        if(jumpingBeer.location.y > 635){
-            jumpingBeer.location.y = y0 = 0;
-            t = 0.0;
-        } else {
-            y0 = jumpingBeer.location.y;
-            t += 0.25;
-        }
-        jumpingBeer.jumpingBeer.draw(jumpingBeer.getLocation().x,jumpingBeer.getLocation().y,jumpingBeer.getWidth(),jumpingBeer.getHeight());
 
 
 
 
-    }
+
+
 
 
     /**
@@ -131,10 +120,10 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
         beerChugg.currentBeerImage.draw(beerChugg.getLocation().x,beerChugg.getLocation().y, beerChugg.getWidth(), beerChugg.getHeight());
         chugIndicator.bar_inidcatorAni.draw(chugIndicator.getLocation().x, chugIndicator.getLocation().y,chugIndicator.getWidth(), chugIndicator.getHeight());
-        jumpingBeer.jumpingBeer.draw(jumpingBeer.getLocation().x,jumpingBeer.getLocation().y,jumpingBeer.getWidth(),jumpingBeer.getHeight());
+        //jumpingBeer.jumpingBeer.draw(jumpingBeer.getLocation().x,jumpingBeer.getLocation().y,jumpingBeer.getWidth(),jumpingBeer.getHeight());
 
 
-
+        jumpingBeer.render(gameContainer, graphics);
 
 
         //TODO: borde använda graphics.drawImage(player.getCurrentImage, player.getLocation().x, player.getLocation().y)??
