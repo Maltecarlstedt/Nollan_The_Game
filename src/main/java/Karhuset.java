@@ -4,8 +4,15 @@ import org.newdawn.slick.tiled.TiledMap;
 public enum Karhuset implements MapState {
     KARHUSET;
     @Override
-    public void nextState(Map input) {
-        input.setTiledMap(Chalmersplatsen.CHALMERSPLATSEN);
+    public void nextState(Map input, Player player){
+        switch (input.getPOrientation(player)) {
+            case LEFT:
+                input.setTiledMap(Karhuset.KARHUSET);
+                break;
+            case DOWN:
+                input.setTiledMap(Chalmersplatsen.CHALMERSPLATSEN);
+                break;
+        }
     }
 
     @Override

@@ -22,9 +22,15 @@ public class Map {
 
     public void isOutside(Player player) throws SlickException {
         if (!player.checkBorder()) {
-            current.nextState(this);
+            current.nextState(this, player);
             current.setPosition(player);
             tiledMap = current.loadMap();
         }
     }
+
+    public Orientation getPOrientation(Player player){
+        return player.getOrientation();
+    }
+
+
 }

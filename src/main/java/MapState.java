@@ -7,7 +7,7 @@ import org.newdawn.slick.tiled.TiledMap;
 import java.awt.*;
 
 public interface MapState {
-    void nextState(Map input);
+    void nextState(Map input, Player player) throws SlickException;
     void setPosition(Player player);
     TiledMap loadMap() throws SlickException;
 
