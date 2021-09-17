@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="1">
  <tileset firstgid="1" source="terrain.tsx"/>
  <tileset firstgid="1025" source="terrain2.tsx"/>
  <tileset firstgid="2049" source="windows.tsx"/>
  <tileset firstgid="2305" source="colstuff.tsx"/>
+ <tileset firstgid="3369" source="chalmersLogga.tsx"/>
  <layer id="1" name="Base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu3QsQ0AIBDDwFdgEmASYP+ZyBYpcGHJ9UlVzXWnwA833Qr9dsfd0CfM8ccff/zxxx9//PH/1/8BRwC+5gAMAAA=
@@ -25,5 +26,15 @@
    H4sIAAAAAAAACmNgGAWjYBSMglFADjDkRMUDbf9AuGGkgg+MpPGHKxgNh1EwCoYmAABZmx4uAAwAAA==
   </data>
   </layer>
+  <layer id="8" name="grass" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFo2DwAzFGBgZxKmBygRlQrzkUb2dAsNH56HLI4tsp8L8ZDjORzcYlj8wHACjEHREADAAA
+  </data>
+  </layer>
  </group>
+ <layer id="9" name="logo" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3OyQ0AIAzEwG0ghRCu9F8d2wUgeST/Lb2jhZSuu+GmW267itt3AAAAwP8OxiSOWQAMAAA=
+  </data>
+ </layer>
 </map>
