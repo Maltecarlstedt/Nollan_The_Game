@@ -1,10 +1,6 @@
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
-import org.newdawn.slick.*;
-import org.newdawn.slick.state.BasicGameState;
-import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
 import java.awt.*;
@@ -27,7 +23,8 @@ public class Map {
     public void isOutside(Player player) throws SlickException {
         if (!player.checkBorder()) {
             current.nextState(this);
-            current.loadMap();
+            current.setPosition(player);
+            tiledMap = current.loadMap();
         }
     }
 }

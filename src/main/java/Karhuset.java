@@ -9,24 +9,13 @@ public enum Karhuset implements MapState {
     }
 
     @Override
+    public void setPosition(Player player) {
+        player.setLocation(150,200);
+    }
+
+    @Override
     public TiledMap loadMap() throws SlickException {
         return new TiledMap(("data/maps/karhuset.tmx"));
 
     }
-
-    /*
-    TiledMap tiledMap;
-
-    @Override
-    public void nextState(Player player) throws SlickException {
-        if (!player.checkBorder()){
-            tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
-        }
-    }
-
-    @Override
-    public void startPosition() {
-    }
-
-     */
 }

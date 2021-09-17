@@ -8,6 +8,7 @@ import java.awt.*;
 
 public interface MapState {
     void nextState(Map input);
+    void setPosition(Player player);
     TiledMap loadMap() throws SlickException;
 
 }
