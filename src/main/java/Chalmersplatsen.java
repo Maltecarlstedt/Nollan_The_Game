@@ -1,16 +1,16 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.tiled.TiledMap;
 
-public enum Karhuset implements MapState {
-    KARHUSET;
+public enum Chalmersplatsen implements MapState {
+    CHALMERSPLATSEN;
     @Override
     public void nextState(Map input) {
-        input.setTiledMap(Chalmersplatsen.CHALMERSPLATSEN);
+        input.setTiledMap(Karhuset.KARHUSET);
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(("data/maps/karhuset.tmx"));
+        return new TiledMap(("data/maps/chalmershallplatsen.tmx"));
 
     }
 
@@ -30,3 +30,4 @@ public enum Karhuset implements MapState {
 
      */
 }
+
