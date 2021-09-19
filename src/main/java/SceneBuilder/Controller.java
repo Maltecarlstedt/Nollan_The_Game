@@ -1,3 +1,5 @@
+package SceneBuilder;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -6,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import java.awt.event.ActionEvent;
 
 
-public class NollanController {
+public class Controller {
 
     /**
      * The start menu with the buttons to start and exit the game
@@ -17,10 +19,7 @@ public class NollanController {
     private AnchorPane MainAnchorpane;
 
     @FXML
-    private Button startGameButton;
-
-    @FXML
-    private Button exitGameButton;
+    private Button startGameButton, exitGameButton;
 
     /**
      * Write your name site
