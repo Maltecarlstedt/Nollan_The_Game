@@ -9,9 +9,10 @@ import java.awt.*;
 
 public class PlayerModel {
 
-    private Point location;
-    private int width, height;
+    private final int width = 64, height = 64;
     private Orientation orientation;
+
+    private Rectangle playerLocation = new Rectangle(512, 384, width, height);
 
     public SpriteSheet MoveRight; // initate a SpriteSheet
     public Animation MoveRightAni; // initate an Animation
@@ -33,9 +34,6 @@ public class PlayerModel {
     public PlayerModel() throws SlickException {
 
         //TODO: Gör en try catch här för att slippa throwa slickException i playerController
-        location = new Point(1024/2, 768/2);
-        width = 64;
-        height = 64;
         orientation = Orientation.IDLE;
         initPlayer();
 
@@ -95,8 +93,12 @@ public class PlayerModel {
      */
     public void move() {
         startAnimation();
-        location.x += orientation.deltaX;
-        location.y += orientation.deltaY;
+        setNewPlayerTile();
+    }
+
+
+    public void setNewPlayerTile() {
+        playerLocation.setRect(newX(), newY(), width, height);
     }
 
     /**
@@ -147,23 +149,6 @@ public class PlayerModel {
     }
 
     /**
-     * @return player's location
-     */
-    public Point getLocation() {
-        return location;
-    }
-
-    /**
-     * Set player's coordinates
-     * @param x player's x coordinate
-     * @param y player's y coordinate
-     */
-    public void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
-    }
-
-    /**
      * Set player's orientation
      * @param orientation player's orientation
      */
@@ -178,20 +163,24 @@ public class PlayerModel {
         return orientation;
     }
 
-    /**
-     * set player's location
-     * @param location player's location as a Point
-     */
-    public void setLocation(Point location) {
-        this.location = location;
-    }
-
     public int getWidth() {
         return width;
     }
 
     public int getHeight() {
         return height;
+    }
+
+    public int newX(){
+        return playerLocation.x + orientation.deltaX;
+    }
+
+    public int newY(){
+        return playerLocation.y + orientation.deltaY;
+    }
+
+    public Rectangle getPlayerLocation() {
+        return playerLocation;
     }
 
 
