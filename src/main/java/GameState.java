@@ -116,5 +116,3 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         return 0;
     }
 }
-
-

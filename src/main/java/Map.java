@@ -15,14 +15,10 @@ public class Map {
     public void initMap() throws SlickException {
         tiledMap = new TiledMap("data/maps/karhuset.tmx");
         mapState = 0;
-       // tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
+        //tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
 
         tiledMap.getWidth();
         collisionLayer = tiledMap.getLayerIndex("collision");
-        int obj2 = tiledMap.getLayerIndex("water");
-        System.out.println(collisionLayer);
-        System.out.println(obj2);
-
     }
 
     public void render(){
@@ -70,19 +66,23 @@ public class Map {
     }
 
     private boolean topLeft(Player player){
-        return tiledMap.getTileId( player.newX() / tiledMap.getTileWidth(), player.newY() / tiledMap.getTileHeight(), collisionLayer) == 0;
+            return tiledMap.getTileId( player.newX() / tiledMap.getTileWidth(),
+                player.newY() / tiledMap.getTileHeight(), collisionLayer) == 0;
     }
 
     private boolean bottomRight(Player player){
-        return tiledMap.getTileId((player.newX() + player.getWidth()) / tiledMap.getTileWidth(), (player.newY()) / tiledMap.getTileHeight(), collisionLayer) == 0;
+        return tiledMap.getTileId((player.newX() + player.getWidth()) / tiledMap.getTileWidth(),
+                (player.newY()) / tiledMap.getTileHeight(), collisionLayer) == 0;
     }
 
     private boolean bottomLeft(Player player){
-        return tiledMap.getTileId(player.newX()/ tiledMap.getTileWidth(), (player.newY() + player.getHeight()) / tiledMap.getTileHeight(), collisionLayer) == 0;
+        return tiledMap.getTileId(player.newX()/ tiledMap.getTileWidth(),
+                (player.newY() + player.getHeight()) / tiledMap.getTileHeight(), collisionLayer) == 0;
     }
 
     private boolean topRight(Player player){
-        return tiledMap.getTileId((player.newX() + player.getWidth()) / tiledMap.getTileWidth(), (player.newY() + player.getHeight()) / tiledMap.getTileHeight(), collisionLayer) == 0;
+        return tiledMap.getTileId((player.newX() + player.getWidth()) / tiledMap.getTileWidth(),
+                (player.newY() + player.getHeight()) / tiledMap.getTileHeight(), collisionLayer) == 0;
     }
 
     public int getHeight(){

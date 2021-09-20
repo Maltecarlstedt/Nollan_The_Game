@@ -159,9 +159,7 @@ public class Player {
      * (check the Orientation enum for more precise explanation)
      */
     public void move() {
-        if(checkBorder()) {
-            setNewPlayerTile();
-        }
+        setNewPlayerTile();
     }
 
     /**
