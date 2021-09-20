@@ -1,7 +1,6 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.tiled.TiledMap;
 
 public class GameState extends BasicGameState { //TODO: Ska detta verkligen extenda BasicGameState?
 
@@ -9,7 +8,6 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
      * Declares our map variable as well as our player.
      */
     Map map = new Map();
-
     Player player = new Player();
 
 
@@ -44,6 +42,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
         Input input = gameContainer.getInput();
 
+        //mapState.isOutside(player);
         map.isOutside(player);
 
         if (input.isKeyDown(Input.KEY_UP))
@@ -77,7 +76,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
      */
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
-        map.render();
+        map.tiledMap.render(0,0);
 
         //TODO: borde använda graphics.drawImage(player.getCurrentImage, player.getLocation().x, player.getLocation().y)??
         //TODO: Samma med graphics.drawAnimation(...) som ^^^^?
