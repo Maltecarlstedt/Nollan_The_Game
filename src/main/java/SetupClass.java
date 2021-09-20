@@ -1,7 +1,5 @@
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import SceneBuilder.Main;
+import javafx.application.Application;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -17,7 +15,10 @@ public class SetupClass extends StateBasedGame {
 
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
-        this.addState(new StartMenu());
+        //this.addState(new StartMenu());
+
+        Application.launch(Main.class);
+        //Platform.setImplicitExit(false);
         this.addState(new GameState());
 
     }

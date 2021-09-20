@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="1">
- <tileset firstgid="1" source="terrain.tsx"/>
- <tileset firstgid="1025" source="dmarke160.tsx"/>
- <tileset firstgid="1050" source="itmarke160.tsx"/>
- <tileset firstgid="1075" source="hmarke160.tsx"/>
- <tileset firstgid="1100" source="kemimarke160.tsx"/>
- <tileset firstgid="1125" source="elektromarke160.tsx"/>
- <tileset firstgid="1150" source="sjomarke160.tsx"/>
+ <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/dmarke160.tsx"/>
+ <tileset firstgid="1050" source="tsx-files/itmarke160.tsx"/>
+ <tileset firstgid="1075" source="tsx-files/hmarke160.tsx"/>
+ <tileset firstgid="1100" source="tsx-files/kemimarke160.tsx"/>
+ <tileset firstgid="1125" source="tsx-files/elektromarke160.tsx"/>
+ <tileset firstgid="1150" source="tsx-files/sjomarke160.tsx"/>
  <layer id="1" name="base" width="32" height="24">
   <data encoding="csv">
 978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,978,

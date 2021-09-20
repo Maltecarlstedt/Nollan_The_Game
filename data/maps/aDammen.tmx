@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="1">
- <tileset firstgid="1" source="terrain.tsx"/>
- <tileset firstgid="1025" source="newSet.tsx"/>
- <tileset firstgid="1205" source="terrain2.tsx"/>
- <tileset firstgid="2229" source="train.tsx"/>
- <tileset firstgid="2247" source="edge.tsx"/>
- <tileset firstgid="2256" source="train.tsx"/>
+ <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/newSet.tsx"/>
+ <tileset firstgid="1205" source="tsx-files/terrain2.tsx"/>
+ <tileset firstgid="2229" source="tsx-files/train.tsx"/>
+ <tileset firstgid="2247" source="tsx-files/edge.tsx"/>
+ <tileset firstgid="2256" source="tsx-files/train.tsx"/>
  <layer id="1" name="base" width="32" height="24">
   <data encoding="csv">
 514,515,516,514,515,516,514,515,516,514,515,516,514,515,516,514,515,516,514,515,516,514,515,516,514,515,516,514,515,516,514,515,

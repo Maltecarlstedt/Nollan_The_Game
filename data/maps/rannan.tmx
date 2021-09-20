@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
- <tileset firstgid="1" source="terrain2.tsx"/>
- <tileset firstgid="1025" source="terrain.tsx"/>
- <tileset firstgid="2049" source="colstuff.tsx"/>
- <tileset firstgid="3113" source="windows.tsx"/>
- <tileset firstgid="3369" source="lamppost.tsx"/>
- <tileset firstgid="3372" source="lamppost.tsx"/>
- <tileset firstgid="3375" source="ducksteps.tsx"/>
+ <tileset firstgid="1" source="tsx-files/terrain2.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="2049" source="tsx-files/colstuff.tsx"/>
+ <tileset firstgid="3113" source="tsx-files/windows.tsx"/>
+ <tileset firstgid="3369" source="tsx-files/lamppost.tsx"/>
+ <tileset firstgid="3372" source="tsx-files/lamppost.tsx"/>
+ <tileset firstgid="3375" source="tsx-files/ducksteps.tsx"/>
  <layer id="1" name="base" width="32" height="24">
   <data encoding="csv">
 1338,1338,1338,1338,322,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1338,1873,1874,1873,1874,1338,1338,1338,1338,

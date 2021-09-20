@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="40" nextobjectid="1">
- <tileset firstgid="1" source="terrain.tsx"/>
- <tileset firstgid="1025" source="terrain2.tsx"/>
- <tileset firstgid="2049" source="newSet.tsx"/>
- <tileset firstgid="2229" source="colstuff.tsx"/>
+ <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/terrain2.tsx"/>
+ <tileset firstgid="2049" source="tsx-files/newSet.tsx"/>
+ <tileset firstgid="2229" source="tsx-files/colstuff.tsx"/>
  <layer id="3" name="Base" width="32" height="24" locked="1">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECmNiYmBgBmIWIGYaALYS0E5lIFYB4oFgD4SfkcN6IPyMHNaj/h9N/6P5f7T8Qy6T6MkeLf9G67/R+n+0/YPcJqEne6S3fwDhV4EcAAwAAA==
