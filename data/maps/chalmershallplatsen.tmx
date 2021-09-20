@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/terrain2.tsx"/>
  <tileset firstgid="2049" source="tsx-files/windows.tsx"/>
  <tileset firstgid="2305" source="tsx-files/colstuff.tsx"/>
- <tileset firstgid="3369" source="tsx-files/chalmersLogga.tsx"/>
+ <tileset firstgid="3329" source="tsx-files/chalmersLogga.tsx"/>
+ <tileset firstgid="3337" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
  <layer id="1" name="Base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu3QsQ0AIBDDwFdgEmASYP+ZyBYpcGHJ9UlVzXWnwA833Qr9dsfd0CfM8ccff/zxxx9//PH/1/8BRwC+5gAMAAA=
@@ -17,24 +18,29 @@
  </layer>
  <layer id="3" name="someShit" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAClvMyjCgYPGo/RQBCw4GBksgtuJAZdPLfg+gXZ5A7MWByqaX/RFAuyKBOIoDlU0v+ykFo/YPXfs/cjEwfMKCP3ONDPt/Au35hQX/JsH+wwMc/8oDbL/zANufPMD2j4JRMAoGDgAAmEHizAAMAAA=
+   H4sIAAAAAAAAClvMyjCgYPGo/RQBCw4GBksgtuJAZdPLfg+gXZ5A7MWByqaX/RFAuyKBOIoDlU0v+ykFo/aP2j+S7T88wPYrD7D9zgNsf/IA2z8KRsEoGDgAABIMZ94ADAAA
   </data>
  </layer>
  <group id="4" name="terrain">
-  <layer id="6" name="bushes" width="32" height="24">
-   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBSMglFADjDkRMUDbf9AuGGkgg+MpPGHKxgNh1EwCoYmAABZmx4uAAwAAA==
-  </data>
-  </layer>
   <layer id="8" name="grass" width="32" height="24">
    <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFo2DwAzFGBgZxKmBygRlQrzkUb2dAsNH56HLI4tsp8L8ZDjORzcYlj8wHACjEHREADAAA
   </data>
   </layer>
+  <layer id="10" name="theBench" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3NMQoAIAzAwKh7+/+nqosf6CyIOcgckKS3zIBVtOOPf0voRSPv/CVJbzsx7phNAAwAAA==
+  </data>
+  </layer>
+  <layer id="6" name="bushes" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMgqEHLHkReKDtH0h3jIKBAR8YSeMPVzAaDqNgFAwcMOLFzsYlhswHAHv7/GoADAAA
+  </data>
+  </layer>
  </group>
  <layer id="9" name="logo" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3OyQ0AIAzEwG0ghRCu9F8d2wUgeST/Lb2jhZSuu+GmW267itt3AAAAwP8OxiSOWQAMAAA=
+   H4sIAAAAAAAACu3OyQ0AIAzEwIVwfdJ/u9kuAMkj+W/pHS2l7sINN91y2528fQcAAAD8rwAqTw9oAAwAAA==
   </data>
  </layer>
 </map>
