@@ -19,10 +19,11 @@ public class PlayerController{
 
     public void update(GameContainer gc, int delta) {
 
-        playerModel.MoveRightAni.update(delta); // this line makes sure the speed of the Animation is true
-        playerModel.MoveUpAni.update(delta); // this line makes sure the speed of the Animation is true
-        playerModel.MoveLeftAni.update(delta); // this line makes sure the speed of the Animation is true
-        playerModel.MoveDownAni.update(delta); // this line makes sure the speed of the Animation is true
+        // TODO: Ha någon annanstans?
+        playerModel.MoveRightAni.update(delta); // these line makes sure the speed of the Animation is true
+        playerModel.MoveUpAni.update(delta);
+        playerModel.MoveLeftAni.update(delta);
+        playerModel.MoveDownAni.update(delta);
 
         // TODO: Egen funk?
         Input input = gc.getInput();
