@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Creates an enum for the Player's orientation.
  * The orientation holds the speeds of which the player move in each axis.
