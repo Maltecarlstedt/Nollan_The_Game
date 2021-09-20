@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="startAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneBuilder.Controller">
    <children>
       <ImageView fitHeight="768.0" fitWidth="1176.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,18 +17,18 @@
             <Image url="@../../../../data/maps/images/Nollan.png" />
          </image>
       </ImageView>
-      <Button layoutX="258.0" layoutY="420.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="508.0" style="-fx-background-color: #999999; -fx-border-color: #000000;" textAlignment="CENTER">
+      <Button fx:id="startGameButton" layoutX="258.0" layoutY="420.0" mnemonicParsing="false" onAction="#startGame" prefHeight="70.0" prefWidth="508.0" style="-fx-background-color: #999999; -fx-border-color: #000000;" textAlignment="CENTER">
          <graphic>
-            <ImageView fx:id="startGameButton" fitHeight="58.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="58.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../data/maps/images/start%20(1).png" />
+                  <Image url="@../../../../data/maps/images/startWhite.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="258.0" layoutY="517.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="508.0" style="-fx-background-color: #999999; -fx-border-color: #000000;" textAlignment="CENTER">
+      <Button fx:id="exitGameButton" layoutX="258.0" layoutY="517.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="70.0" prefWidth="508.0" style="-fx-background-color: #999999; -fx-border-color: #000000;" textAlignment="CENTER">
          <graphic>
-            <ImageView fx:id="exitGameButton" fitHeight="55.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="55.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../data/maps/images/avsluta.png" />
                </image>

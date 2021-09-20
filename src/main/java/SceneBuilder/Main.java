@@ -10,7 +10,8 @@ public class Main extends Application{
 
     public void start(Stage stage) throws Exception{
         System.out.print(System.getProperty("user.home"));
-        Parent root = FXMLLoader.load(getClass().getResource("SceneBuilder/starterScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("starterScreen.fxml"));
+
 
         Scene scene = new Scene(root);
 
