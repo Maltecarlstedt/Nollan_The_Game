@@ -12,7 +12,7 @@ public class PlayerView {
     }
 
     public void render(GameContainer gc, Graphics g, PlayerModel playerModel){
-        g.drawAnimation(playerModel.currentAnimation, playerModel.getLocation().x,playerModel.getLocation().y);
+        g.drawAnimation(playerModel.currentAnimation, playerModel.getPlayerLocation().x,playerModel.getPlayerLocation().y);
     }
 
 }
