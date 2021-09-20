@@ -1,3 +1,5 @@
+package model;
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -27,8 +29,7 @@ public class JumpingBeer{
     private boolean canJump;
 
     public JumpingBeer() throws SlickException {
-        jumpingBeer = new Image("data/beerChugging/beerImage.png");
-
+        jumpingBeer = new Image("data/model.beerChugging/beerImage.png");
         posY = 635;
         posX = 136;
         width = 48;
@@ -60,24 +61,15 @@ public class JumpingBeer{
         if(gc.getInput().isKeyPressed(Input.KEY_F) && canJump){
 
             this.setY(this.getPosY() - 40);
-            System.out.println("Innan");
-            System.out.println(this.getPosY());
 
             if(this.getPosY() < 935){
                 vY = jumpStrength;
-                System.out.println("Skutt");
-                System.out.println(this.getPosY());
             }
-
-
-
         }
         if(this.getPosY() > 630){
 
         }else {
             this.setY(this.getPosY() + 0.5f +vY);
-            System.out.println("Efter");
-            System.out.println(this.getPosY());
         }
 
     }

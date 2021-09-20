@@ -1,3 +1,5 @@
+package model;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -25,7 +27,7 @@ public class ChugIndicator {
     }
 
     public void initChugIndicator() throws SlickException {
-        bar_indicator = new SpriteSheet("data/beerChugging/Bar_Indicator.png", 16, 16);
+        bar_indicator = new SpriteSheet("data/model.beerChugging/Bar_Indicator.png", 16, 16);
         bar_inidcatorAni = new Animation(bar_indicator, 250);
         bar_inidcatorAni.setPingPong(true);
 

@@ -1,9 +1,12 @@
+package model;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
+
 
 public class Player {
 
@@ -151,7 +154,7 @@ public class Player {
 
     /**
      * Moves our player depending on the orientation. Our delta-values changes depending on the orientation
-     * (check the Orientation enum for more precise explanation)
+     * (check the model.Orientation enum for more precise explanation)
      */
     public void move() {
         if(checkBorder()) {
@@ -231,13 +234,14 @@ public class Player {
     }
 
     public boolean checkBorder(){
-        if(insideBottom() && insideRight() && insideLeft() && insideUpper())
+       if(insideBottom() && insideRight() && insideLeft() && insideUpper())
             return true;
-        return false;
+       return false;
     }
 
+
     private boolean insideRight(){
-        if(this.getLocation().x + orientation.deltaX <= (SetupClass.canvasWidth - this.getWidth()))
+        if(this.getLocation().x + orientation.deltaX <= (1024 - this.getWidth()))
             return true;
         return false;
     }
@@ -252,8 +256,12 @@ public class Player {
         return false;
     }
     private boolean insideBottom(){
-        if(this.getLocation().y + orientation.deltaY <= (SetupClass.canvasHeight - this.getHeight()))
+        if(this.getLocation().y + orientation.deltaY <= (768 - this.getHeight()))
             return true;
         return false;
     }
+
+
+
 }
+

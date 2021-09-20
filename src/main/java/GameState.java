@@ -1,3 +1,4 @@
+import model.*;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -74,7 +75,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
         map.isOutside(player);
 
-
+/*
         if (input.isKeyPressed(Input.KEY_SPACE)){
             beerChugg.numberOfChugs = beerChugg.numberOfChugs + 1;
             beerChugg.chug();
@@ -95,7 +96,7 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
             player.moveDown();
         }else{
             player.idlePlayer();
-        }
+        }*/
 
     }
 

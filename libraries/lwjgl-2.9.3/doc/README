@@ -43,7 +43,7 @@ To run some of the included tests:
   org.lwjgl.test.opengl.shaders.ShadersTest
 
 You may also run the Space invaders demo by executing:
-  java -cp .;res;jar\lwjgl.jar;jar\lwjgl_test.jar;jar\lwjgl_util.jar; -Djava.library.path=native\<windows|linux|macosx|solaris> org.lwjgl.examples.spaceinvaders.Game
+  java -cp .;res;jar\lwjgl.jar;jar\lwjgl_test.jar;jar\lwjgl_util.jar; -Djava.library.path=native\<windows|linux|macosx|solaris> org.lwjgl.examples.spaceinvaders.StateSetup
   
 Project Webpage: www.lwjgl.org
 Project Forum: forum.lwjgl.org

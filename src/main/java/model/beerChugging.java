@@ -1,3 +1,5 @@
+package model;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -23,7 +25,7 @@ public class beerChugging {
     }
 
     public void initBeerChugging() throws SlickException {//TODO: Borde skala vår gubbe här direkt till 64x64?
-        beer = new SpriteSheet("data/beerChugging/beerchugging_mini_V2.png", 17, 17);
+        beer = new SpriteSheet("data/model.beerChugging/beerchugging_mini_V2.png", 17, 17);
 
         currentBeerImage = beer.getSubImage(0,0);
     }
