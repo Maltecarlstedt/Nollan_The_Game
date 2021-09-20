@@ -45,20 +45,37 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         //mapState.isOutside(player);
         map.isOutside(player);
 
+
         if (input.isKeyDown(Input.KEY_UP))
         {
-            player.moveUp();
-
+            player.setOrientation(Orientation.UP);
+            player.currentAnimation = player.MoveUpAni;
+            if(map.colliding(player)){
+                player.moveUp();
+            }
 
         }else if (input.isKeyDown(Input.KEY_LEFT))
         {
-            player.moveLeft();
+            player.setOrientation(Orientation.LEFT);
+            player.currentAnimation = player.MoveLeftAni;
+            if(map.colliding(player)){
+                player.moveLeft();
+            }
         }else if (input.isKeyDown(Input.KEY_RIGHT))
         {
-            player.moveRight();
+            player.setOrientation(Orientation.RIGHT);
+            player.currentAnimation = player.MoveRightAni;
+            if(map.colliding(player)){
+                player.moveRight();
+            }
+
         }else if (input.isKeyDown(Input.KEY_DOWN))
         {
-            player.moveDown();
+            player.setOrientation(Orientation.DOWN);
+            player.currentAnimation = player.MoveDownAni;
+            if(map.colliding(player)){
+                player.moveDown();
+            }
         }else{
             player.idlePlayer();
         }
@@ -83,13 +100,12 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
 
 
         if(player.getOrientation() == Orientation.IDLE){//TODO: Ingen logik i render
-            player.currentImage.draw(player.getLocation().x, player.getLocation().y,player.getWidth(),player.getHeight());
+            player.currentImage.draw(player.getPlayerLocation().x, player.getPlayerLocation().y,player.getWidth(),player.getHeight());
         }else{
-            player.currentAnimation.draw(player.getLocation().x,player.getLocation().y, player.getWidth(), player.getHeight());
+            player.currentAnimation.draw(player.getPlayerLocation().x, player.getPlayerLocation().y, player.getWidth(), player.getHeight());
         }
 
     }
-
 
     /**
      * @return the ID of this game state
@@ -99,5 +115,3 @@ public class GameState extends BasicGameState { //TODO: Ska detta verkligen exte
         return 0;
     }
 }
-
-

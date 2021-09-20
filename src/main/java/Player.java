@@ -15,10 +15,12 @@ public class Player {
      * State gives the state that the player is in. I.E which way the player is facing
      */
     private Point location;
-    private int width, height;
+    private final static int width = 64, height = 64;
     private Orientation orientation;
 
-    public SpriteSheet MoveRight; // initate a SpriteSheet
+    private Rectangle playerLocation = new Rectangle(512, 384, width, height);
+
+    public SpriteSheet MoveRight; // iniate a SpriteSheet
     public Animation MoveRightAni; // initate an Animation
 
     public SpriteSheet MoveLeft; // initate a SpriteSheet
@@ -42,8 +44,6 @@ public class Player {
      */
     public Player(){
         location = new Point(1024/2, 768/2);
-        width = 64;
-        height = 64;
         orientation = Orientation.IDLE;
     }
 
@@ -94,6 +94,7 @@ public class Player {
         currentImage = MoveDownAni.getImage(1);
 
     }
+
 
     /**
      * @return player's height
@@ -149,15 +150,16 @@ public class Player {
         this.location = location;
     }
 
+    public void setNewPlayerTile() {
+        playerLocation.setRect(newX(), newY(), width, height);
+    }
+
     /**
      * Moves our player depending on the orientation. Our delta-values changes depending on the orientation
      * (check the Orientation enum for more precise explanation)
      */
     public void move() {
-        if(checkBorder()) {
-            location.x += orientation.deltaX;
-            location.y += orientation.deltaY;
-        }
+        setNewPlayerTile();
     }
 
     /**
@@ -165,19 +167,20 @@ public class Player {
      * (I.E it will stand still in state UP)
      */
     public void moveUp() {
-        setOrientation(Orientation.UP);
+        //setOrientation(Orientation.UP);
         move();
-        currentAnimation = MoveUpAni;
+        //currentAnimation = MoveUpAni;
         state = 3;
     }
+
 
     /**
      * Moves the character to the left, changes state so that if the player is IDLE, the player will use the right IDLE state
      */
     public void moveLeft() {
-        setOrientation(Orientation.LEFT);
+        //setOrientation(Orientation.LEFT);
         move();
-        currentAnimation = MoveLeftAni;
+        //currentAnimation = MoveLeftAni;
         state = 2;
     }
 
@@ -185,9 +188,9 @@ public class Player {
      * Moves the character to the right, changes state so that if the player is IDLE, the player will use the right IDLE state
      */
     public void moveRight() {
-        setOrientation(Orientation.RIGHT);
+        //setOrientation(Orientation.RIGHT);
         move();
-        currentAnimation = MoveRightAni;
+        //currentAnimation = MoveRightAni;
         state = 1;
     }
 
@@ -195,10 +198,11 @@ public class Player {
      * Moves the character down, changes state so that if the player is IDLE, the player will use the right IDLE state
      */
     public void moveDown() {
-        setOrientation(Orientation.DOWN);
+        //setOrientation(Orientation.DOWN);
         move();
-        currentAnimation = MoveDownAni;
+        //currentAnimation = MoveDownAni;
         state = 0;
+
     }
 
     /**
@@ -230,6 +234,8 @@ public class Player {
 
     }
 
+
+
     public boolean checkBorder(){
         if(insideBottom() && insideRight() && insideLeft() && insideUpper())
             return true;
@@ -256,4 +262,17 @@ public class Player {
             return true;
         return false;
     }
+
+    public int newX(){
+        return playerLocation.x + orientation.deltaX;
+    }
+
+    public int newY(){
+        return playerLocation.y + orientation.deltaY;
+    }
+
+    public Rectangle getPlayerLocation() {
+        return playerLocation;
+    }
+
 }

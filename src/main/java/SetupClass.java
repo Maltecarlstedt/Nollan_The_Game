@@ -4,6 +4,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class SetupClass extends StateBasedGame {
     public static final int canvasWidth = 1024;
     public static final int canvasHeight = 768;
+    public Sound sound;
 
     public SetupClass(String title) {
         super(title);
@@ -14,6 +15,7 @@ public class SetupClass extends StateBasedGame {
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
         this.addState(new GameState());
+
     }
 
     public static void main(String[] args) throws SlickException {
@@ -29,5 +31,6 @@ public class SetupClass extends StateBasedGame {
 
         app.setDisplayMode(canvasWidth,canvasHeight,false);
         app.start();
+
     }
 }
