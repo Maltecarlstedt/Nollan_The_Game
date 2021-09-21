@@ -9,17 +9,20 @@ import org.newdawn.slick.tiled.TiledMap;
 public class MapModel{
     private TiledMap tiledMap;
     private int mapState;
-    int collisionLayer;
+    private int collisionLayer;
     private Rectangle tile = new Rectangle(0,0,32,32);
 
     public MapModel() throws SlickException {
         initMap();
     }
+    public MapModel(CollisionChecker collisionChecker) throws SlickException {
+        initMap();
+        collisionChecker.setCurrentMap(this);
+    }
 
     private void initMap() throws SlickException {
         tiledMap = new TiledMap("data/maps/karhuset.tmx");
         mapState = 0;
-        // tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
         collisionLayer = tiledMap.getLayerIndex("collision");
     }
 
@@ -43,12 +46,17 @@ public class MapModel{
         else
             return 1;
     }
+
     public int getHeight(){
         return tiledMap.getHeight() * tiledMap.getTileHeight();
     }
 
     public int getWidth(){
         return tiledMap.getWidth() * tiledMap.getTileWidth();
+    }
+
+    public int getCollisionLayer() {
+        return collisionLayer;
     }
 
 }
