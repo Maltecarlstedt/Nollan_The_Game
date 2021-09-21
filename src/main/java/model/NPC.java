@@ -22,11 +22,15 @@ public class NPC {
     }
 
     public void spriteSetup() throws SlickException {
-        task = new SpriteSheet("data/NPC/webersTASK36x40.png", 18, 40);
+        //task = new SpriteSheet("data/NPC/webersTASK36x40.png", 18, 40);
         animation = new Animation();
         animation.addFrame(task.getSubImage(0, 0), 200);
         animation.addFrame(task.getSubImage(1, 0), 200);
 
+    }
+
+    public void NPCsetup() throws SlickException {
+        spriteSetup();
     }
 
     public void setLocation(int x, int y) {
