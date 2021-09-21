@@ -33,7 +33,7 @@ public class NPC {
     }
 
     public void spriteSetup() throws SlickException {
-        task = new SpriteSheet("data/NPC/webersTASK128x128.png", 64, 128);
+        task = new SpriteSheet("data/NPC/webersTASK128x128_NOBLINK.png", 64, 128);
         animation = new Animation();
         animation.addFrame(task.getSubImage(0, 0), 200);
         animation.addFrame(task.getSubImage(1, 0), 200);
