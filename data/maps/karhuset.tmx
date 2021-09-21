@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="40" nextobjectid="1">
- <tileset firstgid="1" source="terrain.tsx"/>
- <tileset firstgid="1025" source="terrain2.tsx"/>
- <tileset firstgid="2049" source="newSet.tsx"/>
- <tileset firstgid="2229" source="colstuff.tsx"/>
- <layer id="3" name="Base" width="32" height="24" locked="1">
+ <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/terrain2.tsx"/>
+ <tileset firstgid="2049" source="tsx-files/newSet.tsx"/>
+ <tileset firstgid="2229" source="tsx-files/colstuff.tsx"/>
+ <tileset firstgid="3253" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <layer id="3" name="Base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECmNiYmBgBmIWIGYaALYS0E5lIFYB4oFgD4SfkcN6IPyMHNaj/h9N/6P5f7T8Qy6T6MkeLf9G67/R+n+0/YPcJqEne6S3fwDhV4EcAAwAAA==
   </data>
  </layer>
- <group id="8" name="terrain_behind_stairs" locked="1">
+ <group id="8" name="terrain_behind_stairs">
   <layer id="12" name="grass" width="32" height="24">
    <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECjNnZWAwx4ItgGL0ANjsBomN2k+P0Mce96PhP5r+6JX/YKkcvRygt/0gd8DccJ2FgSGCTuUfzP+j9GgIjIbAaAiMhsBoCNAzBABqx1dLAAwAAA==
@@ -21,17 +22,17 @@
   </data>
   </layer>
  </group>
- <layer id="1" name="stairs" width="32" height="24" locked="1">
+ <layer id="1" name="stairs" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECu2RsQkAIAwEv9A5dE6X1U00KQLiAJ/CDwTB5o4LoFEBFcgqMAuwbLNmO7sCWR7N2N02y2MY2/f1YN3DueFwe7D4wXk94p/9xh3YXPFUQAVU4LcCBxCo7tYADAAA
   </data>
  </layer>
- <layer id="17" name="stairs2" width="32" height="24" locked="1">
+ <layer id="17" name="stairs2" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECmNgGAWjITAaAiM1BO6zMDA8AOKBAv9BdrMyMAyUO+SBdisA8WBzx0DFByw8Bsr+UXtHQ2A0BEZDYDQE6BMCADcK6w0ADAAA
   </data>
  </layer>
- <layer id="18" name="stairs3" width="32" height="24" locked="1">
+ <layer id="18" name="stairs3" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECmNgGAWjITAaAqMhMDAhcJ+FgeEBEA8U+A+ym5WBYaDcIQ+0WwGIB5s7Bio+YOExUPaP2jsaAqMhMBoCIyUEAM2fC6oADAAA
   </data>
@@ -58,7 +59,7 @@
   </data>
   </layer>
  </group>
- <group id="15" name="karhuset" locked="1">
+ <group id="15" name="karhuset">
   <layer id="14" name="walls_and_roof" width="32" height="24">
    <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECu3SwQmAMAwF0FwcRJ2kdZLqJm6im9hN3MQvGJBQ0UObCm3gUxDhNUmJ4pZviN6y458FmZHY9dXO4XPfp63tSzuV36K3TqS/+j3Ne1Ls38CwIoNw+Q4pfAdrFJke/BXftYp75nOD7TP5bOfw77a2L21NP2Rr+i3eWheI1vs3sG0gpfilz99h92MgWvuvTp3AHydwAP3yZz0ADAAA
@@ -66,7 +67,7 @@
   </layer>
   <layer id="36" name="gasque_tree" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECmNgoB64x0E9s8gxadR+ckKNenpGw596YTlq0mgIjIbA0A8BUJk40OXi0A/FUR+MhsBoCNAiBAAbuvkUAAwAAA==
+   H4sIAAAAAAAECmNgoB64x0M9s4aiSaP+H4qxRj03j/T4p15Ijpo0GgLDIwRAZcJouTA84nLUF6MhMNxCAABisIQoAAwAAA==
   </data>
   </layer>
   <layer id="35" name="gasque_stone" width="32" height="24">
@@ -115,7 +116,7 @@
   </data>
   </layer>
  </group>
- <layer id="34" name="water" width="32" height="24" locked="1">
+ <layer id="34" name="water" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECu2TsQkAIAwEU1qqOILoCur+g/npHED4Ih+4+uD4mOlUQAVUQAVUQAXeAjmZVcC6Dvcg+yf8BTA6LHg3aIDdIbrfd8DYgP+e7yD6BrzBAb/vAr6Gq7IADAAA
   </data>
