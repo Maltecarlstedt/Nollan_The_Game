@@ -14,13 +14,14 @@ import java.util.Map;
 public class MapModel{
     private MapState current;
     private TiledMap tiledMap;
-    private int mapState;
+    private MapState mapState;
     private int collisionLayer;
     private Rectangle tile = new Rectangle(0,0,32,32);
 
     public MapModel() throws SlickException {
         initMap();
     }
+
     public MapModel(CollisionChecker collisionChecker) throws SlickException {
         initMap();
         collisionChecker.setCurrentMap(this);
@@ -40,7 +41,7 @@ public class MapModel{
     }
 
 
-    private void checkState(MapState mapState) throws SlickException {
+    public void checkState() throws SlickException {
         if (mapState == Karhuset.KARHUSET) {
             tiledMap = mapState.loadMap();
         }
@@ -48,8 +49,8 @@ public class MapModel{
             tiledMap = Chalmersplatsen.CHALMERSPLATSEN.loadMap();
         }
     }
-    private MapState newState(MapState oldState){
-        if (oldState == Karhuset.KARHUSET){
+    public MapState newState(){
+        if (current == Karhuset.KARHUSET){
             return Chalmersplatsen.CHALMERSPLATSEN;
         }
         else

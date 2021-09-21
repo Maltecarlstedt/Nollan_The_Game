@@ -1,5 +1,7 @@
 package model;
 
+import org.newdawn.slick.SlickException;
+
 public class CollisionChecker {
 
     private MapModel currentMap;
@@ -8,13 +10,14 @@ public class CollisionChecker {
     public CollisionChecker(){
     }
 
-    public boolean colliding(PlayerModel player) {
+    public boolean colliding(PlayerModel player) throws SlickException {
         collisionLayer = currentMap.getTiledMap().getLayerIndex("collision");
         try{
             return topLeft(player) && topRight(player)
                     && bottomRight(player) && bottomLeft(player);
         }catch (IndexOutOfBoundsException e){ //ny map här i think?
-            return false;
+            currentMap.checkState();
+            return true;
         }
     }
 
