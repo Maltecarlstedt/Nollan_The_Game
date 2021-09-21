@@ -1,6 +1,7 @@
 import controller.MapController;
 import controller.PlayerController;
 import model.MapModel;
+import model.NPC;
 import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -15,6 +16,7 @@ public class MainGame extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
+    private NPC npcTest;
 
     private MapModel mapModel;
     private MapView mapView;
@@ -32,6 +34,8 @@ public class MainGame extends BasicGameState {
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView);
 
+        npcTest = new NPC(128,64,0, 200, 700);
+
         mapModel = new MapModel();
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
@@ -40,6 +44,7 @@ public class MainGame extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         mapView.render(gc, g, mapModel);
         playerView.render(gc, g, playerModel);
+        npcTest.render(gc, g);
     }
     @Override
     public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {

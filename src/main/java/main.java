@@ -14,6 +14,7 @@ public class main {
             app.setIcons(new String[]{"data/icon32.png", "data/icon16.png"});
             app.setTargetFrameRate(60);
             app.setShowFPS(false);
+            app.setAlwaysRender(true);
             app.setDisplayMode(canvasWidth,canvasHeight,false);
             app.start();
 
