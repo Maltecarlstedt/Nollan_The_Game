@@ -1,3 +1,6 @@
+import Tasks.taskController.BeerChuggingController;
+import Tasks.taskModel.BeerChuggingModel;
+import Tasks.taskView.BeerChuggingView;
 import controller.MapController;
 import controller.PlayerController;
 import model.MapModel;
@@ -20,6 +23,12 @@ public class MainGame extends BasicGameState {
     private MapView mapView;
     private MapController mapController;
 
+    private BeerChuggingModel beerChuggingModel;
+    private BeerChuggingView beerChuggingView;
+    private BeerChuggingController beerChuggingController;
+
+
+
     public MainGame() throws SlickException {
     }
 
@@ -35,11 +44,19 @@ public class MainGame extends BasicGameState {
         mapModel = new MapModel();
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
+
+        beerChuggingModel = new BeerChuggingModel();
+        beerChuggingView = new BeerChuggingView();
+        beerChuggingController = new BeerChuggingController(beerChuggingModel, beerChuggingView);
+
+
+
     }
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         mapView.render(gc, g, mapModel);
         playerView.render(gc, g, playerModel);
+        beerChuggingView.render(gc, g, beerChuggingModel);
     }
     @Override
     public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {

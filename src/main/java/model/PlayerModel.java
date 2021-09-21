@@ -96,7 +96,6 @@ public class PlayerModel {
         setNewPlayerTile();
     }
 
-
     public void setNewPlayerTile() {
         playerLocation.setRect(newX(), newY(), width, height);
     }
