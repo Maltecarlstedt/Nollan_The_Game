@@ -14,14 +14,20 @@ import java.util.Map;
 public class MapModel{
     private MapState current;
     private TiledMap tiledMap;
-    int collisionLayer;
+    private int mapState;
+    private int collisionLayer;
     private Rectangle tile = new Rectangle(0,0,32,32);
 
     public MapModel() throws SlickException {
         initMap();
     }
+    public MapModel(CollisionChecker collisionChecker) throws SlickException {
+        initMap();
+        collisionChecker.setCurrentMap(this);
+    }
 
     private void initMap() throws SlickException {
+
         current = Karhuset.KARHUSET;
         tiledMap = current.loadMap();
         collisionLayer = tiledMap.getLayerIndex("collision");
@@ -59,14 +65,16 @@ public class MapModel{
         }
     }
 
-
-
     public int getHeight(){
         return tiledMap.getHeight() * tiledMap.getTileHeight();
     }
 
     public int getWidth(){
         return tiledMap.getWidth() * tiledMap.getTileWidth();
+    }
+
+    public int getCollisionLayer() {
+        return collisionLayer;
     }
 
 }

@@ -1,5 +1,6 @@
 import controller.MapController;
 import controller.PlayerController;
+import model.CollisionChecker;
 import model.MapModel;
 import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
@@ -20,6 +21,8 @@ public class MainGame extends BasicGameState {
     private MapView mapView;
     private MapController mapController;
 
+    private CollisionChecker collisionChecker;
+
     public MainGame() throws SlickException {
     }
 
@@ -27,14 +30,18 @@ public class MainGame extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
         // TODO:: SKAPA EN MANAGER SÅ ATT DET INTE BLIR SÅ MKT INITIERING HÄR.
+        collisionChecker = new CollisionChecker();
 
         playerModel = new PlayerModel();
         playerView = new PlayerView();
-        playerController = new PlayerController(playerModel, playerView);
+        playerController = new PlayerController(playerModel, playerView, collisionChecker);
 
-        mapModel = new MapModel();
+        mapModel = new MapModel(collisionChecker);
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
+
+
+
     }
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
