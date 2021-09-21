@@ -116,7 +116,12 @@
   </data>
   </layer>
  </group>
- <layer id="34" name="water" width="32" height="24">
+ <layer id="40" name="collision" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGAWjITAaAqMhMBoCoyFAuxCYxcvAgA3TzkZUk7HZDRKjFxi1f2THP73S2ag9oyFASggAAAMxCb0ADAAA
+  </data>
+ </layer>
+ <layer id="34" name="water" width="32" height="24" locked="1">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECu2TsQkAIAwEU1qqOILoCur+g/npHED4Ih+4+uD4mOlUQAVUQAVUQAXeAjmZVcC6Dvcg+yf8BTA6LHg3aIDdIbrfd8DYgP+e7yD6BrzBAb/vAr6Gq7IADAAA
   </data>
