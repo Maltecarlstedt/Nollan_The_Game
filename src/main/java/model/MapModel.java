@@ -1,14 +1,19 @@
 package model;
 
+import model.MapStates.Chalmersplatsen;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.tiled.TiledMap;
+import model.MapStates.Karhuset;
+import model.MapStates.MapState;
+
+import java.util.Map;
 
 
 // TODO:: TA REDA PÅ IFALL VI VILL EXTENDA TILED MAPS??
 public class MapModel{
+    private MapState current;
     private TiledMap tiledMap;
-    private int mapState;
     int collisionLayer;
     private Rectangle tile = new Rectangle(0,0,32,32);
 
@@ -17,32 +22,45 @@ public class MapModel{
     }
 
     private void initMap() throws SlickException {
-        tiledMap = new TiledMap("data/maps/karhuset.tmx");
-        mapState = 0;
-        // tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
+        current = Karhuset.KARHUSET;
+        tiledMap = current.loadMap();
         collisionLayer = tiledMap.getLayerIndex("collision");
     }
+
+    public void setTiledMap(MapState current){ this.current = current;}
 
     public TiledMap getTiledMap(){
         return tiledMap;
     }
 
 
-    private void checkState(int mapState) throws SlickException {
-        if (mapState == 0) {
-            tiledMap = new TiledMap("data/maps/chalmershallplatsen.tmx");
+    private void checkState(MapState mapState) throws SlickException {
+        if (mapState == Karhuset.KARHUSET) {
+            tiledMap = mapState.loadMap();
         }
         else {
-            tiledMap = new TiledMap("data/maps/karhuset.tmx");
+            tiledMap = Chalmersplatsen.CHALMERSPLATSEN.loadMap();
         }
     }
-    private int newState(int oldState){
-        if (oldState == 1){
-            return 0;
+    private MapState newState(MapState oldState){
+        if (oldState == Karhuset.KARHUSET){
+            return Chalmersplatsen.CHALMERSPLATSEN;
         }
         else
-            return 1;
+            return Karhuset.KARHUSET;
     }
+
+    public void playerOutOfBounds(PlayerModel player) throws SlickException {
+        int state;
+        if (player.getPlayerLocation().y < 700){
+            state = 0;
+            current.nextState(this, player,state);
+            tiledMap = current.loadMap();
+        }
+    }
+
+
+
     public int getHeight(){
         return tiledMap.getHeight() * tiledMap.getTileHeight();
     }
