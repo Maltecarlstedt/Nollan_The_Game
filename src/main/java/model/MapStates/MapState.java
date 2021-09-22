@@ -1,6 +1,7 @@
 package model.MapStates;
 
 import model.MapModel;
+import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
@@ -16,6 +17,8 @@ public interface MapState {
      */
     void nextState(MapModel input, PlayerModel player, int state) throws SlickException;
 
+    TiledMap nextMap(Orientation orientation) throws SlickException;
+
     /**
      * Sets the position in this map.
      * @param player possible to change its location.
@@ -28,4 +31,6 @@ public interface MapState {
      * @throws SlickException throws an exception if the file for the TiledMap is not found.
      */
     TiledMap loadMap() throws SlickException;
+
+    MapState map();
 }

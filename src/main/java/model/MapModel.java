@@ -17,6 +17,7 @@ public class MapModel{
     private MapState mapState;
     private int collisionLayer;
     private Rectangle tile = new Rectangle(0,0,32,32);
+    private CollisionChecker collisionChecker;
 
     public MapModel() throws SlickException {
         initMap();
@@ -24,30 +25,40 @@ public class MapModel{
 
     public MapModel(CollisionChecker collisionChecker) throws SlickException {
         initMap();
+        this.collisionChecker = collisionChecker;
         collisionChecker.setCurrentMap(this);
     }
 
     private void initMap() throws SlickException {
-
         current = Karhuset.KARHUSET;
         tiledMap = current.loadMap();
-        collisionLayer = tiledMap.getLayerIndex("collision");
+        updateCollisionLayer();
     }
 
     public void setTiledMap(MapState current){ this.current = current;}
+
+    public void updateCollisionLayer(){
+        collisionLayer = tiledMap.getLayerIndex("collision");
+    }
 
     public TiledMap getTiledMap(){
         return tiledMap;
     }
 
 
-    public void checkState() throws SlickException {
-        if (mapState == Karhuset.KARHUSET) {
+    public void checkState(Orientation orientation) throws SlickException {
+        System.out.println(current.toString());
+        System.out.println(orientation);
+        tiledMap = current.nextMap(orientation);
+
+        /*if (mapState == Karhuset.KARHUSET) {
             tiledMap = mapState.loadMap();
         }
         else {
             tiledMap = Chalmersplatsen.CHALMERSPLATSEN.loadMap();
         }
+        updateCollisionLayer();
+        collisionChecker.setCurrentMap(this);*/
     }
     public MapState newState(){
         if (current == Karhuset.KARHUSET){
@@ -76,6 +87,10 @@ public class MapModel{
 
     public int getCollisionLayer() {
         return collisionLayer;
+    }
+
+    public void setTiledMap(TiledMap tiledMap) {
+        this.tiledMap = tiledMap;
     }
 
 }

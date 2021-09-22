@@ -1,7 +1,6 @@
 package model;
 
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
@@ -36,7 +35,6 @@ public class PlayerModel {
         //TODO: Gör en try catch här för att slippa throwa slickException i playerController
         orientation = Orientation.IDLE;
         initPlayer();
-
     }
 
     /**
@@ -93,12 +91,12 @@ public class PlayerModel {
      */
     public void move() {
         startAnimation();
-        setNewPlayerTile();
+        setNewPlayerTile(nextX(), nextY());
     }
 
 
-    public void setNewPlayerTile() {
-        playerLocation.setRect(newX(), newY(), width, height);
+    public void setNewPlayerTile(int x, int y) {
+        playerLocation.setRect(x, y, width, height);
     }
 
     /**
@@ -173,11 +171,11 @@ public class PlayerModel {
         return height;
     }
 
-    public int newX(){
+    public int nextX(){
         return playerLocation.x + orientation.deltaX;
     }
 
-    public int newY(){
+    public int nextY(){
         return playerLocation.y + orientation.deltaY;
     }
 

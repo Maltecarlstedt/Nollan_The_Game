@@ -34,16 +34,32 @@ public class PlayerController{
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_UP)) {
             if(collisionChecker.colliding(playerModel))
-                playerModel.moveUp();
+                if(collisionChecker.isNextUpOutside(playerModel)){
+                    collisionChecker.changeMap(playerModel);
+                }else {
+                    playerModel.moveUp();
+                }
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
             if(collisionChecker.colliding(playerModel))
-                playerModel.moveLeft();
+                if(collisionChecker.isNextLeftOutside(playerModel)){
+                    collisionChecker.changeMap(playerModel);
+                }else {
+                    playerModel.moveLeft();
+                }
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
             if(collisionChecker.colliding(playerModel))
-                playerModel.moveRight();
+                if(collisionChecker.isNextRightOutside(playerModel)){
+                    collisionChecker.changeMap(playerModel);
+                }else {
+                    playerModel.moveRight();
+                }
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
             if(collisionChecker.colliding(playerModel))
-                playerModel.moveDown();
+                if(collisionChecker.isNextDownOutside(playerModel)){
+                    collisionChecker.changeMap(playerModel);
+                }else {
+                    playerModel.moveDown();
+                }
         } else {
             playerModel.idlePlayer();
         }
