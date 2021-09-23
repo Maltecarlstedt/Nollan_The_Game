@@ -11,7 +11,7 @@ import view.PlayerView;
 
 import java.awt.*;
 
-public class PlayerController{
+public class PlayerController {
 
     PlayerModel playerModel;
     PlayerView playerView;
@@ -35,37 +35,38 @@ public class PlayerController{
         // TODO: Egen funk?
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_UP)) {
-            if(collisionChecker.isColliding(playerModel))
-                if(collisionChecker.isNextUpOutside(playerModel)){
+            if (collisionChecker.isColliding(playerModel)) {
+                if (collisionChecker.isNextUpOutside(playerModel)) {
                     collisionChecker.changeMap(playerModel);
-                }else {
+                } else {
                     playerModel.moveUp();
                 }
+            }
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
-            if(collisionChecker.isColliding(playerModel))
-                if(collisionChecker.isNextLeftOutside(playerModel)){
+            if (collisionChecker.isColliding(playerModel)) {
+                if (collisionChecker.isNextLeftOutside(playerModel)) {
                     collisionChecker.changeMap(playerModel);
-                }else {
+                } else {
                     playerModel.moveLeft();
                 }
+            }
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
-            if(collisionChecker.isColliding(playerModel))
-                if(collisionChecker.isNextRightOutside(playerModel)){
+            if (collisionChecker.isColliding(playerModel)) {
+                if (collisionChecker.isNextRightOutside(playerModel)) {
                     collisionChecker.changeMap(playerModel);
-                }else {
+                } else {
                     playerModel.moveRight();
                 }
-        } else if (input.isKeyDown(Input.KEY_DOWN)){
-            if(collisionChecker.isColliding(playerModel))
-                if(collisionChecker.isNextDownOutside(playerModel)){
+            }
+        } else if (input.isKeyDown(Input.KEY_DOWN)) {
+            if (collisionChecker.isColliding(playerModel)) {
+                if (collisionChecker.isNextDownOutside(playerModel)) {
                     collisionChecker.changeMap(playerModel);
-                }else {
+                } else {
                     playerModel.moveDown();
                 }
-        } else {
-            playerModel.idlePlayer();
-        }
-
+            }
+        }else
+                playerModel.idlePlayer();
     }
-
 }

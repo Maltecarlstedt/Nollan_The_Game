@@ -55,7 +55,6 @@ public class MapModel{
         return tiledMap;
     }
 
-
     public void checkState(Orientation orientation) throws SlickException {
         System.out.println(current.toString());
         System.out.println(orientation);

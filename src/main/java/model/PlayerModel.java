@@ -12,7 +12,7 @@ public class PlayerModel {
     private final int width = 64, height = 64;
     private Orientation orientation;
 
-    private Rectangle playerLocation = new Rectangle(512, 384, 512 + width, 384 + height);
+    private Rectangle playerLocation = new Rectangle(512, 384, width, height);
 
     public SpriteSheet MoveRight; // initate a SpriteSheet
     public Animation MoveRightAni; // initate an Animation

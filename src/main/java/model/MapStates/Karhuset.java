@@ -48,7 +48,7 @@ public enum Karhuset implements MapState{
         switch (orientation){
             case DOWN:
                 return Chalmersplatsen.CHALMERSPLATSEN.loadMap();
-                case UP:
+            case UP:
                 return Dammen.ADAMMEN.loadMap();
 
 

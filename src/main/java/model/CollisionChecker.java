@@ -10,7 +10,6 @@ import java.awt.geom.Line2D;
 public class CollisionChecker {
 
     private MapModel currentMap;
-    private Line2D intersectionLine;
 
     public CollisionChecker(){
     }
@@ -20,27 +19,16 @@ public class CollisionChecker {
         for(Rectangle ret : currentMap.getBlocks()) {
             //System.out.println(ret.intersects(playerModel.getPlayerLocation().getBounds()));
 
-            System.out.println("Map: " + ret.getBounds());
-            if(playerModel.getPlayerLocation().getBounds().intersects(ret.getBounds())) {
+            //System.out.println("Map: " + ret.getBounds());
+            if(!playerModel.getPlayerLocation().getBounds().intersects(ret.getBounds())) {
                 isInCollision = true;
             }
         }
-        System.out.println("player: " + playerModel.getPlayerLocation().getBounds());
+        //System.out.println("player: " + playerModel.getPlayerLocation().getBounds());
         return isInCollision;
     }
 
-    /*public boolean colliding(PlayerModel player) throws SlickException {
-        try {
-            return topLeft(player) && topRight(player)
-                    && bottomRight(player) && bottomLeft(player);
-        }catch(IndexOutOfBoundsException e){
-            System.out.println(e.getMessage());
-        }
-        return true;
 
-
-
-    }*/
 
 
     public boolean isNextRightOutside(PlayerModel player){
@@ -62,6 +50,20 @@ public class CollisionChecker {
 
     }
 
+    /* Should not be used
+
+    public boolean colliding(PlayerModel player) throws SlickException {
+        try {
+            return topLeft(player) && topRight(player)
+                    && bottomRight(player) && bottomLeft(player);
+        }catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+        return true;
+
+
+
+    }
     public boolean topLeft(PlayerModel player){
         return currentMap.getTiledMap().getTileId( player.nextX() / currentMap.getTiledMap().getTileWidth(),
                 player.nextY() / currentMap.getTiledMap().getTileHeight(), currentMap.getCollisionLayer()) == 0;
@@ -81,6 +83,8 @@ public class CollisionChecker {
         return currentMap.getTiledMap().getTileId( player.nextX() / currentMap.getTiledMap().getTileWidth(),
                 (player.nextY() + player.getHeight()) / currentMap.getTiledMap().getTileHeight(), currentMap.getCollisionLayer()) == 0;
     }
+
+     */
 
     public void setCurrentMap(MapModel currentMap) {
         this.currentMap = currentMap;
