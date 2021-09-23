@@ -2,17 +2,34 @@ package model;
 
 import model.MapStates.Chalmersplatsen;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.tests.xml.Entity;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 public class CollisionChecker {
 
     private MapModel currentMap;
+    private Line2D intersectionLine;
 
     public CollisionChecker(){
     }
 
-    public boolean colliding(PlayerModel player) throws SlickException {
+    public boolean isColliding(PlayerModel playerModel){
+        boolean isInCollision = false;
+        for(Rectangle ret : currentMap.getBlocks()) {
+            //System.out.println(ret.intersects(playerModel.getPlayerLocation().getBounds()));
+
+            System.out.println("Map: " + ret.getBounds());
+            if(playerModel.getPlayerLocation().getBounds().intersects(ret.getBounds())) {
+                isInCollision = true;
+            }
+        }
+        System.out.println("player: " + playerModel.getPlayerLocation().getBounds());
+        return isInCollision;
+    }
+
+    /*public boolean colliding(PlayerModel player) throws SlickException {
         try {
             return topLeft(player) && topRight(player)
                     && bottomRight(player) && bottomLeft(player);
@@ -23,7 +40,8 @@ public class CollisionChecker {
 
 
 
-    }
+    }*/
+
 
     public boolean isNextRightOutside(PlayerModel player){
         return (player.nextX() + player.getWidth() > currentMap.getWidth());

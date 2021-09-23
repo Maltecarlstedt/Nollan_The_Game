@@ -9,6 +9,8 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import view.PlayerView;
 
+import java.awt.*;
+
 public class PlayerController{
 
     PlayerModel playerModel;
@@ -33,28 +35,28 @@ public class PlayerController{
         // TODO: Egen funk?
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_UP)) {
-            if(collisionChecker.colliding(playerModel))
+            if(collisionChecker.isColliding(playerModel))
                 if(collisionChecker.isNextUpOutside(playerModel)){
                     collisionChecker.changeMap(playerModel);
                 }else {
                     playerModel.moveUp();
                 }
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
-            if(collisionChecker.colliding(playerModel))
+            if(collisionChecker.isColliding(playerModel))
                 if(collisionChecker.isNextLeftOutside(playerModel)){
                     collisionChecker.changeMap(playerModel);
                 }else {
                     playerModel.moveLeft();
                 }
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
-            if(collisionChecker.colliding(playerModel))
+            if(collisionChecker.isColliding(playerModel))
                 if(collisionChecker.isNextRightOutside(playerModel)){
                     collisionChecker.changeMap(playerModel);
                 }else {
                     playerModel.moveRight();
                 }
-        } else if (input.isKeyDown(Input.KEY_DOWN)) {
-            if(collisionChecker.colliding(playerModel))
+        } else if (input.isKeyDown(Input.KEY_DOWN)){
+            if(collisionChecker.isColliding(playerModel))
                 if(collisionChecker.isNextDownOutside(playerModel)){
                     collisionChecker.changeMap(playerModel);
                 }else {

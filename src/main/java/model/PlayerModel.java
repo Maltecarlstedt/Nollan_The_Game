@@ -5,13 +5,14 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 public class PlayerModel {
 
     private final int width = 64, height = 64;
     private Orientation orientation;
 
-    private Rectangle playerLocation = new Rectangle(512, 384, width, height);
+    private Rectangle playerLocation = new Rectangle(512, 384, 512 + width, 384 + height);
 
     public SpriteSheet MoveRight; // initate a SpriteSheet
     public Animation MoveRightAni; // initate an Animation
@@ -179,7 +180,7 @@ public class PlayerModel {
         return playerLocation.y + orientation.deltaY;
     }
 
-    public Rectangle getPlayerLocation() {
+    public Rectangle2D getPlayerLocation() {
         return playerLocation;
     }
 }
