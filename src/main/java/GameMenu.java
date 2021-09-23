@@ -5,8 +5,6 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
-import org.newdawn.slick.state.*;
-
 
 public class GameMenu extends BasicGameState {
 
@@ -15,18 +13,15 @@ public class GameMenu extends BasicGameState {
     Image background;
     Image nollan;
 
-    /*
-    public Menu(int state) {
-
-    }
-*/
-
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         nollan = new Image("data/maps/images/Nollan.png");
         background = new Image("data/maps/images/startscreen.png");
         startGame = new Image("data/maps/images/startaButton.png");
         exitGame = new Image("data/maps/images/avslutaButton.png");
+
+        AePlayWave aw = new AePlayWave( "data/music/Mycket Mera Scout - Webscout.wav" );
+        aw.start();
     }
 
     @Override
@@ -35,6 +30,7 @@ public class GameMenu extends BasicGameState {
         nollan.draw(1024/6,90, 2);
         startGame.drawCentered(1024/2,768/2);
         exitGame.drawCentered(1024/2,500);
+
 
     }
 
@@ -56,6 +52,7 @@ public class GameMenu extends BasicGameState {
                 System.exit(0);
             }
         }
+
     }
 
     @Override
