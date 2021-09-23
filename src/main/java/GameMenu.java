@@ -12,6 +12,8 @@ public class GameMenu extends BasicGameState {
 
     Image startGame;
     Image exitGame;
+    Image background;
+    Image nollan;
 
     /*
     public Menu(int state) {
@@ -21,12 +23,16 @@ public class GameMenu extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        startGame = new Image("data/maps/images/startaSpeletButton.png");
+        nollan = new Image("data/maps/images/Nollan.png");
+        background = new Image("data/maps/images/startscreen.png");
+        startGame = new Image("data/maps/images/startaButton.png");
         exitGame = new Image("data/maps/images/avslutaButton.png");
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        background.draw();
+        nollan.draw(1024/6,90, 2);
         startGame.drawCentered(1024/2,768/2);
         exitGame.drawCentered(1024/2,500);
 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="20" nextobjectid="1">
+ <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <tileset firstgid="2089" source="tsx-files/pool_cookout.tsx"/>
+ <tileset firstgid="2143" source="tsx-files/terrain2.tsx"/>
+ <tileset firstgid="3167" source="tsx-files/windows.tsx"/>
+ <layer id="1" name="base" width="32" height="24" locked="1">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3DAQ0AAAwCIF/L/sEMctjoJVVVVV8coO9++QAMAAA=
+  </data>
+ </layer>
+ <group id="3" name="sandladan" locked="1">
+  <layer id="2" name="sand" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3NsQ0AAAjDsPI6l3MDI8KWMicBAC7r2ufv7//3P5dC4AcADAAA
+  </data>
+  </layer>
+  <layer id="4" name="wood" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3N0QkAIAzE0KMLOHt1G6dT6ASVQhHyIN+RAADAq2nSum3lqv6PZNX/Lt1/t4g//5/+B072glUADAAA
+  </data>
+  </layer>
+  <layer id="5" name="grass" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3DQQkAAAgEsAP7lzSJGcSHnw2WAABXXbsAXwYMG+hBAAwAAA==
+  </data>
+  </layer>
+  <layer id="6" name="trees" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3MyQmAQBBE0YI2/xDUQNwCcQvE7ZvA6GFAkHrwaahDS2Zm9gdlSBXV8W7LreNnTwM11EZ6y23m50IrjTRFesvt4Od5/y2kjbvHw2Zm9pELS+1BogAMAAA=
+  </data>
+  </layer>
+  <layer id="7" name="bushes" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCoY+2M1Mvhg1wG2ouYYsDAxrWbCLgejbNLJ/FIyCUTAKiAUAG/SDyQAMAAA=
+  </data>
+  </layer>
+  <layer id="8" name="grillen" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3DsQkAMAgAMEefcfX/0xw8wlISSAQA8IPKfaVzA28bRH6hoAAMAAA=
+  </data>
+  </layer>
+ </group>
+ <group id="10" name="hubben" locked="1">
+  <layer id="11" name="hubbenbase" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgoB6o4oTg+UC8gEhMTTDS7YeBgbZ/P9DcA0TiUTAKRsEoGAWjYBSMglFAXwAAY2MjDwAMAAA=
+  </data>
+  </layer>
+  <layer id="12" name="windows" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3MsQ0AIAwDwQyQ+YEJgAmA8fAE6dLAn/SSK5u9qbhZVc3jnaXre6jp8c6y9L3V8XgDAADgLxfCYjPKAAwAAA==
+  </data>
+  </layer>
+ </group>
+ <group id="15" name="Hsalarna" locked="1">
+  <layer id="14" name="stone" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3NoQ0AAAgEMQyTsP+OTPCOoHrJ6U5XTfijZPP5fD6fz+fz+fz7Fho0/+8ADAAA
+  </data>
+  </layer>
+  <layer id="17" name="trees2" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3NwQ0AEBBE0UlW/yWgElSCSjCq2MPOS/75AyISWTagsGo+/8ZvZ8PpP/ldbDv9D7/3v5PPX0RE4nlR0opGAAwAAA==
+  </data>
+  </layer>
+  <layer id="13" name="HC" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAClvAycCwAIoXAjG9wYJR+wfU/gOcCHxwAOwfBSMbMHMhMAsX/e135kJglxFovzIXAqsMgP0NnAjcOALL31H7R+u/UTAKBgoAAPB04FwADAAA
+  </data>
+  </layer>
+  <layer id="19" name="windows" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACvPlZWDwheKBALG8CDwQwHeE+38UjIJRMApGKhjp5f9I9/8oGAUjGQAAwdGAqwAMAAA=
+  </data>
+  </layer>
+  <layer id="16" name="trees" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2VSwqAMAwFA/X+R1APotWD+DuIVp8ru4jbl0I6EJC6GAuDEdFZgsgafl4SOOG+DP1MWtyzw/RG943wTpg58w94Hknfs8GzY47Mx+wvwXO/ruY789RfiTD706j/P9/U/nj9lbj/mGj7j4m2/zz1r/XH7N+yvwfkB7anAAwAAA==
+  </data>
+  </layer>
+ </group>
+</map>

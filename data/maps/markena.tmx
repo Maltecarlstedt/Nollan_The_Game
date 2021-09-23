@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/dmarke160.tsx"/>
  <tileset firstgid="1050" source="tsx-files/itmarke160.tsx"/>
@@ -7,19 +7,22 @@
  <tileset firstgid="1100" source="tsx-files/kemimarke160.tsx"/>
  <tileset firstgid="1125" source="tsx-files/elektromarke160.tsx"/>
  <tileset firstgid="1150" source="tsx-files/sjomarke160.tsx"/>
+ <tileset firstgid="1175" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <tileset firstgid="2239" source="tsx-files/lamppost.tsx"/>
+ <tileset firstgid="2242" source="tsx-files/terrain2.tsx"/>
  <layer id="1" name="base" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3DAQkAAAwDoMH7l1uiBbmCvaSqquqLAwUTDaQADAAA
+   H4sIAAAAAAAACrvEzMBwaRSP4lE86PFvTggeSLupYT/MDGQzhxrGFi741NLCflqoHUgzh0p8juLhgwmVdbjUYCuT0dUi87GZScjs4VJ3DAb7RzF2DAACtocKAAwAAA==
   </data>
  </layer>
  <layer id="2" name="stone" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYOSCQGYGhiDmgaMLgbhoAOmJQDxpAOlRMApGwSgYKDBa/o+W/yMZAAAQDDqjAAwAAA==
+   H4sIAAAAAAAACmNgGAWjYOSCQGYGhiDmgaMLgbhoAOmJQDxpAOlRMApGwSgYKECPcj4YiH9zQnAgMwLTq/wvhtIg+wuZEZhe5f9kNP5E5tHyf7AAAMRly28ADAAA
   </data>
  </layer>
  <layer id="3" name="grass" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3DQQ0AIBADsKECKUg7KdhFxh60SSfJ6KdvOQA07NV9rH7pySnkAAwAAA==
+   H4sIAAAAAAAACu2Wuw3AMAhE7dITZBSPFjNJ1k2RREaI8ycUNJz0Gn/OB25oJaX2cqYHYmsjvvMcbW/Xh4C3Be4p39b2SGSz9oFKR+bS+j36g9X/QRm12ne8ZB2zfqz0y4vLmVAoFAqFPHRkX2ruc0HN/+CzheUuvy/X0JwmZyLkh95G3iifxijfrO4b7G1g6wAMAAA=
   </data>
  </layer>
  <layer id="4" name="dmarke" width="32" height="24">
@@ -34,22 +37,32 @@
  </layer>
  <layer id="6" name="hmarke" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3NtxGAMBAF0QvUEQgnvDf998NWcQT8nXnxmiml1DdlwSxHRIEy+P4rfjUaJLTO/45fjwEjJuf/zG/Big278//gd+LCjcf5r5RSf+0FJh35VQAMAAA=
+   H4sIAAAAAAAACu3NtxGAMBAF0QvUEQgnvDf998NWcQT8nXnxmimllFLflAWzHBEFyuD7r/jVaJDQOv87fj0GjJic/zO/BSs27M7/g9+JCzce579Sf+0FlEq7HgAMAAA=
   </data>
  </layer>
  <layer id="7" name="kmarke" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3NtxGAMBAF0QtUHggnvDf918BWcQT8nXnxmimllFLflwWzHBEFyuD7r/jVaJDQOv87fj0GjJic/zO/BSs27M7/g9+JCzce579Sf+oFkHK+ygAMAAA=
+   H4sIAAAAAAAACu3Rtw3AQBADwQu+PHn/8q7/GrRN6PABF5iYAc2UUiqdsmCWo0CJKvju1+w1aNGhd94f2BsxIWJ23l/YW7Fhx+G8f7J34caD13lfpZO+V+q/PpvYtFMADAAA
   </data>
  </layer>
  <layer id="8" name="emarke" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3Nxw2AMBAF0T24VTDJ5Bx6Z6pYIfRHeucxU0qpb5YFsxwRBcrg+6/41WiQ0Dr/O349BoyYnP8zvwUrNuzO/4PfiQs3Hue/Ukr9tRfKqBdtAAwAAA==
+   H4sIAAAAAAAACu3Nxw2AMBAF0T24VTDJ5Bx6Z6pYIfRHeucxU0oppb5ZFsxyRBQog++/4lejQULr/O/49RgwYnL+z/wWrNiwO/8Pficu3Hic/0r9tRcP6FBlAAwAAA==
   </data>
  </layer>
  <layer id="9" name="sjomarke" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3Nxw2AMBAF0T24bjDJ5BzqZapYCfRHeucxU0oppb5RFsxyRBQog++/4lejQULr/O/49RgwYnL+z/wWrNiwO/8Pficu3Hic/0r9pReUELBEAAwAAA==
+   H4sIAAAAAAAACu3Nxw2AMBAF0T24bjDJ5BzqZapYCfRHeucxU0qp75QFsxwRBcrg+6/41WiQ0Dr/O349BoyYnP8zvwUrNuzO/4PfiQs3Hue/Ukr9oRfgMvbtAAwAAA==
+  </data>
+ </layer>
+ <layer id="10" name="passage" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFtAC/ORF41P5R+weL/QDA52rAAAwAAA==
+  </data>
+ </layer>
+ <layer id="11" name="details" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYODBAZaB5Y+CUTAKRsEoGLlgPwdtxQmpOYBDH7XECak5iEMfIfGZjAwMs4B4NiNucQmonBiaGnIBstk7gXgXEO9mxC1uAbXXjBHTveQAZLNvAvEtIL7NiFsc2X5kNeQCZLOJEUe2H1kNAEND6FwADAAA
   </data>
  </layer>
 </map>
