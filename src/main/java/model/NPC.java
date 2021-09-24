@@ -1,40 +1,35 @@
 package model;
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class NPC {
-    private int width, height;
+abstract class NPC {
 
+    int width;
+    private int height;
     //state 1 elr 0, task complete eller inte, alternerar bild med/utan utroptecken
     private int state;
+   // private static Point location = new Point(300, 500);
     private Point location;
+    protected Rectangle NPCLocation;
 
     public SpriteSheet task;
     public SpriteSheet taskComplete;
     public Animation animation;
 
-    public NPC() {
-        width = 64;
-        height = 64;
-    }
 
-    public void spriteSetup() throws SlickException {
-        //task = new SpriteSheet("data/NPC/webersTASK36x40.png", 18, 40);
-        animation = new Animation();
-        animation.addFrame(task.getSubImage(0, 0), 200);
-        animation.addFrame(task.getSubImage(1, 0), 200);
+    abstract void spriteSetup() throws SlickException;
 
-    }
+    abstract void initNPC() throws SlickException;
 
-    public void NPCsetup() throws SlickException {
-        spriteSetup();
-    }
+    abstract void render(GameContainer gc, Graphics g);
 
-    public void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
-    }
+    abstract void setLocation(int x, int y);
+
+    abstract Point getLocation();
+
 }
