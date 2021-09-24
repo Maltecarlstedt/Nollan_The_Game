@@ -12,6 +12,7 @@ public class GameMenu extends BasicGameState {
     Image exitGame;
     Image background;
     Image nollan;
+    Image help;
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
@@ -19,9 +20,10 @@ public class GameMenu extends BasicGameState {
         background = new Image("data/maps/images/startscreen.png");
         startGame = new Image("data/maps/images/startaButton.png");
         exitGame = new Image("data/maps/images/avslutaButton.png");
+        help = new Image("data/maps/images/hjalpButton.png");
 
-        AePlayWave aw = new AePlayWave( "data/music/Mycket Mera Scout - Webscout.wav" );
-        aw.start();
+        //AePlayWave aw = new AePlayWave( "data/music/Mycket Mera Scout - Webscout.wav" );
+        //aw.start();
     }
 
     @Override
@@ -29,9 +31,8 @@ public class GameMenu extends BasicGameState {
         background.draw();
         nollan.draw(1024/6,90, 2);
         startGame.drawCentered(1024/2,768/2);
-        exitGame.drawCentered(1024/2,500);
-
-
+        exitGame.drawCentered(1024/2,616);
+        help.drawCentered(1024/2,500);
     }
 
     @Override
@@ -46,8 +47,15 @@ public class GameMenu extends BasicGameState {
             }
         }
 
-        // exit game button
+        // help button
         if ((posX > 243 && posX < 781) && (posY > 221 && posY < 315)) {
+            if (Mouse.isButtonDown(0)) {
+                sbg.enterState(5);
+            }
+        }
+
+        // exit game button
+        if ((posX > 243 && posX < 781) && (posY > 106 && posY < 194)) {
             if (Mouse.isButtonDown(0)) {
                 System.exit(0);
             }
