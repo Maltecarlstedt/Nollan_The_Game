@@ -1,7 +1,7 @@
 import controller.MapController;
 import controller.PlayerController;
 import model.MapModel;
-import model.NPC;
+import model.Webers;
 import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -16,7 +16,7 @@ public class MainGame extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-    private NPC npcTest;
+    private Webers npcTest;
 
     private MapModel mapModel;
     private MapView mapView;
@@ -34,7 +34,7 @@ public class MainGame extends BasicGameState {
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView);
 
-        npcTest = new NPC(128,64,0, 200, 700);
+        npcTest = new Webers(128,64,0, 200, 700);
 
         mapModel = new MapModel();
         mapView = new MapView();

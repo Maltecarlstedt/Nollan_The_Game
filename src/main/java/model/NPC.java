@@ -7,9 +7,9 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class NPC {
+abstract class NPC {
 
-    private int width;
+    int width;
     private int height;
     //state 1 elr 0, task complete eller inte, alternerar bild med/utan utroptecken
     private int state;
@@ -21,40 +21,15 @@ public class NPC {
     public SpriteSheet taskComplete;
     public Animation animation;
 
-    public NPC(int height, int width, int state, int y, int x) throws SlickException {
-        this.width = width;
-        this.height = height;
-        this.state = state;
-        location = new Point(x,y);
 
+    abstract void spriteSetup() throws SlickException;
 
-        //NPCLocation = new Rectangle(500, 380, width, height);
-        initNPC();
-    }
+    abstract void initNPC() throws SlickException;
 
-    public void spriteSetup() throws SlickException {
-        task = new SpriteSheet("data/NPC/webersTASK128x128_NOBLINK.png", 64, 128);
-        animation = new Animation();
-        animation.addFrame(task.getSubImage(0, 0), 200);
-        animation.addFrame(task.getSubImage(1, 0), 200);
+    abstract void render(GameContainer gc, Graphics g);
 
-    }
+    abstract void setLocation(int x, int y);
 
-    public void initNPC() throws SlickException {
-        spriteSetup();
-    }
-
-    public void render(GameContainer gc, Graphics g){
-        g.drawAnimation(animation, getLocation().x, getLocation().y);
-    }
-
-    public void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
-    }
-
-    public Point getLocation(){
-        return location;
-    }
+    abstract Point getLocation();
 
 }
