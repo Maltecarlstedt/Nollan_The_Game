@@ -1,4 +1,4 @@
-package model;
+import org.newdawn.slick.SlickException;
 
 public class NPCFactory {
 
@@ -6,13 +6,15 @@ public class NPCFactory {
 
     //TODO: villkorssatser för nya objektets plats, bild etc och jämföra
     // med de redan existerande objekten?
-    public NPC getNPC(String NPCType){
+    public NPC getNPC(String NPCType) throws SlickException {
         if(NPCType == null){
             return null;
         }
-        if(NPCType.equals("DNOLLK")){
-            //return new DNollK(villkor);
+        if(NPCType.equals("Webers")){
+            return new Webers();
         }
+
+
 
         return null;
     }

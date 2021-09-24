@@ -1,4 +1,3 @@
-package model;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -10,11 +9,13 @@ import java.awt.*;
 abstract class NPC {
 
     int width;
-    private int height;
+    int height;
+
     //state 1 elr 0, task complete eller inte, alternerar bild med/utan utroptecken
-    private int state;
+    int state;
+
    // private static Point location = new Point(300, 500);
-    private Point location;
+    Point location;
     protected Rectangle NPCLocation;
 
     public SpriteSheet task;
