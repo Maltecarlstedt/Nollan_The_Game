@@ -106,8 +106,8 @@ public class PlayerModel {
      * (I.E it will stand still in state UP)
      */
     public void moveUp() {
-        orientation = Orientation.UP;
         move();
+        orientation = Orientation.UP;
         currentAnimation = MoveUpAni;
     }
 
@@ -115,8 +115,8 @@ public class PlayerModel {
      * Moves the character to the left, changes state so that if the player is IDLE, the player will use the right IDLE state
      */
     public void moveLeft() {
-        orientation = Orientation.LEFT;
         move();
+        orientation = Orientation.LEFT;
         currentAnimation = MoveLeftAni;
     }
 
@@ -124,8 +124,8 @@ public class PlayerModel {
      * Moves the character to the right, changes state so that if the player is IDLE, the player will use the right IDLE state
      */
     public void moveRight() {
-        orientation = Orientation.RIGHT;
         move();
+        orientation = Orientation.RIGHT;
         currentAnimation = MoveRightAni;
     }
 
@@ -133,8 +133,8 @@ public class PlayerModel {
      * Moves the character down, changes state so that if the player is IDLE, the player will use the right IDLE state
      */
     public void moveDown() {
-        orientation = Orientation.DOWN;
         move();
+        orientation = Orientation.DOWN;
         currentAnimation = MoveDownAni;
     }
 
@@ -146,6 +146,8 @@ public class PlayerModel {
     public void idlePlayer() {
         currentAnimation.stop();
         currentAnimation.setCurrentFrame(1);
+
+        orientation = Orientation.IDLE;
     }
 
     /**
@@ -182,6 +184,4 @@ public class PlayerModel {
     public Rectangle getPlayerLocation() {
         return playerLocation;
     }
-
-
 }
