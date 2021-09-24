@@ -35,7 +35,7 @@ public class PlayerController {
         // TODO: Egen funk?
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_UP)) {
-            if (collisionChecker.isColliding(playerModel)) {
+            if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextUpOutside(playerModel)) {
                     collisionChecker.changeMap(playerModel);
                 } else {
@@ -43,7 +43,7 @@ public class PlayerController {
                 }
             }
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
-            if (collisionChecker.isColliding(playerModel)) {
+            if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextLeftOutside(playerModel)) {
                     collisionChecker.changeMap(playerModel);
                 } else {
@@ -51,7 +51,7 @@ public class PlayerController {
                 }
             }
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
-            if (collisionChecker.isColliding(playerModel)) {
+            if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextRightOutside(playerModel)) {
                     collisionChecker.changeMap(playerModel);
                 } else {
@@ -59,7 +59,7 @@ public class PlayerController {
                 }
             }
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
-            if (collisionChecker.isColliding(playerModel)) {
+            if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextDownOutside(playerModel)) {
                     collisionChecker.changeMap(playerModel);
                 } else {

@@ -16,7 +16,6 @@ public class main {
             app.setShowFPS(false);
             app.setDisplayMode(canvasWidth,canvasHeight,false);
             app.start();
-
         } catch (SlickException e) {
             e.printStackTrace();
         }

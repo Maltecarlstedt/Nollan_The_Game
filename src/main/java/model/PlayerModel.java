@@ -180,6 +180,10 @@ public class PlayerModel {
         return playerLocation.y + orientation.deltaY;
     }
 
+    public Rectangle getNextLocation(){
+        return new Rectangle(nextX(), nextY(), width, height);
+    }
+
     public Rectangle2D getPlayerLocation() {
         return playerLocation;
     }

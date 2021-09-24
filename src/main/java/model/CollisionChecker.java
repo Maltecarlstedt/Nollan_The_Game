@@ -1,11 +1,8 @@
 package model;
 
-import model.MapStates.Chalmersplatsen;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.tests.xml.Entity;
 
 import java.awt.*;
-import java.awt.geom.Line2D;
 
 public class CollisionChecker {
 
@@ -17,14 +14,11 @@ public class CollisionChecker {
     public boolean isColliding(PlayerModel playerModel){
         boolean isInCollision = false;
         for(Rectangle ret : currentMap.getBlocks()) {
-            //System.out.println(ret.intersects(playerModel.getPlayerLocation().getBounds()));
-
-            //System.out.println("Map: " + ret.getBounds());
-            if(!playerModel.getPlayerLocation().getBounds().intersects(ret.getBounds())) {
+            if(playerModel.getNextLocation().intersects(ret)) {
                 isInCollision = true;
             }
         }
-        //System.out.println("player: " + playerModel.getPlayerLocation().getBounds());
+
         return isInCollision;
     }
 
@@ -51,7 +45,6 @@ public class CollisionChecker {
     }
 
     /* Should not be used
-
     public boolean colliding(PlayerModel player) throws SlickException {
         try {
             return topLeft(player) && topRight(player)
@@ -83,8 +76,7 @@ public class CollisionChecker {
         return currentMap.getTiledMap().getTileId( player.nextX() / currentMap.getTiledMap().getTileWidth(),
                 (player.nextY() + player.getHeight()) / currentMap.getTiledMap().getTileHeight(), currentMap.getCollisionLayer()) == 0;
     }
-
-     */
+    */
 
     public void setCurrentMap(MapModel currentMap) {
         this.currentMap = currentMap;
