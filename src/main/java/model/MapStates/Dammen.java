@@ -9,16 +9,17 @@ import org.newdawn.slick.tiled.TiledMap;
 public enum Dammen implements MapState{
     ADAMMEN;
 
-
     private String dPath = "data/maps/aDammen.tmx";
 
     @Override
-    public void nextState(MapModel input, PlayerModel player, int state) throws SlickException {
-
-    }
-
-    @Override
     public TiledMap nextMap(Orientation orientation) throws SlickException {
+        switch (orientation){
+            case DOWN:
+                return Karhuset.KARHUSET.loadMap();
+            case UP:
+                return Rannan.RANNAN.loadMap();
+
+        }
         return null;
     }
 

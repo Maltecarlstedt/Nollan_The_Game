@@ -1,18 +1,27 @@
 package model.MapStates;
 
-import model.MapModel;
 import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
+public enum Rannan implements MapState{
+    RANNAN;
 
-/**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map Kårhuset.
- */
-public enum Karhuset implements MapState{
-    KARHUSET;
+    private String dPath = "data/maps/rannan.tmx";
+
+    @Override
+    public TiledMap nextMap(Orientation orientation) throws SlickException {
+        switch (orientation){
+            case DOWN:
+                return Dammen.ADAMMEN.loadMap();
+            case UP:
+                return DeltaP.DELTAP.loadMap();
+            case LEFT:
+                return Ekak.EKAK.loadMap();
+        }
+        return null;
+    }
 
     @Override
     public void setPosition(PlayerModel player) {
@@ -20,22 +29,8 @@ public enum Karhuset implements MapState{
     }
 
     @Override
-    public TiledMap nextMap(Orientation orientation) throws SlickException {
-
-        switch (orientation){
-            case DOWN:
-                return Chalmersplatsen.CHALMERSPLATSEN.loadMap();
-            case UP:
-                return Dammen.ADAMMEN.loadMap();
-            case LEFT:
-                return Markena.MARKENA.loadMap();
-        }
-        return null;
-    }
-
-    @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap("data/maps/karhuset.tmx");
+        return new TiledMap(dPath);
     }
 
     @Override

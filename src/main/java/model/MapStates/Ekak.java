@@ -1,24 +1,21 @@
 package model.MapStates;
 
-import model.MapModel;
 import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
-/**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map Chalmershållplatsen.
- */
-public enum Chalmersplatsen implements MapState {
-    CHALMERSPLATSEN;
+public enum Ekak implements MapState{
+    EKAK;
 
-    private String dPath = "data/maps/chalmershallplatsen.tmx";
+    private String dPath = "data/maps/ekak.tmx";
 
-    public TiledMap nextMap(Orientation orientation) throws SlickException{
+    @Override
+    public TiledMap nextMap(Orientation orientation) throws SlickException {
         switch (orientation){
-            case UP:
-                return Karhuset.KARHUSET.loadMap();
+            case RIGHT:
+                return Rannan.RANNAN.loadMap();
+
         }
         return null;
     }
@@ -38,4 +35,3 @@ public enum Chalmersplatsen implements MapState {
         return this;
     }
 }
-

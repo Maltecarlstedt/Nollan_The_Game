@@ -61,32 +61,6 @@ public class MapModel{
         tiledMap = current.nextMap(orientation);
         updateCollisionLayer();
         tileSetup();
-
-        /*if (mapState == Karhuset.KARHUSET) {
-            tiledMap = mapState.loadMap();
-        }
-        else {
-            tiledMap = Chalmersplatsen.CHALMERSPLATSEN.loadMap();
-        }
-        updateCollisionLayer();
-        collisionChecker.setCurrentMap(this);*/
-    }
-
-    public MapState newState(){
-        if (current == Karhuset.KARHUSET){
-            return Chalmersplatsen.CHALMERSPLATSEN;
-        }
-        else
-            return Karhuset.KARHUSET;
-    }
-
-    public void playerOutOfBounds(PlayerModel player) throws SlickException {
-        int state;
-        if (player.getPlayerLocation().getY() < 700){
-            state = 0;
-            current.nextState(this, player,state);
-            tiledMap = current.loadMap();
-        }
     }
 
     private void tileSetup(){
