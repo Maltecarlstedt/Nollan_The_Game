@@ -7,11 +7,15 @@ import org.newdawn.slick.Graphics;
 public class BeerChuggingView {
 
 
-
     public void render(GameContainer gc, Graphics g, BeerChuggingModel chugModel){
-
-        g.drawImage(chugModel.scaledInidcatorImage, chugModel.getLocation().x, chugModel.getLocation().y);
-
+        g.drawImage(chugModel.inidcatorImage, chugModel.getIndicatorLocation().x, chugModel.getIndicatorLocation().y);
+        g.drawImage(chugModel.greenThingy, chugModel.getGreenThingyLocation().x, chugModel.getGreenThingyLocation().y);
+        g.drawImage(chugModel.jumpingBeer, chugModel.getJumpingBeerLocationX(), chugModel.getJumpingBeerLocationY());
+        g.drawImage(chugModel.currentChugAnimation, 1024/2, 720/2);
+        g.setFont(chugModel.trueTypePixelFont);
+        g.drawImage(chugModel.timerBox,820, 40 );
+        // TODO: Fixa så att den alltid är centrerad.
+        g.drawString(String.valueOf(chugModel.timePassed), 835,55);
 
 
     }
