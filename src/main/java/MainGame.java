@@ -20,6 +20,7 @@ public class MainGame extends BasicGameState {
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
+    private Webers webers;
 
     private CollisionChecker collisionChecker;
 

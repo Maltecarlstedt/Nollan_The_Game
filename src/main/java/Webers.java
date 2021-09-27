@@ -27,6 +27,8 @@ public class Webers extends NPC {
         animation.addFrame(task.getSubImage(1, 0), 200);
 
     }
+
+    //onödig?
     @Override
     public void initNPC() throws SlickException {
         spriteSetup();
