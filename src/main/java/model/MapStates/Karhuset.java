@@ -3,6 +3,7 @@ package model.MapStates;
 import model.MapModel;
 import model.Orientation;
 import model.PlayerModel;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 

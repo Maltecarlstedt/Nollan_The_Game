@@ -5,6 +5,8 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class GameMenu extends BasicGameState {
 
@@ -43,14 +45,14 @@ public class GameMenu extends BasicGameState {
         // start game button
         if ((posX > 243 && posX < 781) && (posY > 337 && posY < 431)) {
             if (Mouse.isButtonDown(0)) {
-                sbg.enterState(1);
+                sbg.enterState(1, new FadeOutTransition(), new FadeInTransition());
             }
         }
 
         // help button
         if ((posX > 243 && posX < 781) && (posY > 221 && posY < 315)) {
             if (Mouse.isButtonDown(0)) {
-                sbg.enterState(5);
+                sbg.enterState(5, new FadeOutTransition(), new FadeInTransition());
             }
         }
 

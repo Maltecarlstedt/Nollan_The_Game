@@ -5,6 +5,8 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class HelpViewMenu extends BasicGameState {
 
@@ -37,7 +39,7 @@ public class HelpViewMenu extends BasicGameState {
         // back to the menu button
         if ((posX > 243 && posX < 781) && (posY > 106 && posY < 194)) {
             if (Mouse.isButtonDown(0)) {
-                sbg.enterState(1);
+                sbg.enterState(1, new FadeOutTransition(), new FadeInTransition());
             }
         }
     }
