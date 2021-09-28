@@ -1,7 +1,12 @@
 package model;
 
+import controller.MapController;
 import model.MapStates.Chalmersplatsen;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 import model.MapStates.Karhuset;
 import model.MapStates.MapState;
@@ -16,7 +21,6 @@ public class MapModel{
     private MapState current;
     private final int tileWidth = 32, tileHeight = 32;
     private TiledMap tiledMap;
-    private MapState mapState;
     private int collisionLayer;
     private Rectangle tile = new Rectangle(0,0,tileWidth,tileHeight);
     private CollisionChecker collisionChecker;
@@ -46,7 +50,6 @@ public class MapModel{
     public void setTiledMap(MapState current){ this.current = current;}
 
     public void updateCollisionLayer(){
-
         collisionLayer = tiledMap.getLayerIndex("collision");
 
     }
@@ -70,7 +73,7 @@ public class MapModel{
 
         int x = 0;
 
-        System.out.println(tiledMap.getHeight());
+       // System.out.println(tiledMap.getHeight());
 
         // Loop through the Tiles and read their Properties
 
@@ -86,7 +89,7 @@ public class MapModel{
                 // Read a Tile
                 int tileID = tiledMap.getTileId(i, j, collisionLayer);
 
-                System.out.println(tileID);
+               // System.out.println(tileID);
 
                 // Get the value of the Property named "blocked"
                 if(tileID != 0){
@@ -100,7 +103,7 @@ public class MapModel{
                 // If the value of the Property is "true"...
                 if(value.equals("true")) {
 
-                    System.out.println(x++);
+                   // System.out.println(x++);
 
                     // We set that index of the TileMap as blocked
                     blocked[i][j] = true;
@@ -114,7 +117,7 @@ public class MapModel{
             }
         }
         for(Rectangle block : blocks){
-            System.out.println(block.x + ", " + block.y);
+           // System.out.println(block.x + ", " + block.y);
         }
     }
 

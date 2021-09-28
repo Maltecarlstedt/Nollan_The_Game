@@ -51,8 +51,8 @@ public class MainGame extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {
-        playerController.update(gc,delta);
-        mapController.update(gc, delta);
+        playerController.update(gc,stateBasedGame, delta);
+        mapController.update(gc, stateBasedGame, delta);
     }
 
     @Override

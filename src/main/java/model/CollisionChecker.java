@@ -1,5 +1,6 @@
 package model;
 
+import org.lwjgl.Sys;
 import org.newdawn.slick.SlickException;
 
 import java.awt.*;
@@ -39,9 +40,9 @@ public class CollisionChecker {
     }
 
     public void changeMap(PlayerModel player) throws SlickException {
+
         currentMap.checkState(player.getOrientation());
         player.setNewPlayerTile(200, 200);
-
     }
 
     /* Should not be used
