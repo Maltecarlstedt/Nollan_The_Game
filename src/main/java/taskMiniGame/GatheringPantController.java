@@ -2,16 +2,12 @@ package taskMiniGame;
 
 import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
-import static java.util.concurrent.TimeUnit.SECONDS;
-import java.util.concurrent.*;
+
 
 public class GatheringPantController implements ActionListener{
 
@@ -43,7 +39,7 @@ public class GatheringPantController implements ActionListener{
     int delay = 1000; // in milli-seconds
 
 
-    Random random;
+    Random random = new Random();
     Boolean isRunning = false;
 
     // Constructor
@@ -54,10 +50,11 @@ public class GatheringPantController implements ActionListener{
 
     public void update(GameContainer gc, int delta) throws SlickException{
         pantTimer(delta);
-        random = new Random();
         newPant();
         isRunning = true;
         startTimer(3);
+        pantOnScreen();
+
     }
 
     // Create new pant on the screen to collect
