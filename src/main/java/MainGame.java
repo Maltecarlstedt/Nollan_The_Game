@@ -40,8 +40,6 @@ public class MainGame extends BasicGameState {
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
 
-
-
     }
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {

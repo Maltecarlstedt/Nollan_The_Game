@@ -1,8 +1,8 @@
 package taskMiniGame;
 
-import javafx.scene.image.Image;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 
 import java.util.ArrayList;
 
@@ -13,9 +13,16 @@ public class GatheringPantView {
      */
 
     GatheringPantModel pantModel;
+    GatheringPantController pantController;
+
+
 
     public void render (GameContainer gc, Graphics g, GatheringPantModel pantModel) {
-        //g.drawImage(pantModel.initPant());
+        for(Pant pant : pantModel.getPants()){
+            g.drawImage(pant.getImage(), pant.getPantLocation().getX(), pant.getPantLocation().getY());
+            //System.out.println(pant.getHeight());
+        }
+
     }
 
 }

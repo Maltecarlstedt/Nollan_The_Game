@@ -1,12 +1,9 @@
 package taskMiniGame;
 
 
-import javafx.scene.image.Image;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class GatheringPantModel {
@@ -20,16 +17,14 @@ public class GatheringPantModel {
 
     public float pantTimePassed;
 
-    ArrayList<Image> pants = new ArrayList<>(5);
+    ArrayList<Pant> pants = new ArrayList<>();
 
-    public void initPant() {
-        for (int i = 0; i < pants.size(); i++) {
-            pants.add(new Image("data/maps/images/pripps_pant.png"));
-        }
+
+    public ArrayList<Pant> getPants() {
+        return pants;
     }
 
-    public GatheringPantModel() throws SlickException {
-
+    public void addPant() throws SlickException {
+        pants.add(new Pant());
     }
-
 }
