@@ -1,4 +1,4 @@
-package model;
+import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -9,12 +9,16 @@ import java.awt.*;
 
 abstract class NPC {
 
+    boolean isShowing;
     int width;
-    private int height;
+    int height;
+
     //state 1 elr 0, task complete eller inte, alternerar bild med/utan utroptecken
-    private int state;
+    int state;
+    MapState current;
+
    // private static Point location = new Point(300, 500);
-    private Point location;
+    Point location;
     protected Rectangle NPCLocation;
 
     public SpriteSheet task;
@@ -31,5 +35,7 @@ abstract class NPC {
     abstract void setLocation(int x, int y);
 
     abstract Point getLocation();
+
+    abstract void setShowing(boolean isItShowing);
 
 }

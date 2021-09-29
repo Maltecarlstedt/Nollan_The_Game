@@ -1,5 +1,4 @@
-package model;
-
+import model.MapStates.Karhuset;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -8,30 +7,22 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class Webers extends NPC{
-    private int width;
-    private int height;
-    //state 1 elr 0, task complete eller inte, alternerar bild med/utan utroptecken
-    private int state;
-    // private static Point location = new Point(300, 500);
-    private Point location;
-    protected Rectangle NPCLocation;
+public class Webers extends NPC {
 
-    public SpriteSheet task;
-    public SpriteSheet taskComplete;
-    public Animation animation;
+    //TODO: Gör till singleton
 
-    public Webers(int height, int width, int state, int y, int x) throws SlickException {
-        this.width = width;
-        this.height = height;
-        this.state = state;
-        location = new Point(x,y);
-
-
+    public Webers() throws SlickException {
+        width = 64;
+        height = 128;
+        state = 0;
+        //isShowing = true;
+        current = Karhuset.KARHUSET;
+        location = new Point(700, 200);
         //NPCLocation = new Rectangle(500, 380, width, height);
         initNPC();
     }
 
+    @Override
     public void spriteSetup() throws SlickException {
         task = new SpriteSheet("data/NPC/webersTASK128x128_NOBLINK.png", 64, 128);
         animation = new Animation();
@@ -40,21 +31,34 @@ public class Webers extends NPC{
 
     }
 
+    //onödig?
+    @Override
     public void initNPC() throws SlickException {
-        spriteSetup();
+            spriteSetup();
     }
 
+
+    @Override
     public void render(GameContainer gc, Graphics g){
-        g.drawAnimation(animation, getLocation().x, getLocation().y);
+        if(isShowing) {
+            g.drawAnimation(animation, getLocation().x, getLocation().y);
+        }
     }
 
+    @Override
     public void setLocation(int x, int y) {
         location.x = x;
         location.y = y;
     }
 
+    @Override
     public Point getLocation(){
         return location;
+    }
+
+    @Override
+    public void setShowing(boolean isItShowing){
+        isShowing = isItShowing;
     }
 
 }
