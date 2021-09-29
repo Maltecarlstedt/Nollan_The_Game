@@ -1,8 +1,12 @@
-package taskMiniGame;
+package Tasks.taskController;
 
+import Tasks.taskModel.Pant;
 import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
+import Tasks.taskModel.GatheringPantModel;
+import Tasks.taskView.GatheringPantView;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +19,7 @@ public class GatheringPantController implements ActionListener{
      *          - coordinates of the pripps and the user
      */
 
-    PlayerModel playerModel;
+    public PlayerModel playerModel;
 
     private GatheringPantModel pantModel;
     private GatheringPantView pantView;
@@ -57,7 +61,7 @@ public class GatheringPantController implements ActionListener{
     // Check if player and pant is at the same coordinates, then gather a score and that pant should disappear
     public void checkPant() throws SlickException {
         for(Pant pant : pantModel.getPants()) {
-            if ((playerModel.getPlayerLocation().x == burk.getPantLocation().getX()) && (playerModel.getPlayerLocation().y == burk.getPantLocation().getY())) {
+            if ((playerModel.getPlayerLocation().getX() == burk.getPantLocation().getX()) && (playerModel.getPlayerLocation().getY() == burk.getPantLocation().getY())) {
                 pantGathered++;
                 if (totalPantOnScreen >= 0) {
                     totalPantOnScreen--;

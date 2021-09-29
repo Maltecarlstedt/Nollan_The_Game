@@ -1,7 +1,7 @@
-package taskMiniGame;
+package Tasks.taskModel;
 
 
-import org.newdawn.slick.Image;
+import Tasks.taskModel.Pant;
 import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;

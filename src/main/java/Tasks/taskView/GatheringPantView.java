@@ -1,10 +1,10 @@
-package taskMiniGame;
+package Tasks.taskView;
 
+import Tasks.taskController.GatheringPantController;
+import Tasks.taskModel.GatheringPantModel;
+import Tasks.taskModel.Pant;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-
-import java.util.ArrayList;
 
 public class GatheringPantView {
 

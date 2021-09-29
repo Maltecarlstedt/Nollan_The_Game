@@ -1,4 +1,4 @@
-package taskMiniGame;
+package Tasks.taskModel;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
