@@ -140,4 +140,11 @@ public class MapModel{
     public ArrayList<Rectangle> getBlocks() {
         return blocks;
     }
+
+    public MapState getCurrentMap(){
+        return current;
+    }
+
+
+
 }

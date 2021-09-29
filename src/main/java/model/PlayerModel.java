@@ -28,6 +28,8 @@ public class PlayerModel {
 
     public Animation currentAnimation;
 
+
+
     /**
      * Creates an idle, basic player in the center of our window
      */
@@ -47,12 +49,12 @@ public class PlayerModel {
         MoveRightAni = new Animation();
         MoveUpAni = new Animation();
 
+
         for(int i = 0; i <= 3; i++){
             MoveDownAni.addFrame(MoveDown.getSubImage(i, 0), 200);
             MoveRightAni.addFrame(MoveRight.getSubImage(i, 0), 200);
             MoveLeftAni.addFrame(MoveLeft.getSubImage(i, 0), 200);
             MoveUpAni.addFrame(MoveUp.getSubImage(i, 0), 200);
-
         }
     }
 
@@ -83,7 +85,6 @@ public class PlayerModel {
         if(currentAnimation.isStopped()){
             currentAnimation.start();
         }
-
     }
 
     /**
@@ -98,6 +99,7 @@ public class PlayerModel {
 
     public void setNewPlayerTile(int x, int y) {
         playerLocation.setRect(x, y, width, height);
+
     }
 
     /**
