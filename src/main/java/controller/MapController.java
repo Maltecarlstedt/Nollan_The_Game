@@ -20,13 +20,7 @@ public class MapController {
         this.mapView = mapView;
     }
 
-    public void update(GameContainer gc, StateBasedGame sbg, int delta){
-        /*
-        if (mapModel.mapChanged()){
-            sbg.enterState(0, new FadeOutTransition(), new FadeInTransition());
-        }
-
-         */
+    public void update(GameContainer gc, int delta){
 
     }
 
