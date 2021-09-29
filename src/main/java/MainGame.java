@@ -9,18 +9,21 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import view.PlayerView;
 
+import java.util.ArrayList;
+
 public class MainGame extends BasicGameState {
 
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-   // private Webers npcTest;
-    private NPCFactory factory ;
+    // private Webers npcTest;
+    private NPCFactory factory;
+    public ArrayList<NPC> NPCs;
 
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
-    private Webers webers;
+    private NPC webers;
 
     private CollisionChecker collisionChecker;
 
@@ -37,32 +40,50 @@ public class MainGame extends BasicGameState {
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
 
-        factory.getNPC("Webers");
+        NPCs = new ArrayList<>();
+        webers = factory.getNPC("Webers");
+        NPCs.add(webers);
+
 
         mapModel = new MapModel(collisionChecker);
 
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
 
-
-
     }
+
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         mapView.render(gc, g, mapModel);
         playerView.render(gc, g, playerModel);
-
-        //Funkar inte pga renderfunktionen
-        factory.getNPC("Webers").render(gc, g);
+        for(NPC npc: NPCs)
+            npc.render(gc, g);
     }
+
     @Override
     public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {
-        playerController.update(gc,delta);
+        playerController.update(gc, delta);
         mapController.update(gc, delta);
+        showNPC();
+
     }
 
     @Override
     public int getID() {
         return 1;
     }
+
+    //funkar kanske?
+    public void showNPC() {
+        for (NPC npc : NPCs) {
+            if (npc.current.equals(mapModel.getCurrentMap())) {
+                npc.setShowing(true);
+            }
+            if ((npc.current != mapModel.getCurrentMap())) {
+                npc.setShowing(false);
+            }
+
+        }
+    }
 }
+

@@ -78,4 +78,9 @@ public class MapModel{
         return collisionLayer;
     }
 
+    public MapState getCurrentMap(){
+        return current;
+    }
+
+
 }

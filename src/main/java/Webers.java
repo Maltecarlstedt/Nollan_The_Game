@@ -1,3 +1,4 @@
+import model.MapStates.Karhuset;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -14,6 +15,8 @@ public class Webers extends NPC {
         width = 64;
         height = 128;
         state = 0;
+        //isShowing = true;
+        current = Karhuset.KARHUSET;
         location = new Point(700, 200);
         //NPCLocation = new Rectangle(500, 380, width, height);
         initNPC();
@@ -31,12 +34,15 @@ public class Webers extends NPC {
     //onödig?
     @Override
     public void initNPC() throws SlickException {
-        spriteSetup();
+            spriteSetup();
     }
+
 
     @Override
     public void render(GameContainer gc, Graphics g){
-        g.drawAnimation(animation, getLocation().x, getLocation().y);
+        if(isShowing) {
+            g.drawAnimation(animation, getLocation().x, getLocation().y);
+        }
     }
 
     @Override
@@ -48,6 +54,11 @@ public class Webers extends NPC {
     @Override
     public Point getLocation(){
         return location;
+    }
+
+    @Override
+    public void setShowing(boolean isItShowing){
+        isShowing = isItShowing;
     }
 
 }
