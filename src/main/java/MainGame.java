@@ -1,3 +1,6 @@
+import Tasks.taskController.BeerChuggingController;
+import Tasks.taskModel.BeerChuggingModel;
+import Tasks.taskView.BeerChuggingView;
 import controller.MapController;
 import controller.PlayerController;
 import model.CollisionChecker;
@@ -22,6 +25,9 @@ public class MainGame extends BasicGameState {
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
+    
+    private  StateSetup stateSetup;
+
 
     private CollisionChecker collisionChecker;
 
@@ -44,7 +50,6 @@ public class MainGame extends BasicGameState {
 
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
-
 
 
     }
