@@ -19,7 +19,6 @@ public class main {
             app.setAlwaysRender(true);
             app.setDisplayMode(canvasWidth,canvasHeight,false);
             app.start();
-
         } catch (SlickException e) {
             e.printStackTrace();
         }

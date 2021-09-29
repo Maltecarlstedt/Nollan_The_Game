@@ -1,11 +1,11 @@
 package model;
 
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 public class PlayerModel {
 
@@ -93,11 +93,13 @@ public class PlayerModel {
      */
     public void move() {
         startAnimation();
-        setNewPlayerTile();
+        setNewPlayerTile(nextX(), nextY());
     }
 
-    public void setNewPlayerTile() {
-        playerLocation.setRect(newX(), newY(), width, height);
+
+    public void setNewPlayerTile(int x, int y) {
+        playerLocation.setRect(x, y, width, height);
+
     }
 
     /**
@@ -172,15 +174,19 @@ public class PlayerModel {
         return height;
     }
 
-    public int newX(){
+    public int nextX(){
         return playerLocation.x + orientation.deltaX;
     }
 
-    public int newY(){
+    public int nextY(){
         return playerLocation.y + orientation.deltaY;
     }
 
-    public Rectangle getPlayerLocation() {
+    public Rectangle getNextLocation(){
+        return new Rectangle(nextX(), nextY(), width, height);
+    }
+
+    public Rectangle2D getPlayerLocation() {
         return playerLocation;
     }
 }

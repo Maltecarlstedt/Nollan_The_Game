@@ -19,37 +19,27 @@ public enum Karhuset implements MapState{
 
     }
 
-
     @Override
-    public void nextState(MapModel input, PlayerModel player, int state) throws SlickException {
-        switch (state){
-            case (0):
-                input.setTiledMap(Chalmersplatsen.CHALMERSPLATSEN);
-                break;
-            case (1):
-                input.setTiledMap(Karhuset.KARHUSET);
-                break;
-        }
+    public TiledMap nextMap(Orientation orientation) throws SlickException {
 
-        /*
-        switch (input.getPOrientation(player)) {
-            case LEFT:
-                input.setTiledMap(Karhuset.KARHUSET);
-                player.setLocation(650,650);
-                break;
+        switch (orientation){
             case DOWN:
-                input.setTiledMap(Chalmersplatsen.CHALMERSPLATSEN);
-                player.setLocation(200,75);
-                break;
+                return Chalmersplatsen.CHALMERSPLATSEN.loadMap();
+            case UP:
+                return Dammen.ADAMMEN.loadMap();
+            case LEFT:
+                return Markena.MARKENA.loadMap();
         }
-
-         */
-
-
+        return null;
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
         return new TiledMap("data/maps/karhuset.tmx");
+    }
+
+    @Override
+    public MapState map(){
+        return this;
     }
 }
