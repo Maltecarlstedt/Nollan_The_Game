@@ -1,3 +1,6 @@
+import Tasks.taskController.BeerChuggingController;
+import Tasks.taskModel.BeerChuggingModel;
+import Tasks.taskView.BeerChuggingView;
 import controller.MapController;
 import controller.PlayerController;
 import model.*;
@@ -23,7 +26,13 @@ public class MainGame extends BasicGameState {
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
+
     private NPC webers;
+
+    
+    private  StateSetup stateSetup;
+
+
 
     private CollisionChecker collisionChecker;
 

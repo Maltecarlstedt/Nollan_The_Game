@@ -5,6 +5,8 @@ public class main {
     public static final int canvasWidth = 1024;
     public static final int canvasHeight = 768;
 
+    // TODO: Gör fönstret scaleable
+
     public static void main(String[] args) {
         // TODO: Kolla upp om detta kan lösa så att library sätts automatiskt eller om vi ska använda nån jävla mavenskit
         //System.setProperty("org.lwjgl.librarypath", new File( new File( System.getProperty("user.dir") , "native") , LWJGLUtil.getPlatformName() ).getAbsolutePath() );
