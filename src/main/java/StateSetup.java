@@ -16,7 +16,5 @@ public class StateSetup extends StateBasedGame {
         this.addState(new TaskManager());
         enterState(0);
 
-
-
     }
 }
