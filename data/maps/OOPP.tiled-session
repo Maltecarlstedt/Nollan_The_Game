@@ -1,61 +1,38 @@
 {
-    "Map/SizeTest": {
-        "height": 4300,
-        "width": 2
-    },
-    "activeFile": "chalmers_hallplatsen.tmx",
+    "activeFile": "aDammen.tmx",
     "expandedProjectPaths": [
-        "."
     ],
+    "file.lastUsedOpenFilter": "Alla filer (*)",
     "fileStates": {
-        "chalmers_hallplatsen.tmx": {
-            "scale": 0.9167140151515151,
-            "selectedLayer": 23,
+        "aDammen.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 501.2468364237385,
-                "y": 410.16063219875014
+                "x": 248,
+                "y": 384
             }
         },
-        "colstuff.tsx": {
-            "scaleInDock": 1,
-            "scaleInEditor": 1
+        "tsx-files/edge.tsx": {
+            "scaleInDock": 1
         },
-        "morecoolstuff.tsx": {
-            "scaleInDock": 1,
-            "scaleInEditor": 1
+        "tsx-files/newSet.tsx": {
+            "scaleInDock": 1
         },
-        "newSet.tsx": {
-            "scaleInDock": 1,
-            "scaleInEditor": 1
+        "tsx-files/terrain.tsx": {
+            "scaleInDock": 1
         },
-        "terrain.tsx": {
-            "scaleInDock": 1,
-            "scaleInEditor": 1
+        "tsx-files/terrain2.tsx": {
+            "scaleInDock": 1
         },
-        "terrain2.tsx": {
-            "scaleInDock": 0.75,
-            "scaleInEditor": 1
+        "tsx-files/train.tsx": {
+            "scaleInDock": 1
         }
     },
-    "last.imagePath": "C:/Users/steff/Desktop/OOPP",
-    "map.height": 24,
-    "map.lastUsedFormat": "tmx",
-    "map.width": 32,
     "openFiles": [
-        "chalmers_hallplatsen.tmx",
-        "terrain.tsx",
-        "terrain2.tsx",
-        "newSet.tsx",
-        "colstuff.tsx"
+        "aDammen.tmx"
     ],
-    "project": "OOPP.tiled-project",
+    "project": "",
     "recentFiles": [
-        "colstuff.tsx",
-        "newSet.tsx",
-        "terrain2.tsx",
-        "terrain.tsx",
-        "chalmers_hallplatsen.tmx",
-        "morecoolstuff.tsx"
-    ],
-    "tileset.lastUsedFormat": "tsx"
+        "aDammen.tmx"
+    ]
 }

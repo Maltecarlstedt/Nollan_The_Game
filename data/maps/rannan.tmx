@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
+ <tileset firstgid="1" source="tsx-files/terrain2.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="2049" source="tsx-files/colstuff.tsx"/>
+ <tileset firstgid="3073" source="tsx-files/windows.tsx"/>
+ <tileset firstgid="3329" source="tsx-files/lamppost.tsx"/>
+ <tileset firstgid="3332" source="tsx-files/ducksteps.tsx"/>
+ <tileset firstgid="3341" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <layer id="1" name="base" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACrNiZWCwQsJOjKh8SnEgOwNDEDuCJqSe2vYXAu0sYkfQ9LZ/ItDOSewImppm0yL8oxgxMT3Dn9p4sIU/qfFBKUYPf3rHB3r40zs+RsMff/iXYMG0DH9a+5dQ+NPb/sFW/oyG/2j4k4vNkfBAhD859lMz/Mmxf7CHPwBoUyaEAAwAAA==
+  </data>
+ </layer>
+ <layer id="2" name="house" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACnNiZGBwQsLOaHyYWCA7A0MQEAezo7JJBU+AZj1FwtjswiZWCLSrCIiL2VHZpIIjQLOOImFi7Z8ItGsSEE9mR2WTCpiYUDE2u7ABaoW/EhMqJsZ+GSqGvxMTGibS//QOfytW0s0mBpAT/tQE6OGfxIiKk2ls/ygY2WAJMH0tRcL0Buj1D70Bev1DbzDYwn8pkXgZldyKHv5PicTPqGQ/ev1zlJE4fIxK9qPXP0qMxGFlKtlPqP7HhalVLxKq/2ltP6H6n9b2o4c/AO4A/j8ADAAA
+  </data>
+ </layer>
+ <layer id="5" name="doors" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgwARveFDxQIArfANjLwzcGWD7R8EoGAWjYBSMglEwCkbBKKAFAAA32RWZAAwAAA==
+  </data>
+ </layer>
+ <layer id="3" name="grass" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgoA0oY2FgKAfiChYaWTBq/6j9o/bjBNOA9k4H4hkDZP8oGAWMvANrP9MA2h8GzHfMQPsjRmj5M2o/9e0XZ4VgCdaBsR8EtgPNs4Tab43HHbQM/4G0fyD9D7Kb2vYDAIGbny4ADAAA
+  </data>
+ </layer>
+ <layer id="4" name="bushes" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgoA34x87A8B+IGThoZAERwIx34OyeB/T7fCBewD4w9u8D2rsfiA8MkP33gPbeB+IHA2T/SE9/xILZrBB6JpCexYrg0wvshtq3E0jvYkXw6QVuQ+27CaRvsSL4o2Bog9Hyd7T8Ha3/qZv+SAlPWqU/Yt1Ai/Q3FOpzZECMewHqus1yAAwAAA==
+  </data>
+ </layer>
+ <layer id="6" name="lamps" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgIA0w85KoYZgBxgH2P9MA2z+U4n80rgbW/qEA0NMIvdMMehqhd5pBTyOjaWYUjIJRQA0wWv8OrP3EAABxQ6CFAAwAAA==
+  </data>
+ </layer>
+ <layer id="7" name="elektroWasHere" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCgYPYOFlYGAFYjbegbGHHcjnAGJOLPZT02247OEC8rmBmAeLHfjcRirAZw819YyCUUAPQOvyYrACLjL9DQB9Tx2EAAwAAA==
+  </data>
+ </layer>
+</map>

@@ -1,7 +1,9 @@
+import Tasks.taskController.BeerChuggingController;
+import Tasks.taskModel.BeerChuggingModel;
+import Tasks.taskView.BeerChuggingView;
 import controller.MapController;
 import controller.PlayerController;
-import model.MapModel;
-import model.PlayerModel;
+import model.*;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -10,15 +12,29 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import view.PlayerView;
 
+import java.util.ArrayList;
+
 public class MainGame extends BasicGameState {
 
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
+    // private Webers npcTest;
+    private NPCFactory factory;
+    public ArrayList<NPC> NPCs;
 
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
+
+    private NPC webers;
+
+    
+    private  StateSetup stateSetup;
+
+
+
+    private CollisionChecker collisionChecker;
 
     public MainGame() throws SlickException {
     }
@@ -27,28 +43,58 @@ public class MainGame extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
         // TODO:: SKAPA EN MANAGER SÅ ATT DET INTE BLIR SÅ MKT INITIERING HÄR.
-
+        collisionChecker = new CollisionChecker();
+        factory = new NPCFactory();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
-        playerController = new PlayerController(playerModel, playerView);
+        playerController = new PlayerController(playerModel, playerView, collisionChecker);
 
-        mapModel = new MapModel();
+        NPCs = new ArrayList<>();
+        webers = factory.getNPC("Webers");
+        NPCs.add(webers);
+
+
+        mapModel = new MapModel(collisionChecker);
+
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
+
     }
+
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         mapView.render(gc, g, mapModel);
         playerView.render(gc, g, playerModel);
+        for(NPC npc: NPCs)
+            npc.render(gc, g);
     }
+
     @Override
     public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {
-        playerController.update(gc,delta);
+
+        playerController.update(gc, stateBasedGame, delta);
         mapController.update(gc, delta);
+        showNPC();
+
+
     }
 
     @Override
     public int getID() {
         return 1;
     }
+
+    //funkar kanske?
+    public void showNPC() {
+        for (NPC npc : NPCs) {
+            if (npc.current.equals(mapModel.getCurrentMap())) {
+                npc.setShowing(true);
+            }
+            if ((npc.current != mapModel.getCurrentMap())) {
+                npc.setShowing(false);
+            }
+
+        }
+    }
 }
+

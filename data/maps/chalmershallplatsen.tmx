@@ -1,29 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
- <tileset firstgid="1" source="terrain.tsx"/>
- <tileset firstgid="1025" source="terrain2.tsx"/>
- <tileset firstgid="2049" source="windows.tsx"/>
- <tileset firstgid="2305" source="colstuff.tsx"/>
- <layer id="1" name="Base" width="32" height="24" locked="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="1">
+ <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/terrain2.tsx"/>
+ <tileset firstgid="1512" source="tsx-files/windows.tsx"/>
+ <tileset firstgid="1767" source="tsx-files/colstuff.tsx"/>
+ <tileset firstgid="1767" source="tsx-files/chalmersLogga.tsx"/>
+ <tileset firstgid="1775" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <tileset firstgid="2282" source="tsx-files/terrain.tsx"/>
+ <layer id="1" name="Base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu3QsQ0AIBDDwFdgEmASYP+ZyBYpcGHJ9UlVzXWnwA833Qr9dsfd0CfM8ccff/zxxx9//PH/1/8BRwC+5gAMAAA=
   </data>
  </layer>
- <layer id="2" name="entren" width="32" height="24" locked="1">
+ <layer id="2" name="entren" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmtlZWBopSFeBsSH8GArMrEiECsRgZ8RsD+KDHybhYHBEUg7EYFB9i8B4qU4MDnAkpU0+58A8VMcmF72v+fAjsm1PxGIk4jAx6D2/+fAjukBqO1/cuwf9f/A+f85mflsuNh/fIDtHwWjYBSMglGACQDEhTOCAAwAAA==
+   H4sIAAAAAAAACmtlZWBopSFeBsSH8GArMrEiECsRgZ8RsD+KDHybhYHBEUg7EYFB9i8B4qU4MDnAkpU0+58A8VMcmF72X2PDjsm1PxGIk4jAx6D2P2PDjukBqO1/cuwf9f/A+f85mflsuNh/fIDtHwWjYBSMglGACQBAVxtAAAwAAA==
   </data>
  </layer>
- <layer id="3" name="someShit" width="32" height="24" locked="1">
+ <layer id="3" name="someShit" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAClvMyjCgYPGo/RQBCw4GBksgtuJAZdPLfg+gXZ5A7MWByqaX/RFAuyKBOIoDlU0v+ykFo/YPXfs/cjEwfMKCP3ONDPt/Au35hQX/JsH+wwMc/8oDbL/zANufPMD2j4JRMAoGDgAAmEHizAAMAAA=
+   H4sIAAAAAAAAClvMyjCgYPGo/RQBeTYGBgUgVmRDZdPLfn2gXQZAbMiGyqaX/fZAuxyA2JENlU0v+ykFo/aP2j+S7T88wPYrD7D9zgNsf/IA2z8KRsEoGDgAAC3AQJMADAAA
   </data>
  </layer>
- <group id="4" name="terrain" locked="1">
+ <group id="4" name="terrain">
+  <layer id="8" name="grass" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFo2DwAzFGBgZxKmBygRlQrzkUb2dAsNH56HLI4tsp8L8ZDjORzcYlj8wHACjEHREADAAA
+  </data>
+  </layer>
+  <layer id="10" name="theBench" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMgqEF7nMwMDzAgh9yjAz7nwPteYEFv6ST/aNgFIyCUTAKhjYAAIfGMZEADAAA
+  </data>
+  </layer>
   <layer id="6" name="bushes" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBSMglFADjDkRMUDbf9AuGGkgg+MpPGHKxgNh1EwCoYmAABZmx4uAAwAAA==
+   H4sIAAAAAAAACmNgGAWjYBSMgqEH5NkReKDtH0h3jIKBAR8YSeMPVzAaDqNgFAwckGDHzsYlhswHAO0p/DAADAAA
   </data>
   </layer>
  </group>
+ <layer id="9" name="logo" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3OyQ0AIAzEwH2l/y4JV2pguwAkj+S/pXe0kNJ1N9x0y21XcfsOAAAA+N8BdCZeegAMAAA=
+  </data>
+ </layer>
+ <layer id="11" name="collision" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYGiBcE7S8UC7d9T+UftH7R8Fo2AUjIJRMFgAAIG1ENYADAAA
+  </data>
+ </layer>
 </map>
