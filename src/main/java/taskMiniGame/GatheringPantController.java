@@ -73,7 +73,8 @@ public class GatheringPantController implements ActionListener{
 
         if (totalPantOnScreen > 5) {
             //stopWatch.stop();
-            System.out.println("Bra samlat! " + pantGathered + " st!!   Din tid blev: " + pantModel.pantTimePassed);
+            System.out.println("Bra samlat! " + pantGathered + " st!!");
+            System.out.println("Din tid blev: " + pantModel.pantTimePassed);
         } else {
             // Change from ms to seconds
             pantModel.pantTimePassed += (double) delta/1000;
