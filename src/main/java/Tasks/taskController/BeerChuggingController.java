@@ -38,6 +38,7 @@ public class BeerChuggingController {
         updateChugAnimation();
         chugTimer(delta);
 
+
     }
 
     public void chugTimer(int delta){

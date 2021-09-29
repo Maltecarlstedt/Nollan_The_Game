@@ -14,7 +14,7 @@ public class StateSetup extends StateBasedGame {
         this.addState(new GameMenu());
         this.addState(new MainGame());
         this.addState(new TaskManager());
-        enterState(2);
+        enterState(0);
 
 
 

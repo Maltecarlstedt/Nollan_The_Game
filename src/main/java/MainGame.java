@@ -22,11 +22,7 @@ public class MainGame extends BasicGameState {
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
-
-    //private BeerChuggingModel beerChuggingModel;
-    //private BeerChuggingView beerChuggingView;
-    //private BeerChuggingController beerChuggingController;
-
+    
     private  StateSetup stateSetup;
 
 
@@ -46,22 +42,16 @@ public class MainGame extends BasicGameState {
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
 
-        //beerChuggingModel = new BeerChuggingModel();
-        //beerChuggingView = new BeerChuggingView();
-        //beerChuggingController = new BeerChuggingController(beerChuggingModel, beerChuggingView, playerModel);
-
     }
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         mapView.render(gc, g, mapModel);
         playerView.render(gc, g, playerModel);
-        //beerChuggingView.render(gc, g, beerChuggingModel);
     }
     @Override
     public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {
         playerController.update(gc,delta);
         mapController.update(gc, delta);
-        //beerChuggingController.update(gc, delta);
     }
 
     @Override

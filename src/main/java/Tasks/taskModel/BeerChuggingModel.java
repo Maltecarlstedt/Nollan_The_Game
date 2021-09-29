@@ -38,7 +38,7 @@ public class BeerChuggingModel {
         initTimerSetup();
     }
 
-    //TODO: Gör en egen fontLoader klass mby? 
+    //TODO: Gör en egen fontLoader klass mby?
     public void fontLoader(){
         // load font from a .ttf file
         try {
