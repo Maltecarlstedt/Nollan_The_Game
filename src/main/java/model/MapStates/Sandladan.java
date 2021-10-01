@@ -5,18 +5,18 @@ import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
-public enum Ekak implements MapState{
-    EKAK;
+public enum Sandladan implements MapState{
+    SANDLADAN;
 
-    private String dPath = "data/maps/ekak.tmx";
+    private String dPath = "data/maps/sandladan.tmx";
 
     @Override
     public MapState nextMap(Orientation orientation) throws SlickException {
         switch (orientation){
             case RIGHT:
-                return Rannan.RANNAN;
-            case LEFT:
-                return Sandladan.SANDLADAN;
+                return Ekak.EKAK;
+            case DOWN:
+                return Maskin.MASKIN;
 
         }
         return null;

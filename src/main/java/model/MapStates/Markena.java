@@ -15,6 +15,8 @@ public enum Markena implements MapState{
         switch (orientation){
             case RIGHT:
                 return Karhuset.KARHUSET;
+            case LEFT:
+                return Maskin.MASKIN;
 
         }
         return null;
