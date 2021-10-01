@@ -80,6 +80,11 @@
    H4sIAAAAAAAACu2VSwqAMAwFA/X+R1APotWD+DuIVp8ru4jbl0I6EJC6GAuDEdFZgsgafl4SOOG+DP1MWtyzw/RG943wTpg58w94Hknfs8GzY47Mx+wvwXO/ruY789RfiTD706j/P9/U/nj9lbj/mGj7j4m2/zz1r/XH7N+yvwfkB7anAAwAAA==
   </data>
   </layer>
+   <layer id="11" name="collision" width="32" height="24">
+    <data encoding="base64" compression="gzip">
+     H4sIAAAAAAAACmNgGAWjYGiBcE7S8UC7d9T+UftH7R8Fo2AUjIJRMFgAAIG1ENYADAAA
+    </data>
+   </layer>
  </group>
  <layer id="11" name="collision" width="32" height="24">
    <data encoding="base64" compression="gzip">
