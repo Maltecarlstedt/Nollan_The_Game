@@ -21,7 +21,7 @@ abstract class NPC {
     Point location;
     protected Rectangle NPCLocation;
 
-    public SpriteSheet task;
+    public SpriteSheet character;
     public SpriteSheet taskComplete;
     public Animation animation;
 

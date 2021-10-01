@@ -19,17 +19,13 @@ public class MainGame extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-    // private Webers npcTest;
-    private NPCFactory factory;
     public ArrayList<NPC> NPCs;
 
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
 
-    private NPC webers;
 
-    
     private  StateSetup stateSetup;
 
 
@@ -44,14 +40,22 @@ public class MainGame extends BasicGameState {
 
         // TODO:: SKAPA EN MANAGER SÅ ATT DET INTE BLIR SÅ MKT INITIERING HÄR.
         collisionChecker = new CollisionChecker();
-        factory = new NPCFactory();
+        // private Webers npcTest;
+        NPCFactory factory = new NPCFactory();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
 
         NPCs = new ArrayList<>();
-        webers = factory.getNPC("Webers");
+        NPC webers = factory.getNPC("Webers");
+        NPC kritan = factory.getNPC("Kritan");
+        NPC tango = factory.getNPC("Tango");
+
         NPCs.add(webers);
+        NPCs.add(kritan);
+        NPCs.add(tango);
+
+
 
 
         mapModel = new MapModel(collisionChecker);

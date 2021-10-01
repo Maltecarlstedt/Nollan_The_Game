@@ -66,6 +66,7 @@ public class MapModel{
         tiledMap = current.loadMap();
         updateCollisionLayer();
         tileSetup();
+        System.out.println(current.toString());
     }
 
     private void tileSetup(){
