@@ -65,4 +65,9 @@
    H4sIAAAAAAAACmNgGAWjYODBAZaB5Y+CUTAKRsEoGLlgPwdtxQmpOYBDH7XECak5iEMfIfGZjAwMs4B4NiNucQmonBiaGnIBstk7gXgXEO9mxC1uAbXXjBHTveQAZLNvAvEtIL7NiFsc2X5kNeQCZLOJEUe2H1kNAEND6FwADAAA
   </data>
  </layer>
+ <layer id="11" name="collision" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+    H4sIAAAAAAAACmNgGAWjYGiBcE7S8UC7d9T+UftH7R8Fo2AUjIJRMFgAAIG1ENYADAAA
+   </data>
+  </layer>
 </map>
