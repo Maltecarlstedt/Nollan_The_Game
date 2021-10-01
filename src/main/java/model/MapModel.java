@@ -2,6 +2,7 @@ package model;
 
 import controller.MapController;
 import model.MapStates.Chalmersplatsen;
+import org.lwjgl.Sys;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
@@ -61,7 +62,8 @@ public class MapModel{
     public void checkState(Orientation orientation) throws SlickException {
         System.out.println(current.toString());
         System.out.println(orientation);
-        tiledMap = current.nextMap(orientation);
+        current = current.nextMap(orientation);
+        tiledMap = current.loadMap();
         updateCollisionLayer();
         tileSetup();
     }

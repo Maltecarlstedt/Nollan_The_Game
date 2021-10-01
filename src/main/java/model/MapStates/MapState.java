@@ -11,7 +11,7 @@ import org.newdawn.slick.tiled.TiledMap;
  */
 public interface MapState {
 
-    TiledMap nextMap(Orientation orientation) throws SlickException;
+     MapState nextMap(Orientation orientation) throws SlickException;
 
     /**
      * Sets the position in this map.

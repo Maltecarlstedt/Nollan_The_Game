@@ -11,14 +11,14 @@ public enum Rannan implements MapState{
     private String dPath = "data/maps/rannan.tmx";
 
     @Override
-    public TiledMap nextMap(Orientation orientation) throws SlickException {
+    public MapState nextMap(Orientation orientation) throws SlickException {
         switch (orientation){
             case DOWN:
-                return Dammen.ADAMMEN.loadMap();
+                return Dammen.ADAMMEN;
             case UP:
-                return DeltaP.DELTAP.loadMap();
+                return DeltaP.DELTAP;
             case LEFT:
-                return Ekak.EKAK.loadMap();
+                return Ekak.EKAK;
         }
         return null;
     }
