@@ -1,28 +1,29 @@
-import model.MapStates.Chalmersplatsen;
-import model.MapStates.Karhuset;
-import org.newdawn.slick.*;
+import model.MapStates.Ekak;
+import org.newdawn.slick.Animation;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class Tango extends NPC {
+public class EKAK2 extends NPC {
 
-public Tango() throws SlickException {
-    width = 64;
-    height = 64;
-    state = 0;
-    //isShowing = true;
-    current = Chalmersplatsen.CHALMERSPLATSEN;
-    location = new Point(700, 200);
-    initNPC();
-}
+    public EKAK2() throws SlickException {
+        width = 64;
+        height = 64;
+        state = 0;
+        current = Ekak.EKAK;
+        location = new Point(420, 180);
+        initNPC();
+    }
 
     @Override
     void spriteSetup() throws SlickException {
-        //character = new SpriteSheet("data/NPC/tangoPRIT64x64.png", 64, 64);
-        character = new SpriteSheet("data/NPC/tangoPRIT64x64.png",64,64,64);
+        character = new SpriteSheet("data/NPC/ekak64x72.png", 64, 72);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
+
     }
 
     @Override
@@ -39,7 +40,8 @@ public Tango() throws SlickException {
 
     @Override
     void setLocation(int x, int y) {
-
+        location.x = x;
+        location.y = y;
     }
 
     @Override
@@ -52,3 +54,7 @@ public Tango() throws SlickException {
         isShowing = isItShowing;
     }
 }
+
+
+
+
