@@ -12,12 +12,12 @@ public enum Dammen implements MapState{
     private String dPath = "data/maps/aDammen.tmx";
 
     @Override
-    public TiledMap nextMap(Orientation orientation) throws SlickException {
+    public MapState nextMap(Orientation orientation) throws SlickException {
         switch (orientation){
             case DOWN:
-                return Karhuset.KARHUSET.loadMap();
+                return Karhuset.KARHUSET;
             case UP:
-                return Rannan.RANNAN.loadMap();
+                return Rannan.RANNAN;
 
         }
         return null;

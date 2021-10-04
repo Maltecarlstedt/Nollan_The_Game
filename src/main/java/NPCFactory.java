@@ -13,6 +13,13 @@ public class NPCFactory {
         if(NPCType.equals("Webers")){
             return new Webers();
         }
+        if(NPCType.equals("Kritan")){
+            return new Kritan();
+        }
+        if(NPCType.equals("Tango")) {
+            return new Tango();
+        }
+
 
 
 
