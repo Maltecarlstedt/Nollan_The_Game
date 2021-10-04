@@ -46,15 +46,19 @@ public class MainGame extends BasicGameState {
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
 
+        //det här borde gå att göra mkt snyggare
         NPCs = new ArrayList<>();
         NPC webers = factory.getNPC("Webers");
         NPC kritan = factory.getNPC("Kritan");
         NPC tango = factory.getNPC("Tango");
+        NPC ekak1 = factory.getNPC("Ekak1");
+        NPC ekak2 = factory.getNPC("Ekak2");
 
         NPCs.add(webers);
         NPCs.add(kritan);
         NPCs.add(tango);
-
+        NPCs.add(ekak1);
+        NPCs.add(ekak2);
 
 
 

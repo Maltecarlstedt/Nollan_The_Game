@@ -4,8 +4,7 @@ public class NPCFactory {
 
     //public NPC npc = new NPC();
 
-    //TODO: villkorssatser för nya objektets plats, bild etc och jämföra
-    // med de redan existerande objekten?
+    //TODO: Loopa lista ist för lång if-sats
     public NPC getNPC(String NPCType) throws SlickException {
         if(NPCType == null){
             return null;
@@ -18,6 +17,12 @@ public class NPCFactory {
         }
         if(NPCType.equals("Tango")) {
             return new Tango();
+        }
+        if(NPCType.equals("Ekak1")) {
+            return new EKAK1();
+        }
+        if(NPCType.equals("Ekak2")) {
+            return new EKAK2();
         }
 
 
