@@ -16,4 +16,8 @@ public class MapView {
         mapModel.getTiledMap().render(0,0);
 
     }
+
+    public void renderTopLayer(GameContainer gc, Graphics g, MapModel mapModel){
+        mapModel.getTiledMap().render(0, 0, mapModel.getTiledMap().getLayerCount()-1);
+    }
 }

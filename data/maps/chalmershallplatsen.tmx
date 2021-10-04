@@ -2,11 +2,10 @@
 <map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/terrain2.tsx"/>
- <tileset firstgid="1512" source="tsx-files/windows.tsx"/>
- <tileset firstgid="1767" source="tsx-files/colstuff.tsx"/>
- <tileset firstgid="1767" source="tsx-files/chalmersLogga.tsx"/>
- <tileset firstgid="1775" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
- <tileset firstgid="2282" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="2049" source="tsx-files/windows.tsx"/>
+ <tileset firstgid="2049" source="tsx-files/colstuff.tsx"/>
+ <tileset firstgid="3073" source="tsx-files/chalmersLogga.tsx"/>
+ <tileset firstgid="3073" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
  <layer id="1" name="Base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu3QsQ0AIBDDwFdgEmASYP+ZyBYpcGHJ9UlVzXWnwA833Qr9dsfd0CfM8ccff/zxxx9//PH/1/8BRwC+5gAMAAA=
@@ -14,12 +13,12 @@
  </layer>
  <layer id="2" name="entren" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmtlZWBopSFeBsSH8GArMrEiECsRgZ8RsD+KDHybhYHBEUg7EYFB9i8B4qU4MDnAkpU0+58A8VMcmF72X2PDjsm1PxGIk4jAx6D2P2PDjukBqO1/cuwf9f/A+f85mflsuNh/fIDtHwWjYBSMglGACQBAVxtAAAwAAA==
+   H4sIAAAAAAAACmtlZWBopSFeBsSH8GArMrEiECsRgZ8RsD+KDHybhYHBEUg7EYFB9i8B4qU4MDnAkpU0+58A8VMcmF72UxOA7E8E4iQi8DEa2E8qGLV/ZNv/fITbf3yA7R8Fo2AUjIJRgAkAki2CFQAMAAA=
   </data>
  </layer>
  <layer id="3" name="someShit" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAClvMyjCgYPGo/RQBeTYGBgUgVmRDZdPLfn2gXQZAbMiGyqaX/fZAuxyA2JENlU0v+ykFo/aP2j+S7T88wPYrD7D9zgNsf/IA2z8KRsEoGDgAAC3AQJMADAAA
+   H4sIAAAAAAAAClvMyjCgYPGo/aP2j9o/av+o/SPS/sMDbL/yANvvPMD2Jw+w/aNgFIyCgQMAP0FKGgAMAAA=
   </data>
  </layer>
  <group id="4" name="terrain">
@@ -30,23 +29,23 @@
   </layer>
   <layer id="10" name="theBench" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBSMgqEF7nMwMDzAgh9yjAz7nwPteYEFv6ST/aNgFIyCUTAKhjYAAIfGMZEADAAA
+   H4sIAAAAAAAACmNgGAWjYBSMgqEFPvIyMHzCgj/zjgz7fwLt+YUF/6aT/aNgFIyCUTAKhjYAAOyWgRoADAAA
   </data>
   </layer>
   <layer id="6" name="bushes" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBSMgqEH5NkReKDtH0h3jIKBAR8YSeMPVzAaDqNgFAwckGDHzsYlhswHAO0p/DAADAAA
+   H4sIAAAAAAAACmNgGAWjYBSMgqEHDHkQeKDtH0h3jIKBAR8YSeMPVzAaDqNgFAwc0OLBzsYlhswHAGJzeTYADAAA
   </data>
   </layer>
  </group>
  <layer id="9" name="logo" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3OyQ0AIAzEwH2l/y4JV2pguwAkj+S/pXe0kNJ1N9x0y21XcfsOAAAA+N8BdCZeegAMAAA=
+   H4sIAAAAAAAACu3BAQEAAACCIP+vbkhAAQAALwaEyeZnAAwAAA==
   </data>
  </layer>
  <layer id="11" name="collision" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYGiBcE7S8UC7d9T+UftH7R8Fo2AUjIJRMFgAAIG1ENYADAAA
+   H4sIAAAAAAAACmNgGAVDESxiRtDImJ7248Kj9g+c/fQCA2k3NvtHwSgYBaNgFIyCUUA8AAB0DueoAAwAAA==
   </data>
  </layer>
 </map>
