@@ -6,6 +6,8 @@ import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
+import java.util.ArrayList;
+
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map Chalmershållplatsen.
@@ -20,8 +22,9 @@ public enum Chalmersplatsen implements MapState {
         switch (orientation){
             case UP:
                 return Karhuset.KARHUSET;
+            default:
+                return Chalmersplatsen.CHALMERSPLATSEN;
         }
-        return null;
     }
 
     @Override
@@ -38,5 +41,11 @@ public enum Chalmersplatsen implements MapState {
     public MapState map(){
         return this;
     }
+
+    @Override
+    public int getTopLayers(){
+        return 2;
+    }
+
 }
 

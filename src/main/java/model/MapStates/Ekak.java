@@ -8,6 +8,7 @@ import org.newdawn.slick.tiled.TiledMap;
 public enum Ekak implements MapState{
     EKAK;
 
+    private final int topLayers = 1;
     private String dPath = "data/maps/ekak.tmx";
 
     @Override
@@ -17,9 +18,10 @@ public enum Ekak implements MapState{
                 return Rannan.RANNAN;
             case LEFT:
                 return Sandladan.SANDLADAN;
+            default:
+                return Ekak.EKAK;
 
         }
-        return null;
     }
 
     @Override
@@ -35,5 +37,10 @@ public enum Ekak implements MapState{
     @Override
     public MapState map(){
         return this;
+    }
+
+    @Override
+    public int getTopLayers(){
+        return 1;
     }
 }

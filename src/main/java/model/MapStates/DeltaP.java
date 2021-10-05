@@ -16,8 +16,9 @@ public enum DeltaP implements MapState{
         switch (orientation){
             case DOWN:
                 return Rannan.RANNAN;
+            default:
+                return DeltaP.DELTAP;
         }
-        return null;
     }
 
     @Override
@@ -33,5 +34,10 @@ public enum DeltaP implements MapState{
     @Override
     public MapState map(){
         return this;
+    }
+
+    @Override
+    public int getTopLayers(){
+        return 1;
     }
 }

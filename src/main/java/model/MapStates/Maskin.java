@@ -17,9 +17,10 @@ public enum Maskin implements MapState{
                 return Markena.MARKENA;
             case UP:
                 return Sandladan.SANDLADAN;
+            default:
+                return Maskin.MASKIN;
 
         }
-        return null;
     }
 
     @Override
@@ -35,5 +36,10 @@ public enum Maskin implements MapState{
     @Override
     public MapState map(){
         return this;
+    }
+
+    @Override
+    public int getTopLayers(){
+        return 1;
     }
 }

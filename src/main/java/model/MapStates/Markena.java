@@ -8,6 +8,8 @@ import org.newdawn.slick.tiled.TiledMap;
 public enum Markena implements MapState{
     MARKENA;
 
+    private final int topLayers = 1;
+
     private String dPath = "data/maps/markena.tmx";
 
     @Override
@@ -17,9 +19,9 @@ public enum Markena implements MapState{
                 return Karhuset.KARHUSET;
             case LEFT:
                 return Maskin.MASKIN;
-
+            default:
+                return Markena.MARKENA;
         }
-        return null;
     }
 
     @Override
@@ -35,5 +37,10 @@ public enum Markena implements MapState{
     @Override
     public MapState map(){
         return this;
+    }
+
+    @Override
+    public int getTopLayers(){
+        return 1;
     }
 }

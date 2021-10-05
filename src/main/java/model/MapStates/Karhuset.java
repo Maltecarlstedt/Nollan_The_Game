@@ -15,6 +15,8 @@ import org.newdawn.slick.tiled.TiledMap;
 public enum Karhuset implements MapState{
     KARHUSET;
 
+    private final int topLayers = 1;
+
     @Override
     public void setPosition(PlayerModel player) {
 
@@ -30,8 +32,9 @@ public enum Karhuset implements MapState{
                 return Dammen.ADAMMEN;
             case LEFT:
                 return Markena.MARKENA;
+            default:
+                return Karhuset.KARHUSET;
         }
-        return null;
     }
 
     @Override
@@ -42,5 +45,10 @@ public enum Karhuset implements MapState{
     @Override
     public MapState map(){
         return this;
+    }
+
+    @Override
+    public int getTopLayers(){
+        return 2;
     }
 }

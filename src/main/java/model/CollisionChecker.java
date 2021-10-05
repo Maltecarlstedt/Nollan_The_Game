@@ -1,13 +1,20 @@
 package model;
 
+import model.MapStates.MapState;
 import org.lwjgl.Sys;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.EmptyTransition;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import java.awt.*;
 
 public class CollisionChecker {
 
     private MapModel currentMap;
+    private MapState oldState;
 
     public CollisionChecker(){
     }
@@ -39,10 +46,21 @@ public class CollisionChecker {
         return (player.nextY() + player.getHeight() > currentMap.getHeight());
     }
 
-    public void changeMap(PlayerModel player) throws SlickException {
-
+    public void changeMap(PlayerModel player, StateBasedGame sbg) throws SlickException {
+        oldState = currentMap.getCurrentMap();
         currentMap.checkState(player.getOrientation());
-        player.setNewPlayerTile(200, 200);
+        if (currentMap.getCurrentMap() != oldState){
+            fadeOut(sbg);
+            player.setNewPlayerTile(200, 200);
+            fadeIn(sbg);
+        }
+    }
+
+    public void fadeOut(StateBasedGame sbg){
+        sbg.enterState(1,new FadeOutTransition(org.newdawn.slick.Color.black, 2000), new EmptyTransition());
+    }
+    public void fadeIn(StateBasedGame sbg){
+        sbg.enterState(1, new EmptyTransition(), new FadeInTransition(Color.black, 1000));
     }
 
     /* Should not be used

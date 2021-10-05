@@ -44,9 +44,7 @@ public class PlayerController {
         if (input.isKeyDown(Input.KEY_UP)) {
             if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextUpOutside(playerModel)) {
-                    fadeOut(sbg);
-                    collisionChecker.changeMap(playerModel);
-                    fadeIn(sbg);
+                    collisionChecker.changeMap(playerModel, sbg);
                 } else {
                     playerModel.moveUp();
                 }
@@ -54,9 +52,7 @@ public class PlayerController {
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
             if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextLeftOutside(playerModel)) {
-                    fadeOut(sbg);
-                    collisionChecker.changeMap(playerModel);
-                    fadeIn(sbg);
+                    collisionChecker.changeMap(playerModel, sbg);
                 } else {
                     playerModel.moveLeft();
                 }
@@ -64,9 +60,7 @@ public class PlayerController {
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
             if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextRightOutside(playerModel)) {
-                    fadeOut(sbg);
-                    collisionChecker.changeMap(playerModel);
-                    fadeIn(sbg);
+                    collisionChecker.changeMap(playerModel, sbg);
                 } else {
                     playerModel.moveRight();
                 }
@@ -74,21 +68,12 @@ public class PlayerController {
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
             if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextDownOutside(playerModel)) {
-                    fadeOut(sbg);
-                    collisionChecker.changeMap(playerModel);
-                    fadeIn(sbg);
+                    collisionChecker.changeMap(playerModel, sbg);
                 } else {
                     playerModel.moveDown();
                 }
             }
         }else
                 playerModel.idlePlayer();
-    }
-
-    public void fadeOut(StateBasedGame sbg){
-        sbg.enterState(1,new FadeOutTransition(Color.black, 2000), new EmptyTransition());
-    }
-    public void fadeIn(StateBasedGame sbg){
-        sbg.enterState(1, new EmptyTransition(), new FadeInTransition(Color.black, 1000));
     }
 }

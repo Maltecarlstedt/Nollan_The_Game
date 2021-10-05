@@ -17,9 +17,9 @@ public enum Sandladan implements MapState{
                 return Ekak.EKAK;
             case DOWN:
                 return Maskin.MASKIN;
-
+            default:
+                return Sandladan.SANDLADAN;
         }
-        return null;
     }
 
     @Override
@@ -35,5 +35,10 @@ public enum Sandladan implements MapState{
     @Override
     public MapState map(){
         return this;
+    }
+
+    @Override
+    public int getTopLayers(){
+        return 1;
     }
 }
