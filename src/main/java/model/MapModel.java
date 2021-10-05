@@ -76,8 +76,8 @@ public class MapModel{
 
     private void tileSetup(){
         // This will create an Array with all the Tiles in your map. When set to true, it means that Tile is blocked.
-        blocked = new boolean[this.getWidth()][this.getHeight()];
-        //clear the arraylist everytime you want to change map so 
+        blocked = new boolean[tiledMap.getWidth()][tiledMap.getHeight()];
+        //clear the arraylist everytime you want to change map so
         blocks.clear();
 
         // Loop through the Tiles and read their Properties
