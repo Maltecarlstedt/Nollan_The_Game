@@ -1,6 +1,4 @@
-import Tasks.taskController.BeerChuggingController;
-import Tasks.taskModel.BeerChuggingModel;
-import Tasks.taskView.BeerChuggingView;
+import NPCs.NPCFactory;
 import controller.MapController;
 import controller.PlayerController;
 import model.*;
@@ -11,6 +9,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import view.PlayerView;
+import NPCs.*;
 
 import java.util.ArrayList;
 
@@ -19,12 +18,13 @@ public class MainGame extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-    public ArrayList<NPC> NPCs;
+    private ArrayList<NPCs.NPC> NPCs;
 
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
 
+    private EnterTask enterTask;
 
     private  StateSetup stateSetup;
 
@@ -40,23 +40,25 @@ public class MainGame extends BasicGameState {
 
         // TODO:: SKAPA EN MANAGER SÅ ATT DET INTE BLIR SÅ MKT INITIERING HÄR.
         collisionChecker = new CollisionChecker();
-        // private Webers npcTest;
         NPCFactory factory = new NPCFactory();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
+        enterTask = new EnterTask();
 
+        //det här borde gå att göra mkt snyggare
         NPCs = new ArrayList<>();
-        NPC webers = factory.getNPC("Webers");
-        NPC kritan = factory.getNPC("Kritan");
-        NPC tango = factory.getNPC("Tango");
+        NPC webers = factory.getNPC("NPCs.Webers");
+        NPC kritan = factory.getNPC("NPCs.Kritan");
+        NPC tango = factory.getNPC("NPCs.Tango");
+        NPC ekak1 = factory.getNPC("Ekak1");
+        NPC ekak2 = factory.getNPC("Ekak2");
 
         NPCs.add(webers);
         NPCs.add(kritan);
         NPCs.add(tango);
-
-
-
+        NPCs.add(ekak1);
+        NPCs.add(ekak2);
 
         mapModel = new MapModel(collisionChecker);
 
@@ -70,8 +72,10 @@ public class MainGame extends BasicGameState {
         mapView.render(gc, g, mapModel);
         playerView.render(gc, g, playerModel);
         mapView.renderTopLayer(gc, g, mapModel);
-        for(NPC npc: NPCs)
+        for(NPCs.NPC npc: NPCs)
             npc.render(gc, g);
+
+
     }
 
     @Override
@@ -79,6 +83,7 @@ public class MainGame extends BasicGameState {
 
         playerController.update(gc, stateBasedGame, delta);
         mapController.update(gc, delta);
+        enterTask.update(gc, playerModel, mapModel, stateBasedGame);
         showNPC();
 
 
@@ -90,16 +95,21 @@ public class MainGame extends BasicGameState {
     }
 
     //funkar kanske?
+
     public void showNPC() {
-        for (NPC npc : NPCs) {
-            if (npc.current.equals(mapModel.getCurrentMap())) {
+        for (NPCs.NPC npc : NPCs) {
+            if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
                 npc.setShowing(true);
             }
-            if ((npc.current != mapModel.getCurrentMap())) {
+            if ((npc.getCurrent() != mapModel.getCurrentMap())) {
                 npc.setShowing(false);
             }
 
+
+
         }
     }
+
+
 }
 

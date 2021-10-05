@@ -25,6 +25,8 @@ public class BeerChuggingModel {
 
     public float timePassed;
 
+    public boolean inside;
+
     public SpriteSheet chuggingAnimation;
     public Image currentChugAnimation;
 

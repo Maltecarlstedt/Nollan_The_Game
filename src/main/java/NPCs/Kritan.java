@@ -1,5 +1,8 @@
+package NPCs;
+
 import model.MapStates.Chalmersplatsen;
 import model.MapStates.Karhuset;
+import model.MapStates.MapState;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Graphics;
 
@@ -32,7 +35,7 @@ public class Kritan extends NPC {
     }
 
     @Override
-    void render(GameContainer gc, Graphics g) {
+    public void render(GameContainer gc, Graphics g) {
         if(isShowing) {
             g.drawAnimation(animation, getLocation().x, getLocation().y);
         }
@@ -45,12 +48,17 @@ public class Kritan extends NPC {
     }
 
     @Override
+    public MapState getCurrent() {
+        return current;
+    }
+
+    @Override
     Point getLocation() {
        return location;
     }
 
     @Override
-    void setShowing(boolean isItShowing) {
+    public void setShowing(boolean isItShowing) {
         isShowing = isItShowing;
     }
 }
