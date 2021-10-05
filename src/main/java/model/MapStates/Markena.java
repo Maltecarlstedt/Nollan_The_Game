@@ -19,9 +19,9 @@ public enum Markena implements MapState{
                 return Karhuset.KARHUSET;
             case LEFT:
                 return Maskin.MASKIN;
-
+            default:
+                return Markena.MARKENA;
         }
-        return null;
     }
 
     @Override

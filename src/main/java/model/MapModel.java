@@ -65,14 +65,13 @@ public class MapModel{
     }
 
     public void checkState(Orientation orientation) throws SlickException {
-        System.out.println(current.toString());
-        System.out.println(orientation);
         current = current.nextMap(orientation);
         tiledMap = current.loadMap();
         updateCollisionLayer();
         tileSetup();
-        System.out.println(current.toString());
     }
+
+
 
     private void tileSetup(){
         // This will create an Array with all the Tiles in your map. When set to true, it means that Tile is blocked.
