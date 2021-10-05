@@ -26,6 +26,7 @@ public class BeerChuggingController {
 
 
 
+
     public BeerChuggingController(BeerChuggingModel bcm, BeerChuggingView bcv){
         this.bcm = bcm;
         this.bcv = bcv;
@@ -71,6 +72,10 @@ public class BeerChuggingController {
     public int checkIntersect(){
         if(bcm.greenThingyReact.intersects(bcm.jumpingBeerRect) || bcm.greenThingyReact.contains(bcm.jumpingBeerRect)){
             numberOfChugs++;
+            bcm.inside = true;
+            //bcv.renderFlash(bcm);
+        }else{
+            bcm.inside = false;
         }
         return numberOfChugs;
     }
