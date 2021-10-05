@@ -1,21 +1,23 @@
 package model.MapStates;
 
-import model.MapModel;
 import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
-public enum DeltaP implements MapState{
-    DELTAP;
+public enum Maskin implements MapState{
+    MASKIN;
 
-    private String dPath = "data/maps/deltaP.tmx";
+    private String dPath = "data/maps/maskin.tmx";
 
     @Override
     public MapState nextMap(Orientation orientation) throws SlickException {
         switch (orientation){
-            case DOWN:
-                return Rannan.RANNAN;
+            case RIGHT:
+                return Markena.MARKENA;
+            case UP:
+                return Sandladan.SANDLADAN;
+
         }
         return null;
     }

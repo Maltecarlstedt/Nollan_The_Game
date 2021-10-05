@@ -21,15 +21,15 @@ public enum Karhuset implements MapState{
     }
 
     @Override
-    public TiledMap nextMap(Orientation orientation) throws SlickException {
+    public MapState nextMap(Orientation orientation) throws SlickException {
 
         switch (orientation){
             case DOWN:
-                return Chalmersplatsen.CHALMERSPLATSEN.loadMap();
+                return Chalmersplatsen.CHALMERSPLATSEN;
             case UP:
-                return Dammen.ADAMMEN.loadMap();
+                return Dammen.ADAMMEN;
             case LEFT:
-                return Markena.MARKENA.loadMap();
+                return Markena.MARKENA;
         }
         return null;
     }

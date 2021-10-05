@@ -11,10 +11,12 @@ public enum Ekak implements MapState{
     private String dPath = "data/maps/ekak.tmx";
 
     @Override
-    public TiledMap nextMap(Orientation orientation) throws SlickException {
+    public MapState nextMap(Orientation orientation) throws SlickException {
         switch (orientation){
             case RIGHT:
-                return Rannan.RANNAN.loadMap();
+                return Rannan.RANNAN;
+            case LEFT:
+                return Sandladan.SANDLADAN;
 
         }
         return null;

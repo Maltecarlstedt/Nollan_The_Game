@@ -16,10 +16,10 @@ public enum Chalmersplatsen implements MapState {
     private String dPath = "data/maps/chalmershallplatsen.tmx";
 
     @Override
-    public TiledMap nextMap(Orientation orientation) throws SlickException{
+    public MapState nextMap(Orientation orientation) throws SlickException{
         switch (orientation){
             case UP:
-                return Karhuset.KARHUSET.loadMap();
+                return Karhuset.KARHUSET;
         }
         return null;
     }

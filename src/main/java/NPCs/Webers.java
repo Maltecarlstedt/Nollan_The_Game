@@ -1,4 +1,7 @@
+package NPCs;
+
 import model.MapStates.Karhuset;
+import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -24,10 +27,10 @@ public class Webers extends NPC {
 
     @Override
     public void spriteSetup() throws SlickException {
-        task = new SpriteSheet("data/NPC/webersTASK128x128_NOBLINK.png", 64, 128);
+        character = new SpriteSheet("data/NPC/webersTASK128x128_NOBLINK.png", 64, 128);
         animation = new Animation();
-        animation.addFrame(task.getSubImage(0, 0), 200);
-        animation.addFrame(task.getSubImage(1, 0), 200);
+        animation.addFrame(character.getSubImage(0, 0), 200);
+        animation.addFrame(character.getSubImage(1, 0), 200);
 
     }
 
@@ -49,6 +52,11 @@ public class Webers extends NPC {
     public void setLocation(int x, int y) {
         location.x = x;
         location.y = y;
+    }
+
+    @Override
+    public MapState getCurrent() {
+        return current;
     }
 
     @Override
