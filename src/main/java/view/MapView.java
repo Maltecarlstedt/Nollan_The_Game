@@ -18,6 +18,8 @@ public class MapView {
     }
 
     public void renderTopLayer(GameContainer gc, Graphics g, MapModel mapModel){
-        mapModel.getTiledMap().render(0, 0, mapModel.getTiledMap().getLayerCount()-1);
+        for(int i=0; i < mapModel.getCurrentTopLayers(); i++){
+            mapModel.getTiledMap().render(0, 0, mapModel.getTiledMap().getLayerCount()- mapModel.getCurrentTopLayers() + (i));
+        }
     }
 }

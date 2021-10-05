@@ -77,9 +77,8 @@ public class MapModel{
     private void tileSetup(){
         // This will create an Array with all the Tiles in your map. When set to true, it means that Tile is blocked.
         blocked = new boolean[this.getWidth()][this.getHeight()];
+        //clear the arraylist everytime you want to change map so 
         blocks.clear();
-
-       // System.out.println(tiledMap.getHeight());
 
         // Loop through the Tiles and read their Properties
 
@@ -89,61 +88,34 @@ public class MapModel{
             for(int j = 0; j < tiledMap.getHeight(); j++) {
 
                 String value;
-
-
-                // Read a Tile
-
-                int tileID2 = 0;
-                int tileID = 0;
-
-                tileID = tiledMap.getTileId(i, j, tiledMap.getLayerIndex("collision"));
-
-                try {
-
-                    tileID2 = tiledMap.getTileId(i, j, tiledMap.getLayerIndex("thin_treetrunk"));
-
-                }catch(IndexOutOfBoundsException e){
-                    System.out.println("no " + e.getMessage() + " layer on this map.");
-                }
-
-                //System.out.println(tileID2);
-                //System.out.println(tileID);
-
-                //if(tileID==)
+                // Read the specific tile at place [i][j] in the array of the tiledmap
+                int tileID = tiledMap.getTileId(i, j, tiledMap.getLayerIndex("collision"));
 
                 // Get the value of the Property named "blocked"
-                if(tileID != 0 || tileID2 == 1020){
+                if(tileID != 0){
                     value = "true";
                 }else{
                     value = "false";
                 }
-                //String value = tiledMap.getTileProperty(tileID, "collision", "false");
 
 
-                // If the value of the Property is "true"...
+                // If the tile is in the collision layer, then...
                 if(value.equals("true")) {
-
-                   // System.out.println(x++);
-
                     // We set that index of the TileMap as blocked
                     blocked[i][j] = true;
 
-                    System.out.println(tileID2);
-
-                    // And create the collision Rectangle
-                    if(tileID2 == 1020) {
-                        blocks.add(new Rectangle((i * tile.width) + 25, ((j) * tile.height), 8, (int)tile.getHeight()-28));
+                    //Create the specific collisions for tiles that behaves differently than a perfect square.
+                    if(tileID == 190) {
+                        blocks.add(new Rectangle((i * tile.width) + 25, ((j) * tile.height), 8, (int) tile.getHeight() - 28));
+                    }else if(tileID == 191) {
+                        blocks.add(new Rectangle((i * tile.width) + 16, ((j) * tile.height), 16, (int) tile.getHeight() - 28));
+                    }else if(tileID == 192){
+                        blocks.add(new Rectangle((i * tile.width), ((j) * tile.height), 8, (int) tile.getHeight() - 28));
                     }else{
-                        blocks.add(new Rectangle((i * tile.width), ((j-1) * tile.height), (int) tile.getWidth(), (int) tile.getHeight()));
+                        blocks.add(new Rectangle((i * tile.width), ((j) * tile.height), (int) tile.getWidth(), (int) tile.getHeight()-28));
                     }
                 }
             }
-        }
-        for (Rectangle rectangle : blocks){
-            System.out.println(rectangle);
-        }
-        for(Rectangle block : blocks){
-            //System.out.println(block.x + ", " + block.y);
         }
     }
 
@@ -171,6 +143,9 @@ public class MapModel{
         return current;
     }
 
+    public int getCurrentTopLayers(){
+        return current.getTopLayers();
+    }
 
 
 }

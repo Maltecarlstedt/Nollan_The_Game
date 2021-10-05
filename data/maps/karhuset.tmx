@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="42" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="43" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/terrain2.tsx"/>
  <tileset firstgid="2049" source="tsx-files/newSet.tsx"/>
@@ -7,7 +7,7 @@
  <tileset firstgid="3253" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
  <layer id="40" name="collision" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECmNgGAWjITAaAqMhMBoCoyFAuxCYxcvAgA3TzkZUk7HZDRKjFxi1f2THP73S2ag9oyFASggAAAMxCb0ADAAA
+   H4sIAAAAAAAECuWRSwrAMAhEc/87tWdrXQgSptHEDwWFEhnNPGvGiIvrtfJ8X5PcoIA0asvgAzyUTtjQyCHuzmBBoV0jbZdN/dGxO0M03+InZ7T0o10jzeJFPTM/4x1Ws8z8VW9G7U/86t3TPuX/yzxj1+wpOVrOd7ynxqE6h+xlLeKUviiPYFg8EJu0qujO1/Zc+RbaLN3rnd7iAcHHDooADAAA
   </data>
  </layer>
  <layer id="3" name="Base" width="32" height="24">
@@ -133,7 +133,12 @@
  </layer>
  <layer id="41" name="topLayer" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECmNgIAzuMDMw3AViZIBNDFl+OLH3AP2+F83/2MRo5WdsYY1NjFb2D7S52MIamxit3IktrLGJ0cr+UXNHQ2A0BEZDYDQERkNgNARGQ4CaIQAANAz99gAMAAA=
+   H4sIAAAAAAAECu2V2w3CMAxFDfwxEJuwCe00UBikPIbgk9co3EhYurJMlCLFIFFLV3Gctid2Wnc9EdlAHfTOLjORK8TmxXg95y/nIkkL6Bs2lN8j973J34uV5KLsIfl7tfZiOT5z1Y+svzJ5TPwOdd1CO1NfzsWrtRfje6zPXPUT/wDuETpl+F6tvZhl8lyZPKb1G7h36JHh83M+9S23Qe5txe9vNRVpXmoxMl/ZNfln9DOW8pkdzbfsmnz7nnjsSL7dzzj/nQqU9OCauy3pwTX5UT24JIfxLGL+hyVn8Q/XPAGy/W7jAAwAAA==
+  </data>
+ </layer>
+ <layer id="42" name="topLayer2" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3QsQ0AIAwDQSszA/NDkRFSUNxLlvtLRIAAAQKTAquS3TvvRYAAAQIEfhK4jGS6vAAMAAA=
   </data>
  </layer>
 </map>
