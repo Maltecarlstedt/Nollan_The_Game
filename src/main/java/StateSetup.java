@@ -1,3 +1,4 @@
+import Tasks.BeerChugginTask;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
@@ -15,9 +16,8 @@ public class StateSetup extends StateBasedGame {
         this.addState(new MainGame());
 
         this.addState(new HelpViewMenu());
-       
+        this.addState(new BeerChugginTask());
 
-        this.addState(new TaskManager());
         enterState(0);
 
 
