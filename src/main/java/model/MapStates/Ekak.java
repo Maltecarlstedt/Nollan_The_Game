@@ -17,9 +17,10 @@ public enum Ekak implements MapState{
                 return Rannan.RANNAN;
             case LEFT:
                 return Sandladan.SANDLADAN;
+            default:
+                return Ekak.EKAK;
 
         }
-        return null;
     }
 
     @Override

@@ -20,8 +20,9 @@ public enum Chalmersplatsen implements MapState {
         switch (orientation){
             case UP:
                 return Karhuset.KARHUSET;
+            default:
+                return Chalmersplatsen.CHALMERSPLATSEN;
         }
-        return null;
     }
 
     @Override

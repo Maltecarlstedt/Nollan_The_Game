@@ -30,8 +30,9 @@ public enum Karhuset implements MapState{
                 return Dammen.ADAMMEN;
             case LEFT:
                 return Markena.MARKENA;
+            default:
+                return Karhuset.KARHUSET;
         }
-        return null;
     }
 
     @Override

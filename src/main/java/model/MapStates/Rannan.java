@@ -19,8 +19,9 @@ public enum Rannan implements MapState{
                 return DeltaP.DELTAP;
             case LEFT:
                 return Ekak.EKAK;
+            default:
+                return Rannan.RANNAN;
         }
-        return null;
     }
 
     @Override

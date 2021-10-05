@@ -17,9 +17,9 @@ public enum Sandladan implements MapState{
                 return Ekak.EKAK;
             case DOWN:
                 return Maskin.MASKIN;
-
+            default:
+                return Sandladan.SANDLADAN;
         }
-        return null;
     }
 
     @Override

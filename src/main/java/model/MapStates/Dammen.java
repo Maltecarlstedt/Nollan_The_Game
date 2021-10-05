@@ -18,9 +18,10 @@ public enum Dammen implements MapState{
                 return Karhuset.KARHUSET;
             case UP:
                 return Rannan.RANNAN;
+            default:
+                return Dammen.ADAMMEN;
 
         }
-        return null;
     }
 
     @Override

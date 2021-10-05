@@ -16,8 +16,9 @@ public enum DeltaP implements MapState{
         switch (orientation){
             case DOWN:
                 return Rannan.RANNAN;
+            default:
+                return DeltaP.DELTAP;
         }
-        return null;
     }
 
     @Override
