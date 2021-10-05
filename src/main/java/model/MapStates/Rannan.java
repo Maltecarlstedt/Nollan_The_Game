@@ -37,4 +37,8 @@ public enum Rannan implements MapState{
     public MapState map(){
         return this;
     }
+    @Override
+    public int getTopLayers(){
+        return 2;
+    }
 }
