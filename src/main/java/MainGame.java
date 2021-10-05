@@ -46,9 +46,9 @@ public class MainGame extends BasicGameState {
 
         //det här borde gå att göra mkt snyggare
         NPCs = new ArrayList<>();
-        NPC webers = factory.getNPC("NPCs.Webers");
-        NPC kritan = factory.getNPC("NPCs.Kritan");
-        NPC tango = factory.getNPC("NPCs.Tango");
+        NPC webers = factory.getNPC("Webers");
+        NPC kritan = factory.getNPC("Kritan");
+        NPC tango = factory.getNPC("Tango");
         NPC ekak1 = factory.getNPC("Ekak1");
         NPC ekak2 = factory.getNPC("Ekak2");
 
