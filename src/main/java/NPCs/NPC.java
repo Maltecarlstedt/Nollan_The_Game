@@ -1,3 +1,5 @@
+package NPCs;
+
 import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
@@ -7,7 +9,7 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-abstract class NPC {
+public abstract class NPC {
 
     boolean isShowing;
     int width;
@@ -30,12 +32,14 @@ abstract class NPC {
 
     abstract void initNPC() throws SlickException;
 
-    abstract void render(GameContainer gc, Graphics g);
+    public abstract void render(GameContainer gc, Graphics g);
 
     abstract void setLocation(int x, int y);
 
+    public abstract MapState getCurrent();
+
     abstract Point getLocation();
 
-    abstract void setShowing(boolean isItShowing);
+    public abstract void setShowing(boolean isItShowing);
 
 }
