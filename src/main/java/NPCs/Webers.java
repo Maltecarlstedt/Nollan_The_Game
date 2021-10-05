@@ -1,4 +1,7 @@
+package NPCs;
+
 import model.MapStates.Karhuset;
+import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -49,6 +52,11 @@ public class Webers extends NPC {
     public void setLocation(int x, int y) {
         location.x = x;
         location.y = y;
+    }
+
+    @Override
+    public MapState getCurrent() {
+        return current;
     }
 
     @Override

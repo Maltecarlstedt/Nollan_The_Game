@@ -1,5 +1,8 @@
+package NPCs;
+
 import model.MapStates.Chalmersplatsen;
 import model.MapStates.Ekak;
+import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -34,7 +37,7 @@ public class EKAK1 extends NPC {
         }
 
         @Override
-        void render(GameContainer gc, Graphics g) {
+        public void render(GameContainer gc, Graphics g) {
             if(isShowing) {
                 g.drawAnimation(animation, getLocation().x, getLocation().y);
             }
@@ -47,13 +50,17 @@ public class EKAK1 extends NPC {
         }
 
         @Override
-        Point getLocation() {
-            return location;
+        public MapState getCurrent() {
+            return current;
         }
 
-        @Override
-        void setShowing(boolean isItShowing) {
-            isShowing = isItShowing;
+    @Override
+    Point getLocation() {
+        return location;
+    }
+
+    @Override
+    public void setShowing(boolean isItShowing) { isShowing = isItShowing;
         }
     }
 
