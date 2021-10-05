@@ -9,6 +9,7 @@ import org.newdawn.slick.tiled.TiledMap;
 public enum Dammen implements MapState{
     ADAMMEN;
 
+    private final int topLayers = 1;
     private String dPath = "data/maps/aDammen.tmx";
 
     @Override
@@ -36,5 +37,10 @@ public enum Dammen implements MapState{
     @Override
     public MapState map(){
         return this;
+    }
+
+    @Override
+    public int getTopLayers(){
+        return 1;
     }
 }

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/newSet.tsx"/>
  <tileset firstgid="1205" source="tsx-files/terrain2.tsx"/>
  <tileset firstgid="2229" source="tsx-files/train.tsx"/>
  <tileset firstgid="2247" source="tsx-files/edge.tsx"/>
+ <layer id="11" name="collision" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtvLwMCwF4oHAuxlIM3+fQNsP7XBULN/NPwH1v7hFv6jYBSMgoEDsLx/YNT+YW8/trpjOPsfV12JLD6c/Q8D+NoMAEDUgwsADAAA
+  </data>
+ </layer>
  <layer id="1" name="base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu3QsQ0AIBDDwFdgEmASYP+ZyBYpcGHJ9UlVzXWnwA833Qr9dsfd0CfM8ccff/zxxx9//PH/1/8BRwC+5gAMAAA=
@@ -60,9 +65,9 @@
    H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKMAP/JgG1v48poF1Rx8TqjvoDWD+7hsg+0fDH9Ud9AbUDn8AmyUU9wAMAAA=
   </data>
  </layer>
-  <layer id="11" name="collision" width="32" height="24">
-   <data encoding="base64" compression="gzip">
-    H4sIAAAAAAAACmNgGAWjYGiBcE7S8UC7d9T+UftH7R8Fo2AUjIJRMFgAAIG1ENYADAAA
-   </data>
-  </layer>
+ <layer id="14" name="topLayer" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgIA3cYWZguMtMoqZhBPYA/b53AP0/Gv6j4T8KRsEoGAWjgDQw0uoOXP6lVzjg8u9gCQd6AWz+HQg3IdsJcxMA4tStdgAMAAA=
+  </data>
+ </layer>
 </map>

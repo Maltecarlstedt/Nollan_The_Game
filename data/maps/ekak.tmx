@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/terrain2.tsx"/>
- <tileset firstgid="2089" source="tsx-files/doors.tsx"/>
- <tileset firstgid="2281" source="tsx-files/windows.tsx"/>
- <tileset firstgid="2537" source="tsx-files/pool_cookout.tsx"/>
- <tileset firstgid="2591" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
- <tileset firstgid="3655" source="tsx-files/lamppost.tsx"/>
- <tileset firstgid="3658" source="tsx-files/terrain2.tsx"/>
+ <tileset firstgid="2049" source="tsx-files/doors.tsx"/>
+ <tileset firstgid="2063" source="tsx-files/windows.tsx"/>
+ <tileset firstgid="2319" source="tsx-files/pool_cookout.tsx"/>
+ <tileset firstgid="2319" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <tileset firstgid="3383" source="tsx-files/lamppost.tsx"/>
+ <tileset firstgid="3386" source="tsx-files/colstuff.tsx"/>
+ <layer id="11" name="collision" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtvLwMCwdxSP4kGChyIYaPdT23585pBiB7XMGQWjYBSMgpECBkN9O2r/wNlPz/gHAHhCrNkADAAA
+  </data>
+ </layer>
  <layer id="1" name="base" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACrNiZGCwGsV0xd38A2v/an6IGwbKHSD7YXig42Kk4yLmgcUD7f9RPIpH8SgexaN4JGIAPRf9lQAMAAA=
+   H4sIAAAAAAAACrNiZGCwGsV0xU6sA2t/EivEDQPlDpD9MDzQcTHScRHzwOKB9v8oHsWjeBSP4lE8EjEA8U+AQQAMAAA=
   </data>
  </layer>
  <group id="3" name="editHouse">
@@ -21,33 +26,33 @@
   </layer>
   <layer id="2" name="edit" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACuvmZ2DoHsUjFq8eYDwKRsEoGAWjYBQMJvAWWDe9owPGBXQFGBj06IBH7R/Z9gMAmZOzwwAMAAA=
+   H4sIAAAAAAAACnNiZWBwGsUjFicNMB4Fo2AUjIJRMAoGE1gCrJuW0gHjAk+Ack/pgEftH9n2AwALNu8TAAwAAA==
   </data>
   </layer>
   <layer id="4" name="windowsDoors" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3NOQrAMAwEQJXWL3I1SZXLqXP8/09RYRUGGeQiqXZAsCx4TVRnYF/3ld34y+pqNPK+leu4nFVv/KWdZ8fanCUvciuXs9pSHgPRFPLOs2NtnpIvuZvLWT0pR/n7CHnn2bE2AQAAAOA/L1aMMUYADAAA
+   H4sIAAAAAAAACu3NuwnAMAwEUCeVmmSs/AbIxwPks/8CucIqDDLIRVLdA+FD4FMIdRbx7b4SjVvWrsaA/yNmknJWs3FLd54eq3NF3jC7lLM6Um7wtpLvPD1W54l8YW4pZ/Wk3OHtJd95eqxOIiIiIvrPC79KPDcADAAA
   </data>
   </layer>
   <layer id="5" name="table" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3NwQkAIAwEwSsg/VepqUCD10MeQdiBfa8EoGOFtF3GzP/4e10N/QEAwF8e7TdrCwAMAAA=
+   H4sIAAAAAAAACmNgGAWjYBRQAu5wMzDcBeJ73ANj/xugvW+B+N0A2T8KRsEoGAWjYBSMgqEFAJV3+Q8ADAAA
   </data>
   </layer>
  </group>
  <layer id="6" name="lampposts" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBQgA3c+8uSoZY4HmXLUMseTTDlamTMKRsEoGAWjYBSMAuoCAPNOK1gADAAA
+   H4sIAAAAAAAACmNgGAWjYBQgA3Ne8uSoZY4FmXLUMseSTDlamTMKRsEoGAWjYBSMAuoCAKCYJxcADAAA
   </data>
  </layer>
  <layer id="9" name="bushes" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3GIQEAAAgDsGuS0T8RLUCwqSV813V/AAB2DBg+hh4ADAAA
+   H4sIAAAAAAAACu3GIQEAAAgDsFsa0T8ZLUCwqSV813V/AAB2DH4wkkIADAAA
   </data>
  </layer>
- <layer id="11" name="collision" width="32" height="24">
-   <data encoding="base64" compression="gzip">
-    H4sIAAAAAAAACmNgGAWjYGiBcE7S8UC7d9T+UftH7R8Fo2AUjIJRMFgAAIG1ENYADAAA
-   </data>
-  </layer>
+ <layer id="10" name="topLayer" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBQgA3Ne8uSoZY4FmXK0MmcUjIJRMDLAPGYGhvlAvICZvmIwsA8oth+IDwDxHiDey0xbMXRwDyh2H4jv8gHZdMCDDcDiZqAALG4GCsDif6QAADPbpGQADAAA
+  </data>
+ </layer>
 </map>
