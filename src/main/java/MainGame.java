@@ -24,6 +24,7 @@ public class MainGame extends BasicGameState {
     private MapView mapView;
     private MapController mapController;
 
+    private EnterTask enterTask;
 
     private  StateSetup stateSetup;
 
@@ -43,6 +44,7 @@ public class MainGame extends BasicGameState {
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
+        enterTask = new EnterTask();
 
         //det här borde gå att göra mkt snyggare
         NPCs = new ArrayList<>();
@@ -57,8 +59,6 @@ public class MainGame extends BasicGameState {
         NPCs.add(tango);
         NPCs.add(ekak1);
         NPCs.add(ekak2);
-
-
 
         mapModel = new MapModel(collisionChecker);
 
@@ -82,6 +82,7 @@ public class MainGame extends BasicGameState {
 
         playerController.update(gc, stateBasedGame, delta);
         mapController.update(gc, delta);
+        enterTask.update(gc, playerModel, mapModel, stateBasedGame);
         showNPC();
 
 

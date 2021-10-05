@@ -35,22 +35,26 @@ public class TaskManager extends BasicGameState {
         beerChuggingView = new BeerChuggingView();
         beerChuggingController = new BeerChuggingController(beerChuggingModel, beerChuggingView);
 
-        pantModel = new GatheringPantModel();
-        pantView = new GatheringPantView();
-        pantController = new GatheringPantController(pantModel, pantView);
+        //pantModel = new GatheringPantModel();
+        //pantView = new GatheringPantView();
+        //pantController = new GatheringPantController(pantModel, pantView);
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         mapView.render(gc, g, mapModel);
         beerChuggingView.render(gc, g, beerChuggingModel);
-        pantView.render(gc, g, pantModel);
+        //pantView.render(gc, g, pantModel);
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         beerChuggingController.update(gc, delta);
-        pantController.update(gc, delta);
+        //pantController.update(gc, delta);
+    }
+
+    public void taskPicker(int taskIndex){
+
 
     }
 
