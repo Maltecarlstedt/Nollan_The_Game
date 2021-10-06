@@ -35,7 +35,6 @@ public class CollisionChecker {
                 isInCollision = true;
             }
         }
-
         return isInCollision;
     }
 

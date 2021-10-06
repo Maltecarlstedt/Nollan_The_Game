@@ -8,18 +8,17 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 /**
- * A class that holds all the information on our player
+ * A class that holds all the data on our player
  */
 public class PlayerModel {
 
-    /**
-     * All the data of the player,
-     */
     private final int width = 64, height = 64;
     private Orientation orientation;
-
+    /** The location stored as a rectangle so we can use the "intercepts(Shape s)"-method in CollisionChecker */
     private Rectangle playerLocation = new Rectangle(512, 384, width, height);
 
+    /** The different sprites (an image that can be split up into multiple images) and animations
+     * depending on the orientation the player moves in */
     public SpriteSheet MoveRight; // initate a SpriteSheet
     public Animation MoveRightAni; // initate an Animation
 
@@ -152,11 +151,13 @@ public class PlayerModel {
     }
 
     /**
-     * Stops the walking animation so it looks like the player is idle.
+     * Stops the walking animation and makes the player idle.
      */
     public void idlePlayer() {
         currentAnimation.stop();
         currentAnimation.setCurrentFrame(1);
+
+        orientation = Orientation.IDLE;
     }
 
     /**

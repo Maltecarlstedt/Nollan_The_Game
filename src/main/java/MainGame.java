@@ -73,9 +73,9 @@ public class MainGame extends BasicGameState {
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        mapView.render(gc, g, mapModel);
+        mapView.render(mapModel);
         playerView.render(gc, g, playerModel);
-        mapView.renderTopLayer(gc, g, mapModel);
+        mapView.renderTopLayer(mapModel);
         for(NPCs.NPC npc: NPCs)
             npc.render(gc, g);
 

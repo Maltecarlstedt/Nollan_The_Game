@@ -12,7 +12,7 @@ import view.MapView;
 import view.PlayerView;
 
 /**
- * Place holder for map, doesn't do anything at the moment
+ * Place holder for map
  */
 public class MapController {
     MapModel mapModel;

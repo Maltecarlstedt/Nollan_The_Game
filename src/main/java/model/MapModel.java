@@ -31,8 +31,6 @@ public class MapModel{
     private TiledMap tiledMap;
     /** Makes a concrete size for our tiles in the form of a rectangle */
     private Rectangle tile = new Rectangle(0,0,tileWidth,tileHeight);
-    /** An instance of the collisionChecker (only used in constructor at the moment, might be used when map is changed later) */
-    private CollisionChecker collisionChecker;
     /** This will keep a list of Tiles that are blocked */
     private boolean blocked[][];
     /** For collision detection, we have a list of Rectangles that contains all the collisions of the map */
@@ -45,7 +43,6 @@ public class MapModel{
      */
     public MapModel(CollisionChecker collisionChecker) throws SlickException {
         initMap();
-        this.collisionChecker = collisionChecker;
         collisionChecker.setCurrentMap(this);
     }
 

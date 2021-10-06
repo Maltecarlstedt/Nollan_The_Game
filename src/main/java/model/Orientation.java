@@ -11,8 +11,8 @@ public enum Orientation {
 
     /**
      * Changes the location of the player depending on what orientation it has
-     * @param deltaX
-     * @param deltaY
+     * @param deltaX - x velocity
+     * @param deltaY - y velocity
      */
     Orientation(int deltaX, int deltaY) {
         this.deltaX = deltaX;
