@@ -19,7 +19,7 @@ public class BuildBridgeModel {
 
     public void initBridgeImage() throws SlickException {
         bridgeImage = new Image("data/buildBridge/bridge.jpg");
-        bridgeLocation = new Point(100, 100);
+        bridgeLocation = new Point(0, 0);
     }
 
     public Point getBridgeLocation(){ return bridgeLocation;}
