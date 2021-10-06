@@ -1,4 +1,4 @@
-import org.junit.Before;
+/*import org.junit.Before;
 import org.junit.Test;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
@@ -70,6 +70,7 @@ public class testPlayer {
         }
         testPlayer.setOrientation(Orientation.IDLE);
         assertEquals(testImage, testPlayer.currentImage);
-    }*/
+    }
 
 }
+*/

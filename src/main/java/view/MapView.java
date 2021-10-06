@@ -1,23 +1,27 @@
 package view;
 
-
 import model.MapModel;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
 
+/**
+ * A class that keeps the render methods for the map
+ */
 public class MapView {
 
-    public MapView() throws SlickException{
-
-    }
-
-    public void render(GameContainer gc, Graphics g, MapModel mapModel){
+    /**
+     * Renders the entire map, i.e every single layer of the tiled map
+     * @param mapModel - the current map
+     */
+    public void render(MapModel mapModel){
         mapModel.getTiledMap().render(0,0);
-
     }
 
-    public void renderTopLayer(GameContainer gc, Graphics g, MapModel mapModel){
+    /**
+     * Renders only the top layers, which are the layers that should be rendered after the player, so that it looks like
+     * the player is behind these layers. The for-loop makes it possible to have any number of top layers.
+     * The top layer(s) is made so that it always has the highest layer ID.
+     * @param mapModel - the current map
+     */
+    public void renderTopLayer(MapModel mapModel){
         for(int i=0; i < mapModel.getCurrentTopLayers(); i++){
             mapModel.getTiledMap().render(0, 0, mapModel.getTiledMap().getLayerCount()- mapModel.getCurrentTopLayers() + (i));
         }

@@ -15,12 +15,11 @@ import org.newdawn.slick.tiled.TiledMap;
 public enum Karhuset implements MapState{
     KARHUSET;
 
-    private final int topLayers = 1;
-
     @Override
     public void setPosition(PlayerModel player) {
 
     }
+
 
     @Override
     public MapState nextMap(Orientation orientation) throws SlickException {

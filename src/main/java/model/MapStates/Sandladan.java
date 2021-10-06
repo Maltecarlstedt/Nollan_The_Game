@@ -5,6 +5,10 @@ import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
+/**
+ * Creates an enum for one map piece which holds the specific methods for just that map.
+ * This map is for the tiled map Sandlådan.
+ */
 public enum Sandladan implements MapState{
     SANDLADAN;
 
