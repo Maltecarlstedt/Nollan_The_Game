@@ -31,6 +31,10 @@ public class EnterTask {
             sbg.enterState(420, new EmptyTransition(), new VerticalSplitTransition());
         }
 
+        if (currMap.equals("KARHUSET") && input.isKeyPressed(input.KEY_F)){
+            sbg.enterState(21, new FadeOutTransition(), new VerticalSplitTransition());
+        }
+
     }
 
 
