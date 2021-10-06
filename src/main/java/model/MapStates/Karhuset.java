@@ -22,6 +22,7 @@ public enum Karhuset implements MapState{
 
     }
 
+
     @Override
     public MapState nextMap(Orientation orientation) throws SlickException {
 
