@@ -28,8 +28,6 @@ public class MainGame extends BasicGameState {
 
     private  StateSetup stateSetup;
 
-
-
     private CollisionChecker collisionChecker;
 
     public MainGame() throws SlickException {
@@ -46,19 +44,25 @@ public class MainGame extends BasicGameState {
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
         enterTask = new EnterTask();
 
-        //det här borde gå att göra mkt snyggare
+        //TODO: det här borde gå att göra mkt snyggare
         NPCs = new ArrayList<>();
         NPC webers = factory.getNPC("Webers");
         NPC kritan = factory.getNPC("Kritan");
         NPC tango = factory.getNPC("Tango");
         NPC ekak1 = factory.getNPC("Ekak1");
         NPC ekak2 = factory.getNPC("Ekak2");
+        NPC bieber = factory.getNPC("Bieber");
+        NPC kvalle = factory.getNPC("Kvalle");
+        NPC dnollk = factory.getNPC("DNollK");
 
         NPCs.add(webers);
         NPCs.add(kritan);
         NPCs.add(tango);
         NPCs.add(ekak1);
         NPCs.add(ekak2);
+        NPCs.add(bieber);
+        NPCs.add(kvalle);
+        NPCs.add(dnollk);
 
         mapModel = new MapModel(collisionChecker);
 

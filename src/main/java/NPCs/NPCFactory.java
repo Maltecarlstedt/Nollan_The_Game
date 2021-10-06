@@ -29,6 +29,15 @@ public class NPCFactory {
         if(NPCType.equals("Ekak2")) {
             return new EKAK2();
         }
+        if(NPCType.equals("Kvalle")) {
+            return new Kvalle();
+        }
+        if(NPCType.equals("Bieber")) {
+            return new Bieber();
+        }
+        if(NPCType.equals("DNollK")) {
+            return new DNollK();
+        }
 
 
         return null;
