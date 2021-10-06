@@ -14,7 +14,6 @@ public Tango() throws SlickException {
     width = 64;
     height = 64;
     state = 0;
-    //isShowing = true;
     current = Chalmersplatsen.CHALMERSPLATSEN;
     location = new Point(700, 200);
     initNPC();
@@ -22,7 +21,6 @@ public Tango() throws SlickException {
 
     @Override
     void spriteSetup() throws SlickException {
-        //character = new SpriteSheet("data/NPC/tangoPRIT64x64.png", 64, 64);
         character = new SpriteSheet("data/NPC/tangoPRIT64x64.png",64,64,64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);

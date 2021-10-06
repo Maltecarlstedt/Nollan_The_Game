@@ -1,14 +1,17 @@
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.SlickException;
 
+/**
+ * Main class that setups and creates our game application.
+ */
 public class main {
     public static final int canvasWidth = 1024;
     public static final int canvasHeight = 768;
 
-    // TODO: Gör fönstret scaleable
+    // TODO: Make the game scaleable.
 
     public static void main(String[] args) {
-        // TODO: Kolla upp om detta kan lösa så att library sätts automatiskt eller om vi ska använda nån jävla mavenskit
+        // TODO: Set up Maven so that the librarys automatically load for new users.
         //System.setProperty("org.lwjgl.librarypath", new File( new File( System.getProperty("user.dir") , "native") , LWJGLUtil.getPlatformName() ).getAbsolutePath() );
 
         try {

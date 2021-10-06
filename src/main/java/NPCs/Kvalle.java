@@ -13,7 +13,6 @@ public class Kvalle extends NPC {
     width = 64;
     height = 64;
     state = 0;
-    //isShowing = true;
     current = Markena.MARKENA;
     location = new Point(700, 200);
     initNPC();
@@ -24,8 +23,6 @@ public class Kvalle extends NPC {
         character = new SpriteSheet("data/NPC/kvalle64x64.png", 64, 64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
-        // animation.addFrame(task.getSubImage(1, 0), 200);
-
     }
 
     @Override

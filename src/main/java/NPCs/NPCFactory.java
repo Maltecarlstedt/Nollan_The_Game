@@ -6,10 +6,14 @@ import org.newdawn.slick.SlickException;
 
 public class NPCFactory {
 
-    //public NPC npc = new NPC();
+    //TODO: Loop a list instead of long if
 
-
-    //TODO: Loopa lista ist för lång if-sats
+    /**
+     * Returns the Npc that is wanted
+     * @param NPCType The different npc-objects
+     * @return The npc-object requested
+     * @throws SlickException Generic exception
+     */
     public NPC getNPC(String NPCType) throws SlickException {
         if(NPCType == null){
             return null;
@@ -38,8 +42,6 @@ public class NPCFactory {
         if(NPCType.equals("DNollK")) {
             return new DNollK();
         }
-
-
         return null;
     }
 

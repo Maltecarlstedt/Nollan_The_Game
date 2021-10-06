@@ -16,7 +16,6 @@ public class DNollK extends NPC {
         width = 64;
         height = 128;
         state = 0;
-        //isShowing = true;
         current = DeltaP.DELTAP;
         location = new Point(500, 179);
         initNPC();
@@ -28,7 +27,6 @@ public class DNollK extends NPC {
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
         animation.addFrame(character.getSubImage(1, 0), 200);
-
     }
 
     @Override

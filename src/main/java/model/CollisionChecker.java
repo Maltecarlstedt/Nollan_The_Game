@@ -38,12 +38,12 @@ public class CollisionChecker {
         return isInCollision;
     }
 
-
     /**
      * All of these methods checks if the player's next location is outside the map
      * @param player - the player
      * @return true if outside, else false
      */
+
     public boolean isNextRightOutside(PlayerModel player){
         return (player.nextX() + player.getWidth() > currentMap.getWidth());
     }
