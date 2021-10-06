@@ -1,7 +1,5 @@
 package model.MapStates;
 
-import model.MapModel;
-import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
@@ -13,11 +11,11 @@ public interface MapState {
 
     /**
      * Decides the next map depending on the orientation of the player and the current map.
-     * @param orientation the player's orientation
+     * @param playerModel the player's orientation
      * @return the next map
      * @throws SlickException - if the filepath to the next map is not found.
      */
-    MapState nextMap(Orientation orientation) throws SlickException;
+    MapState nextMap(PlayerModel playerModel) throws SlickException;
 
     /**
      * Sets the position in this map.

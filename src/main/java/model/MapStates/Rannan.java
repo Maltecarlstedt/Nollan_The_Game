@@ -1,6 +1,5 @@
 package model.MapStates;
 
-import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
@@ -15,13 +14,16 @@ public enum Rannan implements MapState{
     private String dPath = "data/maps/rannan.tmx";
 
     @Override
-    public MapState nextMap(Orientation orientation) throws SlickException {
-        switch (orientation){
+    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+        switch (playerModel.getOrientation()){
             case DOWN:
-                return Dammen.ADAMMEN;
+                playerModel.setNewPlayerTile(60, 4);
+                return Markena.MARKENA;
             case UP:
+                playerModel.setNewPlayerTile(940, 700);
                 return DeltaP.DELTAP;
             case LEFT:
+                playerModel.setNewPlayerTile(956, 360);
                 return Ekak.EKAK;
             default:
                 return Rannan.RANNAN;

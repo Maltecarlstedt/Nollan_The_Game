@@ -1,12 +1,8 @@
 package model.MapStates;
 
-import model.MapModel;
-import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
-
-import java.util.ArrayList;
 
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
@@ -18,9 +14,10 @@ public enum Chalmersplatsen implements MapState {
     private String dPath = "data/maps/chalmershallplatsen.tmx";
 
     @Override
-    public MapState nextMap(Orientation orientation) throws SlickException{
-        switch (orientation){
+    public MapState nextMap(PlayerModel playerModel) throws SlickException{
+        switch (playerModel.getOrientation()){
             case UP:
+                playerModel.setNewPlayerTile(440, 700);
                 return Karhuset.KARHUSET;
             default:
                 return Chalmersplatsen.CHALMERSPLATSEN;

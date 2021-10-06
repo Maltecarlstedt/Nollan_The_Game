@@ -65,10 +65,9 @@ public class CollisionChecker {
      */
     public void changeMap(PlayerModel player, StateBasedGame sbg) throws SlickException {
         oldState = currentMap.getCurrentMap();
-        currentMap.checkState(player.getOrientation());
+        currentMap.checkState(player);
         if (currentMap.getCurrentMap() != oldState){
             fadeOut(sbg);
-            player.setNewPlayerTile(200, 200);
             fadeIn(sbg);
         }
     }
