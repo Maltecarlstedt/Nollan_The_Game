@@ -101,6 +101,7 @@ public class PlayerModel {
      */
     public void move() {
         startAnimation();
+        System.out.println(playerLocation);
         setNewPlayerTile(nextX(), nextY());
     }
 

@@ -67,8 +67,8 @@ public class MapModel{
      * @param orientation - the orientation of the player. It decides the map that the player should enter next.
      * @throws SlickException - if the filepath to the next map is not found.
      */
-    public void checkState(Orientation orientation) throws SlickException { //TODO: byta namn?
-        current = current.nextMap(orientation);
+    public void checkState(PlayerModel playermodel) throws SlickException { //TODO: byta namn?
+        current = current.nextMap(playermodel);
         tiledMap = current.loadMap();
         tileSetup();
     }
