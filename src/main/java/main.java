@@ -3,7 +3,6 @@ import org.newdawn.slick.SlickException;
 
 /**
  * Main class that setups and creates our game application.
- * @author malte & alex
  */
 public class main {
     public static final int canvasWidth = 1024;

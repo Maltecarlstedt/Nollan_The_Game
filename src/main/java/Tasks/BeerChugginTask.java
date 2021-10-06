@@ -11,7 +11,6 @@ import org.newdawn.slick.state.StateBasedGame;
 
 /**
  * A class that represents the Beer chugging task within it's own state.
- * @author malte
  */
 
 public class BeerChugginTask extends BasicGameState {

@@ -10,7 +10,6 @@ import java.io.InputStream;
 
 /**
  * Model for the beer chugging task
- * @author malte
  */
 public class BeerChuggingModel {
 

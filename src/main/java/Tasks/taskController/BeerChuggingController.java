@@ -1,15 +1,12 @@
 package Tasks.taskController;
 
 import Tasks.taskModel.BeerChuggingModel;
-import Tasks.taskView.BeerChuggingView;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 /**
  * Controller for the Beer Chugging task
- *
- * @author malte
  */
 public class BeerChuggingController {
 

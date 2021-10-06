@@ -18,10 +18,8 @@ public class Webers extends NPC {
         width = 64;
         height = 128;
         state = 0;
-        //isShowing = true;
         current = Karhuset.KARHUSET;
         location = new Point(700, 200);
-        //NPCLocation = new Rectangle(500, 380, width, height);
         initNPC();
     }
 

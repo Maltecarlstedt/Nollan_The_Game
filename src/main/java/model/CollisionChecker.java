@@ -30,9 +30,6 @@ public class CollisionChecker {
         return isInCollision;
     }
 
-
-
-
     public boolean isNextRightOutside(PlayerModel player){
         return (player.nextX() + player.getWidth() > currentMap.getWidth());
     }

@@ -16,7 +16,6 @@ public class Bieber extends NPC{
         width = 64;
         height = 90;
         state = 0;
-        //isShowing = true;
         current = Markena.MARKENA;
         location = new Point(760, 179);
         initNPC();
@@ -27,8 +26,6 @@ public class Bieber extends NPC{
         character = new SpriteSheet("data/NPC/Bieber64x90.png", 64, 90);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
-        // animation.addFrame(task.getSubImage(1, 0), 200);
-
     }
 
     @Override
