@@ -33,10 +33,11 @@ public class MainGame extends BasicGameState {
     public MainGame() throws SlickException {
     }
 
+
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
-        // TODO:: SKAPA EN MANAGER SÅ ATT DET INTE BLIR SÅ MKT INITIERING HÄR.
+        // TODO:: Make this prettier
         collisionChecker = new CollisionChecker();
         NPCFactory factory = new NPCFactory();
         playerModel = new PlayerModel();
@@ -44,7 +45,7 @@ public class MainGame extends BasicGameState {
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
         enterTask = new EnterTask();
 
-        //TODO: det här borde gå att göra mkt snyggare
+        //TODO: Make this prettier
         NPCs = new ArrayList<>();
         NPC webers = factory.getNPC("Webers");
         NPC kritan = factory.getNPC("Kritan");
@@ -55,6 +56,7 @@ public class MainGame extends BasicGameState {
         NPC kvalle = factory.getNPC("Kvalle");
         NPC dnollk = factory.getNPC("DNollK");
 
+        //TODO: Make this prettier
         NPCs.add(webers);
         NPCs.add(kritan);
         NPCs.add(tango);
@@ -67,30 +69,38 @@ public class MainGame extends BasicGameState {
         mapModel = new MapModel(collisionChecker);
 
         mapView = new MapView();
-        mapController = new MapController(mapModel, mapView); // IDK om mapController kommer behöva detta men lägger dom där så länge.
+        mapController = new MapController(mapModel, mapView);
 
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        // Render the map
         mapView.render(gc, g, mapModel);
+        // Renders The player
         playerView.render(gc, g, playerModel);
+        // Renders top layer
         mapView.renderTopLayer(gc, g, mapModel);
-        for(NPCs.NPC npc: NPCs)
+
+        //TODO: Move this from MainGame into its own class.
+        //Renders the nps
+        for(NPCs.NPC npc: NPCs) {
             npc.render(gc, g);
-
-
+        }
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame stateBasedGame, int delta) throws SlickException {
 
+        // Updates our player
         playerController.update(gc, stateBasedGame, delta);
+        // Updates our map
         mapController.update(gc, delta);
+        // Checks if a task should be started and entered.
         enterTask.update(gc, playerModel, mapModel, stateBasedGame);
+
+        //TODO: Move this from MainGame into its own class.
         showNPC();
-
-
     }
 
     @Override
@@ -98,8 +108,7 @@ public class MainGame extends BasicGameState {
         return 1;
     }
 
-    //funkar kanske?
-
+    //TODO: Move this from MainGame into its own class.
     public void showNPC() {
         for (NPCs.NPC npc : NPCs) {
             if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
@@ -108,9 +117,6 @@ public class MainGame extends BasicGameState {
             if ((npc.getCurrent() != mapModel.getCurrentMap())) {
                 npc.setShowing(false);
             }
-
-
-
         }
     }
 
