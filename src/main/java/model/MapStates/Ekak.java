@@ -5,10 +5,13 @@ import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
+/**
+ * Creates an enum for one map piece which holds the specific methods for just that map.
+ * This map is for the tiled map Ekak.
+ */
 public enum Ekak implements MapState{
     EKAK;
 
-    private final int topLayers = 1;
     private String dPath = "data/maps/ekak.tmx";
 
     @Override

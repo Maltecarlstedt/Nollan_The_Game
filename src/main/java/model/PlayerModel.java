@@ -7,13 +7,18 @@ import org.newdawn.slick.SpriteSheet;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * A class that holds all the data on our player
+ */
 public class PlayerModel {
 
     private final int width = 64, height = 64;
     private Orientation orientation;
-
+    /** The location stored as a rectangle so we can use the "intercepts(Shape s)"-method in CollisionChecker */
     private Rectangle playerLocation = new Rectangle(512, 384, width, height);
 
+    /** The different sprites (an image that can be split up into multiple images) and animations
+     * depending on the orientation the player moves in */
     public SpriteSheet MoveRight; // initate a SpriteSheet
     public Animation MoveRightAni; // initate an Animation
 
@@ -26,6 +31,7 @@ public class PlayerModel {
     public SpriteSheet MoveDown; // initate a SpriteSheet
     public Animation MoveDownAni; // initate an Animation
 
+    /** The current animation, this changes depending on which direction the player is moving in */
     public Animation currentAnimation;
 
 
@@ -34,8 +40,7 @@ public class PlayerModel {
      * Creates an idle, basic player in the center of our window
      */
     public PlayerModel() throws SlickException {
-
-        //TODO: Gör en try catch här för att slippa throwa slickException i playerController
+        //TODO: Gör en try catch här för att slippa throwa slickException i playerController?
         orientation = Orientation.IDLE;
         initPlayer();
     }
@@ -81,6 +86,9 @@ public class PlayerModel {
         currentAnimation = MoveDownAni;
     }
 
+    /**
+     * Starts the walking animation if it is stopped (it gets stopped when the player has been idle)
+     */
     public void startAnimation(){
         if(currentAnimation.isStopped()){
             currentAnimation.start();
@@ -96,15 +104,18 @@ public class PlayerModel {
         setNewPlayerTile(nextX(), nextY());
     }
 
-
+    /**
+     * sets the location of the player
+     * @param x - the value of x
+     * @param y - the value of y
+     */
     public void setNewPlayerTile(int x, int y) {
         playerLocation.setRect(x, y, width, height);
 
     }
 
     /**
-     * Moves the character up, changes state so that if the player is IDLE, the player will use the right IDLE state
-     * (I.E it will stand still in state UP)
+     * Moves the character up and changes the current animation accordingly
      */
     public void moveUp() {
         move();
@@ -113,7 +124,7 @@ public class PlayerModel {
     }
 
     /**
-     * Moves the character to the left, changes state so that if the player is IDLE, the player will use the right IDLE state
+     * Moves the character left and changes the current animation accordingly
      */
     public void moveLeft() {
         move();
@@ -122,7 +133,7 @@ public class PlayerModel {
     }
 
     /**
-     * Moves the character to the right, changes state so that if the player is IDLE, the player will use the right IDLE state
+     * Moves the character right and changes the current animation accordingly
      */
     public void moveRight() {
         move();
@@ -131,7 +142,7 @@ public class PlayerModel {
     }
 
     /**
-     * Moves the character down, changes state so that if the player is IDLE, the player will use the right IDLE state
+     * Moves the character down and changes the current animation accordingly
      */
     public void moveDown() {
         move();
@@ -140,9 +151,7 @@ public class PlayerModel {
     }
 
     /**
-     * Sets the still image so that the player just stops in its track. Depending on which state is set,
-     * which is given by which key was most lately pressed down.
-     * @return
+     * Stops the walking animation and makes the player idle.
      */
     public void idlePlayer() {
         currentAnimation.stop();
@@ -159,9 +168,6 @@ public class PlayerModel {
         this.orientation = orientation;
     }
 
-    /**
-     * @return player's orientation as the enum we created
-     */
     public Orientation getOrientation() {
         return orientation;
     }
@@ -174,14 +180,23 @@ public class PlayerModel {
         return height;
     }
 
+    /**
+     * @return the next X position for the player
+     */
     public int nextX(){
         return playerLocation.x + orientation.deltaX;
     }
 
+    /**
+     * @return the next Y position for the player
+     */
     public int nextY(){
         return playerLocation.y + orientation.deltaY;
     }
 
+    /**
+     * @return the player's next location tile
+     */
     public Rectangle getNextLocation(){
         return new Rectangle(nextX(), nextY(), width, height);
     }

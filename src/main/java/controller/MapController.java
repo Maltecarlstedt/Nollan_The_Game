@@ -11,6 +11,9 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import view.MapView;
 import view.PlayerView;
 
+/**
+ * Place holder for map
+ */
 public class MapController {
     MapModel mapModel;
     MapView mapView;
