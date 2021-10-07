@@ -36,7 +36,7 @@ public class GatheringPantController implements ActionListener{
 
     /** Variable (true/false) if the task is running.
      */
-    Boolean isRunning = false;
+    public Boolean isRunning = false;
 
 
     /** The Controllers constructor, taking in the model and view to be able to use them.
@@ -68,32 +68,11 @@ public class GatheringPantController implements ActionListener{
     public void pantOnScreen() throws SlickException {
        if (count == 0) {   // if timer down on 0, create new pant
             pantModel.addPant();
+           totalPantOnScreen++;
             startTimer(10);
-            totalPantOnScreen++;
         }
     }
 
-
-    // TODO: Fix the collision between the player and the pant.
-    /** Check if pant and player are at the same point, if so, gather the pant and remove it,
-     *  gives point and generate a new pant (not working and under develop).
-     * @throws SlickException if file not found, slick-exception.
-     */
-    /*
-    public void checkPant() throws SlickException {
-        for(Pant pant : pantModel.getPants()) {
-            if ((playerModel.getPlayerLocation().getX() == pant.getPantLocation().getX()) && (playerModel.getPlayerLocation().getY() == pant.getPantLocation().getY())) {
-                pantGathered++;
-                if (totalPantOnScreen >= 0) {
-                    totalPantOnScreen--;
-                } else {
-                    totalPantOnScreen = 0;
-                }
-                pantModel.addPant();
-            }
-        }
-    }
-*/
 
     /** If there is five pant on screen, it is game over, the time and amount pant gathered is shown.
      *  Else continue the time counting.
@@ -102,9 +81,10 @@ public class GatheringPantController implements ActionListener{
     public void pantTimer(int delta) {
 
         if (totalPantOnScreen > 5) {
-            //stopWatch.stop();
+            stopWatch.stop();
             System.out.println("Bra samlat! " + pantGathered + " st!!");
             System.out.println("Din tid blev: " + pantModel.pantTimePassed);
+
         } else {
             // Change from ms to seconds
             pantModel.pantTimePassed += (double) delta/1000;
@@ -120,7 +100,9 @@ public class GatheringPantController implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (isRunning) {
-            //checkPant();
+
+        } else {
+            isRunning = false;
         }
     }
 

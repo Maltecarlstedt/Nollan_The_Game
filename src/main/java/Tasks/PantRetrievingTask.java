@@ -34,7 +34,7 @@ public class PantRetrievingTask extends BasicGameState {
         pc = new GatheringPantController(pm, pantView);
 
         // the mouse with a circle and radius
-        mouseBall = new Circle(0,0,20);
+        mouseBall = new Circle(0,0,5);
 
     }
 
@@ -80,13 +80,21 @@ public class PantRetrievingTask extends BasicGameState {
             if (p.getPantLocation().intersects(mouseBall)) {
                 pm.getPants().remove(i);
                 pc.pantGathered++;
+                System.out.println(pc.pantGathered);
                 if (pc.totalPantOnScreen > 0) {
                     pc.totalPantOnScreen--;
+                    System.out.println(pc.totalPantOnScreen);
                 } else {
                     pc.totalPantOnScreen = 0;
+                    System.out.println(pc.totalPantOnScreen);
                 }
                 pm.addPant();
+                pc.totalPantOnScreen++;
             }
+        }
+
+        if (pc.isRunning == false) {
+            sbg.enterState(1);
         }
     }
 
