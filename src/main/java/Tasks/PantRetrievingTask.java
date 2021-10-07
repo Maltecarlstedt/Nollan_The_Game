@@ -32,7 +32,6 @@ public class PantRetrievingTask extends BasicGameState {
         pantController = new GatheringPantController(pantModel, pantView);
     }
 
-
     /** Render the pant.
      * @param gc represents the container that have the game.
      * @param sbg the current state of the game used to isolate the game from different aspects.
