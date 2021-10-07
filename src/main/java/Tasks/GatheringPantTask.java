@@ -13,7 +13,7 @@ import org.newdawn.slick.state.StateBasedGame;
 /** The task "Gathering pant".
  * @auther Steffanie Kristiansson
  */
-public class PantRetrievingTask extends BasicGameState {
+public class GatheringPantTask extends BasicGameState {
 
     private GatheringPantModel pantModel;
     private GatheringPantController pantController;

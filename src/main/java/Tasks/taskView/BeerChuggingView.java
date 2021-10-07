@@ -39,7 +39,7 @@ public class BeerChuggingView {
         // TODO: Make a method so that the string is always centered.
         // Render the timer.
         g.drawString(String.valueOf(chugModel.timePassed), 835,55);
-        
+
     }
 
 }

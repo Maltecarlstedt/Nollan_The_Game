@@ -18,7 +18,7 @@ public class BuildBridgeTask extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         bridgeModel = new BuildBridgeModel();
         bridgeView = new BuildBridgeView();
-        bridgeController = new BuildBridgeController(bridgeModel, bridgeView);
+        bridgeController = new BuildBridgeController(bridgeModel);
     }
 
     @Override
