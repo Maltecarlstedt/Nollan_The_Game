@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="22" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="24" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/dbus.tsx"/>
  <tileset firstgid="1031" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
@@ -7,6 +7,11 @@
  <tileset firstgid="2351" source="tsx-files/doors.tsx"/>
  <tileset firstgid="2543" source="tsx-files/terrain2.tsx"/>
  <tileset firstgid="3567" source="tsx-files/pool_cookout.tsx"/>
+ <layer id="11" name="collision" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgIB/sJRGj60M3i9ZuwGc/uYAW9hPrNnLDn1qAmvaT6j5S7aa2/6lt/1DzPzZ3UGrOQNo/0GCou59SQEz+GMgworX9g93/tAbD2W+jAD8g1BZCTvv0aNPgsx+XGK3dQawcqQAArha4HgAMAAA=
+  </data>
+ </layer>
  <layer id="1" name="base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACjNnZGAwJxMv5YJgcvVTimH2D5QbBtr+gY6Dgfb/QNs/ikfxKB7Fo3gUj+JRPBQxAENrprQADAAA
@@ -86,6 +91,11 @@
  <layer id="17" name="bench" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACmNgGAWjYBSMglEwCgYnuM3GwHAFiK+xQdgDYf8dIL43gPY/AeJnA2T/KBgFo2B4AgCM21RWAAwAAA==
+  </data>
+ </layer>
+ <layer id="23" name="topLayer" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNggIDPvAyjAApGw2IUjIJRMApGwSgYBaNg8INJ3AwMkwngKdy0s/8S0OzLBPCVQWg/AHUezNoADAAA
   </data>
  </layer>
 </map>

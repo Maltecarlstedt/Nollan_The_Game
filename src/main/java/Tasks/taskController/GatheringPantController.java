@@ -3,107 +3,150 @@ package Tasks.taskController;
 import Tasks.taskModel.Pant;
 import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import Tasks.taskModel.GatheringPantModel;
-import Tasks.taskView.GatheringPantView;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GatheringPantController implements ActionListener{
 
-    /**
-     * GatheringPantController should handle the input from the user:
-     *          - user colliding with an pripps
-     *          - coordinates of the pripps and the user
+/** Controls the task "Gathering pant".
+ * @auther Steffanie Kristiansson
+ */
+public class GatheringPantController {
+
+    private GatheringPantModel pm;
+
+
+
+    /** Variables for the player's time and score.
      */
+    public int totalPantOnScreen = 0;
+    public int pantGathered = 0;
 
-    public PlayerModel playerModel;
+    /** Variables for the timer on the pant.
+     */
+    public Timer stopWatch;
+    public int count = 0;
+    public int delay = 1000; // in milli-seconds
 
-    private GatheringPantModel pantModel;
-    private GatheringPantView pantView;
-    private Pant burk;
-
-    public int totalPantOnScreen;
-    public int pantGathered;
+    /** Variable (true/false) if the task is running.
+     */
+    public Boolean isRunning = false;
 
 
-    /**
-     * The countdown timer
-      */
-    Timer stopWatch;
-    int count = 0;
-    int delay = 1000; // in milli-seconds
+    /** Finished the task
+     */
+    public Boolean finished = false;
 
-    Boolean isRunning = false;
 
-    // Constructor
-    public GatheringPantController (GatheringPantModel pantModel, GatheringPantView pantView) throws SlickException {
-        this.pantModel = pantModel;
-        this.pantView = pantView;
+    /** The Controllers constructor, taking in the model and view to be able to use them.
+     * @param pm representing the model to get data from the it.
+     * @throws SlickException if file not found, slick-exception.
+     */
+    public GatheringPantController (GatheringPantModel pm) throws SlickException {
+        this.pm = pm;
     }
 
+
+    /** To update the running task.
+     * @param gc the container that have the game.
+     * @param delta represents time in ms since last update.
+     * @throws SlickException if file not found, slick-exception.
+     */
     public void update(GameContainer gc, int delta) throws SlickException{
         isRunning = true;
         pantTimer(delta);
         pantOnScreen();
+        Input input = gc.getInput();
+        mouseFollower(gc);
     }
 
+
+    /** Check if task is completed, else if timer is at 0, create a new pant.
+     * @throws SlickException if file not found, slick-exception.
+     */
     public void pantOnScreen() throws SlickException {
-       if (count == 0) {   // if timer down on 0, create new pant
-            pantModel.addPant();
-            startTimer(10);
-            totalPantOnScreen++;
+        if (finished == false) {
+            if (count == 0) {   // if timer down on 0, create new pant
+                pm.addPant();
+                totalPantOnScreen++;
+                startTimer(10);
+            }
+        } else {
+            // TODO: fix the ending of task
+            pm.getPants().clear();
+            //System.out.println("Bra samlat! " + pantGathered + " st!!");
+            //System.out.println("Din tid blev: " + pm.pantTimePassed);
         }
     }
 
-    // Check if player and pant is at the same coordinates, then gather a score and that pant should disappear
-    public void checkPant() throws SlickException {
-        for(Pant pant : pantModel.getPants()) {
-            if ((playerModel.getPlayerLocation().getX() == burk.getPantLocation().getX()) && (playerModel.getPlayerLocation().getY() == burk.getPantLocation().getY())) {
+
+    /** If there is five pant on screen, it is game over, the time and amount pant gathered is shown.
+     *  Else continue the time counting.
+     * @param delta represents time in ms since last update.
+     */
+    public void pantTimer(int delta) {
+
+        if (totalPantOnScreen > 5) {
+            stopWatch.stop();
+            finished = true;
+        } else {
+            // Change from ms to seconds
+            pm.pantTimePassed += (double) delta/1000;
+            // round to two decimals
+            pm.pantTimePassed = (float) (Math.round(pm.pantTimePassed * 100.0) / 100.0);
+        }
+    }
+
+
+    /** Track the mouse and score point if intersect
+     * @param gc the container that have the game.
+     * @throws SlickException if file not found, slick-exception.
+     */
+    public void mouseFollower(GameContainer gc) throws SlickException{
+        // track the mouse
+        pm.mouseBall.setCenterX(gc.getInput().getMouseX());
+        pm.mouseBall.setCenterY(gc.getInput().getMouseY());
+
+        for (Pant p : pm.getPants()) {
+            p.getPantLocation().getCenterX();
+            p.getPantLocation().getCenterY();
+        }
+
+        for (int i = pm.getPants().size() - 1; i >= 0; i--) {
+            Pant p = pm.getPants().get(i);
+            if (p.getPantLocation().intersects(pm.mouseBall)) {
+                pm.getPants().remove(i);
                 pantGathered++;
-                if (totalPantOnScreen >= 0) {
+                //System.out.println(pantGathered);
+                if (totalPantOnScreen > 0) {
                     totalPantOnScreen--;
+                    //System.out.println(totalPantOnScreen);
                 } else {
                     totalPantOnScreen = 0;
+                    //System.out.println(totalPantOnScreen);
                 }
-                pantModel.addPant();
+                pm.addPant();
+                totalPantOnScreen++;
             }
         }
     }
 
-    public void pantTimer(int delta) {
 
-        if (totalPantOnScreen > 5) {
-            //stopWatch.stop();
-            System.out.println("Bra samlat! " + pantGathered + " st!!");
-            System.out.println("Din tid blev: " + pantModel.pantTimePassed);
-        } else {
-            // Change from ms to seconds
-            pantModel.pantTimePassed += (double) delta/1000;
-            // round to two decimals
-            pantModel.pantTimePassed = (float) (Math.round(pantModel.pantTimePassed * 100.0) / 100.0);
-            //System.out.println(pantModel.pantTimePassed);
-        }
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (isRunning) {
-            //checkPant();
-        }
-    }
-
+    /** A timer for the pant if pant is gathered.
+     * @param countPassed the pant-timer.
+     */
     public void startTimer(int countPassed) {
         ActionListener action = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (count == 0) {
                     stopWatch.stop();
-                    System.out.println("New pant should appear!");
+                    //System.out.println("New pant should appear!");
                 } else {
-                    System.out.println("you have " + count + " seconds remaining");
+                    //System.out.println("you have " + count + " seconds remaining");
                     count--;
                 }
             }
@@ -113,5 +156,4 @@ public class GatheringPantController implements ActionListener{
         stopWatch.start();
         count = countPassed;
     }
-
 }

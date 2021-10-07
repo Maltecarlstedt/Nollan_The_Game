@@ -8,14 +8,24 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
+
+/** Represents the start game menu.
+ */
 public class GameMenu extends BasicGameState {
 
+    /** Images representing "buttons".
+     */
     Image startGame;
     Image exitGame;
     Image background;
     Image nollan;
     Image help;
 
+    /** Initiating the images.
+     * @param gc represents the container that have the game.
+     * @param sbg the current state of the game used to isolate the game from different aspects.
+     * @throws SlickException if file not found, slick-exception.
+     */
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         nollan = new Image("data/maps/images/Nollan.png");
@@ -23,11 +33,14 @@ public class GameMenu extends BasicGameState {
         startGame = new Image("data/maps/images/startaButton.png");
         exitGame = new Image("data/maps/images/avslutaButton.png");
         help = new Image("data/maps/images/hjalpButton.png");
-
-        //AePlayWave aw = new AePlayWave( "data/music/Mycket Mera Scout - Webscout.wav" );
-        //aw.start();
     }
 
+    /** Render all the images.
+     * @param gc represents the container that have the game.
+     * @param sbg the current state of the game used to isolate the game from different aspects.
+     * @param g represents the graphics context to be used for rendering.
+     * @throws SlickException SlickException if file not found, slick-exception.
+     */
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         background.draw();
@@ -37,6 +50,12 @@ public class GameMenu extends BasicGameState {
         help.drawCentered(1024/2,500);
     }
 
+    /** Check the mouse, if clicked in specific area, move to state.
+     * @param gc represents the container that have the game.
+     * @param sbg the current state of the game used to isolate the game from different aspects.
+     * @param delta represents time in ms since last update.
+     * @throws SlickException SlickException if file not found, slick-exception.
+     */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         int posX = Mouse.getX();
@@ -65,6 +84,11 @@ public class GameMenu extends BasicGameState {
 
     }
 
+    // TODO: fix a "create player" with name and etc.
+
+    /** A special ID for this specific state.
+     * @return represents this state with a unique int.
+     */
     @Override
     public int getID() {
         return 0;

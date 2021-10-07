@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="20" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="21" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
  <tileset firstgid="2089" source="tsx-files/pool_cookout.tsx"/>
  <tileset firstgid="2143" source="tsx-files/terrain2.tsx"/>
  <tileset firstgid="3167" source="tsx-files/windows.tsx"/>
+ <tileset firstgid="3423" source="tsx-files/colstuff.tsx"/>
+ <layer id="11" name="collision" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtvLwMCwFwlTA+ylAMPAvgG2nxIwaj997aMGQHcLJelvFIwCYgEtyj9q2E8vMNzsp6TsHUz+p0b9S4n99AIDbf9gASPZ79jASKn/AajpT3UADAAA
+  </data>
+ </layer>
  <layer id="1" name="base" width="32" height="24" locked="1">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu3DAQ0AAAwCIF/L/sEMctjoJVVVVV8coO9++QAMAAA=
@@ -81,4 +87,9 @@
   </data>
   </layer>
  </group>
+ <layer id="20" name="topLayer" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgwA7uMDMw3GXGITkKhj3YA4z7vXSK/3tAe+4D8QMk+0bTH/3APGA4zwfiBQMQ3sz8CMzCjxCnV/pz5kdgFyT7h2r6wxaX+MSoDfYBzdwPxAeYEXGIT4zaALksgcUhPjFcgJ7lHzYwVNPfKCAdYKv/BhqMpPQ/kPUfCCCXj/QGAESelTYADAAA
+  </data>
+ </layer>
 </map>

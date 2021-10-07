@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain2.tsx"/>
  <tileset firstgid="1025" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="2049" source="tsx-files/colstuff.tsx"/>
@@ -7,6 +7,11 @@
  <tileset firstgid="3329" source="tsx-files/lamppost.tsx"/>
  <tileset firstgid="3332" source="tsx-files/ducksteps.tsx"/>
  <tileset firstgid="3341" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <layer id="11" name="collision" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtvLwsCwlwgMA8hsQgCbWmLswmc/KWCg7cflJnrZRQv7KXUfvcN61P6Bs58UN45U+wcaoPt3pPmflmAwhuVeDlRMU7uwlT8jyH5cbhrIsobc9g+13Eup3aS4gZrtP3L8T237SQXE2A8AW7bLNQAMAAA=
+  </data>
+ </layer>
  <layer id="1" name="base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACrNiZWCwQsJOjKh8SnEgOwNDEDuCJqSe2vYXAu0sYkfQ9LZ/ItDOSewImppm0yL8oxgxMT3Dn9p4sIU/qfFBKUYPf3rHB3r40zs+RsMff/iXYMG0DH9a+5dQ+NPb/sFW/oyG/2j4k4vNkfBAhD859lMz/Mmxf7CHPwBoUyaEAAwAAA==
@@ -40,6 +45,16 @@
  <layer id="7" name="elektroWasHere" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACmNgGAWjYBSMglEwCgYPYOFlYGAFYjbegbGHHcjnAGJOLPZT02247OEC8rmBmAeLHfjcRirAZw819YyCUUAPQOvyYrACLjL9DQB9Tx2EAAwAAA==
+  </data>
+ </layer>
+ <layer id="9" name="topLayer2" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3OQQ0AAAgEoJt/+9c1hs5BAhIA+KV6ewBw1wCq5GeLAAwAAA==
+  </data>
+ </layer>
+ <layer id="8" name="topLayer" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2VMQqAMAxFo0vp4P03dVCPoQ7qMaqDeg4jOJSikEJCVfrgb4UHoT8BiPiQZLR3uQIoMKXi9adEf4veDtMz+6kY9M6YJZA/EqHg9pnaby7cPlP7/QXuZllpgNqKFE/7d0XnZkWK9vK6+3dA52hFCnN5375/a01LIzSrTdOye/q57//k6X/D/T/7H/L//WmXSnEAGB8hvgAMAAA=
   </data>
  </layer>
 </map>

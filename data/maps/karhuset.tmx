@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="40" nextobjectid="1">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="43" nextobjectid="1">
  <tileset firstgid="1" source="tsx-files/terrain.tsx"/>
  <tileset firstgid="1025" source="tsx-files/terrain2.tsx"/>
  <tileset firstgid="2049" source="tsx-files/newSet.tsx"/>
  <tileset firstgid="2229" source="tsx-files/colstuff.tsx"/>
  <tileset firstgid="3253" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <layer id="40" name="collision" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECuWRSwrAMAhEc/87tWdrXQgSptHEDwWFEhnNPGvGiIvrtfJ8X5PcoIA0asvgAzyUTtjQyCHuzmBBoV0jbZdN/dGxO0M03+InZ7T0o10jzeJFPTM/4x1Ws8z8VW9G7U/86t3TPuX/yzxj1+wpOVrOd7ynxqE6h+xlLeKUviiPYFg8EJu0qujO1/Zc+RbaLN3rnd7iAcHHDooADAAA
+  </data>
+ </layer>
  <layer id="3" name="Base" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECmNiYmBgBmIWIGYaALYS0E5lIFYB4oFgD4SfkcN6IPyMHNaj/h9N/6P5f7T8Qy6T6MkeLf9G67/R+n+0/YPcJqEne6S3fwDhV4EcAAwAAA==
@@ -102,7 +107,7 @@
   </layer>
   <layer id="32" name="stairs6" width="32" height="24">
    <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECmNgIAzuMDMw3AViZIBNDFmemuw/QLv/otmPTYyadiKbtQdo9140+7GJIeuhJvsO0O7R8EcN0dHwx8wTqCEE4VkxMjBYsWKToY8YyO5R++kT1thsGcjw/8sCifuBin9ZYNqLgmJsYTMqNhoCoyEwGgIjOQQA9WdsnwAMAAA=
+   H4sIAAAAAAAECmNgIAzuMDMw3AViZIBNDFl+OLH3AP2+F83/2MRo5WdsYY1NjFb2D7S52MIamxit3IktrLGJ0cp+Ssy1YmRgsGKlxATK9ILsHrWfsjCkRPdAhv9fFkjcD1T8ywLTXhQUUxKGo3pHQ2A0BEZDYDiGAAAiNNtuAAwAAA==
   </data>
   </layer>
   <layer id="22" name="tungan" width="32" height="24">
@@ -116,14 +121,24 @@
   </data>
   </layer>
  </group>
- <layer id="40" name="collision" width="32" height="24">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAECmNgGAWjITAaAqMhMBoCoyFAuxCYxcvAgA3TzkZUk7HZDRKjFxi1f2THP73S2ag9oyFASggAAAMxCb0ADAAA
-  </data>
- </layer>
  <layer id="34" name="water" width="32" height="24" locked="1">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAECu2TsQkAIAwEU1qqOILoCur+g/npHED4Ih+4+uD4mOlUQAVUQAVUQAXeAjmZVcC6Dvcg+yf8BTA6LHg3aIDdIbrfd8DYgP+e7yD6BrzBAb/vAr6Gq7IADAAA
+  </data>
+ </layer>
+ <layer id="40" name="thin_treetrunk" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECmNgGPzgDzMDw18gRgbYxJDlR9nUCwFsYY1NjHo2jpqEHALYwhqbGLKeUfZoCIyGwGgIjIbAaAiMhsBoCOAKAQBTmlGWAAwAAA==
+  </data>
+ </layer>
+ <layer id="41" name="topLayer" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu2V2w3CMAxFDfwxEJuwCe00UBikPIbgk9co3EhYurJMlCLFIFFLV3Gctid2Wnc9EdlAHfTOLjORK8TmxXg95y/nIkkL6Bs2lN8j973J34uV5KLsIfl7tfZiOT5z1Y+svzJ5TPwOdd1CO1NfzsWrtRfje6zPXPUT/wDuETpl+F6tvZhl8lyZPKb1G7h36JHh83M+9S23Qe5txe9vNRVpXmoxMl/ZNfln9DOW8pkdzbfsmnz7nnjsSL7dzzj/nQqU9OCauy3pwTX5UT24JIfxLGL+hyVn8Q/XPAGy/W7jAAwAAA==
+  </data>
+ </layer>
+ <layer id="42" name="topLayer2" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAECu3QsQ0AIAwDQSszA/NDkRFSUNxLlvtLRIAAAQKTAquS3TvvRYAAAQIEfhK4jGS6vAAMAAA=
   </data>
  </layer>
 </map>

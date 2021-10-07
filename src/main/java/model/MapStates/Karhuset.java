@@ -1,9 +1,6 @@
 package model.MapStates;
 
-import model.MapModel;
-import model.Orientation;
 import model.PlayerModel;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
@@ -20,18 +17,23 @@ public enum Karhuset implements MapState{
 
     }
 
-    @Override
-    public TiledMap nextMap(Orientation orientation) throws SlickException {
 
-        switch (orientation){
+    @Override
+    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+
+        switch (playerModel.getOrientation()){
             case DOWN:
-                return Chalmersplatsen.CHALMERSPLATSEN.loadMap();
+                playerModel.setNewPlayerTile(200, 50);
+                return Chalmersplatsen.CHALMERSPLATSEN;
             case UP:
-                return Dammen.ADAMMEN.loadMap();
+                playerModel.setNewPlayerTile(220, 700);
+                return Dammen.ADAMMEN;
             case LEFT:
-                return Markena.MARKENA.loadMap();
+                playerModel.setNewPlayerTile(956, 360);
+                return Markena.MARKENA;
+            default:
+                return Karhuset.KARHUSET;
         }
-        return null;
     }
 
     @Override
@@ -42,5 +44,10 @@ public enum Karhuset implements MapState{
     @Override
     public MapState map(){
         return this;
+    }
+
+    @Override
+    public int getTopLayers(){
+        return 2;
     }
 }

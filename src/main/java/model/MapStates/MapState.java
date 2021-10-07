@@ -1,7 +1,5 @@
 package model.MapStates;
 
-import model.MapModel;
-import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
@@ -11,11 +9,17 @@ import org.newdawn.slick.tiled.TiledMap;
  */
 public interface MapState {
 
-    TiledMap nextMap(Orientation orientation) throws SlickException;
+    /**
+     * Decides the next map depending on the orientation of the player and the current map.
+     * @param playerModel the player's orientation
+     * @return the next map
+     * @throws SlickException - if the filepath to the next map is not found.
+     */
+    MapState nextMap(PlayerModel playerModel) throws SlickException;
 
     /**
      * Sets the position in this map.
-     * @param player possible to change its location.
+     * @param player possible to change its location. (old, will probably be deleted)
      */
     void setPosition(PlayerModel player);
 
@@ -26,5 +30,16 @@ public interface MapState {
      */
     TiledMap loadMap() throws SlickException;
 
+    /**
+     * @return the current MapState
+     */
     MapState map();
+
+    /**
+     * The top layers are those layers that should be rendered after the player so that it looks like
+     * the player is behind the object. Most of the maps only have 1 top layer, but some need 2 (might be even more)
+     * to render everything properly.
+     * @return the number of top layers
+     */
+    int getTopLayers();
 }

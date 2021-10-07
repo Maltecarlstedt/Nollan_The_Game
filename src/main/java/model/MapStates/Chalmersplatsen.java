@@ -1,7 +1,5 @@
 package model.MapStates;
 
-import model.MapModel;
-import model.Orientation;
 import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
@@ -16,12 +14,14 @@ public enum Chalmersplatsen implements MapState {
     private String dPath = "data/maps/chalmershallplatsen.tmx";
 
     @Override
-    public TiledMap nextMap(Orientation orientation) throws SlickException{
-        switch (orientation){
+    public MapState nextMap(PlayerModel playerModel) throws SlickException{
+        switch (playerModel.getOrientation()){
             case UP:
-                return Karhuset.KARHUSET.loadMap();
+                playerModel.setNewPlayerTile(440, 700);
+                return Karhuset.KARHUSET;
+            default:
+                return Chalmersplatsen.CHALMERSPLATSEN;
         }
-        return null;
     }
 
     @Override
@@ -38,5 +38,11 @@ public enum Chalmersplatsen implements MapState {
     public MapState map(){
         return this;
     }
+
+    @Override
+    public int getTopLayers(){
+        return 2;
+    }
+
 }
 
