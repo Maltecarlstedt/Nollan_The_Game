@@ -2,10 +2,10 @@ package Tasks;
 
 import Tasks.taskController.GatheringPantController;
 import Tasks.taskModel.GatheringPantModel;
+import Tasks.taskModel.Pant;
 import Tasks.taskView.GatheringPantView;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -15,9 +15,11 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class PantRetrievingTask extends BasicGameState {
 
-    private GatheringPantModel pantModel;
-    private GatheringPantController pantController;
+    private GatheringPantModel pm;
+    private GatheringPantController pc;
     private GatheringPantView pantView;
+
+    private Circle mouseBall;
 
 
     /** Initiating the task.
@@ -27,9 +29,13 @@ public class PantRetrievingTask extends BasicGameState {
      */
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        pantModel = new GatheringPantModel();
+        pm = new GatheringPantModel();
         pantView = new GatheringPantView();
-        pantController = new GatheringPantController(pantModel, pantView);
+        pc = new GatheringPantController(pm, pantView);
+
+        // the mouse with a circle and radius
+        mouseBall = new Circle(0,0,20);
+
     }
 
 
@@ -41,7 +47,11 @@ public class PantRetrievingTask extends BasicGameState {
      */
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        pantView.render(gc, g, pantModel);
+        pantView.render(gc, g, pm);
+
+        // the mouse color
+        g.setColor(Color.cyan);
+        g.fill(mouseBall);
     }
 
 
@@ -53,8 +63,31 @@ public class PantRetrievingTask extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        pantController.update(gc, delta);
+        pc.update(gc, delta);
 
+
+        // track the mouse
+        mouseBall.setCenterX(gc.getInput().getMouseX());
+        mouseBall.setCenterY(gc.getInput().getMouseY());
+
+        for (Pant p : pm.getPants()) {
+            p.getPantLocation().getCenterX();
+            p.getPantLocation().getCenterY();
+        }
+
+        for (int i = pm.getPants().size() - 1; i >= 0; i--) {
+            Pant p = pm.getPants().get(i);
+            if (p.getPantLocation().intersects(mouseBall)) {
+                pm.getPants().remove(i);
+                pc.pantGathered++;
+                if (pc.totalPantOnScreen > 0) {
+                    pc.totalPantOnScreen--;
+                } else {
+                    pc.totalPantOnScreen = 0;
+                }
+                pm.addPant();
+            }
+        }
     }
 
 
