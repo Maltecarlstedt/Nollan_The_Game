@@ -41,4 +41,5 @@ public class BeerChuggingView {
         g.drawString(String.valueOf(chugModel.timePassed), 835,55);
 
     }
+
 }

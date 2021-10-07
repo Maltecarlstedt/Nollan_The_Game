@@ -7,12 +7,11 @@ import org.newdawn.slick.GameContainer;
 
 public class BuildBridgeController {
 
-    private BuildBridgeView bbv;
     private BuildBridgeModel bbm;
 
-    public BuildBridgeController(BuildBridgeModel bbm, BuildBridgeView bbv){
+    public BuildBridgeController(BuildBridgeModel bbm){
         this.bbm = bbm;
-        this.bbv = bbv;
+
     }
 
     public void update(GameContainer gc, int delta){

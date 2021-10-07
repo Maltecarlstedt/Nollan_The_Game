@@ -1,6 +1,7 @@
 package Tasks.taskController;
 
 import Tasks.taskModel.BeerChuggingModel;
+import Tasks.taskView.BeerChuggingView;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
@@ -138,6 +139,9 @@ public class BeerChuggingController {
             chugIndexAnimation++;
             if(chugIndexAnimation <= 8){
                 bcm.updateChug(chugIndexAnimation);
+            }else{
+                //TODO:: Game Over stuff here
+
             }
         }
 
