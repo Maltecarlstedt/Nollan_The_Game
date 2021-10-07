@@ -16,8 +16,6 @@ import java.awt.event.ActionListener;
  */
 public class GatheringPantController {
 
-    public PlayerModel playerModel;
-
     private GatheringPantModel pm;
 
 

@@ -30,6 +30,6 @@ public class StateSetup extends StateBasedGame {
         this.addState(new BuildBridgeTask());
         this.addState(new PantRetrievingTask());
         // Enters state 0
-        enterState(420);
+        enterState(0);
     }
 }
