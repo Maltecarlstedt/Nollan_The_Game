@@ -22,6 +22,7 @@ public class GatheringPantController implements ActionListener{
     private GatheringPantModel pantModel;
     private GatheringPantView pantView;
 
+
     /** Variables for the player's time and score.
      */
     public int totalPantOnScreen = 0;
@@ -78,6 +79,7 @@ public class GatheringPantController implements ActionListener{
      *  gives point and generate a new pant (not working and under develop).
      * @throws SlickException if file not found, slick-exception.
      */
+    /*
     public void checkPant() throws SlickException {
         for(Pant pant : pantModel.getPants()) {
             if ((playerModel.getPlayerLocation().getX() == pant.getPantLocation().getX()) && (playerModel.getPlayerLocation().getY() == pant.getPantLocation().getY())) {
@@ -91,7 +93,7 @@ public class GatheringPantController implements ActionListener{
             }
         }
     }
-
+*/
 
     /** If there is five pant on screen, it is game over, the time and amount pant gathered is shown.
      *  Else continue the time counting.
@@ -144,5 +146,4 @@ public class GatheringPantController implements ActionListener{
         stopWatch.start();
         count = countPassed;
     }
-
 }
