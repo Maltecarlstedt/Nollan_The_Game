@@ -38,6 +38,11 @@ public class GatheringPantController {
     public Boolean isRunning = false;
 
 
+    /** Finished the task
+     */
+    public Boolean finished = false;
+
+
     /** The Controllers constructor, taking in the model and view to be able to use them.
      * @param pm representing the model to get data from the it.
      * @throws SlickException if file not found, slick-exception.
@@ -61,14 +66,21 @@ public class GatheringPantController {
     }
 
 
-    /** Check if timer is at 0, if so, then create a new pant.
+    /** Check if task is completed, else if timer is at 0, create a new pant.
      * @throws SlickException if file not found, slick-exception.
      */
     public void pantOnScreen() throws SlickException {
-       if (count == 0) {   // if timer down on 0, create new pant
-            pm.addPant();
-           totalPantOnScreen++;
-            startTimer(10);
+        if (finished == false) {
+            if (count == 0) {   // if timer down on 0, create new pant
+                pm.addPant();
+                totalPantOnScreen++;
+                startTimer(10);
+            }
+        } else {
+            // TODO: fix the ending of task
+            pm.getPants().clear();
+            //System.out.println("Bra samlat! " + pantGathered + " st!!");
+            //System.out.println("Din tid blev: " + pm.pantTimePassed);
         }
     }
 
@@ -81,10 +93,7 @@ public class GatheringPantController {
 
         if (totalPantOnScreen > 5) {
             stopWatch.stop();
-            //System.out.println("Bra samlat! " + pantGathered + " st!!");
-            //System.out.println("Din tid blev: " + pm.pantTimePassed);
-            isRunning = false;
-            // TODO: fix so the mini-game stops
+            finished = true;
         } else {
             // Change from ms to seconds
             pm.pantTimePassed += (double) delta/1000;
