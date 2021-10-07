@@ -1,17 +1,19 @@
 package view;
 
 import model.PlayerModel;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
 
-
+/**
+ * Our view of the player. The class that draws the player.
+ */
 public class PlayerView {
 
-    public PlayerView() throws SlickException {
-    }
-
-    public void render(GameContainer gc, Graphics g, PlayerModel playerModel){
+    /**
+     * Function that draws the player on the canvas
+     * @param g The graphics context to be used for rendering
+     * @param playerModel Model of the player that is to be rendered
+     */
+    public void render(Graphics g, PlayerModel playerModel){
         g.drawAnimation(playerModel.currentAnimation, (float)playerModel.getPlayerLocation().getX(), (float)playerModel.getPlayerLocation().getY());
     }
 

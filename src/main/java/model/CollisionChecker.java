@@ -11,6 +11,10 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import java.awt.*;
 
+/**
+ * This class works as a mediator between the map and the player
+ * Checks if the player is colliding with anything on said map
+ */
 public class CollisionChecker {
 
     private MapModel currentMap;
@@ -19,6 +23,11 @@ public class CollisionChecker {
     public CollisionChecker(){
     }
 
+    /**
+     * Method that checks collisions between the collision tiles on the map and the player's hitbox.
+     * @param playerModel - the player
+     * @return true if it collides, otherwise false
+     */
     public boolean isColliding(PlayerModel playerModel){
         boolean isInCollision = false;
         for(Rectangle ret : currentMap.getBlocks()) {
@@ -26,12 +35,14 @@ public class CollisionChecker {
                 isInCollision = true;
             }
         }
-
         return isInCollision;
     }
 
-
-
+    /**
+     * All of these methods checks if the player's next location is outside the map
+     * @param player - the player
+     * @return true if outside, else false
+     */
 
     public boolean isNextRightOutside(PlayerModel player){
         return (player.nextX() + player.getWidth() > currentMap.getWidth());
@@ -46,56 +57,31 @@ public class CollisionChecker {
         return (player.nextY() + player.getHeight() > currentMap.getHeight());
     }
 
+    /**
+     * Changes the map depending on which way the player is moving and which map it already is on.
+     * @param player - the player
+     * @param sbg - the current state of the game
+     * @throws SlickException - if the filepath to the next map is not found.
+     */
     public void changeMap(PlayerModel player, StateBasedGame sbg) throws SlickException {
         oldState = currentMap.getCurrentMap();
-        currentMap.checkState(player.getOrientation());
+        currentMap.checkState(player);
         if (currentMap.getCurrentMap() != oldState){
             fadeOut(sbg);
-            player.setNewPlayerTile(200, 200);
             fadeIn(sbg);
         }
     }
 
+    /**
+     * These methods make the transitions when the map is changed
+     * @param sbg - the current state of the game
+     */
     public void fadeOut(StateBasedGame sbg){
         sbg.enterState(1,new FadeOutTransition(org.newdawn.slick.Color.black, 2000), new EmptyTransition());
     }
     public void fadeIn(StateBasedGame sbg){
         sbg.enterState(1, new EmptyTransition(), new FadeInTransition(Color.black, 1000));
     }
-
-    /* Should not be used
-    public boolean colliding(PlayerModel player) throws SlickException {
-        try {
-            return topLeft(player) && topRight(player)
-                    && bottomRight(player) && bottomLeft(player);
-        }catch(IndexOutOfBoundsException e){
-            System.out.println(e.getMessage());
-        }
-        return true;
-
-
-
-    }
-    public boolean topLeft(PlayerModel player){
-        return currentMap.getTiledMap().getTileId( player.nextX() / currentMap.getTiledMap().getTileWidth(),
-                player.nextY() / currentMap.getTiledMap().getTileHeight(), currentMap.getCollisionLayer()) == 0;
-    }
-
-    public boolean topRight(PlayerModel player){
-        return currentMap.getTiledMap().getTileId( (player.nextX() + player.getWidth())/ currentMap.getTiledMap().getTileWidth(),
-                player.nextY() / currentMap.getTiledMap().getTileHeight(), currentMap.getCollisionLayer()) == 0;
-    }
-
-    public boolean bottomRight(PlayerModel player){
-        return currentMap.getTiledMap().getTileId( (player.nextX() + player.getWidth()) / currentMap.getTiledMap().getTileWidth(),
-                (player.nextY() + player.getHeight()) / currentMap.getTiledMap().getTileHeight(), currentMap.getCollisionLayer()) == 0;
-    }
-
-    public boolean bottomLeft(PlayerModel player){
-        return currentMap.getTiledMap().getTileId( player.nextX() / currentMap.getTiledMap().getTileWidth(),
-                (player.nextY() + player.getHeight()) / currentMap.getTiledMap().getTileHeight(), currentMap.getCollisionLayer()) == 0;
-    }
-    */
 
     public void setCurrentMap(MapModel currentMap) {
         this.currentMap = currentMap;

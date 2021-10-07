@@ -1,30 +1,31 @@
 package NPCs;
 
 import model.MapStates.Chalmersplatsen;
-import model.MapStates.Karhuset;
 import model.MapStates.MapState;
-import org.newdawn.slick.*;
+import model.MapStates.Markena;
+import org.newdawn.slick.Animation;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class Kritan extends NPC {
-
-    public Kritan() throws SlickException{
+public class Bieber extends NPC{
+    public Bieber() throws SlickException {
         width = 64;
-        height = 64;
+        height = 90;
         state = 0;
-        current = Chalmersplatsen.CHALMERSPLATSEN;
-        location = new Point(400, 200);
+        current = Markena.MARKENA;
+        location = new Point(760, 179);
         initNPC();
     }
 
     @Override
     void spriteSetup() throws SlickException {
-        character = new SpriteSheet("data/NPC/kritanPRIT64x64.png", 64, 64);
-       animation = new Animation();
-       animation.addFrame(character.getSubImage(0, 0), 200);
-
+        character = new SpriteSheet("data/NPC/Bieber64x90.png", 64, 90);
+        animation = new Animation();
+        animation.addFrame(character.getSubImage(0, 0), 200);
     }
 
     @Override
@@ -52,7 +53,7 @@ public class Kritan extends NPC {
 
     @Override
     Point getLocation() {
-       return location;
+        return location;
     }
 
     @Override
@@ -60,3 +61,5 @@ public class Kritan extends NPC {
         isShowing = isItShowing;
     }
 }
+
+
