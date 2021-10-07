@@ -3,10 +3,9 @@ package Tasks.taskController;
 import Tasks.taskModel.Pant;
 import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import Tasks.taskModel.GatheringPantModel;
-import Tasks.taskView.GatheringPantView;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,12 +14,11 @@ import java.awt.event.ActionListener;
 /** Controls the task "Gathering pant".
  * @auther Steffanie Kristiansson
  */
-public class GatheringPantController implements ActionListener{
+public class GatheringPantController {
 
-    public PlayerModel playerModel;
+    private GatheringPantModel pm;
 
-    private GatheringPantModel pantModel;
-    private GatheringPantView pantView;
+
 
     /** Variables for the player's time and score.
      */
@@ -35,17 +33,20 @@ public class GatheringPantController implements ActionListener{
 
     /** Variable (true/false) if the task is running.
      */
-    Boolean isRunning = false;
+    public Boolean isRunning = false;
+
+
+    /** Finished the task
+     */
+    public Boolean finished = false;
 
 
     /** The Controllers constructor, taking in the model and view to be able to use them.
-     * @param pantModel representing the model to get data from the it.
-     * @param pantView representing the view to be able to draw.
+     * @param pm representing the model to get data from the it.
      * @throws SlickException if file not found, slick-exception.
      */
-    public GatheringPantController (GatheringPantModel pantModel, GatheringPantView pantView) throws SlickException {
-        this.pantModel = pantModel;
-        this.pantView = pantView;
+    public GatheringPantController (GatheringPantModel pm) throws SlickException {
+        this.pm = pm;
     }
 
 
@@ -58,37 +59,26 @@ public class GatheringPantController implements ActionListener{
         isRunning = true;
         pantTimer(delta);
         pantOnScreen();
+        Input input = gc.getInput();
+        mouseFollower(gc);
     }
 
 
-    /** Check if there is pant on the screen, if not, create another one.
+    /** Check if task is completed, else if timer is at 0, create a new pant.
      * @throws SlickException if file not found, slick-exception.
      */
     public void pantOnScreen() throws SlickException {
-       if (count == 0) {   // if timer down on 0, create new pant
-            pantModel.addPant();
-            startTimer(10);
-            totalPantOnScreen++;
-        }
-    }
-
-
-    // TODO: Fix the collision between the player and the pant.
-    /** Check if pant and player are at the same point, if so, gather the pant and remove it,
-     *  gives point and generate a new pant (not working and under develop).
-     * @throws SlickException if file not found, slick-exception.
-     */
-    public void checkPant() throws SlickException {
-        for(Pant pant : pantModel.getPants()) {
-            if ((playerModel.getPlayerLocation().getX() == pant.getPantLocation().getX()) && (playerModel.getPlayerLocation().getY() == pant.getPantLocation().getY())) {
-                pantGathered++;
-                if (totalPantOnScreen >= 0) {
-                    totalPantOnScreen--;
-                } else {
-                    totalPantOnScreen = 0;
-                }
-                pantModel.addPant();
+        if (finished == false) {
+            if (count == 0) {   // if timer down on 0, create new pant
+                pm.addPant();
+                totalPantOnScreen++;
+                startTimer(10);
             }
+        } else {
+            // TODO: fix the ending of task
+            pm.getPants().clear();
+            //System.out.println("Bra samlat! " + pantGathered + " st!!");
+            //System.out.println("Din tid blev: " + pm.pantTimePassed);
         }
     }
 
@@ -100,30 +90,52 @@ public class GatheringPantController implements ActionListener{
     public void pantTimer(int delta) {
 
         if (totalPantOnScreen > 5) {
-            //stopWatch.stop();
-            System.out.println("Bra samlat! " + pantGathered + " st!!");
-            System.out.println("Din tid blev: " + pantModel.pantTimePassed);
+            stopWatch.stop();
+            finished = true;
         } else {
             // Change from ms to seconds
-            pantModel.pantTimePassed += (double) delta/1000;
+            pm.pantTimePassed += (double) delta/1000;
             // round to two decimals
-            pantModel.pantTimePassed = (float) (Math.round(pantModel.pantTimePassed * 100.0) / 100.0);
+            pm.pantTimePassed = (float) (Math.round(pm.pantTimePassed * 100.0) / 100.0);
         }
     }
 
 
-    /** If action caused by the player, then check the pant (under development).
-     * @param e the event.
+    /** Track the mouse and score point if intersect
+     * @param gc the container that have the game.
+     * @throws SlickException if file not found, slick-exception.
      */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (isRunning) {
-            //checkPant();
+    public void mouseFollower(GameContainer gc) throws SlickException{
+        // track the mouse
+        pm.mouseBall.setCenterX(gc.getInput().getMouseX());
+        pm.mouseBall.setCenterY(gc.getInput().getMouseY());
+
+        for (Pant p : pm.getPants()) {
+            p.getPantLocation().getCenterX();
+            p.getPantLocation().getCenterY();
+        }
+
+        for (int i = pm.getPants().size() - 1; i >= 0; i--) {
+            Pant p = pm.getPants().get(i);
+            if (p.getPantLocation().intersects(pm.mouseBall)) {
+                pm.getPants().remove(i);
+                pantGathered++;
+                //System.out.println(pantGathered);
+                if (totalPantOnScreen > 0) {
+                    totalPantOnScreen--;
+                    //System.out.println(totalPantOnScreen);
+                } else {
+                    totalPantOnScreen = 0;
+                    //System.out.println(totalPantOnScreen);
+                }
+                pm.addPant();
+                totalPantOnScreen++;
+            }
         }
     }
 
 
-    /** A timer for the pant.
+    /** A timer for the pant if pant is gathered.
      * @param countPassed the pant-timer.
      */
     public void startTimer(int countPassed) {
@@ -132,9 +144,9 @@ public class GatheringPantController implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 if (count == 0) {
                     stopWatch.stop();
-                    System.out.println("New pant should appear!");
+                    //System.out.println("New pant should appear!");
                 } else {
-                    System.out.println("you have " + count + " seconds remaining");
+                    //System.out.println("you have " + count + " seconds remaining");
                     count--;
                 }
             }
@@ -144,5 +156,4 @@ public class GatheringPantController implements ActionListener{
         stopWatch.start();
         count = countPassed;
     }
-
 }
