@@ -4,45 +4,36 @@ import NPCs.EKAK1;
 import NPCs.EKAK2;
 import org.newdawn.slick.SlickException;
 
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.*;
+import java.util.Map;
+
 public class NPCFactory {
 
-    //TODO: Loop a list instead of long if
+    public Hashtable<String, NPC> npcs;
+
+    public NPCFactory() throws SlickException{
+        npcs = new Hashtable<>();
+        initHashTable();
+    }
 
     /**
-     * Returns the Npc that is wanted
-     * @param NPCType The different npc-objects
-     * @return The npc-object requested
+     * Adds every key-value-combination to the HashTable
      * @throws SlickException Generic exception
      */
-    public NPC getNPC(String NPCType) throws SlickException {
-        if(NPCType == null){
-            return null;
-        }
-        if(NPCType.equals("Webers")){
-            return new Webers();
-        }
-        if(NPCType.equals("Kritan")){
-            return new Kritan();
-        }
-        if(NPCType.equals("Tango")) {
-            return new Tango();
-        }
-        if(NPCType.equals("Ekak1")) {
-            return new EKAK1();
-        }
-        if(NPCType.equals("Ekak2")) {
-            return new EKAK2();
-        }
-        if(NPCType.equals("Kvalle")) {
-            return new Kvalle();
-        }
-        if(NPCType.equals("Bieber")) {
-            return new Bieber();
-        }
-        if(NPCType.equals("DNollK")) {
-            return new DNollK();
-        }
-        return null;
+
+    public void initHashTable() throws SlickException {
+        npcs.put("Webers", new Webers());
+        npcs.put("Kritan", new Kritan());
+        npcs.put("Tango", new Tango());
+        npcs.put("Ekak1", new EKAK1());
+        npcs.put("Ekak2", new EKAK2());
+        npcs.put("Kvalle", new Kvalle());
+        npcs.put("Bieber", new Bieber());
+        npcs.put("DNollK", new DNollK());
+
     }
 
 }

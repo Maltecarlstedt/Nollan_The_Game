@@ -10,7 +10,7 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class Webers extends NPC {
+public class Webers extends TaskHoldingNPC {
 
     //TODO: Gör till singleton
 
@@ -24,7 +24,7 @@ public class Webers extends NPC {
     }
 
     @Override
-    public void spriteSetup() throws SlickException {
+    public void spriteSetupTask() throws SlickException {
         character = new SpriteSheet("data/NPC/webersTASK128x128_NOBLINK.png", 64, 128);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
@@ -32,10 +32,22 @@ public class Webers extends NPC {
 
     }
 
+    @Override
+    void spriteSetup() throws SlickException{
+        character = new SpriteSheet("data/NPC/webers64x64.png", 64, 128);
+        animation = new Animation();
+        animation.addFrame(character.getSubImage(0, 0), 1);
+    }
+
     //onödig?
     @Override
     public void initNPC() throws SlickException {
+        if (state == 0) {
+            spriteSetupTask();
+        } else if (state == 1) {
             spriteSetup();
+
+        }
     }
 
 

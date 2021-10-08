@@ -53,14 +53,15 @@ public class MainGame extends BasicGameState {
 
         //TODO: Make this prettier
         NPCs = new ArrayList<>();
-        NPC webers = factory.getNPC("Webers");
-        NPC kritan = factory.getNPC("Kritan");
-        NPC tango = factory.getNPC("Tango");
-        NPC ekak1 = factory.getNPC("Ekak1");
-        NPC ekak2 = factory.getNPC("Ekak2");
-        NPC bieber = factory.getNPC("Bieber");
-        NPC kvalle = factory.getNPC("Kvalle");
-        NPC dnollk = factory.getNPC("DNollK");
+
+        NPC webers = factory.npcs.get("Webers");
+        NPC kritan = factory.npcs.get("Kritan");
+        NPC tango = factory.npcs.get("Tango");
+        NPC ekak1 = factory.npcs.get("Ekak1");
+        NPC ekak2 = factory.npcs.get("Ekak2");
+        NPC bieber = factory.npcs.get("Bieber");
+        NPC kvalle = factory.npcs.get("Kvalle");
+        NPC dnollk = factory.npcs.get("DNollK");
 
         //TODO: Make this prettier
         NPCs.add(webers);
@@ -71,6 +72,7 @@ public class MainGame extends BasicGameState {
         NPCs.add(bieber);
         NPCs.add(kvalle);
         NPCs.add(dnollk);
+
 
         mapModel = new MapModel(collisionChecker);
 
