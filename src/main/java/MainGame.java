@@ -8,6 +8,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
+import view.MaterialView;
 import view.PlayerView;
 import NPCs.*;
 
@@ -26,6 +27,9 @@ public class MainGame extends BasicGameState {
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
+
+    private MaterialModel materialModel;
+    private MaterialView materialView;
 
     private EnterTask enterTask;
 
@@ -50,6 +54,12 @@ public class MainGame extends BasicGameState {
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
         enterTask = new EnterTask();
+
+        materialModel = new MaterialModel();
+        materialView = new MaterialView();
+
+
+
 
         //TODO: Make this prettier
         NPCs = new ArrayList<>();
@@ -91,10 +101,13 @@ public class MainGame extends BasicGameState {
 
         // Render the map
         mapView.render(mapModel);
+
+        materialView.renderFindMaterial(g, materialModel, mapModel);
         // Renders The player
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
+        materialView.renderMaterial(g, materialModel);
     
         //TODO: Move this from MainGame into its own class.
         //Renders the nps
