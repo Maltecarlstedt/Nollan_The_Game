@@ -43,6 +43,8 @@ public class BeerChuggingModel {
     public SpriteSheet chuggingAnimation;
     public Image currentChugAnimation;
 
+    public boolean isTaskFinished = false;
+
     private TiledMap background;
     /**
      * A constructor that initiates all resources needed for this task when created.

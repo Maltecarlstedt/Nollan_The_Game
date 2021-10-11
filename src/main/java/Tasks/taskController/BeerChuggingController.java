@@ -1,21 +1,27 @@
 package Tasks.taskController;
 
+import Tasks.Highscores;
 import Tasks.taskModel.BeerChuggingModel;
 import Tasks.taskView.BeerChuggingView;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.EmptyTransition;
 import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.HorizontalSplitTransition;
+
+import javax.print.DocFlavor;
+import java.io.IOException;
 
 /**
  * Controller for the Beer Chugging task
  */
 public class BeerChuggingController {
 
-    /** An instance of our beerchugging model */
+    /** An instance of our beerchugging model and View */
     private BeerChuggingModel bcm;
+
+    private Highscores hs = new Highscores("data/highscore.txt", true);
 
     /** The speed at which the green indicator moves at */
     private double indicatorSpeed = 3;
@@ -32,6 +38,8 @@ public class BeerChuggingController {
     /** Index for which sprite is to be drawn for indicating the animation drinking */
     private int chugIndexAnimation = 0;
 
+
+
     /**
      * Constructor for beer chugging controller. Initialize which model to work on.
      * @param bcm The model
@@ -47,12 +55,13 @@ public class BeerChuggingController {
      * @param delta Time in ms since last update
      * @throws SlickException Generic Exception
      */
-    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException, IOException {
         loopGreenThingyLocation();
         beerJump(gc, delta);
         checkIntersect();
-        updateChugAnimation(sbg);
+        updateChugAnimation();
         chugTimer(delta);
+        exitTask(gc, sbg);
 
     }
 
@@ -62,7 +71,7 @@ public class BeerChuggingController {
      */
     public void chugTimer(int delta){
         // Stop when the beer is empty. AKA when reaching the last sprite.
-        if(chugIndexAnimation >= 8){
+        if(chugIndexAnimation > 8){
             //System.out.println("Bra hävt! Din tid blev: " + bcm.timePassed);
         }else
         // Changes from ms to seconds
@@ -137,16 +146,27 @@ public class BeerChuggingController {
      * If the player has managed to be inside the green indicator for 30 updates. The sprite changes one image.
      * Resets the numberOfChugs until we have reached the last sprite.
      */
-    public void updateChugAnimation(StateBasedGame sbg){
+    public void updateChugAnimation(){
         if(numberOfChugs > 30){
             numberOfChugs = 0;
             chugIndexAnimation++;
             if(chugIndexAnimation <= 8){
                 bcm.updateChug(chugIndexAnimation);
             }else{
-                sbg.enterState(1, new EmptyTransition(), new FadeInTransition());
+                bcm.isTaskFinished = true;
+
             }
         }
 
     }
+
+    public void exitTask(GameContainer gc, StateBasedGame sbg) throws IOException {
+        Input input = gc.getInput();
+        if(bcm.isTaskFinished && input.isKeyDown(Input.KEY_F)){
+            String test = String.valueOf(bcm.timePassed);
+            hs.writeHighScore(test);
+            sbg.enterState(1, new FadeInTransition(), new HorizontalSplitTransition());
+        }
+    }
+
 }

@@ -30,7 +30,6 @@ public class BeerChuggingView {
             // Renders the regular beer if it's not inside.
             g.drawImage(chugModel.jumpingBeer, chugModel.getJumpingBeerLocationX(), chugModel.getJumpingBeerLocationY());
         }
-
         // Draw the player chugging beer.
         g.drawImage(chugModel.currentChugAnimation, 1024/2, 720/2);
         // Set our custom font
@@ -42,6 +41,13 @@ public class BeerChuggingView {
         // Render the timer.
         g.drawString(String.valueOf(chugModel.timePassed), 835,55);
 
+        if(chugModel.isTaskFinished){
+            g.drawString("Bra supit bajsnolla, Din tid blev " + chugModel.timePassed, 200, 768/2);
+            g.drawString("Tryck på 'f' för att fortsätta ", 200, 600);
+        }
+
     }
+
+
 
 }

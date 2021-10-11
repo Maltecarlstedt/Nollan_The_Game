@@ -29,8 +29,8 @@ public class EnterTask {
         currMap = mapModel.getCurrentMap().toString();
 
         if(input.isKeyDown(Input.KEY_F)){
-            if (currMap.equals("EKAK")){
-                sbg.enterState(69, new EmptyTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut
+            if (currMap.equals("KARHUSET")){
+                sbg.enterState(69, new FadeInTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut
             }
             else if (currMap.equals("DELTAP")){
                 sbg.enterState(420, new EmptyTransition(), new VerticalSplitTransition());

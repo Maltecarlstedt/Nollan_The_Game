@@ -28,7 +28,11 @@ public class GatheringPantView {
             // Render the timer.
             g.drawString(String.valueOf(pm.pantTimePassed), 835,55);
             g.drawString(String.valueOf(pc.pantGathered), 835,75);
+
+
         }
     }
+
+
 
 }
