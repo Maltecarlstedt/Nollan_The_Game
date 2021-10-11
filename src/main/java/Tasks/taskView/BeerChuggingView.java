@@ -14,6 +14,8 @@ public class BeerChuggingView {
      */
     public void render(GameContainer gc, Graphics g, BeerChuggingModel chugModel){
 
+        chugModel.getBackground().render(0,0);
+
         // Renders the brown bar
         g.drawImage(chugModel.inidcatorImage, chugModel.getIndicatorLocation().x, chugModel.getIndicatorLocation().y);
         // Renders the green indicator.
