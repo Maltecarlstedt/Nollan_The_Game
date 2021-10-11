@@ -57,7 +57,7 @@ public class BeerChugginTask extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        beerChuggingController.update(gc, delta);
+        beerChuggingController.update(gc, sbg, delta);
     }
 
     @Override

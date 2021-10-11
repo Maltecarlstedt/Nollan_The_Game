@@ -15,7 +15,8 @@ public class GatheringPantModel {
 
     /** Represents time passed on pant-task.
      */
-    public float pantTimePassed;
+    public float pantTimePassed = 10;
+    public float pantSpawnerTimer = 3;
     public Circle mouseBall;
     public Image timerBox;
 
@@ -50,7 +51,7 @@ public class GatheringPantModel {
      */
     public void init(){
         // the mouse with a circle and radius
-        mouseBall = new Circle(0,0,5);
+        mouseBall = new Circle(0,0,10);
 
     }
 
