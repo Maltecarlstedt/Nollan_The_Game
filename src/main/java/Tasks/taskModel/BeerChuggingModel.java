@@ -1,7 +1,9 @@
 package Tasks.taskModel;
 
+import model.MapStates.Ekak;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.util.ResourceLoader;
 
 import java.awt.*;
@@ -41,6 +43,7 @@ public class BeerChuggingModel {
     public SpriteSheet chuggingAnimation;
     public Image currentChugAnimation;
 
+    private TiledMap background;
     /**
      * A constructor that initiates all resources needed for this task when created.
      * @throws SlickException Generic exception
@@ -53,6 +56,7 @@ public class BeerChuggingModel {
         initChuggingAnimation();
         fontLoader();
         initTimerSetup();
+        background = Ekak.EKAK.loadMap();
     }
 
     /**
@@ -138,6 +142,10 @@ public class BeerChuggingModel {
 
     public int getJumpingBeerLocationX(){
         return jumpingBeerRect.x;
+    }
+
+    public TiledMap getBackground() {
+        return background;
     }
 
     public void setJumpingBeerLocationY(int jumpingBeerLocation) {

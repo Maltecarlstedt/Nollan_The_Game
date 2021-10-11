@@ -1,10 +1,12 @@
 package Tasks.taskModel;
 
 
+import model.MapStates.DeltaP;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
+import org.newdawn.slick.tiled.TiledMap;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,7 @@ public class GatheringPantModel {
     public float pantSpawnerTimer = 3;
     public Circle mouseBall;
     public Image timerBox;
+    private TiledMap background;
 
 
     /** An ArrayList of all the pant.
@@ -49,9 +52,10 @@ public class GatheringPantModel {
 
     /** Initiate the mouse-"ball"
      */
-    public void init(){
+    public void init() throws SlickException {
         // the mouse with a circle and radius
         mouseBall = new Circle(0,0,10);
+        background = DeltaP.DELTAP.loadMap();
 
     }
 
@@ -63,6 +67,9 @@ public class GatheringPantModel {
         timerBox = new Image("data/timerBox.png");
     }
 
+    public TiledMap getBackground() {
+        return background;
+    }
 
     // TODO: create some kind of database (or such) to save the score for each completed task.
 }

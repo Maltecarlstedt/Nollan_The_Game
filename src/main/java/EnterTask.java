@@ -32,7 +32,7 @@ public class EnterTask {
             if (currMap.equals("EKAK")){
                 sbg.enterState(69, new EmptyTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut
             }
-            else if (currMap.equals("KARHUSET")){
+            else if (currMap.equals("DELTAP")){
                 sbg.enterState(420, new EmptyTransition(), new VerticalSplitTransition());
             }
             else if (currMap.equals("ADAMMEN")){
