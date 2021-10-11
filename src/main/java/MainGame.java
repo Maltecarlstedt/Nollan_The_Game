@@ -97,12 +97,7 @@ public class MainGame extends BasicGameState {
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
-    
-        //TODO: Move this from MainGame into its own class.
-        //Renders the nps
-        for(NPCs.NPC npc: NPCs) {
-            npc.render(gc, g);
-        }
+
     }
 
     /**
@@ -122,9 +117,6 @@ public class MainGame extends BasicGameState {
         mapController.update(gc, delta);
         // Checks if a task should be started and entered.
         enterTask.update(gc, playerModel, mapModel, sbg);
-
-        //TODO: Move this from MainGame into its own class.
-        showNPC();
     }
 
     /**
@@ -136,20 +128,6 @@ public class MainGame extends BasicGameState {
         return 1;
     }
 
-    /**
-     * Method for displaying NPC on the map that they belong to.
-     */
-    //TODO: Move this from MainGame into its own class.
-    public void showNPC() {
-        for (NPCs.NPC npc : NPCs) {
-            if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
-                npc.setShowing(true);
-            }
-            if ((npc.getCurrent() != mapModel.getCurrentMap())) {
-                npc.setShowing(false);
-            }
-        }
-    }
 
 
 }
