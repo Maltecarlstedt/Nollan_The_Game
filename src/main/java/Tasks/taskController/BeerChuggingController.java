@@ -5,6 +5,9 @@ import Tasks.taskView.BeerChuggingView;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.EmptyTransition;
+import org.newdawn.slick.state.transition.FadeInTransition;
 
 /**
  * Controller for the Beer Chugging task
@@ -44,12 +47,13 @@ public class BeerChuggingController {
      * @param delta Time in ms since last update
      * @throws SlickException Generic Exception
      */
-    public void update(GameContainer gc, int delta) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         loopGreenThingyLocation();
         beerJump(gc, delta);
         checkIntersect();
-        updateChugAnimation();
+        updateChugAnimation(sbg);
         chugTimer(delta);
+
     }
 
     /**
@@ -133,15 +137,14 @@ public class BeerChuggingController {
      * If the player has managed to be inside the green indicator for 30 updates. The sprite changes one image.
      * Resets the numberOfChugs until we have reached the last sprite.
      */
-    public void updateChugAnimation(){
+    public void updateChugAnimation(StateBasedGame sbg){
         if(numberOfChugs > 30){
             numberOfChugs = 0;
             chugIndexAnimation++;
             if(chugIndexAnimation <= 8){
                 bcm.updateChug(chugIndexAnimation);
             }else{
-                //TODO:: Game Over stuff here
-
+                sbg.enterState(1, new EmptyTransition(), new FadeInTransition());
             }
         }
 
