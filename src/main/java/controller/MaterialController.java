@@ -31,6 +31,7 @@ public class MaterialController {
      * @return true if collides, otherwise false
      */
     public boolean materialCollision(PlayerModel pm) {
+        //Todo Make the material disapear
         for (Object material : mm.getMaterialsFilled()) {
         if (pm.getNextLocation().intersects((Rectangle) material)) {
                 return true;
