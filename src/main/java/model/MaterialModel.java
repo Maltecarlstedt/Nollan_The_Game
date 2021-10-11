@@ -3,25 +3,31 @@ package model;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class MaterialModel {
     public Image scissor;
-    private Point scissorLocation;
+    private Rectangle scissorLocation;
 
     public Image scissorUnfilled;
-    private Point scissorUnfilledLocation;
+    private Rectangle scissorUnfilledLocation;
 
     public Image karkort;
-    private Point karkortLocation;
+    private Rectangle karkortLocation;
 
     public Image cardboard;
-    private Point cardboardLocation;
+    private Rectangle cardboardLocation;
 
     public Rectangle rect;
+
+    ArrayList<Rectangle> materialsFilled = new ArrayList<>();
+    ArrayList<Object> materialsUnfilled = new ArrayList<>();
+
+    public ArrayList<Rectangle> getMaterialsFilled() {return materialsFilled;}
+    public ArrayList<Object> getMaterialsUnfilled() {return materialsUnfilled;}
 
     public MaterialModel() throws SlickException {
         initScissor();
@@ -29,41 +35,48 @@ public class MaterialModel {
         initScissorUnfilled();
         initKarkort();
         initCardboard();
+
+        materialsFilled.add(scissorLocation);
+        materialsFilled.add(karkortLocation);
+        materialsFilled.add(cardboardLocation);
+
+        materialsUnfilled.add(scissorUnfilledLocation);
     }
+
 
     public void initScissor() throws SlickException {
         scissor = new Image("data/material/scissor.png");
-        scissorLocation = new Point(200,200);
+        scissorLocation = new Rectangle(200,200,32,32);
     }
 
-    public Point getScissorLocation(){
+    public Rectangle getScissorLocation(){
         return scissorLocation;
     }
 
     public void initKarkort() throws SlickException {
         karkort = new Image("data/material/karkortet.png");
-        karkortLocation = new Point(getStartX()+40,getStartY());
+        karkortLocation = new Rectangle(getStartX()+40,getStartY(),32,32);
     }
 
-    public Point getkarkortLocation(){
+    public Rectangle getkarkortLocation(){
         return karkortLocation;
     }
 
     public void initCardboard() throws SlickException {
         cardboard = new Image("data/material/cardboard.png");
-        cardboardLocation = new Point(getStartX()+80,getStartY());
+        cardboardLocation = new Rectangle(getStartX()+80,getStartY(),32,32);
     }
 
-    public Point getCardboardLocation(){
+    public Rectangle getCardboardLocation(){
         return cardboardLocation;
     }
 
     public void initScissorUnfilled() throws SlickException {
         scissorUnfilled = new Image("data/material/scissorUnfilled.png");
-        scissorUnfilledLocation = new Point(getStartX(), getStartY());
+        scissorUnfilledLocation = new Rectangle(getStartX(), getStartY(),32,32);
     }
 
-    public Point getScissorUnfilledLocation(){
+    public Rectangle getScissorUnfilledLocation(){
         return scissorUnfilledLocation;
     }
 
@@ -72,9 +85,10 @@ public class MaterialModel {
     }
 
     private int getStartX(){
-       return 710;
+        return 710;
     }
     private int getStartY(){
         return 725;
     }
+
 }
