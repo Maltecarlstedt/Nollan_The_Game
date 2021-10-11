@@ -29,8 +29,8 @@ public class MaterialController {
      * @return true if collides, otherwise false
      */
     public boolean materialCollision(PlayerModel pm) {
-        for (Rectangle material : mm.getMaterialsFilled()) {
-        if (pm.getNextLocation().intersects(material)) {
+        for (Object material : mm.getMaterialsFilled()) {
+        if (pm.getNextLocation().intersects((Rectangle) material)) {
                 isColliding = true;
             }
         }
