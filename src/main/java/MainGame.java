@@ -27,6 +27,7 @@ public class MainGame extends BasicGameState {
     private MapController mapController;
 
     private NPCView npcView;
+    private NPCModel npcModel;
 
     private EnterTask enterTask;
 
@@ -41,42 +42,18 @@ public class MainGame extends BasicGameState {
      * @param sbg The current state of the game used to isolate the game from different aspects
      * @throws SlickException Generic Exception
      */
+
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
         // TODO:: Make this prettier
         collisionChecker = new CollisionChecker();
-        //NPCFactory factory = new NPCFactory();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
         enterTask = new EnterTask();
         npcView = new NPCView();
-
-
-        /*//TODO: Make this prettier
-
-        NPC webers = factory.npcs.get("Webers");
-        NPC kritan = factory.npcs.get("Kritan");
-        NPC tango = factory.npcs.get("Tango");
-        NPC ekak1 = factory.npcs.get("Ekak1");
-        NPC ekak2 = factory.npcs.get("Ekak2");
-        NPC bieber = factory.npcs.get("Bieber");
-        NPC kvalle = factory.npcs.get("Kvalle");
-        NPC dnollk = factory.npcs.get("DNollK");
-
-        //TODO: Make this prettier
-        npcView.NPCs.add(webers);
-        npcView.NPCs.add(kritan);
-        npcView.NPCs.add(tango);
-        npcView.NPCs.add(ekak1);
-        npcView.NPCs.add(ekak2);
-        npcView.NPCs.add(bieber);
-        npcView.NPCs.add(kvalle);
-        npcView.NPCs.add(dnollk);
-
-         */
-
+        npcModel = new NPCModel();
 
         mapModel = new MapModel(collisionChecker);
 
@@ -103,8 +80,9 @@ public class MainGame extends BasicGameState {
         mapView.renderTopLayer(mapModel);
 
         //Renders the nps
-        npcView.showNPC(mapModel);
-        npcView.render(g); //??????
+        npcModel.showNPC(mapModel);
+        npcModel.initList();
+        npcView.render(g, npcModel.NPCs);
     }
 
     /**

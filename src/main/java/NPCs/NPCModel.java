@@ -8,7 +8,7 @@ public class NPCModel {
 
     NPCFactory factory;
     NPCView npcView;
-    ArrayList<NPC> NPCs;
+    public ArrayList<NPC> NPCs;
 
     NPC webers;
     NPC kritan;
@@ -21,6 +21,11 @@ public class NPCModel {
 
 
     public NPCModel() throws SlickException {
+        npcView = new NPCView();
+        factory = new NPCFactory();
+
+        NPCs = new ArrayList<>();
+
         webers = factory.npcs.get("Webers");
         kritan = factory.npcs.get("Kritan");
         tango = factory.npcs.get("Tango");
@@ -30,15 +35,10 @@ public class NPCModel {
         kvalle = factory.npcs.get("Kvalle");
         dnollk = factory.npcs.get("DNollK");
 
-        npcView = new NPCView();
-        factory = new NPCFactory();
-
-        NPCs = new ArrayList<>();
-
     }
 
     //TODO: Make this prettier
-    private void initList() {
+    public void initList() {
         NPCs.add(webers);
         NPCs.add(kritan);
         NPCs.add(tango);

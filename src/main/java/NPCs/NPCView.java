@@ -27,22 +27,6 @@ public class NPCView {
         }
     }
 
-    /**
-     * Displays the NPCs on the map that they belong to.
-     * @param mapModel
-     */
-    public void showNPC(MapModel mapModel) {
-        for (NPCs.NPC npc : NPCs) {
-            if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
-                npc.setShowing(true);
-            }
-            if ((npc.getCurrent() != mapModel.getCurrentMap())) {
-                npc.setShowing(false);
-            }
-        }
-
-    }
-
 
 
 
