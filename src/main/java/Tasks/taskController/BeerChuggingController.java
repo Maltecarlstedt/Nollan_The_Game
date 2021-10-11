@@ -68,7 +68,7 @@ public class BeerChuggingController {
     }
 
     /**
-     * A method to update the green indicator moving up and down. Also increasing it's speed each time it changes dir.
+     * Updates the green indicator that moves up and down. Also increases its speed each time it changes dir.
      */
     public void loopGreenThingyLocation() {
         if (upDir) {
