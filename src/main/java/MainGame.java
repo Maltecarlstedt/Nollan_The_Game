@@ -1,5 +1,6 @@
 import NPCs.NPCFactory;
 import controller.MapController;
+import controller.MaterialController;
 import controller.PlayerController;
 import model.*;
 import org.newdawn.slick.GameContainer;
@@ -30,6 +31,7 @@ public class MainGame extends BasicGameState {
 
     private MaterialModel materialModel;
     private MaterialView materialView;
+    private MaterialController materialController;
 
     private EnterTask enterTask;
 
@@ -57,6 +59,8 @@ public class MainGame extends BasicGameState {
 
         materialModel = new MaterialModel();
         materialView = new MaterialView();
+        materialController = new MaterialController(materialModel,materialView,playerModel);
+
 
 
 
@@ -133,6 +137,8 @@ public class MainGame extends BasicGameState {
         mapController.update(gc, delta);
         // Checks if a task should be started and entered.
         enterTask.update(gc, playerModel, mapModel, sbg);
+        // Checks if player collides with items (the materials).
+        materialController.update(playerModel);
 
         //TODO: Move this from MainGame into its own class.
         showNPC();

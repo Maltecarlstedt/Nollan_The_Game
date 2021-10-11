@@ -1,11 +1,7 @@
 package model;
 
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.StateBasedGame;
-import org.w3c.dom.css.Rect;
-import org.newdawn.slick.geom.Rectangle;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -64,18 +60,28 @@ public class MaterialModel {
         initTurqoiseColorUf();
 
         initScissor();
-        initRect();
         initKarkort();
         initCardboard();
+        initRope();
+        initBlackColor();
+        initTurqoiseColor();
+
+        initRect();
 
         materialsFilled.add(scissorLocation);
         materialsFilled.add(karkortLocation);
         materialsFilled.add(cardboardLocation);
+        materialsFilled.add(ropeLocation);
+        materialsFilled.add(blackColorLocation);
+        materialsFilled.add(turqoiseColorLocation);
 
         materialsUnfilled.add(scissorUfLocation);
-        initRope();
-        initBlackColor();
-        initTurqoiseColor();
+        materialsUnfilled.add(karkortUfLocation);
+        materialsUnfilled.add(cardboardUfLocation);
+        materialsUnfilled.add(ropeUfLocation);
+        materialsUnfilled.add(blackColorUfLocation);
+        materialsUnfilled.add(turqoiseColorUfLocation);
+
     }
 
 
@@ -90,7 +96,7 @@ public class MaterialModel {
 
     public void initKarkort() throws SlickException {
         karkort = new Image("data/material/karkortet.png");
-        karkortLocation = new Rectangle(getStartX()+40,getStartY(),32,32);
+        karkortLocation = new Rectangle(250,250,32,32);
     }
 
     public Rectangle getKarkortLocation(){
@@ -104,15 +110,6 @@ public class MaterialModel {
 
     public Rectangle getCardboardLocation(){
         return cardboardLocation;
-    }
-
-    public void initScissorUnfilled() throws SlickException {
-        scissorUf = new Image("data/material/scissorUnfilled.png");
-        scissorUfLocation = new Rectangle(getStartX(), getStartY(),32,32);
-    }
-
-    public Rectangle getScissorUnfilledLocation() {
-        return scissorUfLocation;
     }
 
     public void initRope() throws SlickException {

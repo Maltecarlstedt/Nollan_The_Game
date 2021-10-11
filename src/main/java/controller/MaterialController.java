@@ -18,11 +18,13 @@ public class MaterialController {
         this.mm = mm;
         this.mv = mv;
         this.pm = pm;
-
-        materialCollision(pm);
-        collectedItem();
     }
 
+
+    public void update(PlayerModel pm) {
+        isColliding = materialCollision(pm);
+        collectedItem();
+    }
 
     /** Method checks collision between player and item
      * @param pm the player
@@ -31,15 +33,16 @@ public class MaterialController {
     public boolean materialCollision(PlayerModel pm) {
         for (Object material : mm.getMaterialsFilled()) {
         if (pm.getNextLocation().intersects((Rectangle) material)) {
-                isColliding = true;
+                return true;
             }
         }
-        return isColliding;
+        return false;
     }
 
     public void collectedItem() {
         for (int i = mm.getMaterialsFilled().size() - 1; i >= 0; i--) {
-            if (isColliding == true) {
+            if (isColliding) {
+                System.out.println("item gone" + i);
                 mm.getMaterialsFilled().remove(i);
                 mm.getMaterialsUnfilled().remove(i);
             }
