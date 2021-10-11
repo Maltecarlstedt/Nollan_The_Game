@@ -47,15 +47,16 @@ public abstract class NPC {
     public abstract MapState getCurrent();
 
     /**
-     * Get the location of the npc
+     * Gets the location of the npc
      * @return x and y of the npc
      */
     abstract Point getLocation();
 
     /**
-     * Set visability.
+     * Sets visibility.
      * @param isItShowing boolean for false or true regarding if its to be shown or not
      */
     public abstract void setShowing(boolean isItShowing);
+
 
 }

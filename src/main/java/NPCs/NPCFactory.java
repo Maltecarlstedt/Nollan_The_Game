@@ -1,14 +1,7 @@
 package NPCs;
-
-import NPCs.EKAK1;
-import NPCs.EKAK2;
 import org.newdawn.slick.SlickException;
-
-import java.util.Dictionary;
-import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.*;
-import java.util.Map;
+
 
 public class NPCFactory {
 
