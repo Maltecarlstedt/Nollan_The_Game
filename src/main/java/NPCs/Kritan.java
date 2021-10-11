@@ -27,12 +27,6 @@ public class Kritan extends NPC {
 
     }
 
-    /*@Override
-    void initNPC() throws SlickException {
-        spriteSetup();
-    }
-
-     */
 
     @Override
     public void render(GameContainer gc, Graphics g) {

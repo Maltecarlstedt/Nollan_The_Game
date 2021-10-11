@@ -21,11 +21,12 @@ public class MainGame extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-    private ArrayList<NPCs.NPC> NPCs;
 
     private MapModel mapModel;
     private MapView mapView;
     private MapController mapController;
+
+    private NPCView npcView;
 
     private EnterTask enterTask;
 
@@ -45,14 +46,15 @@ public class MainGame extends BasicGameState {
 
         // TODO:: Make this prettier
         collisionChecker = new CollisionChecker();
-        NPCFactory factory = new NPCFactory();
+        //NPCFactory factory = new NPCFactory();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
         enterTask = new EnterTask();
+        npcView = new NPCView();
 
-        //TODO: Make this prettier
-        NPCs = new ArrayList<>();
+
+        /*//TODO: Make this prettier
 
         NPC webers = factory.npcs.get("Webers");
         NPC kritan = factory.npcs.get("Kritan");
@@ -64,14 +66,16 @@ public class MainGame extends BasicGameState {
         NPC dnollk = factory.npcs.get("DNollK");
 
         //TODO: Make this prettier
-        NPCs.add(webers);
-        NPCs.add(kritan);
-        NPCs.add(tango);
-        NPCs.add(ekak1);
-        NPCs.add(ekak2);
-        NPCs.add(bieber);
-        NPCs.add(kvalle);
-        NPCs.add(dnollk);
+        npcView.NPCs.add(webers);
+        npcView.NPCs.add(kritan);
+        npcView.NPCs.add(tango);
+        npcView.NPCs.add(ekak1);
+        npcView.NPCs.add(ekak2);
+        npcView.NPCs.add(bieber);
+        npcView.NPCs.add(kvalle);
+        npcView.NPCs.add(dnollk);
+
+         */
 
 
         mapModel = new MapModel(collisionChecker);
@@ -85,7 +89,7 @@ public class MainGame extends BasicGameState {
      * Our head render function that renders everything that needs to be drawn on the canvas
      * @param gc The container that have the game
      * @param sbg The current state of the game used to isolate the game from different aspects
-     * @param g The grapchics context to be used for rendering
+     * @param g The graphics context to be used for rendering
      * @throws SlickException
      */
     @Override
@@ -97,12 +101,10 @@ public class MainGame extends BasicGameState {
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
-    
-        //TODO: Move this from MainGame into its own class.
+
         //Renders the nps
-        for(NPCs.NPC npc: NPCs) {
-            npc.render(gc, g);
-        }
+        npcView.showNPC(mapModel);
+        npcView.render(g); //??????
     }
 
     /**
@@ -123,8 +125,6 @@ public class MainGame extends BasicGameState {
         // Checks if a task should be started and entered.
         enterTask.update(gc, playerModel, mapModel, sbg);
 
-        //TODO: Move this from MainGame into its own class.
-        showNPC();
     }
 
     /**
@@ -134,21 +134,6 @@ public class MainGame extends BasicGameState {
     @Override
     public int getID() {
         return 1;
-    }
-
-    /**
-     * Method for displaying NPC on the map that they belong to.
-     */
-    //TODO: Move this from MainGame into its own class.
-    public void showNPC() {
-        for (NPCs.NPC npc : NPCs) {
-            if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
-                npc.setShowing(true);
-            }
-            if ((npc.getCurrent() != mapModel.getCurrentMap())) {
-                npc.setShowing(false);
-            }
-        }
     }
 
 
