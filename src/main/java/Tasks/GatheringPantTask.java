@@ -50,7 +50,7 @@ public class GatheringPantTask extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        pc.update(gc, delta);
+        pc.update(gc, sbg, delta);
     }
 
 
