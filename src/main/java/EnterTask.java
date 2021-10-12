@@ -27,7 +27,6 @@ public class EnterTask {
     public void update(GameContainer gc, PlayerModel playerModel, MapModel mapModel, StateBasedGame sbg){
         input = gc.getInput();
         currMap = mapModel.getCurrentMap().toString();
-
         if(input.isKeyDown(Input.KEY_F)){
             if (currMap.equals("EKAK")){
                 sbg.enterState(69, new FadeInTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut

@@ -50,6 +50,7 @@ public class BeerChuggingModel {
     public Image currentChugAnimation;
 
     public boolean isTaskFinished = false;
+    public boolean isTaskRunning;
 
     private TiledMap background;
     /**
@@ -59,6 +60,7 @@ public class BeerChuggingModel {
     public BeerChuggingModel() throws SlickException{
         // TODO: Make this prettier if possible.
         //TODO: Sätt ihop dom här till en lol
+        isTaskRunning = true;
         initBeerChuggingIndicator();
         initGreenThingy();
         initJumpingBeer();
