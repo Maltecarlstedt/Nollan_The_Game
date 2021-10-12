@@ -8,6 +8,7 @@ import view.MaterialView;
 
 import java.awt.*;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class MaterialController {
@@ -28,8 +29,9 @@ public class MaterialController {
     public void update(PlayerModel pm) {
         //isColliding = materialCollision(pm);
         //collectedItem();
-        removeMaterial(pm);
+        //removeMaterial(pm);
        // deleteMaterial();
+        deleteMaterial(pm);
     }
 
     /** Method checks collision between player and item
@@ -49,36 +51,30 @@ public class MaterialController {
 
      */
 
-    public void removeMaterial(PlayerModel pm){
-       // for (Rectangle material: mm.getMaterialsF().keySet()){
-            Rectangle rect = deleteMaterial();
-            if (pm.getNextLocation().intersects(rect)){
-                mm.getMaterialsF().remove(rect);
+    public void deleteMaterial(PlayerModel pm){
+        for (Iterator<Map.Entry<Rectangle, Image>> it = mm.getMaterialsF().entrySet().iterator(); it.hasNext();){
+            Map.Entry<Rectangle, Image> material = it.next();
+            Rectangle key = material.getKey();
+            Image value = material.getValue();
+            if (pm.getNextLocation().intersects(key) && mv.imgKarhuset(value,mm, mv.currentMap)){
+                it.remove();
             }
-
-
-        //}
+        }
     }
 
-
-    public Rectangle deleteMaterial(){
-        Rectangle key = mm.getMaterialsFilled().get(0);
+   /* public Rectangle deleteMaterial(PlayerModel pm){
+        Rectangle key = new Rectangle();
         for (Map.Entry<Rectangle, Image> material : mm.getMaterialsF().entrySet()){
             key = material.getKey();
-            return key;
-
-
-            /*
             if (pm.getNextLocation().intersects(key)){
-                mm.getMaterialsF().remove(key, value);
+               // mm.getMaterialsF().remove(key);
+                return key;
             }
-
-             */
-
-
         }
         return key;
     }
+
+    */
 
     /*
     public void collectedItem() {

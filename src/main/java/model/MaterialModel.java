@@ -1,5 +1,7 @@
 package model;
 
+import model.MapStates.Karhuset;
+import model.MapStates.MapState;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
@@ -75,6 +77,8 @@ public class MaterialModel {
 
         materialsF.put(scissorLocation, scissor);
         materialsF.put(karkortLocation, karkort);
+        materialsF.put(cardboardLocation, cardboard);
+
 
         materialsFilled.add(scissorLocation);
         materialsFilled.add(karkortLocation);

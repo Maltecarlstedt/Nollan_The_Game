@@ -7,12 +7,13 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Map;
 
 public class MaterialView {
 
 
-    private String currentMap;
+    public String currentMap;
 
     public void renderMaterial(Graphics g, MaterialModel mm) {
         g.drawImage(mm.scissorUf, mm.getScissorUfLocation().x, mm.getScissorUfLocation().y);
@@ -26,6 +27,15 @@ public class MaterialView {
     public void renderFindMaterial(Graphics g, MaterialModel materialModel, MapModel mapModel) {
         drawMaterial(mapModel, g, materialModel);
     }
+
+    //TODO Find a better way to write these criterias?
+    public Boolean imgKarhuset(Image value, MaterialModel mm, String currentMap){
+        if(currentMap.equals("KARHUSET") && (value.equals(mm.karkort) || value.equals(mm.scissor))){
+            return true;
+        }
+        return false;
+    }
+
 
 
     public void drawMaterial(MapModel mapModel, Graphics g, MaterialModel mm) {
@@ -41,12 +51,18 @@ public class MaterialView {
             }
 
          */
+
         for (Map.Entry<Rectangle, Image> material : mm.getMaterialsF().entrySet()){
             Rectangle key = material.getKey();
             Image value = material.getValue();
-            if (currentMap.equals("KARHUSET") && value.equals(mm.scissor)){
+            //TODO Find a way to draw right icon on right map without using duplicated code
+            if (imgKarhuset(value,mm, currentMap)){
                 g.drawImage(value, key.x, key.y);
             }
+            if (currentMap.equals("ADAMMEN") && value.equals(mm.cardboard)){
+                g.drawImage(value, key.x, key.y);
+            }
+
 
                 /*
                 g.drawImage(mm.scissor, mm.getScissorLocation().x, mm.getScissorLocation().y);
