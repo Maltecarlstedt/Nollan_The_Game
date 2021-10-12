@@ -1,16 +1,13 @@
 package Tasks.taskController;
 
-import Tasks.Highscores;
 import Tasks.taskModel.BeerChuggingModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.state.transition.HorizontalSplitTransition;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Controller for the Beer Chugging task
@@ -127,7 +124,6 @@ public class BeerChuggingController {
         vY += gravity;
         // Input from player
         Input input = gc.getInput();
-
         // Makes sure that we cant jump outside of our bar indicator.
         // TODO: Make use of variables here instead of hardcoded numbers.
         if(bcm.getJumpingBeerLocationY() < 370){
@@ -154,7 +150,10 @@ public class BeerChuggingController {
             if(chugIndexAnimation <= 8){
                 bcm.updateChug(chugIndexAnimation);
             }else{
+                // Task finished, add score and reset stuff
+                bcm.addHighScore();
                 bcm.isTaskFinished = true;
+                bcm.isTaskRunning = false;
             }
         }
     }
@@ -162,15 +161,18 @@ public class BeerChuggingController {
     public void exitTask(GameContainer gc, StateBasedGame sbg){
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_F)){
-            bcm.addHighScore();
-            sbg.enterState(1, new FadeInTransition(), new HorizontalSplitTransition());
+            resetBeerChuggingTask();
+            sbg.enterState(1, new FadeOutTransition(), new HorizontalSplitTransition());
         }
-        resetBeerChuggingTask();
+
     }
 
     private void resetBeerChuggingTask() {
-        //TODO: DO this
-        // Started on this
+        // TODO: Make sure the next time we enter the task the correct sprite is shown.
+        chugIndexAnimation = 0;
+        bcm.timePassed = 0;
+        indicatorSpeed = 3;
+        bcm.isTaskRunning = true;
+        bcm.isTaskFinished = false;
     }
-
 }

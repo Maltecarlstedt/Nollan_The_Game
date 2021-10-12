@@ -20,12 +20,14 @@ public class Highscores {
         this.append_to_file = append_value;
     }
 
+    // TODO: Bug, sometimes the scores are written on the same line. Making readHighScore not able to read.
     public void writeHighScore(String textLine) throws IOException{
         FileWriter writer = new FileWriter(filePath, append_to_file);
         PrintWriter print_line = new PrintWriter(writer);
         print_line.printf("%s" + "%n" , textLine);
         print_line.close();
     }
+
     public ArrayList<Double> readHighScore(){
         ArrayList<Double> highScoresSorted = new ArrayList<>();
         try{
