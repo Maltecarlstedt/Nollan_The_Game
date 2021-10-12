@@ -5,6 +5,7 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MaterialModel {
     public Image scissor;
@@ -48,8 +49,12 @@ public class MaterialModel {
     ArrayList<Rectangle> materialsFilled = new ArrayList<>();
     ArrayList<Object> materialsUnfilled = new ArrayList<>();
 
+    HashMap<Rectangle, Image> materialsF = new HashMap<>();
+
     public ArrayList<Rectangle> getMaterialsFilled() {return materialsFilled;}
     public ArrayList<Object> getMaterialsUnfilled() {return materialsUnfilled;}
+
+    public HashMap<Rectangle, Image> getMaterialsF(){ return materialsF;}
 
     public MaterialModel() throws SlickException {
         initScissorUf();
@@ -67,6 +72,9 @@ public class MaterialModel {
         initTurqoiseColor();
 
         initRect();
+
+        materialsF.put(scissorLocation, scissor);
+        materialsF.put(karkortLocation, karkort);
 
         materialsFilled.add(scissorLocation);
         materialsFilled.add(karkortLocation);
