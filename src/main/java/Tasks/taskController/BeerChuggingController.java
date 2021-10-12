@@ -2,16 +2,15 @@ package Tasks.taskController;
 
 import Tasks.Highscores;
 import Tasks.taskModel.BeerChuggingModel;
-import Tasks.taskView.BeerChuggingView;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.HorizontalSplitTransition;
-
-import javax.print.DocFlavor;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Controller for the Beer Chugging task
@@ -21,7 +20,6 @@ public class BeerChuggingController {
     /** An instance of our beerchugging model and View */
     private BeerChuggingModel bcm;
 
-    private Highscores hs = new Highscores("data/highscore.txt", true);
 
     /** The speed at which the green indicator moves at */
     private double indicatorSpeed = 3;
@@ -61,8 +59,9 @@ public class BeerChuggingController {
         checkIntersect();
         updateChugAnimation();
         chugTimer(delta);
-        exitTask(gc, sbg);
-
+        if(bcm.isTaskFinished){
+            exitTask(gc, sbg);
+        }
     }
 
     /**
@@ -89,6 +88,7 @@ public class BeerChuggingController {
                 bcm.setGreenThingyLocation((int) (bcm.getGreenThingyLocation().y - indicatorSpeed));
             }else
                 upDir = false;
+                // Increasing speed each time it changed direction
                 indicatorSpeed += 0.001;
             }else{
             if(bcm.getGreenThingyLocation().y < 630){
@@ -96,7 +96,8 @@ public class BeerChuggingController {
 
             }else
                 upDir = true;
-                indicatorSpeed += 0.001;
+            // Increasing speed each time it changed direction
+            indicatorSpeed += 0.001;
         }
     }
 
@@ -154,19 +155,21 @@ public class BeerChuggingController {
                 bcm.updateChug(chugIndexAnimation);
             }else{
                 bcm.isTaskFinished = true;
-
             }
         }
-
     }
 
-    public void exitTask(GameContainer gc, StateBasedGame sbg) throws IOException {
+    public void exitTask(GameContainer gc, StateBasedGame sbg){
         Input input = gc.getInput();
-        if(bcm.isTaskFinished && input.isKeyDown(Input.KEY_F)){
-            String test = String.valueOf(bcm.timePassed);
-            hs.writeHighScore(test);
+        if (input.isKeyDown(Input.KEY_F)){
+            bcm.addHighScore();
             sbg.enterState(1, new FadeInTransition(), new HorizontalSplitTransition());
         }
+        resetBeerChuggingTask();
+    }
+
+    private void resetBeerChuggingTask() {
+        //TODO: DO this
     }
 
 }

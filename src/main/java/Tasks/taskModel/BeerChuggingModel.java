@@ -1,5 +1,6 @@
 package Tasks.taskModel;
 
+import Tasks.Highscores;
 import model.MapStates.Ekak;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Image;
@@ -8,13 +9,17 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import java.awt.*;
 import java.awt.Font;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Model for the beer chugging task
  */
 public class BeerChuggingModel {
 
+    private Highscores hs = new Highscores("data/highscore.txt", true); // TODO kommentera
     private final int greenThingyHeight = 64, greenThingyWidth = 30;
     private final int jumpingBeerHeight = 24, jumpingBeerWidth = 30;
 
@@ -25,12 +30,13 @@ public class BeerChuggingModel {
     public Rectangle greenThingyReact;
     /** Where the indicator bar is to be drawn */
     private Point indicatorLocation;
-
     public Image inidcatorImage;
     public Image greenThingy;
     public Image jumpingBeer;
-
     public Image timerBox;
+    public Image highScoreBox;
+
+    public ArrayList<Double> beerChuggingHighScore; //todo kommentera
 
     public TrueTypeFont trueTypePixelFont;
 
@@ -50,14 +56,17 @@ public class BeerChuggingModel {
      * A constructor that initiates all resources needed for this task when created.
      * @throws SlickException Generic exception
      */
-    public BeerChuggingModel() throws SlickException {
+    public BeerChuggingModel() throws SlickException{
         // TODO: Make this prettier if possible.
+        //TODO: Sätt ihop dom här till en lol
         initBeerChuggingIndicator();
         initGreenThingy();
         initJumpingBeer();
         initChuggingAnimation();
         fontLoader();
         initTimerSetup();
+        initHighScoreBox();
+        readHighScoreList();
         background = Ekak.EKAK.loadMap();
     }
 
@@ -119,6 +128,31 @@ public class BeerChuggingModel {
     public void initChuggingAnimation() throws SlickException {
         chuggingAnimation = new SpriteSheet("data/beerChugging/beerchugging_mini_V3.png", 64,64);
         currentChugAnimation = chuggingAnimation.getSubImage(0,0);
+    }
+
+    public void initHighScoreBox() throws SlickException {
+        highScoreBox = new Image("data/highScoreBox.png");
+
+    }
+
+    public void readHighScoreList(){
+        //Read the top 5 score from our save
+        beerChuggingHighScore = hs.readHighScore();
+        // Sort them
+        Collections.sort(beerChuggingHighScore);
+    }
+
+    public void addHighScore(){
+        // Try to add our score we just got.
+        String time = String.valueOf(timePassed);
+        try {
+            hs.writeHighScore(time);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        // Even though the player might not be top 5 we add his or hers score either way.
+        beerChuggingHighScore.add(Double.parseDouble(time));
+        Collections.sort(beerChuggingHighScore);
     }
 
     /** Changes sprite image to be drawn */

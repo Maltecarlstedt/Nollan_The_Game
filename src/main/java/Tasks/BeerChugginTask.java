@@ -46,7 +46,6 @@ public class BeerChugginTask extends BasicGameState {
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         beerChuggingView.render(gc, g, beerChuggingModel);
-        //TODO: Add what map is to be rendered.
     }
 
     /**
