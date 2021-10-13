@@ -1,4 +1,3 @@
-
 import controller.MapController;
 import controller.MaterialController;
 import controller.PlayerController;
@@ -23,8 +22,7 @@ public class MainGame extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-    private TextFieldModel textFieldModel;
-    private TextFieldView textFieldView;
+
 
     private MapModel mapModel;
     private MapView mapView;
@@ -64,38 +62,7 @@ public class MainGame extends BasicGameState {
 
         materialModel = new MaterialModel();
         materialView = new MaterialView();
-        materialController = new MaterialController(materialModel,materialView,playerModel);
-
-
-
-
-
-        //TODO: Make this prettier
-        NPCs = new ArrayList<>();
-        NPC webers = factory.getNPC("Webers");
-        NPC kritan = factory.getNPC("Kritan");
-        NPC tango = factory.getNPC("Tango");
-        NPC ekak1 = factory.getNPC("Ekak1");
-        NPC ekak2 = factory.getNPC("Ekak2");
-        NPC bieber = factory.getNPC("Bieber");
-        NPC kvalle = factory.getNPC("Kvalle");
-        NPC dnollk = factory.getNPC("DNollK");
-
-        //TODO: Make this prettier
-        NPCs.add(webers);
-        NPCs.add(kritan);
-        NPCs.add(tango);
-        NPCs.add(ekak1);
-        NPCs.add(ekak2);
-        NPCs.add(bieber);
-        NPCs.add(kvalle);
-        NPCs.add(dnollk);
-        npcView = new NPCView();
-        npcModel = new NPCModel();
-        mapModel = new MapModel(collisionChecker);
-        mapView = new MapView();
-        mapController = new MapController(mapModel, mapView);
-
+        materialController = new MaterialController(materialModel,materialView,playerModel)
     }
     /**
      * Our head render function that renders everything that needs to be drawn on the canvas
@@ -114,11 +81,10 @@ public class MainGame extends BasicGameState {
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
-
+      
+      
         materialView.renderMaterial(g, materialModel);
     
-        //TODO: Move this from MainGame into its own class.
-
         //Renders the nps
         npcModel.showNPC(mapModel);
         npcModel.initList();
