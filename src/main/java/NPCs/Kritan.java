@@ -13,10 +13,10 @@ public class Kritan extends NPC {
     public Kritan() throws SlickException{
         width = 64;
         height = 64;
-        state = 0;
+        //state = 0;
         current = Chalmersplatsen.CHALMERSPLATSEN;
         location = new Point(400, 200);
-        initNPC();
+        spriteSetup();
     }
 
     @Override
@@ -27,10 +27,6 @@ public class Kritan extends NPC {
 
     }
 
-    @Override
-    void initNPC() throws SlickException {
-        spriteSetup();
-    }
 
     @Override
     public void render(GameContainer gc, Graphics g) {

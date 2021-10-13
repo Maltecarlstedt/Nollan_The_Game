@@ -13,10 +13,10 @@ public class Tango extends NPC {
 public Tango() throws SlickException {
     width = 64;
     height = 64;
-    state = 0;
+    //state = 0;
     current = Chalmersplatsen.CHALMERSPLATSEN;
     location = new Point(700, 200);
-    initNPC();
+    spriteSetup();
 }
 
     @Override
@@ -26,10 +26,12 @@ public Tango() throws SlickException {
         animation.addFrame(character.getSubImage(0, 0), 200);
     }
 
-    @Override
+    /*@Override
     void initNPC() throws SlickException {
         spriteSetup();
     }
+
+     */
 
     @Override
     public void render(GameContainer gc, Graphics g) {

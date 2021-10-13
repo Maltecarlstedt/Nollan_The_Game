@@ -15,15 +15,12 @@ public abstract class NPC {
     int width;
     int height;
 
-    //state 1 elr 0, task complete eller inte, alternerar bild med/utan utroptecken
-    int state;
     MapState current;
 
     Point location;
     protected Rectangle NPCLocation;
 
     public SpriteSheet character;
-    public SpriteSheet taskComplete;
     public Animation animation;
 
 
@@ -32,9 +29,6 @@ public abstract class NPC {
      * @throws SlickException Generic Exception
      */
     abstract void spriteSetup() throws SlickException;
-
-    // TODO: Delete and refactor? redundant since spriteSetup can be called directly maybe? // Malte
-    abstract void initNPC() throws SlickException;
 
     //TODO:: Might need to be moved to a NPCVIEW class or something to follow the rest of our code structure
     public abstract void render(GameContainer gc, Graphics g);
@@ -53,15 +47,16 @@ public abstract class NPC {
     public abstract MapState getCurrent();
 
     /**
-     * Get the location of the npc
+     * Gets the location of the npc
      * @return x and y of the npc
      */
     abstract Point getLocation();
 
     /**
-     * Set visability.
-     * @param isItShowing boolean for false or true regardin if its to be shown or not
+     * Sets visibility.
+     * @param isItShowing boolean for false or true regarding if its to be shown or not
      */
     public abstract void setShowing(boolean isItShowing);
+
 
 }

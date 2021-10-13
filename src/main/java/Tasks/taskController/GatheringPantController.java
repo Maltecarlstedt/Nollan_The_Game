@@ -1,14 +1,13 @@
 package Tasks.taskController;
 
 import Tasks.taskModel.Pant;
-import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import Tasks.taskModel.GatheringPantModel;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.EmptyTransition;
+import org.newdawn.slick.state.transition.FadeInTransition;
 
 
 /** Controls the task "Gathering pant".
@@ -18,29 +17,9 @@ public class GatheringPantController {
 
     private GatheringPantModel pm;
 
-
-
-    /** Variables for the player's time and score.
-     */
-    public int totalPantOnScreen = 0;
-    public int pantGathered = 0;
-
-    /** Variables for the timer on the pant.
-     */
-    public Timer stopWatch;
-    public int count = 0;
-    public int delay = 1000; // in milli-seconds
-
-    /** Variable (true/false) if the task is running.
-     */
-    public Boolean isRunning = false;
-
-
     /** Finished the task
      */
-    public Boolean finished = false;
-
-
+    
     /** The Controllers constructor, taking in the model and view to be able to use them.
      * @param pm representing the model to get data from the it.
      * @throws SlickException if file not found, slick-exception.
@@ -49,57 +28,58 @@ public class GatheringPantController {
         this.pm = pm;
     }
 
-
     /** To update the running task.
      * @param gc the container that have the game.
      * @param delta represents time in ms since last update.
      * @throws SlickException if file not found, slick-exception.
      */
-    public void update(GameContainer gc, int delta) throws SlickException{
-        isRunning = true;
-        pantTimer(delta);
-        pantOnScreen();
-        Input input = gc.getInput();
-        mouseFollower(gc);
-    }
+    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
+        if(pm.isRunning) {
+            mouseFollower(gc);
+            pantSpawner();
+            pantTimer(delta);
+        }
+        if(pm.finished)
+            pantGameOver(gc, sbg);
 
+    }
 
     /** Check if task is completed, else if timer is at 0, create a new pant.
      * @throws SlickException if file not found, slick-exception.
      */
-    public void pantOnScreen() throws SlickException {
-        if (finished == false) {
-            if (count == 0) {   // if timer down on 0, create new pant
-                pm.addPant();
-                totalPantOnScreen++;
-                startTimer(10);
-            }
-        } else {
-            // TODO: fix the ending of task
-            pm.getPants().clear();
-            //System.out.println("Bra samlat! " + pantGathered + " st!!");
-            //System.out.println("Din tid blev: " + pm.pantTimePassed);
+    public void pantGameOver(GameContainer gc, StateBasedGame sbg){
+        if(gc.getInput().isKeyDown(Input.KEY_F)) {
+            // TODO: Make the ending display the players score etc
+            resetTask();
+            sbg.enterState(1, new EmptyTransition(), new FadeInTransition());
         }
-    }
 
+    }
 
     /** If there is five pant on screen, it is game over, the time and amount pant gathered is shown.
      *  Else continue the time counting.
      * @param delta represents time in ms since last update.
      */
     public void pantTimer(int delta) {
-
-        if (totalPantOnScreen > 5) {
-            stopWatch.stop();
-            finished = true;
+        if (pm.getTaskTimer() <= 0 && pm.isRunning) {
+            stopTimer();
+            exitTask();
         } else {
             // Change from ms to seconds
-            pm.pantTimePassed += (double) delta/1000;
-            // round to two decimals
-            pm.pantTimePassed = (float) (Math.round(pm.pantTimePassed * 100.0) / 100.0);
+            pm.timerUpdate(delta);
         }
     }
 
+    private void stopTimer(){
+        pm.outOfTime();
+    }
+
+    public void pantSpawner() throws SlickException {
+        if (pm.pantSpawnerTimer >= 3.0 && pm.getPants().size() < 5){
+            pm.addPant();
+            pm.pantSpawnerTimer = 0;
+        }
+    }
 
     /** Track the mouse and score point if intersect
      * @param gc the container that have the game.
@@ -119,41 +99,27 @@ public class GatheringPantController {
             Pant p = pm.getPants().get(i);
             if (p.getPantLocation().intersects(pm.mouseBall)) {
                 pm.getPants().remove(i);
-                pantGathered++;
-                //System.out.println(pantGathered);
-                if (totalPantOnScreen > 0) {
-                    totalPantOnScreen--;
-                    //System.out.println(totalPantOnScreen);
-                } else {
-                    totalPantOnScreen = 0;
-                    //System.out.println(totalPantOnScreen);
+                pm.increaseScore();
+                pm.pantRecieved();
+                // Not letting more than 5 pants spawn
+                if (pm.getPants().size() < 5){
+                    pm.addPant();
                 }
-                pm.addPant();
-                totalPantOnScreen++;
             }
         }
     }
 
+    public void exitTask(){
+        pm.addHighScore();
+        pm.getPants().clear();
+        pm.finished = true;
+        pm.isRunning = false;
+    }
 
-    /** A timer for the pant if pant is gathered.
-     * @param countPassed the pant-timer.
-     */
-    public void startTimer(int countPassed) {
-        ActionListener action = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (count == 0) {
-                    stopWatch.stop();
-                    //System.out.println("New pant should appear!");
-                } else {
-                    //System.out.println("you have " + count + " seconds remaining");
-                    count--;
-                }
-            }
-        };
-        stopWatch = new Timer(delay, action);
-        stopWatch.setInitialDelay(0);
-        stopWatch.start();
-        count = countPassed;
+    private void resetTask(){
+        pm.resetTimer();
+        pm.resetScore();
+        pm.isRunning = true;
+        pm.finished = false;
     }
 }

@@ -15,15 +15,14 @@ import NPCs.*;
 
 import java.util.ArrayList;
 
-/**
- * Main class for controlling models, views and controllers
- */
+    /**
+     * Main class for controlling models, views and controllers
+     */
 public class MainGame extends BasicGameState {
 
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-    private ArrayList<NPCs.NPC> NPCs;
 
     private MapModel mapModel;
     private MapView mapView;
@@ -32,6 +31,9 @@ public class MainGame extends BasicGameState {
     private MaterialModel materialModel;
     private MaterialView materialView;
     private MaterialController materialController;
+
+    private NPCView npcView;
+    private NPCModel npcModel;
 
     private EnterTask enterTask;
 
@@ -46,12 +48,12 @@ public class MainGame extends BasicGameState {
      * @param sbg The current state of the game used to isolate the game from different aspects
      * @throws SlickException Generic Exception
      */
+
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
         // TODO:: Make this prettier
         collisionChecker = new CollisionChecker();
-        NPCFactory factory = new NPCFactory();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
@@ -85,6 +87,8 @@ public class MainGame extends BasicGameState {
         NPCs.add(bieber);
         NPCs.add(kvalle);
         NPCs.add(dnollk);
+        npcView = new NPCView();
+        npcModel = new NPCModel();
 
         mapModel = new MapModel(collisionChecker);
 
@@ -97,7 +101,7 @@ public class MainGame extends BasicGameState {
      * Our head render function that renders everything that needs to be drawn on the canvas
      * @param gc The container that have the game
      * @param sbg The current state of the game used to isolate the game from different aspects
-     * @param g The grapchics context to be used for rendering
+     * @param g The graphics context to be used for rendering
      * @throws SlickException
      */
     @Override
@@ -115,9 +119,9 @@ public class MainGame extends BasicGameState {
     
         //TODO: Move this from MainGame into its own class.
         //Renders the nps
-        for(NPCs.NPC npc: NPCs) {
-            npc.render(gc, g);
-        }
+        npcModel.showNPC(mapModel);
+        npcModel.initList();
+        npcView.render(g, npcModel.NPCs);
     }
 
     /**
@@ -140,8 +144,6 @@ public class MainGame extends BasicGameState {
         // Checks if player collides with items (the materials).
         materialController.update(playerModel);
 
-        //TODO: Move this from MainGame into its own class.
-        showNPC();
     }
 
     /**
@@ -153,21 +155,6 @@ public class MainGame extends BasicGameState {
         return 1;
     }
 
-    /**
-     * Method for displaying NPC on the map that they belong to.
-     */
-    //TODO: Move this from MainGame into its own class.
-    public void showNPC() {
-        for (NPCs.NPC npc : NPCs) {
-            if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
-                npc.setShowing(true);
-            }
-            if ((npc.getCurrent() != mapModel.getCurrentMap())) {
-                npc.setShowing(false);
-            }
-        }
-    }
 
 
 }
-
