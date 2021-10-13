@@ -1,4 +1,4 @@
-package NPCs;
+package NPC;
 import model.MapModel;
 import org.newdawn.slick.SlickException;
 
@@ -37,7 +37,11 @@ public class NPCModel {
 
     }
 
-    //TODO: Make this prettier
+    /**
+     *
+     */
+
+    //TODO: Make this prettier, inte speciellt OCP
     public void initList() {
         NPCs.add(webers);
         NPCs.add(kritan);
@@ -54,14 +58,14 @@ public class NPCModel {
      * @param mapModel
      */
     public void showNPC(MapModel mapModel) {
-        for (NPCs.NPC npc : NPCs) {
+        NPCs.forEach(npc -> {
             if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
                 npc.setShowing(true);
             }
-            if ((npc.getCurrent() != mapModel.getCurrentMap())) {
+                if ((npc.getCurrent() != mapModel.getCurrentMap())) {
                 npc.setShowing(false);
             }
-        }
+        });
 
     }
 }

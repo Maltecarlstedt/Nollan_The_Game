@@ -1,4 +1,4 @@
-package NPCs;
+package NPC;
 
 import model.MapStates.MapState;
 import org.newdawn.slick.GameContainer;

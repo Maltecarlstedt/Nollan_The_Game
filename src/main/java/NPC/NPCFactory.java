@@ -1,4 +1,4 @@
-package NPCs;
+package NPC;
 import org.newdawn.slick.SlickException;
 import java.util.Hashtable;
 

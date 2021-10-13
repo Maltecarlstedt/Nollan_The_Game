@@ -1,32 +1,40 @@
-package NPCs;
+package NPC;
 
-import model.MapStates.Chalmersplatsen;
-import model.MapStates.Karhuset;
+import model.MapStates.Ekak;
 import model.MapStates.MapState;
-import org.newdawn.slick.*;
+import org.newdawn.slick.Animation;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class Kritan extends NPC {
+public class EKAK2 extends NPC {
 
-    public Kritan() throws SlickException{
+    public EKAK2() throws SlickException {
         width = 64;
         height = 64;
         //state = 0;
-        current = Chalmersplatsen.CHALMERSPLATSEN;
-        location = new Point(400, 200);
+        current = Ekak.EKAK;
+        location = new Point(420, 180);
         spriteSetup();
     }
 
     @Override
     void spriteSetup() throws SlickException {
-        character = new SpriteSheet("data/NPC/kritanPRIT64x64.png", 64, 64);
-       animation = new Animation();
-       animation.addFrame(character.getSubImage(0, 0), 200);
+        character = new SpriteSheet("data/NPC/ekak64x72.png", 64, 72);
+        animation = new Animation();
+        animation.addFrame(character.getSubImage(0, 0), 200);
 
     }
 
+    /*@Override
+    void initNPC() throws SlickException {
+
+    }
+
+     */
 
     @Override
     public void render(GameContainer gc, Graphics g) {
@@ -48,7 +56,7 @@ public class Kritan extends NPC {
 
     @Override
     Point getLocation() {
-       return location;
+        return location;
     }
 
     @Override
@@ -56,3 +64,7 @@ public class Kritan extends NPC {
         isShowing = isItShowing;
     }
 }
+
+
+
+

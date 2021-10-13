@@ -1,6 +1,5 @@
-package NPCs;
+package NPC;
 
-import model.MapStates.Chalmersplatsen;
 import model.MapStates.Ekak;
 import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
