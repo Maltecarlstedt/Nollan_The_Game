@@ -1,4 +1,4 @@
-package model;
+package Items;
 
 import model.MapStates.Karhuset;
 import model.MapStates.MapState;
@@ -8,8 +8,9 @@ import org.newdawn.slick.SlickException;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
-public class MaterialModel {
+public class ItemModel {
     public Image scissor;
     private Rectangle scissorLocation;
 
@@ -49,21 +50,34 @@ public class MaterialModel {
     public Rectangle rect;
 
 
+    Item scissor1 = new Scissor();
+    Item karkort1 = new Karkort();
+    public String currMap;
+
+
 
   //  ArrayList<Rectangle> materialsFilled = new ArrayList<>();
   //  ArrayList<Object> materialsUnfilled = new ArrayList<>();
 
-    HashMap<Rectangle, Image> materialsFilled = new HashMap<>();
+    HashMap<String, Item> materialsFilled = new HashMap<>();
     HashMap<Rectangle, Image> materialsUnfilled = new HashMap<>();
 
    // public ArrayList<Rectangle> getMaterialsFilled() {return materialsFilled;}
    // public ArrayList<Object> getMaterialsUnfilled() {return materialsUnfilled;}
 
-    public HashMap<Rectangle, Image> getMaterialsF(){ return materialsFilled;}
+    public HashMap<String, Item> getMaterialsF(){ return materialsFilled;}
     public HashMap<Rectangle, Image> getMaterialsUf(){ return materialsUnfilled;}
 
+    public ArrayList<MapState> currentMaps = new ArrayList<>();
+    public ArrayList<MapState> getCurrentMaps(){ return currentMaps; }
 
-    public MaterialModel() throws SlickException {
+
+    public ItemModel() throws SlickException {
+        materialsFilled.put("Scissor", scissor1);
+        materialsFilled.put("Karkort", karkort1);
+
+        initModel();
+
         initScissorUf();
         initKarkortUf();
         initCardboardUf();
@@ -89,7 +103,7 @@ public class MaterialModel {
 
          */
 
-
+/*
         materialsFilled.put(scissorLocation, scissor);
         materialsFilled.put(karkortLocation, karkort);
         materialsFilled.put(cardboardLocation, cardboard);
@@ -104,6 +118,12 @@ public class MaterialModel {
         materialsUnfilled.put(blackColorUfLocation, blackColorUf);
         materialsUnfilled.put(turqoiseColorUfLocation, turqoiseColorUf);
 
+ */
+
+    }
+    public void initModel(){
+        currentMaps.add(scissor1.getCurrentMap());
+        currentMaps.add(karkort1.getCurrentMap());
     }
 
 

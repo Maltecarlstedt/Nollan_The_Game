@@ -1,25 +1,21 @@
-package controller;
+package Items;
 
-import model.MaterialModel;
 import model.PlayerModel;
 import org.newdawn.slick.Image;
-import org.w3c.dom.css.Rect;
-import view.MaterialView;
 
 import java.awt.*;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class MaterialController {
+public class ItemController {
 
-    MaterialModel mm;
-    MaterialView mv;
+    ItemModel mm;
+    ItemView mv;
     PlayerModel pm;
 
     boolean isColliding = false;
 
-    public MaterialController( MaterialModel mm, MaterialView mv, PlayerModel pm) {
+    public ItemController(ItemModel mm, ItemView mv, PlayerModel pm) {
         this.mm = mm;
         this.mv = mv;
         this.pm = pm;
@@ -31,7 +27,7 @@ public class MaterialController {
         //collectedItem();
         //removeMaterial(pm);
        // deleteMaterial();
-        deleteMaterial(pm);
+       // deleteMaterial(pm);
     }
 
     /** Method checks collision between player and item
@@ -52,6 +48,7 @@ public class MaterialController {
      */
 
     public void deleteMaterial(PlayerModel pm){
+        /*
         for (Iterator<Map.Entry<Rectangle, Image>> it = mm.getMaterialsF().entrySet().iterator(); it.hasNext();){
             Map.Entry<Rectangle, Image> material = it.next();
             Rectangle key = material.getKey();
@@ -62,6 +59,8 @@ public class MaterialController {
                 break;
             }
         }
+
+         */
     }
 
     public void replace(Image value){
