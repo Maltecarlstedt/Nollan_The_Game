@@ -1,5 +1,3 @@
-import TextFields.TextFieldModel;
-import TextFields.TextFieldView;
 import controller.MapController;
 import controller.PlayerController;
 import model.*;
@@ -22,8 +20,7 @@ public class MainGame extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-    private TextFieldModel textFieldModel;
-    private TextFieldView textFieldView;
+
 
     private MapModel mapModel;
     private MapView mapView;
@@ -63,8 +60,8 @@ public class MainGame extends BasicGameState {
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView);
 
-        textFieldModel = new TextFieldModel(200, 200, 30, 40, Karhuset.KARHUSET, "Hej", Color.magenta);
-        textFieldView = new TextFieldView();
+      //  textFieldModel = new TextFieldModel(200, 200, 30, 40, Karhuset.KARHUSET, "Hej", Color.magenta);
+       // textFieldView = new TextFieldView();
 
     }
 
@@ -85,8 +82,6 @@ public class MainGame extends BasicGameState {
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
 
-        //TextFieldRender
-        textFieldView.render(gc, g, textFieldModel);
 
         //Renders the nps
         npcModel.showNPC(mapModel);
