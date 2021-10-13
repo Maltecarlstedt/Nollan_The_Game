@@ -1,3 +1,5 @@
+import NPC.NPCModel;
+import NPC.NPCView;
 import controller.MapController;
 import controller.MaterialController;
 import controller.PlayerController;
@@ -12,8 +14,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import view.MaterialView;
 import view.PlayerView;
-
-import NPCs.*;
     /**
      * Main class for controlling models, views and controllers
      */
@@ -59,10 +59,17 @@ public class MainGame extends BasicGameState {
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
         enterTask = new EnterTask();
-
         materialModel = new MaterialModel();
         materialView = new MaterialView();
-        materialController = new MaterialController(materialModel,materialView,playerModel)
+        materialController = new MaterialController(materialModel,materialView,playerModel);
+
+        mapController = new MapController(mapModel, mapView);
+        mapModel = new MapModel(collisionChecker);
+        mapView = new MapView();
+
+        npcModel = new NPCModel();
+        npcView = new NPCView();
+
     }
     /**
      * Our head render function that renders everything that needs to be drawn on the canvas
