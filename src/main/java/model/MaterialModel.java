@@ -48,15 +48,18 @@ public class MaterialModel {
 
     public Rectangle rect;
 
-    ArrayList<Rectangle> materialsFilled = new ArrayList<>();
-    ArrayList<Object> materialsUnfilled = new ArrayList<>();
+  //  ArrayList<Rectangle> materialsFilled = new ArrayList<>();
+  //  ArrayList<Object> materialsUnfilled = new ArrayList<>();
 
-    HashMap<Rectangle, Image> materialsF = new HashMap<>();
+    HashMap<Rectangle, Image> materialsFilled = new HashMap<>();
+    HashMap<Rectangle, Image> materialsUnfilled = new HashMap<>();
 
-    public ArrayList<Rectangle> getMaterialsFilled() {return materialsFilled;}
-    public ArrayList<Object> getMaterialsUnfilled() {return materialsUnfilled;}
+   // public ArrayList<Rectangle> getMaterialsFilled() {return materialsFilled;}
+   // public ArrayList<Object> getMaterialsUnfilled() {return materialsUnfilled;}
 
-    public HashMap<Rectangle, Image> getMaterialsF(){ return materialsF;}
+    public HashMap<Rectangle, Image> getMaterialsF(){ return materialsFilled;}
+    public HashMap<Rectangle, Image> getMaterialsUf(){ return materialsUnfilled;}
+
 
     public MaterialModel() throws SlickException {
         initScissorUf();
@@ -75,44 +78,43 @@ public class MaterialModel {
 
         initRect();
 
+        /*
         materialsF.put(scissorLocation, scissor);
         materialsF.put(karkortLocation, karkort);
         materialsF.put(cardboardLocation, cardboard);
 
+        materialsUf.put(karkortUfLocation, karkortUf);
 
-        materialsFilled.add(scissorLocation);
-        materialsFilled.add(karkortLocation);
-        materialsFilled.add(cardboardLocation);
-        materialsFilled.add(ropeLocation);
-        materialsFilled.add(blackColorLocation);
-        materialsFilled.add(turqoiseColorLocation);
+         */
 
-        materialsUnfilled.add(scissorUfLocation);
-        materialsUnfilled.add(karkortUfLocation);
-        materialsUnfilled.add(cardboardUfLocation);
-        materialsUnfilled.add(ropeUfLocation);
-        materialsUnfilled.add(blackColorUfLocation);
-        materialsUnfilled.add(turqoiseColorUfLocation);
+
+        materialsFilled.put(scissorLocation, scissor);
+        materialsFilled.put(karkortLocation, karkort);
+        materialsFilled.put(cardboardLocation, cardboard);
+        materialsFilled.put(ropeLocation, rope);
+        materialsFilled.put(blackColorLocation, blackColor);
+        materialsFilled.put(turqoiseColorLocation, turqoiseColor);
+
+        materialsUnfilled.put(scissorUfLocation, scissorUf);
+        materialsUnfilled.put(karkortUfLocation, karkortUf);
+        materialsUnfilled.put(cardboardUfLocation, cardboardUf);
+        materialsUnfilled.put(ropeUfLocation, ropeUf);
+        materialsUnfilled.put(blackColorUfLocation, blackColorUf);
+        materialsUnfilled.put(turqoiseColorUfLocation, turqoiseColorUf);
 
     }
 
 
     public void initScissor() throws SlickException {
         scissor = new Image("data/material/scissor.png");
+        scissor.setName("scissor");
         scissorLocation = new Rectangle(200,200,32,32);
-    }
-
-    public Rectangle getScissorLocation(){
-        return scissorLocation;
     }
 
     public void initKarkort() throws SlickException {
         karkort = new Image("data/material/karkortet.png");
+        karkort.setName("karkort");
         karkortLocation = new Rectangle(250,250,32,32);
-    }
-
-    public Rectangle getKarkortLocation(){
-        return karkortLocation;
     }
 
     public void initCardboard() throws SlickException {
@@ -120,17 +122,9 @@ public class MaterialModel {
         cardboardLocation = new Rectangle(350, 350,32,32);
     }
 
-    public Rectangle getCardboardLocation(){
-        return cardboardLocation;
-    }
-
     public void initRope() throws SlickException {
         rope = new Image("data/material/rope.png");
         ropeLocation = new Rectangle(400, 400,32,32);
-    }
-
-    public Rectangle getRopeLocation(){
-        return ropeLocation;
     }
 
     public void initBlackColor() throws SlickException {
@@ -138,35 +132,21 @@ public class MaterialModel {
         blackColorLocation = new Rectangle(450, 450,32,32);
     }
 
-    public Rectangle getBlackColorLocation(){
-        return blackColorLocation;
-    }
-
     public void initTurqoiseColor() throws SlickException {
         turqoiseColor = new Image("data/material/turqoise_color.png");
         turqoiseColorLocation = new Rectangle(500, 500,32,32);
     }
 
-    public Rectangle getTurqoiseColorLocation(){
-        return turqoiseColorLocation;
-    }
-
     public void initScissorUf() throws SlickException {
         scissorUf = new Image("data/material/scissor_uf.png");
+        scissorUf.setName("scissorUf");
         scissorUfLocation = new Rectangle(getStartX(), getStartY(),32,32);
-    }
-
-    public Rectangle getScissorUfLocation(){
-        return scissorUfLocation;
     }
 
     public void initKarkortUf() throws SlickException {
         karkortUf = new Image("data/material/karkortet_uf.png");
+        karkortUf.setName("karkortUf");
         karkortUfLocation = new Rectangle(getStartX()+50,getStartY(),32,32);
-    }
-
-    public Rectangle getKarkortUfLocation(){
-        return karkortUfLocation;
     }
 
     public void initCardboardUf() throws SlickException {
@@ -174,17 +154,9 @@ public class MaterialModel {
         cardboardUfLocation = new Rectangle(getStartX()+100,getStartY(),32,32);
     }
 
-    public Rectangle getCardboardUfLocation(){
-        return cardboardUfLocation;
-    }
-
     public void initRopeUf() throws SlickException {
         ropeUf = new Image("data/material/rope_uf.png");
         ropeUfLocation = new Rectangle(getStartX()+150,getStartY(),32,32);
-    }
-
-    public Rectangle getRopeUfLocation(){
-        return ropeUfLocation;
     }
 
     public void initBlackColorUf() throws SlickException {
@@ -192,17 +164,9 @@ public class MaterialModel {
         blackColorUfLocation = new Rectangle(getStartX()+200,getStartY(),32,32);
     }
 
-    public Rectangle getBlackColorUfLocation(){
-        return blackColorUfLocation;
-    }
-
     public void initTurqoiseColorUf() throws SlickException {
         turqoiseColorUf = new Image("data/material/turqoise_color_uf.png");
         turqoiseColorUfLocation = new Rectangle(getStartX()+250,getStartY(),32,32);
-    }
-
-    public Rectangle getTurqoiseColorUfLocation(){
-        return turqoiseColorUfLocation;
     }
 
     public void initRect(){

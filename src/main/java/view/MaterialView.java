@@ -16,12 +16,19 @@ public class MaterialView {
     public String currentMap;
 
     public void renderMaterial(Graphics g, MaterialModel mm) {
+        for (Map.Entry<Rectangle, Image> material : mm.getMaterialsUf().entrySet()){
+            Rectangle key = material.getKey();
+            Image value = material.getValue();
+            g.drawImage(value, key.x, key.y);
+        }
+        /*
         g.drawImage(mm.scissorUf, mm.getScissorUfLocation().x, mm.getScissorUfLocation().y);
-        g.drawImage(mm.karkortUf, mm.getKarkortUfLocation().x, mm.getKarkortUfLocation().y);
         g.drawImage(mm.cardboardUf, mm.getCardboardUfLocation().x, mm.getCardboardUfLocation().y);
         g.drawImage(mm.ropeUf, mm.getRopeUfLocation().x, mm.getRopeUfLocation().y);
         g.drawImage(mm.blackColorUf, mm.getBlackColorUfLocation().x, mm.getBlackColorUfLocation().y);
         g.drawImage(mm.turqoiseColorUf, mm.getTurqoiseColorUfLocation().x, mm.getTurqoiseColorUfLocation().y);
+
+         */
     }
 
     public void renderFindMaterial(Graphics g, MaterialModel materialModel, MapModel mapModel) {
@@ -30,7 +37,7 @@ public class MaterialView {
 
     //TODO Find a better way to write these criterias?
     public Boolean imgKarhuset(Image value, MaterialModel mm, String currentMap){
-        if(currentMap.equals("KARHUSET") && (value.equals(mm.karkort) || value.equals(mm.scissor))){
+        if(currentMap.equals("KARHUSET")){
             return true;
         }
         return false;
