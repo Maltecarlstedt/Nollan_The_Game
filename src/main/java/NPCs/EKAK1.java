@@ -73,8 +73,11 @@ public class EKAK1 extends TaskHoldingNPC {
     }
 
     @Override
-    public void setShowing(boolean isItShowing) { isShowing = isItShowing;
+     public void setShowing(boolean isItShowing) { isShowing = isItShowing;
         }
-    }
+
+
+}
+
 
 
