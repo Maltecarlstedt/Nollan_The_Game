@@ -9,6 +9,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.io.IOException;
+
 /**
  * A class that represents the Beer chugging task within it's own state.
  */
@@ -43,8 +45,7 @@ public class BeerChugginTask extends BasicGameState {
      */
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        beerChuggingView.render(gc, g, beerChuggingModel);
-        //TODO: Add what map is to be rendered.
+        beerChuggingView.render(g, beerChuggingModel);
     }
 
     /**
@@ -57,7 +58,12 @@ public class BeerChugginTask extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        beerChuggingController.update(gc, delta);
+        // TODO: Fix this?
+        try {
+            beerChuggingController.update(gc, sbg, delta);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
