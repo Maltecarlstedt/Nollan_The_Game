@@ -15,6 +15,7 @@ public class GatheringPantView {
      * @param pm representing the model to get data from it.
      */
     public void render (GameContainer gc, Graphics g, GatheringPantModel pm, GatheringPantController pc) {
+        pm.getBackground().render(0,0);
         for(Pant pant : pm.getPants()){
             g.drawImage(pant.getImage(), pant.getPantLocation().getX(), pant.getPantLocation().getY());
 
@@ -27,7 +28,11 @@ public class GatheringPantView {
             // Render the timer.
             g.drawString(String.valueOf(pm.pantTimePassed), 835,55);
             g.drawString(String.valueOf(pc.pantGathered), 835,75);
+
+
         }
     }
+
+
 
 }

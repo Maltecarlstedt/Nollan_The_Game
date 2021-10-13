@@ -11,7 +11,7 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class DNollK extends NPC {
+public class DNollK extends TaskHoldingNPC {
     public DNollK() throws SlickException {
         width = 64;
         height = 128;
@@ -22,16 +22,30 @@ public class DNollK extends NPC {
     }
 
     @Override
-    void spriteSetup() throws SlickException {
-        character = new SpriteSheet("data/NPC/dnollk128x128TASK.png", 64, 128);
+    void spriteSetupTask() throws SlickException {
+        taskCharacter = new SpriteSheet("data/NPC/dnollk128x128TASK.png", 64, 128);
         animation = new Animation();
-        animation.addFrame(character.getSubImage(0, 0), 200);
-        animation.addFrame(character.getSubImage(1, 0), 200);
+        animation.addFrame(taskCharacter.getSubImage(0, 0), 200);
+        animation.addFrame(taskCharacter.getSubImage(1, 0), 200);
     }
 
     @Override
+    void spriteSetup() throws SlickException{
+        character = new SpriteSheet("data/NPC/dnollk64x64.png", 64, 128);
+        animation = new Animation();
+        animation.addFrame(character.getSubImage(0, 0), 1);
+    }
+
+
+
+    @Override
     void initNPC() throws SlickException {
-        spriteSetup();
+        if (state == 0) {
+            spriteSetupTask();
+        } else if (state == 1) {
+            spriteSetup();
+
+        }
     }
 
     @Override

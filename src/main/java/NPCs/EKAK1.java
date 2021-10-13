@@ -11,7 +11,7 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class EKAK1 extends NPC {
+public class EKAK1 extends TaskHoldingNPC {
 
         public EKAK1() throws SlickException {
             width = 64;
@@ -24,16 +24,29 @@ public class EKAK1 extends NPC {
 
         @Override
         void spriteSetup() throws SlickException {
-            character = new SpriteSheet("data/NPC/ekak_TASK_128x115.png", 64, 115);
+            //character = new SpriteSheet("data/NPC/ekak_TASK_128x115.png", 64, 115);
+            //animation = new Animation();
+            //animation.addFrame(character.getSubImage(0, 0), 1);
+        }
+
+        @Override
+        void spriteSetupTask() throws SlickException{
+            taskCharacter = new SpriteSheet("data/NPC/ekak_TASK_128x115.png", 64, 115);
             animation = new Animation();
-            animation.addFrame(character.getSubImage(0, 0), 200);
-            animation.addFrame(character.getSubImage(1, 0), 200);
+            animation.addFrame(taskCharacter.getSubImage(0, 0), 200);
+            animation.addFrame(taskCharacter.getSubImage(1, 0), 200);
+
 
         }
 
         @Override
         void initNPC() throws SlickException {
-            spriteSetup();
+            if (state == 0) {
+                spriteSetupTask();
+            } else if (state == 1) {
+                spriteSetup();
+
+            }
         }
 
         @Override
@@ -60,8 +73,11 @@ public class EKAK1 extends NPC {
     }
 
     @Override
-    public void setShowing(boolean isItShowing) { isShowing = isItShowing;
+     public void setShowing(boolean isItShowing) { isShowing = isItShowing;
         }
-    }
+
+
+}
+
 
 

@@ -27,21 +27,16 @@ public class EnterTask {
     public void update(GameContainer gc, PlayerModel playerModel, MapModel mapModel, StateBasedGame sbg){
         input = gc.getInput();
         currMap = mapModel.getCurrentMap().toString();
-
-        if (currMap.equals("EKAK") && input.isKeyPressed(Input.KEY_F)){
-            sbg.enterState(69, new EmptyTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut
-
+        if(input.isKeyDown(Input.KEY_F)){
+            if (currMap.equals("EKAK")){
+                sbg.enterState(69, new FadeInTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut
+            }
+            else if (currMap.equals("DELTAP")){
+                sbg.enterState(420, new EmptyTransition(), new VerticalSplitTransition());
+            }
+            else if (currMap.equals("ADAMMEN")){
+                sbg.enterState(21, new FadeOutTransition(), new VerticalSplitTransition());
+            }
         }
-
-        if (currMap.equals("DELTAP") && input.isKeyPressed(input.KEY_F)){
-            sbg.enterState(420, new EmptyTransition(), new VerticalSplitTransition());
-        }
-
-        if (currMap.equals("KARHUSET") && input.isKeyPressed(input.KEY_F)){
-            sbg.enterState(21, new FadeOutTransition(), new VerticalSplitTransition());
-        }
-
     }
-
-
 }

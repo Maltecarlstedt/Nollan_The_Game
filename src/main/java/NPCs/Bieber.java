@@ -15,10 +15,11 @@ public class Bieber extends NPC{
     public Bieber() throws SlickException {
         width = 64;
         height = 90;
-        state = 0;
+        //state = 0;
         current = Markena.MARKENA;
         location = new Point(760, 179);
-        initNPC();
+        //initNPC();
+        spriteSetup();
     }
 
     @Override
@@ -28,10 +29,12 @@ public class Bieber extends NPC{
         animation.addFrame(character.getSubImage(0, 0), 200);
     }
 
-    @Override
+    /*@Override
     void initNPC() throws SlickException {
         spriteSetup();
     }
+
+     */
 
     @Override
     public void render(GameContainer gc, Graphics g) {

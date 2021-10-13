@@ -15,10 +15,10 @@ public class EKAK2 extends NPC {
     public EKAK2() throws SlickException {
         width = 64;
         height = 64;
-        state = 0;
+        //state = 0;
         current = Ekak.EKAK;
         location = new Point(420, 180);
-        initNPC();
+        spriteSetup();
     }
 
     @Override
@@ -29,10 +29,12 @@ public class EKAK2 extends NPC {
 
     }
 
-    @Override
+    /*@Override
     void initNPC() throws SlickException {
-        spriteSetup();
+
     }
+
+     */
 
     @Override
     public void render(GameContainer gc, Graphics g) {
