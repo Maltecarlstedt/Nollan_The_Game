@@ -1,19 +1,21 @@
 package Tasks.taskController;
 
 import Tasks.taskModel.BeerChuggingModel;
-import Tasks.taskView.BeerChuggingView;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeOutTransition;
+import org.newdawn.slick.state.transition.HorizontalSplitTransition;
+import java.io.IOException;
 
 /**
  * Controller for the Beer Chugging task
  */
 public class BeerChuggingController {
 
-    /** An instance of our beerchugging model */
+    /** An instance of our beerchugging model and View */
     private BeerChuggingModel bcm;
-
     /** The speed at which the green indicator moves at */
     private double indicatorSpeed = 3;
     /** The negative downforce for pulling the jumpingbeer down after a jump*/
@@ -28,7 +30,6 @@ public class BeerChuggingController {
     private int numberOfChugs = 0;
     /** Index for which sprite is to be drawn for indicating the animation drinking */
     private int chugIndexAnimation = 0;
-
     /**
      * Constructor for beer chugging controller. Initialize which model to work on.
      * @param bcm The model
@@ -36,7 +37,6 @@ public class BeerChuggingController {
     public BeerChuggingController(BeerChuggingModel bcm){
         this.bcm = bcm;
     }
-
     /**
      * Update function for the logic of the task.
      *
@@ -44,21 +44,24 @@ public class BeerChuggingController {
      * @param delta Time in ms since last update
      * @throws SlickException Generic Exception
      */
-    public void update(GameContainer gc, int delta) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException, IOException {
         loopGreenThingyLocation();
         beerJump(gc, delta);
         checkIntersect();
         updateChugAnimation();
         chugTimer(delta);
+        if(bcm.isTaskFinished){
+            exitTask(gc, sbg);
+        }
     }
 
     /**
      * A timer that updates the time it takes for player to chug beer.
      * @param delta
      */
-    public void chugTimer(int delta){
+    public void chugTimer(int delta){ //TODO: Borde va i modellen
         // Stop when the beer is empty. AKA when reaching the last sprite.
-        if(chugIndexAnimation >= 8){
+        if(chugIndexAnimation > 8){
             //System.out.println("Bra hävt! Din tid blev: " + bcm.timePassed);
         }else
         // Changes from ms to seconds
@@ -76,6 +79,7 @@ public class BeerChuggingController {
                 bcm.setGreenThingyLocation((int) (bcm.getGreenThingyLocation().y - indicatorSpeed));
             }else
                 upDir = false;
+                // Increasing speed each time it changed direction
                 indicatorSpeed += 0.001;
             }else{
             if(bcm.getGreenThingyLocation().y < 630){
@@ -83,7 +87,8 @@ public class BeerChuggingController {
 
             }else
                 upDir = true;
-                indicatorSpeed += 0.001;
+            // Increasing speed each time it changed direction
+            indicatorSpeed += 0.001;
         }
     }
 
@@ -113,7 +118,6 @@ public class BeerChuggingController {
         vY += gravity;
         // Input from player
         Input input = gc.getInput();
-
         // Makes sure that we cant jump outside of our bar indicator.
         // TODO: Make use of variables here instead of hardcoded numbers.
         if(bcm.getJumpingBeerLocationY() < 370){
@@ -140,10 +144,29 @@ public class BeerChuggingController {
             if(chugIndexAnimation <= 8){
                 bcm.updateChug(chugIndexAnimation);
             }else{
-                //TODO:: Game Over stuff here
-
+                // Task finished, add score and reset stuff
+                bcm.addHighScore();
+                bcm.isTaskFinished = true;
+                bcm.isTaskRunning = false;
             }
         }
+    }
 
+    public void exitTask(GameContainer gc, StateBasedGame sbg){
+        Input input = gc.getInput();
+        if (input.isKeyDown(Input.KEY_F)){
+            resetBeerChuggingTask();
+            sbg.enterState(1, new FadeOutTransition(), new HorizontalSplitTransition());
+        }
+
+    }
+
+    private void resetBeerChuggingTask() {
+        // TODO: Make sure the next time we enter the task the correct sprite is shown.
+        chugIndexAnimation = 0;
+        bcm.timePassed = 0;
+        indicatorSpeed = 3;
+        bcm.isTaskRunning = true;
+        bcm.isTaskFinished = false;
     }
 }

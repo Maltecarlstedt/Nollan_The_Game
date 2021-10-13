@@ -18,30 +18,24 @@ public class EnterTask {
 
     /** Checks the terms in the if-statements  is fulfilled. If it is fulfilled, we jump to the right state.
      * @param gc represents the container that have the game.
-     * @param playerModel represents the player.
      * @param mapModel represents the map in the game.
      * @param sbg the current state of the game used to isolate the game from different aspects.
      */
 
     // NOT AT ALL FINAL. JUST FOR DEV AND TESTING.
-    public void update(GameContainer gc, PlayerModel playerModel, MapModel mapModel, StateBasedGame sbg){
+    public void update(GameContainer gc, MapModel mapModel, StateBasedGame sbg){
         input = gc.getInput();
         currMap = mapModel.getCurrentMap().toString();
-
-        if (currMap.equals("EKAK") && input.isKeyPressed(Input.KEY_F)){
-            sbg.enterState(69, new EmptyTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut
-
+        if(input.isKeyDown(Input.KEY_F)){
+            if (currMap.equals("EKAK")){
+                sbg.enterState(69, new FadeInTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut
+            }
+            else if (currMap.equals("DELTAP")){
+                sbg.enterState(420, new EmptyTransition(), new VerticalSplitTransition());
+            }
+            else if (currMap.equals("ADAMMEN")){
+                sbg.enterState(21, new FadeOutTransition(), new VerticalSplitTransition());
+            }
         }
-
-        if (currMap.equals("DELTAP") && input.isKeyPressed(input.KEY_F)){
-            sbg.enterState(420, new EmptyTransition(), new VerticalSplitTransition());
-        }
-
-        if (currMap.equals("KARHUSET") && input.isKeyPressed(input.KEY_F)){
-            sbg.enterState(21, new FadeOutTransition(), new VerticalSplitTransition());
-        }
-
     }
-
-
 }
