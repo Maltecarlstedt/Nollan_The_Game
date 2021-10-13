@@ -4,6 +4,10 @@ package Tasks.taskController;
 import Tasks.taskModel.BuildBridgeModel;
 import Tasks.taskView.BuildBridgeView;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Input;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeOutTransition;
+import org.newdawn.slick.state.transition.HorizontalSplitTransition;
 
 public class BuildBridgeController {
 
@@ -14,7 +18,9 @@ public class BuildBridgeController {
 
     }
 
-    public void update(GameContainer gc, int delta){
-
+    public void update(GameContainer gc, StateBasedGame sbg, int delta){
+        if(gc.getInput().isKeyDown(Input.KEY_F)){
+            sbg.enterState(1, new FadeOutTransition(), new HorizontalSplitTransition());
+        }
     }
 }
