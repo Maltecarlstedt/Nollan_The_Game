@@ -13,9 +13,9 @@ import NPCs.*;
 
 import java.util.ArrayList;
 
-/**
- * Main class for controlling models, views and controllers
- */
+    /**
+     * Main class for controlling models, views and controllers
+     */
 public class MainGame extends BasicGameState {
 
     private PlayerModel playerModel;
@@ -115,5 +115,5 @@ public class MainGame extends BasicGameState {
     }
 
 
-}
 
+}
