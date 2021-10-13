@@ -140,8 +140,7 @@ public class BeerChuggingModel {
     public void readHighScoreList(){
         //Read the top 5 score from our save
         beerChuggingHighScore = hs.readHighScore();
-        // Sort them
-        Collections.sort(beerChuggingHighScore);
+        hs.trimHighscore(beerChuggingHighScore);
     }
 
     public void addHighScore(){

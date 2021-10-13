@@ -8,11 +8,10 @@ public class BeerChuggingView {
 
     /**
      * Draws everything to the canvas
-     * @param gc The container that have the game
      * @param g The grapchics context to be used for rendering
      * @param bcm The model where we collect what is to be drawn.
      */
-    public void render(GameContainer gc, Graphics g, BeerChuggingModel bcm){
+    public void render(Graphics g, BeerChuggingModel bcm){
 
         bcm.getBackground().render(0,0);
 
