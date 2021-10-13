@@ -51,9 +51,10 @@ public class ItemView {
                 for (Map.Entry<String, Item> material : mm.getMaterialsF().entrySet()) {
                     String key = material.getKey();
                     Item value = material.getValue();
-                    value.render(g);
+                    if (value.getCurrentMap().equals(curr)){
+                        value.render(g);
+                    }
                 }
-
             }
         }
 

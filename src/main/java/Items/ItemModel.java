@@ -76,6 +76,9 @@ public class ItemModel {
         materialsFilled.put("Scissor", scissor1);
         materialsFilled.put("Karkort", karkort1);
 
+      //  scissor1 = materialsFilled.get("Scissor");
+        //karkort1 = materialsFilled.get("Karkort");
+
         initModel();
 
         initScissorUf();
