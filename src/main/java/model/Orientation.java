@@ -6,7 +6,7 @@ package model;
  */
 
 public enum Orientation {
-    RIGHT(20,0), UP(0,-20), LEFT(-20,0), DOWN(0,20), IDLE(0,0);
+    RIGHT(2,0), UP(0,-2), LEFT(-2,0), DOWN(0,2), IDLE(0,0);
     public int deltaX, deltaY;
 
     /**

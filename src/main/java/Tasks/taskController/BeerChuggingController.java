@@ -16,8 +16,6 @@ public class BeerChuggingController {
 
     /** An instance of our beerchugging model and View */
     private BeerChuggingModel bcm;
-
-
     /** The speed at which the green indicator moves at */
     private double indicatorSpeed = 3;
     /** The negative downforce for pulling the jumpingbeer down after a jump*/
@@ -32,9 +30,6 @@ public class BeerChuggingController {
     private int numberOfChugs = 0;
     /** Index for which sprite is to be drawn for indicating the animation drinking */
     private int chugIndexAnimation = 0;
-
-
-
     /**
      * Constructor for beer chugging controller. Initialize which model to work on.
      * @param bcm The model
@@ -42,7 +37,6 @@ public class BeerChuggingController {
     public BeerChuggingController(BeerChuggingModel bcm){
         this.bcm = bcm;
     }
-
     /**
      * Update function for the logic of the task.
      *
