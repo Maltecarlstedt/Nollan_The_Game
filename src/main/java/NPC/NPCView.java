@@ -1,10 +1,7 @@
-package NPCs;
+package NPC;
 
-import model.MapModel;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 /**
  * Our view of the NPCs. The class that draws the NPCs.

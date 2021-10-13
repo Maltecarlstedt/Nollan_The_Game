@@ -9,7 +9,7 @@ import org.newdawn.slick.Graphics;
 public class PlayerView {
 
     /**
-     * Function that draws the player on the canvas
+     * Draws the player on the canvas
      * @param g The graphics context to be used for rendering
      * @param playerModel Model of the player that is to be rendered
      */

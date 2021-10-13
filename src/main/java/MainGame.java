@@ -1,7 +1,10 @@
+
 import controller.MapController;
 import controller.MaterialController;
 import controller.PlayerController;
 import model.*;
+import model.MapStates.Karhuset;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -10,6 +13,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import view.MaterialView;
 import view.PlayerView;
+
 import NPCs.*;
     /**
      * Main class for controlling models, views and controllers
@@ -19,6 +23,8 @@ public class MainGame extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
+    private TextFieldModel textFieldModel;
+    private TextFieldView textFieldView;
 
     private MapModel mapModel;
     private MapView mapView;
@@ -35,7 +41,9 @@ public class MainGame extends BasicGameState {
 
     private CollisionChecker collisionChecker;
 
+
     public MainGame(){
+
     }
 
     /**
@@ -87,6 +95,7 @@ public class MainGame extends BasicGameState {
         mapModel = new MapModel(collisionChecker);
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView);
+
     }
     /**
      * Our head render function that renders everything that needs to be drawn on the canvas
@@ -105,9 +114,11 @@ public class MainGame extends BasicGameState {
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
+
         materialView.renderMaterial(g, materialModel);
     
         //TODO: Move this from MainGame into its own class.
+
         //Renders the nps
         npcModel.showNPC(mapModel);
         npcModel.initList();
@@ -130,9 +141,12 @@ public class MainGame extends BasicGameState {
         mapController.update(gc, delta);
         // Checks if a task should be started and entered.
 
+
+
         enterTask.update(gc, mapModel, sbg);
 
         materialController.update(playerModel);
+
 
 
     }
