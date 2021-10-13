@@ -28,7 +28,7 @@ public class BuildBridgeTask extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        bridgeController.update(gc, delta);
+        bridgeController.update(gc, sbg, delta);
     }
 
     @Override
