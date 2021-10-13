@@ -1,4 +1,3 @@
-import NPCs.NPCFactory;
 import controller.MapController;
 import controller.PlayerController;
 import model.*;
@@ -10,9 +9,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import view.PlayerView;
 import NPCs.*;
-
-import java.util.ArrayList;
-
     /**
      * Main class for controlling models, views and controllers
      */
@@ -33,7 +29,7 @@ public class MainGame extends BasicGameState {
 
     private CollisionChecker collisionChecker;
 
-    public MainGame() throws SlickException {
+    public MainGame(){
     }
 
     /**
@@ -45,7 +41,6 @@ public class MainGame extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
         // TODO:: Make this prettier
         collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
@@ -54,14 +49,10 @@ public class MainGame extends BasicGameState {
         enterTask = new EnterTask();
         npcView = new NPCView();
         npcModel = new NPCModel();
-
         mapModel = new MapModel(collisionChecker);
-
         mapView = new MapView();
         mapController = new MapController(mapModel, mapView);
-
     }
-
     /**
      * Our head render function that renders everything that needs to be drawn on the canvas
      * @param gc The container that have the game
@@ -70,8 +61,7 @@ public class MainGame extends BasicGameState {
      * @throws SlickException
      */
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g){
         // Render the map
         mapView.render(mapModel);
         // Renders The player
@@ -95,16 +85,13 @@ public class MainGame extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-
         // Updates our player
         playerController.update(gc, sbg, delta);
         // Updates our map
         mapController.update(gc, delta);
         // Checks if a task should be started and entered.
-        enterTask.update(gc, playerModel, mapModel, sbg);
-
+        enterTask.update(gc, mapModel, sbg);
     }
-
     /**
      * The id for this state
      * @return state number
@@ -113,7 +100,4 @@ public class MainGame extends BasicGameState {
     public int getID() {
         return 1;
     }
-
-
-
 }
