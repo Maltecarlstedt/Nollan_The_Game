@@ -48,6 +48,8 @@ public class MaterialModel {
 
     public Rectangle rect;
 
+
+
   //  ArrayList<Rectangle> materialsFilled = new ArrayList<>();
   //  ArrayList<Object> materialsUnfilled = new ArrayList<>();
 
@@ -119,21 +121,25 @@ public class MaterialModel {
 
     public void initCardboard() throws SlickException {
         cardboard = new Image("data/material/cardboard.png");
+        cardboard.setName("cardboard");
         cardboardLocation = new Rectangle(350, 350,32,32);
     }
 
     public void initRope() throws SlickException {
         rope = new Image("data/material/rope.png");
+        rope.setName("rope");
         ropeLocation = new Rectangle(400, 400,32,32);
     }
 
     public void initBlackColor() throws SlickException {
         blackColor = new Image("data/material/black_color.png");
+        blackColor.setName("blackColor");
         blackColorLocation = new Rectangle(450, 450,32,32);
     }
 
     public void initTurqoiseColor() throws SlickException {
         turqoiseColor = new Image("data/material/turqoise_color.png");
+        turqoiseColor.setName("turqoiseColor");
         turqoiseColorLocation = new Rectangle(500, 500,32,32);
     }
 
@@ -151,21 +157,25 @@ public class MaterialModel {
 
     public void initCardboardUf() throws SlickException {
         cardboardUf = new Image("data/material/cardboard_uf.png");
+        cardboardUf.setName("cardboardUf");
         cardboardUfLocation = new Rectangle(getStartX()+100,getStartY(),32,32);
     }
 
     public void initRopeUf() throws SlickException {
         ropeUf = new Image("data/material/rope_uf.png");
+        ropeUf.setName("ropeUf");
         ropeUfLocation = new Rectangle(getStartX()+150,getStartY(),32,32);
     }
 
     public void initBlackColorUf() throws SlickException {
         blackColorUf = new Image("data/material/black_color_uf.png");
+        blackColorUf.setName("blackColorUf");
         blackColorUfLocation = new Rectangle(getStartX()+200,getStartY(),32,32);
     }
 
     public void initTurqoiseColorUf() throws SlickException {
         turqoiseColorUf = new Image("data/material/turqoise_color_uf.png");
+        turqoiseColorUf.setName("turqoiseColorUf");
         turqoiseColorUfLocation = new Rectangle(getStartX()+250,getStartY(),32,32);
     }
 
