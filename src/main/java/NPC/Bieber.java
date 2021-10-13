@@ -1,7 +1,7 @@
-package NPCs;
+package NPC;
 
-import model.MapStates.Ekak;
 import model.MapStates.MapState;
+import model.MapStates.Markena;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -10,31 +10,23 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class EKAK2 extends NPC {
-
-    public EKAK2() throws SlickException {
+public class Bieber extends NPC{
+    public Bieber() throws SlickException {
         width = 64;
-        height = 64;
+        height = 90;
         //state = 0;
-        current = Ekak.EKAK;
-        location = new Point(420, 180);
+        current = Markena.MARKENA;
+        location = new Point(760, 179);
+        //initNPC();
         spriteSetup();
     }
 
     @Override
     void spriteSetup() throws SlickException {
-        character = new SpriteSheet("data/NPC/ekak64x72.png", 64, 72);
+        character = new SpriteSheet("data/NPC/Bieber64x90.png", 64, 90);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
-
     }
-
-    /*@Override
-    void initNPC() throws SlickException {
-
-    }
-
-     */
 
     @Override
     public void render(GameContainer gc, Graphics g) {
@@ -64,7 +56,5 @@ public class EKAK2 extends NPC {
         isShowing = isItShowing;
     }
 }
-
-
 
 

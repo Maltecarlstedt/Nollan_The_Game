@@ -1,26 +1,26 @@
-package NPCs;
+package NPC;
 
+import model.MapStates.Chalmersplatsen;
 import model.MapStates.MapState;
-import model.MapStates.Markena;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Graphics;
 
 import java.awt.*;
 
-public class Kvalle extends NPC {
+public class Tango extends NPC {
 
-    public Kvalle() throws SlickException{
+public Tango() throws SlickException {
     width = 64;
     height = 64;
     //state = 0;
-    current = Markena.MARKENA;
+    current = Chalmersplatsen.CHALMERSPLATSEN;
     location = new Point(700, 200);
     spriteSetup();
 }
 
     @Override
     void spriteSetup() throws SlickException {
-        character = new SpriteSheet("data/NPC/kvalle64x64.png", 64, 64);
+        character = new SpriteSheet("data/NPC/tangoPRIT64x64.png",64,64,64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
     }
@@ -41,8 +41,7 @@ public class Kvalle extends NPC {
 
     @Override
     void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
+
     }
 
     @Override
@@ -60,7 +59,3 @@ public class Kvalle extends NPC {
         isShowing = isItShowing;
     }
 }
-
-
-
-
