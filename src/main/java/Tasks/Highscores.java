@@ -37,7 +37,7 @@ public class Highscores {
                 String highScoreData = readHighScore.nextLine();
                 highScoresSorted.add(Double.parseDouble(highScoreData));
             }
-            sortHighScore(highScoresSorted);
+            Collections.sort(highScoresSorted);
             readHighScore.close();
         }catch (FileNotFoundException e){
             System.out.println("File not Found");
@@ -45,10 +45,10 @@ public class Highscores {
         }
         return highScoresSorted;
     }
-    public void sortHighScore(ArrayList<Double> unsortedList){
-        Collections.sort(unsortedList);
-        while(unsortedList.size() > 5){
-            unsortedList.remove(unsortedList.size() - 1);
+
+    public void trimHighscore(ArrayList<Double> untrimmedList){
+        while(untrimmedList.size() > 5){
+            untrimmedList.remove(untrimmedList.size() - 1);
         }
     }
 }

@@ -65,7 +65,7 @@ public class BeerChuggingController {
      * A timer that updates the time it takes for player to chug beer.
      * @param delta
      */
-    public void chugTimer(int delta){
+    public void chugTimer(int delta){ //TODO: Borde va i modellen
         // Stop when the beer is empty. AKA when reaching the last sprite.
         if(chugIndexAnimation > 8){
             //System.out.println("Bra hävt! Din tid blev: " + bcm.timePassed);

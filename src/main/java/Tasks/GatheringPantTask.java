@@ -38,7 +38,7 @@ public class GatheringPantTask extends BasicGameState {
      */
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        pv.render(gc, g, pm, pc);
+        pv.render(g, pm);
     }
 
 

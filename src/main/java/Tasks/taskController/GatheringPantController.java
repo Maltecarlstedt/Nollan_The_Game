@@ -2,6 +2,7 @@ package Tasks.taskController;
 
 import Tasks.taskModel.Pant;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import Tasks.taskModel.GatheringPantModel;
 import org.newdawn.slick.state.StateBasedGame;
@@ -16,13 +17,8 @@ public class GatheringPantController {
 
     private GatheringPantModel pm;
 
-    /** Variables for the player's score.
-     */
-    public int pantGathered = 0;
-
     /** Finished the task
      */
-    public Boolean finished = false;
     
     /** The Controllers constructor, taking in the model and view to be able to use them.
      * @param pm representing the model to get data from the it.
@@ -38,19 +34,23 @@ public class GatheringPantController {
      * @throws SlickException if file not found, slick-exception.
      */
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
-        pantTimer(delta);
-        pantGameOver(sbg);
-        mouseFollower(gc);
-        pantSpawner();
+        if(pm.isRunning) {
+            mouseFollower(gc);
+            pantSpawner();
+            pantTimer(delta);
+        }
+        if(pm.finished)
+            pantGameOver(gc, sbg);
+
     }
 
     /** Check if task is completed, else if timer is at 0, create a new pant.
      * @throws SlickException if file not found, slick-exception.
      */
-    public void pantGameOver(StateBasedGame sbg){
-        if(finished) {
+    public void pantGameOver(GameContainer gc, StateBasedGame sbg){
+        if(gc.getInput().isKeyDown(Input.KEY_F)) {
             // TODO: Make the ending display the players score etc
-            pm.getPants().clear();
+            resetTask();
             sbg.enterState(1, new EmptyTransition(), new FadeInTransition());
         }
 
@@ -61,16 +61,17 @@ public class GatheringPantController {
      * @param delta represents time in ms since last update.
      */
     public void pantTimer(int delta) {
-        if (pm.pantTimePassed <= 0) {
-            finished = true;
+        if (pm.getTaskTimer() <= 0 && pm.isRunning) {
+            stopTimer();
+            exitTask();
         } else {
             // Change from ms to seconds
-            pm.pantTimePassed -= (double) delta/1000;
-            pm.pantSpawnerTimer += (double) delta/1000;
-            // round to two decimals
-            pm.pantSpawnerTimer = (float) (Math.round(pm.pantSpawnerTimer * 100.0) / 100.0);
-            pm.pantTimePassed = (float) (Math.round(pm.pantTimePassed * 100.0) / 100.0);
+            pm.timerUpdate(delta);
         }
+    }
+
+    private void stopTimer(){
+        pm.outOfTime();
     }
 
     public void pantSpawner() throws SlickException {
@@ -98,13 +99,27 @@ public class GatheringPantController {
             Pant p = pm.getPants().get(i);
             if (p.getPantLocation().intersects(pm.mouseBall)) {
                 pm.getPants().remove(i);
-                pantGathered++;
-                pm.pantTimePassed += 0.3;
+                pm.increaseScore();
+                pm.pantRecieved();
                 // Not letting more than 5 pants spawn
                 if (pm.getPants().size() < 5){
                     pm.addPant();
                 }
             }
         }
+    }
+
+    public void exitTask(){
+        pm.addHighScore();
+        pm.getPants().clear();
+        pm.finished = true;
+        pm.isRunning = false;
+    }
+
+    private void resetTask(){
+        pm.resetTimer();
+        pm.resetScore();
+        pm.isRunning = true;
+        pm.finished = false;
     }
 }
