@@ -20,29 +20,11 @@ public class ItemView {
             Item value = material.getValue();
             value.render(g);
         }
-        /*
-        g.drawImage(mm.scissorUf, mm.getScissorUfLocation().x, mm.getScissorUfLocation().y);
-        g.drawImage(mm.cardboardUf, mm.getCardboardUfLocation().x, mm.getCardboardUfLocation().y);
-        g.drawImage(mm.ropeUf, mm.getRopeUfLocation().x, mm.getRopeUfLocation().y);
-        g.drawImage(mm.blackColorUf, mm.getBlackColorUfLocation().x, mm.getBlackColorUfLocation().y);
-        g.drawImage(mm.turqoiseColorUf, mm.getTurqoiseColorUfLocation().x, mm.getTurqoiseColorUfLocation().y);
-
-         */
     }
 
     public void renderFindMaterial(Graphics g, ItemModel itemModel, MapModel mapModel) {
         drawMaterial(mapModel, g, itemModel);
     }
-
-    //TODO Find a better way to write these criterias?
-    public Boolean imgKarhuset(Image value, ItemModel mm, String currentMap){
-        if(currentMap.equals("KARHUSET")){
-            return true;
-        }
-        return false;
-    }
-
-
 
     public void drawMaterial(MapModel mapModel, Graphics g, ItemModel mm) {
         currentMap = mapModel.getCurrentMap();
@@ -57,17 +39,6 @@ public class ItemView {
                 }
             }
         }
-
-        /*
-        for (Map.Entry<Rectangle, Image> material : mm.getMaterialsF().entrySet()){
-            Rectangle key = material.getKey();
-            Image value = material.getValue();
-            //TODO Find a way to draw right icon on right map without using duplicated code
-            if () {
-            }
-            }
-
-         */
         }
 
 }

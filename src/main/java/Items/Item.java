@@ -13,12 +13,13 @@ public abstract class Item {
     Rectangle location;
     public Image img;
 
-   // public abstract void init() throws SlickException;
-
     public abstract void render(Graphics g);
 
     public abstract void setShowing(boolean isItShowing);
 
     public abstract MapState getCurrentMap();
+
+    private int getStartX(){ return 710;}
+    private int getStartY(){ return 725;}
 
 }
