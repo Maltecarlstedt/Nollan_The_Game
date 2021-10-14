@@ -10,10 +10,12 @@ import java.awt.*;
 
 public class ChalmersTextBox extends AbstractTextBox {
 
-    public ChalmersTextBox(){
+    public ChalmersTextBox() throws SlickException {
         location = new Point(500, 600);
         mapState = Chalmersplatsen.CHALMERSPLATSEN;
+        SpriteSetup();
     }
+
 
     @Override
     public void SpriteSetup() throws SlickException {
