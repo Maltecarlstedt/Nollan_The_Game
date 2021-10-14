@@ -60,7 +60,7 @@ public class MainGame extends BasicGameState {
         enterTask = new EnterTask();
         itemModel = new ItemModel();
         itemView = new ItemView();
-        itemController = new ItemController(itemModel, itemView,playerModel, mapModel);
+        itemController = new ItemController(itemModel, itemView,playerModel);
 
         mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);

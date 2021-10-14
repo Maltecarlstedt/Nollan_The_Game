@@ -2,7 +2,6 @@ package Items.Filled;
 
 import Items.Item;
 import model.MapStates.DeltaP;
-import model.MapStates.Karhuset;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;

@@ -2,8 +2,6 @@ package Items.Filled;
 
 import Items.Item;
 import model.MapStates.Ekak;
-import model.MapStates.Karhuset;
-import model.MapStates.MapState;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;

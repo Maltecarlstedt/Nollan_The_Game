@@ -14,13 +14,11 @@ public class ItemController {
     ItemModel im;
     ItemView iv;
     PlayerModel pm;
-    MapModel mm;
 
-    public ItemController(ItemModel im, ItemView iv, PlayerModel pm, MapModel mm) {
+    public ItemController(ItemModel im, ItemView iv, PlayerModel pm) {
         this.im = im;
         this.iv = iv;
         this.pm = pm;
-        this.mm = mm;
     }
 
 
