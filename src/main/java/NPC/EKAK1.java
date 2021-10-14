@@ -48,12 +48,6 @@ public class EKAK1 extends TaskHoldingNPC {
             }
         }
 
-        @Override
-        public void render(GameContainer gc, Graphics g) {
-            if(isShowing) {
-                g.drawAnimation(animation, getLocation().x, getLocation().y);
-            }
-        }
 
         @Override
         void setLocation(int x, int y) {

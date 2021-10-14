@@ -22,11 +22,13 @@ public class EnterTask {
      * @param sbg the current state of the game used to isolate the game from different aspects.
      */
 
+
     // NOT AT ALL FINAL. JUST FOR DEV AND TESTING.
     public void update(GameContainer gc, MapModel mapModel, StateBasedGame sbg){
         input = gc.getInput();
         currMap = mapModel.getCurrentMap().toString();
         if(input.isKeyDown(Input.KEY_F)){
+            mapModel.taskDone = true;
             if (currMap.equals("EKAK")){
                 sbg.enterState(69, new FadeInTransition(), new HorizontalSplitTransition()); // Idk ser lite dumt ut
             }
