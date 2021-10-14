@@ -1,7 +1,7 @@
 package model;
 
 import controller.MapController;
-import model.MapStates.Chalmersplatsen;
+import model.MapStates.*;
 import org.lwjgl.Sys;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -9,8 +9,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
-import model.MapStates.Karhuset;
-import model.MapStates.MapState;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -36,6 +34,9 @@ public class MapModel{
     /** For collision detection, we have a list of Rectangles that contains all the collisions of the map */
     private ArrayList<Rectangle> blocks = new ArrayList<>();
 
+    public boolean taskDone = false;
+
+
     /**
      * The constructor that creates our map
      * @param collisionChecker - the collisionChecker that will make sure that the player cannot move to an obstructed tile
@@ -51,7 +52,7 @@ public class MapModel{
      * @throws SlickException - throws an exception if a filepath is not found
      */
     private void initMap() throws SlickException {
-        current = Karhuset.KARHUSET;
+        current = Ekak.EKAK;
         tiledMap = current.loadMap();
         tileSetup();
     }
@@ -69,7 +70,15 @@ public class MapModel{
     public void checkState(PlayerModel playermodel) throws SlickException { //TODO: byta namn?
         current = current.nextMap(playermodel);
         tiledMap = current.loadMap();
+        taskDone = false;
         tileSetup();
+    }
+
+    public boolean hasTask(){
+        if (getCurrentMap().equals(Ekak.EKAK) || getCurrentMap().equals(DeltaP.DELTAP)){
+            return true;
+        }
+        return false;
     }
 
 

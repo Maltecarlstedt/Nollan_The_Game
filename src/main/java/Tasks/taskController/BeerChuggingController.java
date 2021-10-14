@@ -1,5 +1,7 @@
 package Tasks.taskController;
 
+import Items.ItemController;
+import Items.ItemModel;
 import Tasks.taskModel.BeerChuggingModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -30,6 +32,7 @@ public class BeerChuggingController {
     private int numberOfChugs = 0;
     /** Index for which sprite is to be drawn for indicating the animation drinking */
     private int chugIndexAnimation = 0;
+
     /**
      * Constructor for beer chugging controller. Initialize which model to work on.
      * @param bcm The model
