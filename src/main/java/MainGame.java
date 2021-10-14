@@ -82,14 +82,15 @@ public class MainGame extends BasicGameState {
         // Render the map
         mapView.render(mapModel);
 
-        itemView.renderFindMaterial(g, itemModel, mapModel);
+        itemView.renderItemsToFind(g, itemModel, mapModel);
+        itemView.renderUnfilledItems(g, itemModel);
+
         // Renders The player
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
       
-      
-        itemView.renderMaterial(g, itemModel);
+
     
         //Renders the nps
         npcModel.showNPC(mapModel);
@@ -117,7 +118,7 @@ public class MainGame extends BasicGameState {
 
         enterTask.update(gc, mapModel, sbg);
 
-        itemController.update(playerModel);
+        itemController.update();
 
 
 

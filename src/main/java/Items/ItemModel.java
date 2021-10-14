@@ -29,11 +29,11 @@ public class ItemModel {
 
     private HashMap<String, Item> materialsFilled = new HashMap<>();
     private HashMap<String, Item> materialsUnfilled = new HashMap<>();
-    private ArrayList<MapState> currentMaps = new ArrayList<>();
+    private ArrayList<MapState> itemMaps = new ArrayList<>();
 
-    public HashMap<String, Item> getMaterialsF(){ return materialsFilled;}
-    public HashMap<String, Item> getMaterialsUf(){ return materialsUnfilled;}
-    public ArrayList<MapState> getCurrentMaps(){ return currentMaps; }
+    public HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
+    public HashMap<String, Item> getItemsUf(){ return materialsUnfilled;}
+    public ArrayList<MapState> getItemMaps(){ return itemMaps; }
 
 
     public ItemModel() throws SlickException {
@@ -57,12 +57,12 @@ public class ItemModel {
 
     }
     public void initModel(){
-        currentMaps.add(scissor.getCurrentMap());
-        currentMaps.add(karkort.getCurrentMap());
-        currentMaps.add(cardboard.getCurrentMap());
-        currentMaps.add(rope.getCurrentMap());
-        currentMaps.add(blackColor.getCurrentMap());
-        currentMaps.add(turquoiseColor.getCurrentMap());
+        itemMaps.add(scissor.getCurrentMap());
+        itemMaps.add(karkort.getCurrentMap());
+        itemMaps.add(cardboard.getCurrentMap());
+        itemMaps.add(rope.getCurrentMap());
+        itemMaps.add(blackColor.getCurrentMap());
+        itemMaps.add(turquoiseColor.getCurrentMap());
     }
 
     public void initRect(){

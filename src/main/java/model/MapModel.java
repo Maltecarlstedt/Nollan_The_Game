@@ -49,7 +49,7 @@ public class MapModel{
      * @throws SlickException - throws an exception if a filepath is not found
      */
     private void initMap() throws SlickException {
-        current = Karhuset.KARHUSET;
+        current = Ekak.EKAK;
         tiledMap = current.loadMap();
         tileSetup();
     }
