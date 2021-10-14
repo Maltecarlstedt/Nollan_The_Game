@@ -34,6 +34,9 @@ public class MapModel{
     /** For collision detection, we have a list of Rectangles that contains all the collisions of the map */
     private ArrayList<Rectangle> blocks = new ArrayList<>();
 
+    public boolean taskDone = false;
+
+
     /**
      * The constructor that creates our map
      * @param collisionChecker - the collisionChecker that will make sure that the player cannot move to an obstructed tile
@@ -67,6 +70,7 @@ public class MapModel{
     public void checkState(PlayerModel playermodel) throws SlickException { //TODO: byta namn?
         current = current.nextMap(playermodel);
         tiledMap = current.loadMap();
+        taskDone = false;
         tileSetup();
     }
 

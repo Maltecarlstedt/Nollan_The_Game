@@ -60,7 +60,7 @@ public class MainGame extends BasicGameState {
         enterTask = new EnterTask();
         itemModel = new ItemModel();
         itemView = new ItemView();
-        itemController = new ItemController(itemModel, itemView,playerModel);
+        itemController = new ItemController(itemModel, itemView,playerModel, mapModel);
 
         mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);
@@ -118,7 +118,7 @@ public class MainGame extends BasicGameState {
 
         enterTask.update(gc, mapModel, sbg);
 
-        itemController.update();
+        itemController.update(playerModel, itemModel);
 
 
 

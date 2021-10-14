@@ -1,11 +1,11 @@
 package Items;
 
-import Tasks.taskController.BeerChuggingController;
-import Tasks.taskModel.BeerChuggingModel;
+import model.MapModel;
 import model.PlayerModel;
 import org.newdawn.slick.Image;
 
 import java.awt.*;
+import java.lang.reflect.GenericDeclaration;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -14,15 +14,17 @@ public class ItemController {
     ItemModel im;
     ItemView iv;
     PlayerModel pm;
+    MapModel mm;
 
-    public ItemController(ItemModel im, ItemView iv, PlayerModel pm) {
+    public ItemController(ItemModel im, ItemView iv, PlayerModel pm, MapModel mm) {
         this.im = im;
         this.iv = iv;
         this.pm = pm;
+        this.mm = mm;
     }
 
 
-    public void update() {
+    public void update(PlayerModel pm, ItemModel im) {
         deleteFoundItem(pm, im);
     }
 
@@ -46,7 +48,7 @@ public class ItemController {
     }
 
     public boolean itemFound(PlayerModel pm, ItemView iv, Item item){
-        return pm.getNextLocation().intersects(item.location) && iv.currentMap.equals(item.getCurrentMap());
+        return (pm.getNextLocation().intersects(item.location) && iv.currentMap.equals(item.getCurrentMap()));
     }
 
     public void replace(String key, Item value){

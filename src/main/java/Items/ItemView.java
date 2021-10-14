@@ -4,9 +4,7 @@ package Items;
 import model.MapModel;
 import model.MapStates.MapState;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 
-import java.awt.*;
 import java.util.Map;
 
 public class ItemView {
@@ -23,7 +21,7 @@ public class ItemView {
         currentMap = mm.getCurrentMap();
         for (Map.Entry<String, Item> material : im.getItemsToFind().entrySet()) {
             Item value = material.getValue();
-            if (value.getCurrentMap().equals(currentMap) && !mm.hasTask()){
+            if (value.getCurrentMap().equals(currentMap) && (!mm.hasTask() || mm.taskDone)){
                 value.render(g);
             }
         }

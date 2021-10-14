@@ -33,8 +33,6 @@ public class BeerChuggingController {
     /** Index for which sprite is to be drawn for indicating the animation drinking */
     private int chugIndexAnimation = 0;
 
-    private ItemModel im;
-    private ItemController ic;
     /**
      * Constructor for beer chugging controller. Initialize which model to work on.
      * @param bcm The model

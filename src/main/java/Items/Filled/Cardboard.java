@@ -1,6 +1,8 @@
 package Items.Filled;
 
 import Items.Item;
+import model.MapStates.Dammen;
+import model.MapStates.DeltaP;
 import model.MapStates.Karhuset;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -13,7 +15,7 @@ public class Cardboard extends Item {
     public Cardboard() throws SlickException {
         img = new Image("data/material/cardboard.png");
         location = new Rectangle(300,300,32,32);
-        currentMap = Karhuset.KARHUSET;
+        currentMap = Dammen.ADAMMEN;
     }
 
     @Override

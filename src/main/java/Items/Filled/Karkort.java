@@ -16,7 +16,7 @@ public class Karkort extends Item {
     public Karkort() throws SlickException {
         img = new Image("data/material/karkortet.png");
         location = new Rectangle(250,250,32,32);
-        currentMap = Ekak.EKAK;
+        currentMap = Karhuset.KARHUSET;
     }
 
     @Override

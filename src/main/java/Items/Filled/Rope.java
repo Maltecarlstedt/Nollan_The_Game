@@ -2,6 +2,7 @@ package Items.Filled;
 
 import Items.Item;
 import model.MapStates.Karhuset;
+import model.MapStates.Rannan;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -13,7 +14,7 @@ public class Rope extends Item {
     public Rope() throws SlickException {
         img = new Image("data/material/rope.png");
         location = new Rectangle(350,350,32,32);
-        currentMap = Karhuset.KARHUSET;
+        currentMap = Rannan.RANNAN;
     }
 
     @Override
