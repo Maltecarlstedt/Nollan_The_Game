@@ -18,14 +18,14 @@ public abstract class AbstractTextBox {
     public abstract void SpriteSetup() throws SlickException;
 
     /**
-     * Gets the current map so that the correlated NPC can be drawn.
+     * Gets the current map so that the correlated TextBox can be drawn.
      * @return current map
      */
     public abstract MapState getCurrent();
 
     /**
-     * Gets the location of the npc
-     * @return x and y of the npc
+     * Gets the location of the textBox
+     * @return x and y of the textBox
      */
     abstract Point getLocation();
 

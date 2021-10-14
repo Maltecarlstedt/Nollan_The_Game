@@ -1,6 +1,7 @@
 import NPC.NPCModel;
 import NPC.NPCView;
 import TextBoxes.KarhusetTextBox;
+import TextBoxes.TextBoxModel;
 import TextBoxes.TextBoxView;
 import controller.MapController;
 import controller.MaterialController;
@@ -39,7 +40,7 @@ public class MainGame extends BasicGameState {
 
     private CollisionChecker collisionChecker;
 
-    private KarhusetTextBox textbox;
+    private TextBoxModel textBoxModel;
     private TextBoxView textBoxView;
 
 
@@ -73,7 +74,7 @@ public class MainGame extends BasicGameState {
         npcModel = new NPCModel();
         npcView = new NPCView();
 
-
+        textBoxModel = new TextBoxModel();
         textBoxView = new TextBoxView();
     }
     /**
@@ -102,7 +103,10 @@ public class MainGame extends BasicGameState {
         npcModel.initList();
         npcView.render(g, npcModel.NPCs);
 
-        textBoxView.render(g, textbox);
+        //Renders the textBoxes
+        textBoxView.render(g, textBoxModel.textboxes);
+        textBoxModel.initTextBoxes();
+        textBoxModel.showTextBox(mapModel);
     }
 
     /**
@@ -120,8 +124,6 @@ public class MainGame extends BasicGameState {
         // Updates our map
         mapController.update(gc, delta);
         // Checks if a task should be started and entered.
-
-
 
         enterTask.update(gc, mapModel, sbg);
 
