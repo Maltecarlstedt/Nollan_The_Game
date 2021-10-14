@@ -30,9 +30,6 @@ public abstract class NPC {
      */
     abstract void spriteSetup() throws SlickException;
 
-    //TODO:: Might need to be moved to a NPCVIEW class or something to follow the rest of our code structure
-    public abstract void render(GameContainer gc, Graphics g);
-
     /**
      * Sets the x and y values where the NPC is to be drawn.
      * @param x x - coordinate

@@ -36,11 +36,6 @@ public class TaskHoldingNPC extends NPC {
 
 
     @Override
-    public void render(GameContainer gc, Graphics g) {
-
-    }
-
-    @Override
     void setLocation(int x, int y) {
 
     }

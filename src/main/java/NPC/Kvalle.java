@@ -25,19 +25,6 @@ public class Kvalle extends NPC {
         animation.addFrame(character.getSubImage(0, 0), 200);
     }
 
-    /*@Override
-    void initNPC() throws SlickException {
-        spriteSetup();
-    }
-
-     */
-
-    @Override
-    public void render(GameContainer gc, Graphics g) {
-        if(isShowing) {
-            g.drawAnimation(animation, getLocation().x, getLocation().y);
-        }
-    }
 
     @Override
     void setLocation(int x, int y) {
