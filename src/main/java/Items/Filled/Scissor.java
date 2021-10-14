@@ -1,6 +1,6 @@
-package Items;
+package Items.Filled;
 
-import model.MapStates.Dammen;
+import Items.Item;
 import model.MapStates.Karhuset;
 import model.MapStates.MapState;
 import org.newdawn.slick.Graphics;
@@ -9,12 +9,12 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
-public class Karkort extends Item{
+public class Scissor extends Item {
 
-    public Karkort() throws SlickException {
-        img = new Image("data/material/karkortet.png");
-        location = new Rectangle(250,250,32,32);
-        currentMap = Dammen.ADAMMEN;
+    public Scissor() throws SlickException {
+        img = new Image("data/material/scissor.png");
+        location = new Rectangle(200,200,32,32);
+        currentMap = Karhuset.KARHUSET;
     }
 
     @Override
@@ -27,8 +27,4 @@ public class Karkort extends Item{
         isShowing = isItShowing;
     }
 
-    @Override
-    public MapState getCurrentMap() {
-        return currentMap;
-    }
 }

@@ -36,6 +36,7 @@ public class ItemController {
             Item value = material.getValue();
             if (pm.getNextLocation().intersects(value.location) && mv.currentMap.equals(value.getCurrentMap())){
                 replace(key, value);
+                //Todo will be removed even if it doesn`t match an item in the unfilled list, do something about it?
                 it.remove();
                 break;
             }

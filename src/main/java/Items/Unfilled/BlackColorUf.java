@@ -1,18 +1,18 @@
-package Items;
+package Items.Unfilled;
 
+import Items.Item;
 import model.MapStates.Karhuset;
-import model.MapStates.MapState;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
-public class ScissorUf extends Item{
+public class BlackColorUf extends Item {
 
-    public ScissorUf() throws SlickException {
-        img = new Image("data/material/scissor_uf.png");
-        location = new Rectangle(710,725,32,32);
+    public BlackColorUf() throws SlickException {
+        img = new Image("data/material/black_color_uf.png");
+        location = new Rectangle(getStartX() + 200,getStartY(),32,32);
         currentMap = Karhuset.KARHUSET;
     }
 
@@ -24,10 +24,5 @@ public class ScissorUf extends Item{
     @Override
     public void setShowing(boolean isItShowing) {
         isShowing = isItShowing;
-    }
-
-    @Override
-    public MapState getCurrentMap() {
-        return currentMap;
     }
 }

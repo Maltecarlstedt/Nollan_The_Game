@@ -1,23 +1,31 @@
 package Items;
 
-import model.MapStates.Karhuset;
+import Items.Filled.*;
+import Items.Unfilled.*;
 import model.MapStates.MapState;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class ItemModel {
 
     public Rectangle rect;
 
-    private Item scissor1 = new Scissor();
-    private Item karkort1 = new Karkort();
+    private Item scissor = new Scissor();
+    private Item karkort = new Karkort();
+    private Item cardboard = new Cardboard();
+    private Item rope = new Rope();
+    private Item blackColor = new BlackColor();
+    private Item turquoiseColor = new TurquoiseColor();
 
-    private Item scissorUf1 = new ScissorUf();
+    private Item scissorUf = new ScissorUf();
+    private Item karkortUf = new KarkortUf();
+    private Item cardboardUf = new CardboardUf();
+    private Item ropeUf = new RopeUf();
+    private Item blackColorUf = new BlackColorUf();
+    private Item turquoiseColorUf = new TurquoiseColorUf();
 
     private HashMap<String, Item> materialsFilled = new HashMap<>();
     private HashMap<String, Item> materialsUnfilled = new HashMap<>();
@@ -29,17 +37,32 @@ public class ItemModel {
 
 
     public ItemModel() throws SlickException {
-        materialsFilled.put("Scissor", scissor1);
-        materialsFilled.put("Karkort", karkort1);
-
-        materialsUnfilled.put("ScissorUf", scissorUf1);
-
         initModel();
+
+        materialsFilled.put("Scissor", scissor);
+        materialsFilled.put("Karkort", karkort);
+        materialsFilled.put("Cardboard", cardboard);
+        materialsFilled.put("Rope", rope);
+        materialsFilled.put("BlackColor", blackColor);
+        materialsFilled.put("TurquoiseColor", turquoiseColor);
+
+
+        materialsUnfilled.put("ScissorUf", scissorUf);
+        materialsUnfilled.put("KarkortUf", karkortUf);
+        materialsUnfilled.put("CardboardUf", cardboardUf);
+        materialsUnfilled.put("RopeUf", ropeUf);
+        materialsUnfilled.put("BlackColorUf", blackColorUf);
+        materialsUnfilled.put("TurquoiseColorUf", turquoiseColorUf);
+
 
     }
     public void initModel(){
-        currentMaps.add(scissor1.getCurrentMap());
-        currentMaps.add(karkort1.getCurrentMap());
+        currentMaps.add(scissor.getCurrentMap());
+        currentMaps.add(karkort.getCurrentMap());
+        currentMaps.add(cardboard.getCurrentMap());
+        currentMaps.add(rope.getCurrentMap());
+        currentMaps.add(blackColor.getCurrentMap());
+        currentMaps.add(turquoiseColor.getCurrentMap());
     }
 
     public void initRect(){
