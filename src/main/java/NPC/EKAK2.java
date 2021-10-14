@@ -29,19 +29,6 @@ public class EKAK2 extends NPC {
 
     }
 
-    /*@Override
-    void initNPC() throws SlickException {
-
-    }
-
-     */
-
-    @Override
-    public void render(GameContainer gc, Graphics g) {
-        if(isShowing) {
-            g.drawAnimation(animation, getLocation().x, getLocation().y);
-        }
-    }
 
     @Override
     void setLocation(int x, int y) {

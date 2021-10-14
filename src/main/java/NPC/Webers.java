@@ -39,7 +39,7 @@ public class Webers extends TaskHoldingNPC {
         animation.addFrame(character.getSubImage(0, 0), 1);
     }
 
-    //onödig?
+
     @Override
     public void initNPC() throws SlickException {
         if (state == 0) {
@@ -47,14 +47,6 @@ public class Webers extends TaskHoldingNPC {
         } else if (state == 1) {
             spriteSetup();
 
-        }
-    }
-
-
-    @Override
-    public void render(GameContainer gc, Graphics g){
-        if(isShowing) {
-            g.drawAnimation(animation, getLocation().x, getLocation().y);
         }
     }
 

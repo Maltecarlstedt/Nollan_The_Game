@@ -1,11 +1,11 @@
 import NPC.NPCModel;
 import NPC.NPCView;
+import TextBoxes.KarhusetTextBox;
+import TextBoxes.TextBoxView;
 import controller.MapController;
 import controller.MaterialController;
 import controller.PlayerController;
 import model.*;
-import model.MapStates.Karhuset;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -39,6 +39,9 @@ public class MainGame extends BasicGameState {
 
     private CollisionChecker collisionChecker;
 
+    private KarhusetTextBox textbox;
+    private TextBoxView textBoxView;
+
 
     public MainGame(){
 
@@ -70,6 +73,8 @@ public class MainGame extends BasicGameState {
         npcModel = new NPCModel();
         npcView = new NPCView();
 
+
+        textBoxView = new TextBoxView();
     }
     /**
      * Our head render function that renders everything that needs to be drawn on the canvas
@@ -96,6 +101,8 @@ public class MainGame extends BasicGameState {
         npcModel.showNPC(mapModel);
         npcModel.initList();
         npcView.render(g, npcModel.NPCs);
+
+        textBoxView.render(g, textbox);
     }
 
     /**
