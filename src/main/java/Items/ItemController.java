@@ -27,7 +27,7 @@ public class ItemController {
         //collectedItem();
         //removeMaterial(pm);
        // deleteMaterial();
-       // deleteMaterial(pm);
+        deleteMaterial(pm);
     }
 
     /** Method checks collision between player and item
@@ -48,27 +48,25 @@ public class ItemController {
      */
 
     public void deleteMaterial(PlayerModel pm){
-        /*
-        for (Iterator<Map.Entry<Rectangle, Image>> it = mm.getMaterialsF().entrySet().iterator(); it.hasNext();){
-            Map.Entry<Rectangle, Image> material = it.next();
-            Rectangle key = material.getKey();
-            Image value = material.getValue();
-            if (pm.getNextLocation().intersects(key) && mv.imgKarhuset(value,mm, mv.currentMap)){
-                replace(value);
+        for (Iterator<Map.Entry<String, Item>> it = mm.getMaterialsF().entrySet().iterator(); it.hasNext();){
+            Map.Entry<String, Item> material = it.next();
+            String key = material.getKey();
+            Item value = material.getValue();
+            if (pm.getNextLocation().intersects(value.location) && mv.currentMap.equals(value.getCurrentMap())){
+                replace(key, value);
                 it.remove();
                 break;
             }
         }
-
-         */
     }
 
-    public void replace(Image value){
-        for (Iterator<Map.Entry<Rectangle, Image>> it = mm.getMaterialsUf().entrySet().iterator(); it.hasNext();){
-            Map.Entry<Rectangle, Image> material = it.next();
-            Rectangle replacableKey = material.getKey();
-            Image replacableValue = material.getValue();
-            if (replacableValue.getName().contains(value.getName())){
+    public void replace(String key, Item value){
+        for (Iterator<Map.Entry<String, Item>> it = mm.getMaterialsUf().entrySet().iterator(); it.hasNext();){
+            Map.Entry<String,Item> material = it.next();
+            String replacableKey = material.getKey();
+            Item replacableValue = material.getValue();
+            if (replacableKey.contains(key)){
+                value.location = replacableValue.location;
                 mm.getMaterialsUf().replace(replacableKey, replacableValue, value);
                 break;
             }

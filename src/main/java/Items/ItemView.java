@@ -15,10 +15,10 @@ public class ItemView {
     public MapState currentMap;
 
     public void renderMaterial(Graphics g, ItemModel mm) {
-        for (Map.Entry<Rectangle, Image> material : mm.getMaterialsUf().entrySet()){
-            Rectangle key = material.getKey();
-            Image value = material.getValue();
-            g.drawImage(value, key.x, key.y);
+        for (Map.Entry<String, Item> material : mm.getMaterialsUf().entrySet()){
+            String key = material.getKey();
+            Item value = material.getValue();
+            value.render(g);
         }
         /*
         g.drawImage(mm.scissorUf, mm.getScissorUfLocation().x, mm.getScissorUfLocation().y);

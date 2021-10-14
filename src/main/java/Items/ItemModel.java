@@ -52,6 +52,8 @@ public class ItemModel {
 
     Item scissor1 = new Scissor();
     Item karkort1 = new Karkort();
+
+    Item scissorUf1 = new ScissorUf();
     public String currMap;
 
 
@@ -60,13 +62,13 @@ public class ItemModel {
   //  ArrayList<Object> materialsUnfilled = new ArrayList<>();
 
     HashMap<String, Item> materialsFilled = new HashMap<>();
-    HashMap<Rectangle, Image> materialsUnfilled = new HashMap<>();
+    HashMap<String, Item> materialsUnfilled = new HashMap<>();
 
    // public ArrayList<Rectangle> getMaterialsFilled() {return materialsFilled;}
    // public ArrayList<Object> getMaterialsUnfilled() {return materialsUnfilled;}
 
     public HashMap<String, Item> getMaterialsF(){ return materialsFilled;}
-    public HashMap<Rectangle, Image> getMaterialsUf(){ return materialsUnfilled;}
+    public HashMap<String, Item> getMaterialsUf(){ return materialsUnfilled;}
 
     public ArrayList<MapState> currentMaps = new ArrayList<>();
     public ArrayList<MapState> getCurrentMaps(){ return currentMaps; }
@@ -75,6 +77,8 @@ public class ItemModel {
     public ItemModel() throws SlickException {
         materialsFilled.put("Scissor", scissor1);
         materialsFilled.put("Karkort", karkort1);
+
+        materialsUnfilled.put("ScissorUf", scissorUf1);
 
       //  scissor1 = materialsFilled.get("Scissor");
         //karkort1 = materialsFilled.get("Karkort");
