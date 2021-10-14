@@ -1,5 +1,6 @@
 package Items;
 
+import Tasks.taskModel.BeerChuggingModel;
 import model.PlayerModel;
 import org.newdawn.slick.Image;
 

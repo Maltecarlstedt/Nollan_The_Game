@@ -29,7 +29,7 @@ public class ItemView {
     public void drawMaterial(MapModel mapModel, Graphics g, ItemModel mm) {
         currentMap = mapModel.getCurrentMap();
         for(MapState curr : mm.getCurrentMaps()){
-            if (currentMap.equals(curr)){
+            if (currentMap.equals(curr) && !mapModel.hasTask()){
                 for (Map.Entry<String, Item> material : mm.getMaterialsF().entrySet()) {
                     String key = material.getKey();
                     Item value = material.getValue();
