@@ -22,8 +22,4 @@ public class BlackColor extends Item {
         g.drawImage(img, location.x, location.y);
     }
 
-    @Override
-    public void setShowing(boolean isItShowing) {
-        isShowing = isItShowing;
-    }
 }

@@ -129,7 +129,7 @@ public class MainGame extends BasicGameState {
 
         enterTask.update(gc, mapModel, sbg);
 
-        itemController.update(playerModel, itemModel, sbg, gc);
+        itemController.update(playerModel, itemModel, sbg);
 
 
 

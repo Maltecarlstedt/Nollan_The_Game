@@ -22,9 +22,4 @@ public class Cardboard extends Item {
     public void render(Graphics g) {
         g.drawImage(img, location.x, location.y);
     }
-
-    @Override
-    public void setShowing(boolean isItShowing) {
-        isShowing = isItShowing;
-    }
 }
