@@ -126,13 +126,9 @@ public class MainGame extends BasicGameState {
         // Updates our map
         mapController.update(gc, delta);
         // Checks if a task should be started and entered.
-
         enterTask.update(gc, mapModel, sbg);
 
         itemController.update(playerModel, itemModel, sbg);
-
-
-
     }
     /**
      * The id for this state
