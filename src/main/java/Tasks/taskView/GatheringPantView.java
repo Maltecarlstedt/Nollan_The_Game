@@ -16,20 +16,6 @@ public class GatheringPantView {
     public void render (Graphics g, GatheringPantModel pm) {
         pm.getBackground().render(0,0);
 
-        // the mouse
-        if(pm.isRunning){
-            g.setColor(Color.cyan);
-            g.fill(pm.mouseBall);
-
-            g.setColor(Color.white);
-
-            // Render our box that will have the timer inside of it.
-
-        } else{
-            g.drawString("Bra plockat!", 400, 400);
-            g.drawString("Tryck F för att avsluta uppdraget.", 400, 440);
-        }
-
         g.drawImage(pm.timerBox,820, 40);
 
         g.drawImage(pm.highScoreBox, 820, 140);
@@ -43,6 +29,20 @@ public class GatheringPantView {
         for(int i = 0; i < pm.getPantHighscore().size(); i++){
             int number = pm.getPantHighscore().get(i).intValue();
             g.drawString(String.valueOf(number), 835, 155 + i*35);
+        }
+
+        // the mouse
+        if(pm.isRunning){
+            g.setColor(Color.cyan);
+            g.fill(pm.mouseBall);
+
+            g.setColor(Color.white);
+
+            // Render our box that will have the timer inside of it.
+
+        } else{
+            g.drawString("Bra plockat!", 400, 400);
+            g.drawString("Tryck F för att avsluta uppdraget.", 400, 440);
         }
 
         for(Pant pant : pm.getPants()){
