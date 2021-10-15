@@ -1,4 +1,7 @@
-/*import org.junit.Before;
+/*package test;
+
+import model.PlayerModel;
+import org.junit.Before;
 import org.junit.Test;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
@@ -10,12 +13,12 @@ import java.awt.*;
 import static org.junit.Assert.*;
 
 public class testPlayer {
-    Player testPlayer;
+    PlayerModel testPlayer;
 
 
     @Before
     public void init() throws SlickException {
-        testPlayer = new Player();
+        testPlayer = new PlayerModel();
         //testPlayer.initPlayer();
     }
 
@@ -59,7 +62,7 @@ public class testPlayer {
         assertEquals(testPlayer.getLocation().x, startX);
     }
 
-    /*@Test
+    @Test
     public void testIdlePlayer() throws SlickException {
         testPlayer.spriteSetup();
         SpriteSheet testSprite = testPlayer.MoveLeft;
@@ -73,4 +76,5 @@ public class testPlayer {
     }
 
 }
-*/
+
+ */

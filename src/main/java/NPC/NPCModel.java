@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class NPCModel {
 
-    NPCFactory factory;
+    NPCFactory factory; // = new NPCFactory();
     NPCView npcView;
-    public ArrayList<NPC> NPCs;
+    public ArrayList<NPC> NPCs; // = new ArrayList<>();
 
     NPC webers;
     NPC kritan;
@@ -18,6 +18,18 @@ public class NPCModel {
     NPC bieber;
     NPC kvalle;
     NPC dnollk;
+
+ /*
+    NPC webers = factory.npcs.get("Webers");
+    NPC  kritan = factory.npcs.get("Kritan");
+    NPC tango = factory.npcs.get("Tango");
+    NPC ekak1 = factory.npcs.get("Ekak1");
+    NPC ekak2 = factory.npcs.get("Ekak2");
+    NPC bieber = factory.npcs.get("Bieber");
+    NPC kvalle = factory.npcs.get("Kvalle");
+    NPC dnollk = factory.npcs.get("DNollK");
+
+  */
 
 
     public NPCModel() throws SlickException {
@@ -34,6 +46,8 @@ public class NPCModel {
         bieber = factory.npcs.get("Bieber");
         kvalle = factory.npcs.get("Kvalle");
         dnollk = factory.npcs.get("DNollK");
+
+
 
     }
 
