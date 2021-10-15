@@ -14,7 +14,7 @@ public class Rope extends Item {
     public Rope() throws SlickException {
         img = new Image("data/material/rope.png");
         location = new Rectangle(350,350,32,32);
-        currentMap = Rannan.RANNAN;
+        currentMap = Karhuset.KARHUSET;//Rannan.RANNAN;
     }
 
     @Override

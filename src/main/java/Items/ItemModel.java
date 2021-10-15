@@ -29,15 +29,14 @@ public class ItemModel {
 
     private HashMap<String, Item> materialsFilled = new HashMap<>();
     private HashMap<String, Item> materialsUnfilled = new HashMap<>();
-    private ArrayList<MapState> itemMaps = new ArrayList<>();
+   // private ArrayList<MapState> itemMaps = new ArrayList<>();
 
     public HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
     public HashMap<String, Item> getItemsUf(){ return materialsUnfilled;}
-    public ArrayList<MapState> getItemMaps(){ return itemMaps; }
 
 
     public ItemModel() throws SlickException {
-        initModel();
+        //initModel();
 
         materialsFilled.put("Scissor", scissor);
         materialsFilled.put("Karkort", karkort);
@@ -56,6 +55,7 @@ public class ItemModel {
 
 
     }
+    /*
     public void initModel(){
         itemMaps.add(scissor.getCurrentMap());
         itemMaps.add(karkort.getCurrentMap());
@@ -63,6 +63,16 @@ public class ItemModel {
         itemMaps.add(rope.getCurrentMap());
         itemMaps.add(blackColor.getCurrentMap());
         itemMaps.add(turquoiseColor.getCurrentMap());
+    }
+
+     */
+
+    public boolean itemsCollected(){
+        if (getItemsToFind().size() == 0){
+            System.out.println("Spelet är slut");
+            return true;
+        }
+        return false;
     }
 
     public void initRect(){

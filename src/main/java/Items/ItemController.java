@@ -2,7 +2,11 @@ package Items;
 
 import model.MapModel;
 import model.PlayerModel;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import java.awt.*;
 import java.lang.reflect.GenericDeclaration;
@@ -22,8 +26,15 @@ public class ItemController {
     }
 
 
-    public void update(PlayerModel pm, ItemModel im) {
+    public void update(PlayerModel pm, ItemModel im, StateBasedGame sbg, GameContainer gc) {
         deleteFoundItem(pm, im);
+        gameDone(sbg);
+    }
+
+    public void gameDone(StateBasedGame sbg){
+        if (im.itemsCollected()){
+            sbg.enterState(100, new FadeOutTransition(), new FadeInTransition());
+        }
     }
 
     /** Method checks collision between player and item
