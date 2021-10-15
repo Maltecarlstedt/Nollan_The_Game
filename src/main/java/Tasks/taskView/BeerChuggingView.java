@@ -34,18 +34,23 @@ public class BeerChuggingView {
         // Draw the player chugging beer.
         g.drawImage(bcm.currentChugAnimation, 1024/2, 720/2);
         // Set our custom font
-        g.setFont(bcm.trueTypePixelFont);
         // Render our box that will have the timer inside of it.
         g.drawImage(bcm.timerBox,820, 40 );
 
-        g.drawImage(bcm.highScoreBox, 820, 110);
+        g.drawImage(bcm.highScoreBox, 820, 140);
+
+
+        g.drawString("Your score: ", 820, 20);
+        g.drawString("Highscore: ", 820, 120);
+
+        g.setFont(bcm.trueTypePixelFont);
 
         // TODO: Make a method so that the string is always centered.
         // Render the timer.
         g.drawString(String.valueOf(bcm.timePassed), 835,55);
 
         for(int i = 0; i < bcm.beerChuggingHighScore.size(); i++){
-            g.drawString(String.valueOf(bcm.beerChuggingHighScore.get(i)), 835, 120 + i*35 );
+            g.drawString(String.valueOf(bcm.beerChuggingHighScore.get(i)), 835, 150 + i*35 );
         }
         if(bcm.isTaskFinished){
             g.drawString("Bra supit bajsnolla, Din tid blev " + bcm.timePassed, 200, 768/2);
