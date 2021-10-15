@@ -1,8 +1,6 @@
 package Tasks.taskController;
 
-
 import Tasks.taskModel.BuildBridgeModel;
-import Tasks.taskView.BuildBridgeView;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;

@@ -31,7 +31,7 @@ public class GatheringPantModel {
     public boolean finished = false;
     public boolean isRunning = true;
 
-    private Highscores hs = new Highscores("data/pantHighscore.txt", true);
+    private Highscores hs = new Highscores("data/highscores/pantHighscore.txt", true);
 
     private ArrayList<Double> pantHighscore = new ArrayList<>();
 
@@ -46,7 +46,6 @@ public class GatheringPantModel {
     public ArrayList<Pant> getPants() {
         return pants;
     }
-
 
     public GatheringPantModel() throws SlickException {
         init();
@@ -73,7 +72,7 @@ public class GatheringPantModel {
     }
 
     public void initHighScoreBox() throws SlickException {
-        highScoreBox = new Image("data/highScoreBox.png");
+        highScoreBox = new Image("data/boxes/highScoreBox_V2.png");
     }
 
     public void readHighScoreList(){
@@ -103,7 +102,7 @@ public class GatheringPantModel {
      * @throws SlickException Generic exception
      */
     public void initTimerSetup() throws SlickException {
-        timerBox = new Image("data/timerBox.png");
+        timerBox = new Image("data/boxes/timerBox.png");
     }
 
     public TiledMap getBackground() {

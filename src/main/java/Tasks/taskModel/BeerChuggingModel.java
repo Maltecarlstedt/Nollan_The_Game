@@ -19,7 +19,7 @@ import java.util.Collections;
  */
 public class BeerChuggingModel {
 
-    private Highscores hs = new Highscores("data/highscore.txt", true); // TODO kommentera
+    private Highscores hs = new Highscores("data/highscores/highscore.txt", true); // TODO kommentera
     private final int greenThingyHeight = 64, greenThingyWidth = 30;
     private final int jumpingBeerHeight = 24, jumpingBeerWidth = 30;
 
@@ -79,7 +79,7 @@ public class BeerChuggingModel {
         //TODO: Make a font loading class on its own since it's not really makes sense having here.
 
         try {
-            InputStream inputStream = ResourceLoader.getResourceAsStream("/data/slkscr.ttf");
+            InputStream inputStream = ResourceLoader.getResourceAsStream("/data/fonts/slkscr.ttf");
             Font font = Font.createFont(Font.TRUETYPE_FONT, inputStream);
             font = font.deriveFont(32f); // set font size
             trueTypePixelFont = new TrueTypeFont(font, false);
@@ -93,7 +93,7 @@ public class BeerChuggingModel {
      * @throws SlickException Generic exception
      */
     public void initTimerSetup() throws SlickException {
-        timerBox = new Image("data/timerBox.png");
+        timerBox = new Image("data/boxes/timerBox.png");
     }
 
     /**
@@ -133,7 +133,7 @@ public class BeerChuggingModel {
     }
 
     public void initHighScoreBox() throws SlickException {
-        highScoreBox = new Image("data/highScoreBox.png");
+        highScoreBox = new Image("data/boxes/highScoreBox_V2.png");
 
     }
 
@@ -153,7 +153,9 @@ public class BeerChuggingModel {
         }
         // Even though the player might not be top 5 we add his or hers score either way.
         beerChuggingHighScore.add(Double.parseDouble(time));
+        beerChuggingHighScore = hs.readHighScore();
         Collections.sort(beerChuggingHighScore);
+        hs.trimHighscore(beerChuggingHighScore);
     }
 
     /** Changes sprite image to be drawn */
