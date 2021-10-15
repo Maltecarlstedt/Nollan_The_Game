@@ -20,13 +20,15 @@ public class testMap {
         mapModel = new MapModel(collisionChecker);
     }
 
-    /*
+/*
     @Test
     public void testSetMap(){
         assertEquals(mapModel.getCurrentMap(), Karhuset.KARHUSET);
     }
 
-     */
+ */
+
+
 
 
 }
