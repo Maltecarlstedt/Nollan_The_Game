@@ -29,6 +29,7 @@ public class StateSetup extends StateBasedGame {
         this.addState(new BeerChugginTask());
         this.addState(new BuildBridgeTask());
         this.addState(new GatheringPantTask());
+        this.addState(new GameDoneView());
         // Enters state 0
         enterState(0);
     }
