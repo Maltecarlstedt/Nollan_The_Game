@@ -1,10 +1,11 @@
+import Items.ItemModel;
 import NPC.NPCModel;
 import NPC.NPCView;
 import TextBoxes.KarhusetTextBox;
 import TextBoxes.TextBoxModel;
 import TextBoxes.TextBoxView;
 import controller.MapController;
-import controller.MaterialController;
+import Items.ItemController;
 import controller.PlayerController;
 import model.*;
 import org.newdawn.slick.GameContainer;
@@ -13,7 +14,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
-import view.MaterialView;
+import Items.ItemView;
 import view.PlayerView;
     /**
      * Main class for controlling models, views and controllers
@@ -29,9 +30,9 @@ public class MainGame extends BasicGameState {
     private MapView mapView;
     private MapController mapController;
 
-    private MaterialModel materialModel;
-    private MaterialView materialView;
-    private MaterialController materialController;
+    private ItemModel itemModel;
+    private ItemView itemView;
+    private ItemController itemController;
 
     private NPCView npcView;
     private NPCModel npcModel;
@@ -63,9 +64,9 @@ public class MainGame extends BasicGameState {
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
         enterTask = new EnterTask();
-        materialModel = new MaterialModel();
-        materialView = new MaterialView();
-        materialController = new MaterialController(materialModel,materialView,playerModel);
+        itemModel = new ItemModel();
+        itemView = new ItemView();
+        itemController = new ItemController(itemModel, itemView,playerModel);
 
         mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);
@@ -89,14 +90,15 @@ public class MainGame extends BasicGameState {
         // Render the map
         mapView.render(mapModel);
 
-        materialView.renderFindMaterial(g, materialModel, mapModel);
+        itemView.renderItemsToFind(g, itemModel, mapModel);
+        itemView.renderUnfilledItems(g, itemModel);
+
         // Renders The player
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
       
-      
-        materialView.renderMaterial(g, materialModel);
+
     
         //Renders the nps
         npcModel.showNPC(mapModel);
@@ -124,13 +126,9 @@ public class MainGame extends BasicGameState {
         // Updates our map
         mapController.update(gc, delta);
         // Checks if a task should be started and entered.
-
         enterTask.update(gc, mapModel, sbg);
 
-        materialController.update(playerModel);
-
-
-
+        itemController.update(playerModel, itemModel, sbg);
     }
     /**
      * The id for this state
