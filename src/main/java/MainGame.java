@@ -72,7 +72,7 @@ public class MainGame extends BasicGameState {
         mapModel = new MapModel(collisionChecker);
         mapView = new MapView();
 
-        npcModel = new NPCModel();
+        npcModel = new NPCModel(mapModel);
         npcView = new NPCView();
 
         textBoxModel = new TextBoxModel();

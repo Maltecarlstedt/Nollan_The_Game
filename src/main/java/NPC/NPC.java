@@ -18,7 +18,6 @@ public abstract class NPC {
     MapState current;
 
     Point location;
-    protected Rectangle NPCLocation;
 
     public SpriteSheet character;
     public Animation animation;

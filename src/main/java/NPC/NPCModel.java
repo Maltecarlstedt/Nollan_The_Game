@@ -9,6 +9,7 @@ public class NPCModel {
     NPCFactory factory; // = new NPCFactory();
     NPCView npcView;
     public ArrayList<NPC> NPCs; // = new ArrayList<>();
+    public ArrayList<NPC> taskHoldingNPCs;
 
     NPC webers;
     NPC kritan;
@@ -19,24 +20,14 @@ public class NPCModel {
     NPC kvalle;
     NPC dnollk;
 
- /*
-    NPC webers = factory.npcs.get("Webers");
-    NPC  kritan = factory.npcs.get("Kritan");
-    NPC tango = factory.npcs.get("Tango");
-    NPC ekak1 = factory.npcs.get("Ekak1");
-    NPC ekak2 = factory.npcs.get("Ekak2");
-    NPC bieber = factory.npcs.get("Bieber");
-    NPC kvalle = factory.npcs.get("Kvalle");
-    NPC dnollk = factory.npcs.get("DNollK");
-
-  */
 
 
-    public NPCModel() throws SlickException {
+    public NPCModel(MapModel mp) throws SlickException {
         npcView = new NPCView();
-        factory = new NPCFactory();
+        factory = new NPCFactory(mp);
 
         NPCs = new ArrayList<>();
+        taskHoldingNPCs = new ArrayList<>();
 
         webers = factory.npcs.get("Webers");
         kritan = factory.npcs.get("Kritan");
@@ -46,7 +37,6 @@ public class NPCModel {
         bieber = factory.npcs.get("Bieber");
         kvalle = factory.npcs.get("Kvalle");
         dnollk = factory.npcs.get("DNollK");
-
 
 
     }
@@ -65,10 +55,19 @@ public class NPCModel {
         NPCs.add(bieber);
         NPCs.add(kvalle);
         NPCs.add(dnollk);
-}
+
+    }
+
+    /*public void initTaskNPCList() {
+        for (NPC npc : NPCs) {
+            if (npc instanceof TaskHoldingNPC) {
+                taskHoldingNPCs.add(npc)
+
+     */
 
     /**
      * Displays the NPCs on the map that they belong to.
+     *
      * @param mapModel
      */
     public void showNPC(MapModel mapModel) {
@@ -76,10 +75,28 @@ public class NPCModel {
             if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
                 npc.setShowing(true);
             }
-                if ((npc.getCurrent() != mapModel.getCurrentMap())) {
+            if ((npc.getCurrent() != mapModel.getCurrentMap())) {
                 npc.setShowing(false);
             }
         });
 
     }
-}
+
+   /* public void taskStateChanged(MapModel mapModel) {
+        initTaskNPCList();
+        for (NPC npc : taskHoldingNPCs) {
+            if (!mapModel.taskDone) {
+                npc.state = 0;
+            }
+            else if (mapModel.taskDone){
+                npc.state = 1;
+            }
+
+
+
+        }
+
+    */
+    }
+
+

@@ -1,8 +1,7 @@
 package NPC;
 
+import model.MapModel;
 import model.MapStates.MapState;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
@@ -23,10 +22,11 @@ public class TaskHoldingNPC extends NPC {
     }
 
     /**
-     * Initializes the SpriteSheets depending on the object's int "state".
+     * Initializes the SpriteSheets depending on the MapModel's boolean "taskDone".
      * @throws SlickException Generic Exception
+     * @param mapModel
      */
-    void initNPC() throws SlickException {
+    void initNPC(MapModel mapModel) throws SlickException {
     }
 
     @Override

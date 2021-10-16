@@ -75,10 +75,7 @@ public class MapModel{
     }
 
     public boolean hasTask(){
-        if (getCurrentMap().equals(Ekak.EKAK) || getCurrentMap().equals(DeltaP.DELTAP)){
-            return true;
-        }
-        return false;
+        return getCurrentMap().equals(Ekak.EKAK) || getCurrentMap().equals(DeltaP.DELTAP);
     }
 
 

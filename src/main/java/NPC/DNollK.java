@@ -1,23 +1,22 @@
 package NPC;
 
+import model.MapModel;
 import model.MapStates.DeltaP;
 import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
 public class DNollK extends TaskHoldingNPC {
-    public DNollK() throws SlickException {
+    public DNollK(MapModel mp) throws SlickException {
         width = 64;
         height = 128;
         state = 0;
         current = DeltaP.DELTAP;
         location = new Point(500, 179);
-        initNPC();
+        initNPC(mp);
     }
 
     @Override
@@ -38,10 +37,10 @@ public class DNollK extends TaskHoldingNPC {
 
 
     @Override
-    void initNPC() throws SlickException {
-        if (state == 0) {
+    void initNPC(MapModel mp) throws SlickException {
+        if (!mp.taskDone) {
             spriteSetupTask();
-        } else if (state == 1) {
+        } else {
             spriteSetup();
 
         }

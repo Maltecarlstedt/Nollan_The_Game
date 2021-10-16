@@ -1,10 +1,9 @@
 package NPC;
 
+import model.MapModel;
 import model.MapStates.Ekak;
 import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
@@ -12,13 +11,13 @@ import java.awt.*;
 
 public class EKAK1 extends TaskHoldingNPC {
 
-        public EKAK1() throws SlickException {
+        public EKAK1(MapModel mp) throws SlickException {
             width = 64;
             height = 64;
             state = 0;
             current = Ekak.EKAK;
             location = new Point(480, 140);
-            initNPC();
+            initNPC(mp);
         }
 
         @Override
@@ -39,10 +38,10 @@ public class EKAK1 extends TaskHoldingNPC {
         }
 
         @Override
-        void initNPC() throws SlickException {
-            if (state == 0) {
+        void initNPC(MapModel mp) throws SlickException {
+            if (!mp.taskDone) {
                 spriteSetupTask();
-            } else if (state == 1) {
+            } else {
                 spriteSetup();
 
             }
