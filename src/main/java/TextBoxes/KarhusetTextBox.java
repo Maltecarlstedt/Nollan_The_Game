@@ -19,7 +19,7 @@ public class KarhusetTextBox extends AbstractTextBox {
     }
     @Override
     public void SpriteSetup() throws SlickException {
-        backgroundBox = new SpriteSheet("data/Text-related/pritbox.png", 400, 106);
+        backgroundBox = new SpriteSheet("data/Text-related/weberstext.png", 400, 106);
         textAnim = new Animation();
        textAnim.addFrame(backgroundBox, 1);
     }

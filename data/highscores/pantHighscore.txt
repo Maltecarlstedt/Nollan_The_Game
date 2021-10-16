@@ -6,6 +6,9 @@
 11
 15
 9
+<<<<<<< HEAD:data/pantHighscore.txt
+11
+=======
 17
 0
 30
@@ -15,3 +18,4 @@
 13
 26
 46
+>>>>>>> e692dd22a15f69d12161fa0173d8f924c64b5eff:data/highscores/pantHighscore.txt
