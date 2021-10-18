@@ -19,16 +19,16 @@ public class Webers extends TaskHoldingNPC {
         height = 128;
         state = 0;
         current = Karhuset.KARHUSET;
-        location = new Point(700, 200);
+        location = new Point(700, 255);
         initNPC();
     }
 
-    @Override
+    @Override //för denna NPC ska det egentligen finnas ett task, och därför finns denna metoden kvar.
     public void spriteSetupTask() throws SlickException {
-        character = new SpriteSheet("data/NPC/webersTASK128x128_NOBLINK.png", 64, 128);
+        character = new SpriteSheet("data/NPC/webers64x64.png", 64, 64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
-        animation.addFrame(character.getSubImage(1, 0), 200);
+        //animation.addFrame(character.getSubImage(1, 0), 200);
 
     }
 
