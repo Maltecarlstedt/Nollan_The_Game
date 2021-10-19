@@ -36,12 +36,12 @@ public abstract class Item {
      * Gets the start index for the x-position for the items that are unfilled and needs to be collected
      * @return the x-position
      */
-    public int getStartX(){ return 710;}
+    public int getStartX(){ return 20;}
 
     /**
      * Gets the y-position for the items that are unfilled and needs to be collected
      * @return the y-position
      */
-    public int getStartY(){ return 725;}
+    public int getStartY(){ return 20;}
 
 }

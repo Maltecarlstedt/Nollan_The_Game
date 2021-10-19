@@ -1,6 +1,4 @@
-/*package test;
-
-import model.PlayerModel;
+/*import model.PlayerModel;
 import org.junit.Before;
 import org.junit.Test;
 import org.newdawn.slick.Image;

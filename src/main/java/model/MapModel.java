@@ -1,18 +1,11 @@
 package model;
 
-import controller.MapController;
 import model.MapStates.*;
-import org.lwjgl.Sys;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.FadeInTransition;
-import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Map;
 
 
 // TODO:: TA REDA PÅ IFALL VI VILL EXTENDA TILED MAPS??
