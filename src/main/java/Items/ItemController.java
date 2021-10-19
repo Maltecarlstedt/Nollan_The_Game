@@ -62,7 +62,7 @@ public class ItemController {
          * @param pm - the player
          * @param im - the items
          */
-    public void deleteFoundItem(PlayerModel pm, ItemModel im){
+    private void deleteFoundItem(PlayerModel pm, ItemModel im){
         for (Iterator<Map.Entry<String, Item>> it = im.getItemsToFind().entrySet().iterator(); it.hasNext();){
             Map.Entry<String, Item> material = it.next();
             String key = material.getKey();
@@ -84,7 +84,7 @@ public class ItemController {
          * @param item - the specific item in our list
          * @return true if the criteria are achieved
          */
-    public boolean itemFound(PlayerModel pm, ItemView iv, Item item){
+    private boolean itemFound(PlayerModel pm, ItemView iv, Item item){
         return (pm.getNextLocation().intersects(item.location) && iv.currentMap.equals(item.getCurrentMap()));
     }
 
@@ -93,7 +93,7 @@ public class ItemController {
          * @param key - The name of the item that are found
          * @param value - the item with a location and image
          */
-    public void replace(String key, Item value){
+    private void replace(String key, Item value){
         for (Iterator<Map.Entry<String, Item>> it = im.getItemsUf().entrySet().iterator(); it.hasNext();){
             Map.Entry<String,Item> material = it.next();
             String replacableKey = material.getKey();
