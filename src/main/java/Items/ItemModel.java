@@ -30,19 +30,19 @@ public class ItemModel {
      * Gets the list with the items that needs to be found.
      * @return the list of items to be found
      */
-    public HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
+    HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
 
     /**
      * Gets the list of items that are not found yet
      * @return the list of unfilled items
      */
-    public HashMap<String, Item> getItemsUf(){ return materialsUnfilled;}
+    HashMap<String, Item> getItemsUf(){ return materialsUnfilled;}
 
     /**
      * Checks if all items has been found
      * @return true if the list of items to be found is empty
      */
-    public boolean itemsCollected(){
+    boolean itemsCollected(){
         return getItemsToFind().size() == 0;
     }
 

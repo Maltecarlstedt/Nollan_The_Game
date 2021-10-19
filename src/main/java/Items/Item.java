@@ -30,7 +30,7 @@ public abstract class Item {
      * Gets the map that the player is on now
      * @return a specific map
      */
-    public MapState getCurrentMap(){return currentMap;}
+    MapState getCurrentMap(){return currentMap;}
 
     /**
      * Gets the start index for the x-position for the items that are unfilled and needs to be collected

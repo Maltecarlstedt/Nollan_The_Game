@@ -7,10 +7,7 @@ import model.MapStates.Ekak;
 import model.MapStates.Gasquen;
 import model.PlayerModel;
 import org.lwjgl.input.Mouse;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
@@ -18,6 +15,8 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 import view.MapView;
 import view.PlayerView;
+
+import java.awt.event.MouseEvent;
 
 /**
  * Represents the view when the game has ended
@@ -30,7 +29,6 @@ public class GameDoneView extends BasicGameState {
     private PlayerModel playerModel;
     private PlayerView playerView;
     private PlayerController playerController;
-    private CollisionChecker collisionChecker;
 
     private MapModel mapModel;
     private MapView mapView;
@@ -47,9 +45,9 @@ public class GameDoneView extends BasicGameState {
      */
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        collisionChecker = new CollisionChecker();
+        CollisionChecker collisionChecker = new CollisionChecker();
 
-        endGame = new Image("data/maps/images/avslutaButton.png");
+        endGame = new Image("data/maps/images/avslutaSpeletButton.png");
 
         playerModel = new PlayerModel();
         playerView = new PlayerView();
@@ -64,6 +62,8 @@ public class GameDoneView extends BasicGameState {
 
     }
 
+    private float getPositionX(){return 1024/2f;}
+    private float getPositionY(){return 350;}
     /**
      * Draws the player and the map on the screen
      * @param gc - The container that has the game
@@ -73,11 +73,10 @@ public class GameDoneView extends BasicGameState {
      */
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-
-        endGame.draw(1024/2,616);
         mapView.render(mapModel);
         playerView.render(g, playerModel);
         mapView.renderTopLayer(mapModel);
+        endGame.drawCentered(getPositionX(), getPositionY());
     }
 
     /**
@@ -95,9 +94,33 @@ public class GameDoneView extends BasicGameState {
         int posX = Mouse.getX();
         int posY = Mouse.getY();
 
-        if (((posX > 243 && posX < 781) && (posY > 221 && posY < 315)) && Mouse.isButtonDown(0)) {
+        //Todo The y-position on the image are inverse to the y-position for the mouse. Is there a way to change this?
+        if (xPosIntersection(posX) && yPosIntersection(posY) && Mouse.isButtonDown(0)) {
             System.exit(0);
         }
+    }
+
+    private boolean xPosIntersection(int posX){
+        return (getStartX() < posX && posX < getEndX());
+    }
+    private boolean yPosIntersection(int posY){
+        return (getStartY() > posY && posY > getEndY());
+    }
+
+    private float getStartX(){
+        return (getPositionX() - (endGame.getWidth()/2f));
+    }
+
+    private float getEndX(){
+        return (getPositionX() + (endGame.getWidth()/2f));
+    }
+
+    private float getStartY(){
+        return getEndY()*5;
+    }
+
+    private float getEndY(){
+        return (getPositionY() + (endGame.getHeight()/4f));
     }
 
     /** A special ID for this specific state.

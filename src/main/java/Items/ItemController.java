@@ -50,7 +50,7 @@ public class ItemController {
          * Checks if the player has collected all items and so on won the game.
          * @param sbg - the canvas which to be changed
          */
-    public void gameDone(StateBasedGame sbg){
+    private void gameDone(StateBasedGame sbg){
         if (im.itemsCollected()){
             sbg.enterState(100, new FadeOutTransition(), new FadeInTransition());
         }
