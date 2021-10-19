@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="30" nextobjectid="1">
+ <tileset firstgid="1" source="tsx-files/colstuff.tsx"/>
+ <tileset firstgid="1025" source="tsx-files/terrain.tsx"/>
+ <tileset firstgid="2049" source="tsx-files/[Base]BaseChip_pipo.tsx"/>
+ <tileset firstgid="3113" source="tsx-files/sofa.tsx"/>
+ <layer id="1" name="floor" width="32" height="24" locked="1">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3DAQkAAAwDoMFzrH/NBbmCvaSqquqLA2aa4lgADAAA
+  </data>
+ </layer>
+ <layer id="2" name="dj" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgIAwuszMwXELCF9mJ0ERFQEv7o1gJY1ra/4mdMP6MZv9HOof/KBgFo2AUjIJRMApGwSgYPgAAtQcvNgAMAAA=
+  </data>
+ </layer>
+ <group id="3" name="stairs" locked="1">
+  <layer id="4" name="stair" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAVDDfxlGVj7ZVkH1v5RMApGwSgYBaNgFIyCUUA+AACqwdlYAAwAAA==
+  </data>
+  </layer>
+  <layer id="5" name="stair1" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjgDTwl2Vg7ZdlHVj7R8EoGAWjYBSMglEwCoYyAAD0nY1uAAwAAA==
+  </data>
+  </layer>
+  <layer id="7" name="stair2" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYGiBvywDa78s68DaPwpGwSgYBaNgFIyCUUAJAABxbnW4AAwAAA==
+  </data>
+  </layer>
+  <layer id="8" name="stair3" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSQAv6yDKz9sqwDa/8oGAWjYBSMglEwCoY2AABV9QJ1AAwAAA==
+  </data>
+  </layer>
+  <layer id="9" name="stair4" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBQMJfCXZWDtl2UdWPtHwSgYBaNgFIyCUUAZAABDrwPcAAwAAA==
+  </data>
+  </layer>
+  <layer id="10" name="stair5" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMAuLBX5aBtV+WdWDtHwWjYBSMglEwCoY6AAAI5QRSAAwAAA==
+  </data>
+  </layer>
+  <layer id="11" name="stair6" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMgqED/rIMrP2yrANr/ygYBaNgFIyCUUApAAAH84UqAAwAAA==
+  </data>
+  </layer>
+  <layer id="12" name="stair7" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglFALPjLMrD2y7IOrP2jYBSMglEwCoY+AAC50z57AAwAAA==
+  </data>
+  </layer>
+  <layer id="13" name="stair8" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwVMBfloG1X5Z1YO0fBaNgFIyCUUA5AACUw3YKAAwAAA==
+  </data>
+  </layer>
+  <layer id="14" name="stair9" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCogDf1kG1n5Z1oG1fxSMglEwCoYDAABS+XQLAAwAAA==
+  </data>
+  </layer>
+  <layer id="15" name="stair10" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCoYG+MsysPbLsg6s/aNgFIyCUUANAAAGN6c7AAwAAA==
+  </data>
+  </layer>
+  <layer id="16" name="stair11" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkYBMeAvy8DaL8s6sPaPglEwCoYHAACEtVEnAAwAAA==
+  </data>
+  </layer>
+  <layer id="17" name="stair12" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBUAB/WQbWflnWgbV/FIyCUUAdAAB1QY9pAAwAAA==
+  </data>
+  </layer>
+  <layer id="18" name="stair13" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKCAM/rIMrP2yrANr/ygYBcMFAAB/3DxGAAwAAA==
+  </data>
+  </layer>
+  <layer id="19" name="stair14" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBj84C/LwNovyzqw9o8CBPg/wGlBfqDTAoX2AwCuzynhAAwAAA==
+  </data>
+  </layer>
+  <layer id="20" name="stair15" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFhMBfloG1X5Z1YO0fBQjwf4DTgjyFaQEAgyrg/AAMAAA=
+  </data>
+  </layer>
+  <layer id="21" name="stair16" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFgx38ZRlY+2VZB9b+wQT+D3BcUGo/AHydZwEADAAA
+  </data>
+  </layer>
+  <layer id="22" name="stair17" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFowA/+MsysPbLsg6s/cMJAAClJB9/AAwAAA==
+  </data>
+  </layer>
+  <layer id="23" name="stair18" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFo2Bwg78sA2u/LOvA2k9NAACVrQXvAAwAAA==
+  </data>
+  </layer>
+ </group>
+ <layer id="25" name="scene" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBKBgFo4B+wIqVMjxqP2UAAPxOzvMADAAA
+  </data>
+ </layer>
+ <layer id="28" name="bar" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGN5gPRdtzF0GNHc5EXg7jewfBaNgFIyCUTAKRsEoGApgHZb2ET3B2gFui20dhG1BAJkhD+QADAAA
+  </data>
+ </layer>
+ <layer id="26" name="table" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYGiCz1wIPBDgGdDe50D8YoDs/wa09zsQ/xgg+wc6/EfByAYDnf5G8/9o/h8Fo2AoAwBHuAXbAAwAAA==
+  </data>
+ </layer>
+ <layer id="27" name="food" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGB7gCTdxYtQER5HMf4PFLmxio2B4AVAaoHU6w2c3CIyms1EwCugPYPn+6ADlP1C+Hyi7R8EoIBecHaA0e2GA88pA248NAABUdbghAAwAAA==
+  </data>
+ </layer>
+ <layer id="29" name="sofa" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2VuQ3AQAzDPMDtv0z+GfLPkH+DqHCATGAVJwKsabiRWRxlMqtgnQKjPwZ0RziR+ju6Bzy9X5Du+OjJ/Y3cF0KIXMltfxr0Wth5N3p/ZvQWuJL+fqF7w0e7K5wXO7q6oAAMAAA=
+  </data>
+ </layer>
+</map>
