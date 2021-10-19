@@ -49,6 +49,8 @@ public class GameDoneView extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         collisionChecker = new CollisionChecker();
 
+        endGame = new Image("data/maps/images/avslutaButton.png");
+
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
@@ -59,7 +61,6 @@ public class GameDoneView extends BasicGameState {
         mapModel.setTiledMap(Gasquen.GASQUEN);
         mapView = new MapView();
 
-        endGame = new Image("data/maps/images/avslutaButton.png");
 
     }
 
@@ -72,10 +73,11 @@ public class GameDoneView extends BasicGameState {
      */
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+
+        endGame.draw(1024/2,616);
         mapView.render(mapModel);
         playerView.render(g, playerModel);
         mapView.renderTopLayer(mapModel);
-        endGame.draw(1024/2,616);
     }
 
     /**

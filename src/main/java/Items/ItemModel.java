@@ -48,7 +48,6 @@ public class ItemModel {
      */
     public boolean itemsCollected(){
         if (getItemsToFind().size() == 0){
-            System.out.println("Spelet är slut");
             return true;
         }
         return false;

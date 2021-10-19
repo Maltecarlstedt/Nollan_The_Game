@@ -11,10 +11,7 @@ public enum Gasquen implements MapState{
 
     @Override
     public MapState nextMap(PlayerModel playerModel) throws SlickException {
-        switch (playerModel.getOrientation()){
-            default:
-                return Gasquen.GASQUEN;
-        }
+        return Gasquen.GASQUEN;
     }
 
     @Override
@@ -34,6 +31,6 @@ public enum Gasquen implements MapState{
 
     @Override
     public int getTopLayers(){
-        return 1;
+        return 0;
     }
 }
