@@ -1,3 +1,5 @@
+package java;
+
 import model.CollisionChecker;
 import model.MapModel;
 import model.MapStates.Ekak;

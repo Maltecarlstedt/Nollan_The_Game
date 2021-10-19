@@ -30,7 +30,7 @@ public class ItemModel {
      * Gets the list with the items that needs to be found.
      * @return the list of items to be found
      */
-    HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
+    public HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
 
     /**
      * Gets the list of items that are not found yet

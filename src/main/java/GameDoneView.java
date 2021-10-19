@@ -36,7 +36,6 @@ public class GameDoneView extends BasicGameState {
 
     private Image endGame;
 
-
     /**
      * Initializes the player and map
      * @param gameContainer - The container that has the game
@@ -58,12 +57,10 @@ public class GameDoneView extends BasicGameState {
         mapModel.setTiledMap(Gasquen.GASQUEN.loadMap());
         mapModel.setTiledMap(Gasquen.GASQUEN);
         mapView = new MapView();
-
-
     }
 
-    private float getPositionX(){return 1024/2f;}
-    private float getPositionY(){return 350;}
+    private float getPositionX(){ return 1024/2f;}
+    private float getPositionY(){ return 350;}
     /**
      * Draws the player and the map on the screen
      * @param gc - The container that has the game
