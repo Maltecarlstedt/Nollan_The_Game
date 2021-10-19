@@ -78,7 +78,7 @@ public class GatheringPantModel {
 
     public void readHighScoreList(){
         //Read the top 5 score from our save
-        pantHighscore = hs.readHighScore();
+        //pantHighscore = hs.readHighScore();
         // Sort them
         Collections.reverse(pantHighscore);
         hs.trimHighscore(pantHighscore);
