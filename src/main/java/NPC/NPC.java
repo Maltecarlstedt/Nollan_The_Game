@@ -15,27 +15,29 @@ public abstract class NPC {
     int width;
     int height;
 
+    //beroende på dess state varieras ex spritesheet och liknande
+    int state;
+
     MapState current;
 
     Point location;
-    protected Rectangle NPCLocation;
 
     public SpriteSheet character;
     public Animation animation;
 
+    public SpriteSheet taskCharacter;
+
+    /**
+     * Fetches correct Sprite and creates the animation
+     * @throws SlickException Generic Exception
+     */
+    abstract void spriteSetupTask() throws SlickException;
 
     /**
      * Fetches correct sprite and creates the animation
      * @throws SlickException Generic Exception
      */
     abstract void spriteSetup() throws SlickException;
-
-    /**
-     * Sets the x and y values where the NPC is to be drawn.
-     * @param x x - coordinate
-     * @param y y - coordinate
-     */
-    abstract void setLocation(int x, int y);
 
     /**
      * Gets the current map so that the correlated NPC can be drawn.

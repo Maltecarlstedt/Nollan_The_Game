@@ -1,16 +1,15 @@
 package NPC;
 
+import model.MapModel;
 import model.MapStates.Ekak;
 import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class EKAK1 extends TaskHoldingNPC {
+public class EKAK1 extends NPC {
 
         public EKAK1() throws SlickException {
             width = 64;
@@ -18,14 +17,14 @@ public class EKAK1 extends TaskHoldingNPC {
             state = 0;
             current = Ekak.EKAK;
             location = new Point(480, 140);
-            initNPC();
+            spriteSetupTask();
         }
 
         @Override
         void spriteSetup() throws SlickException {
-            //character = new SpriteSheet("data/NPC/ekak_TASK_128x115.png", 64, 115);
-            //animation = new Animation();
-            //animation.addFrame(character.getSubImage(0, 0), 1);
+            character = new SpriteSheet("data/NPC/ekak_TASK_128x115.png", 64, 115);
+            animation = new Animation();
+            animation.addFrame(character.getSubImage(0, 0), 1);
         }
 
         @Override
@@ -36,23 +35,6 @@ public class EKAK1 extends TaskHoldingNPC {
             animation.addFrame(taskCharacter.getSubImage(1, 0), 200);
 
 
-        }
-
-        @Override
-        void initNPC() throws SlickException {
-            if (state == 0) {
-                spriteSetupTask();
-            } else if (state == 1) {
-                spriteSetup();
-
-            }
-        }
-
-
-        @Override
-        void setLocation(int x, int y) {
-            location.x = x;
-            location.y = y;
         }
 
         @Override

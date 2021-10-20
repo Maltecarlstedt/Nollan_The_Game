@@ -22,6 +22,15 @@ public class EKAK2 extends NPC {
     }
 
     @Override
+    void spriteSetupTask() throws SlickException {
+            character = new SpriteSheet("data/NPC/ekak64x72.png", 64, 72);
+            animation = new Animation();
+            animation.addFrame(character.getSubImage(0, 0), 200);
+            //animation.addFrame(character.getSubImage(1, 0), 200);
+
+        }
+
+    @Override
     void spriteSetup() throws SlickException {
         character = new SpriteSheet("data/NPC/ekak64x72.png", 64, 72);
         animation = new Animation();
@@ -29,12 +38,6 @@ public class EKAK2 extends NPC {
 
     }
 
-
-    @Override
-    void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
-    }
 
     @Override
     public MapState getCurrent() {

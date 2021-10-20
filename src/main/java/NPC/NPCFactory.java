@@ -1,4 +1,5 @@
 package NPC;
+import model.MapModel;
 import org.newdawn.slick.SlickException;
 import java.util.Hashtable;
 
@@ -16,6 +17,10 @@ public class NPCFactory {
      * Adds every key-value-combination to the HashTable
      * @throws SlickException Generic exception
      */
+
+    public NPC createWebers() throws SlickException {
+        return new Webers();
+    }
 
     public void initHashTable() throws SlickException {
         npcs.put("Webers", new Webers());

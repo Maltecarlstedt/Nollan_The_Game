@@ -19,24 +19,20 @@ public Tango() throws SlickException {
 }
 
     @Override
+    void spriteSetupTask() throws SlickException {
+        character = new SpriteSheet("data/NPC/ekak64x72.png", 64, 64);
+        animation = new Animation();
+        animation.addFrame(character.getSubImage(0, 0), 200);
+        //animation.addFrame(character.getSubImage(1, 0), 200);
+    }
+
+    @Override
     void spriteSetup() throws SlickException {
         character = new SpriteSheet("data/NPC/tangoPRIT64x64.png",64,64,64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
     }
 
-    /*@Override
-    void initNPC() throws SlickException {
-        spriteSetup();
-    }
-
-     */
-
-
-    @Override
-    void setLocation(int x, int y) {
-
-    }
 
     @Override
     public MapState getCurrent() {

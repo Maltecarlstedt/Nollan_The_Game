@@ -1,18 +1,16 @@
 package NPC;
 
+import model.MapModel;
 import model.MapStates.Karhuset;
 import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class Webers extends TaskHoldingNPC {
+public class Webers extends NPC {
 
-    //TODO: Gör till singleton
 
     public Webers() throws SlickException {
         width = 64;
@@ -20,7 +18,7 @@ public class Webers extends TaskHoldingNPC {
         state = 0;
         current = Karhuset.KARHUSET;
         location = new Point(700, 255);
-        initNPC();
+        spriteSetup();
     }
 
     @Override //för denna NPC ska det egentligen finnas ett task, och därför finns denna metoden kvar.
@@ -34,27 +32,11 @@ public class Webers extends TaskHoldingNPC {
 
     @Override
     void spriteSetup() throws SlickException{
-        character = new SpriteSheet("data/NPC/webers64x64.png", 64, 128);
+        character = new SpriteSheet("data/NPC/webers64x64.png", 64, 64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 1);
     }
 
-
-    @Override
-    public void initNPC() throws SlickException {
-        if (state == 0) {
-            spriteSetupTask();
-        } else if (state == 1) {
-            spriteSetup();
-
-        }
-    }
-
-    @Override
-    public void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
-    }
 
     @Override
     public MapState getCurrent() {
