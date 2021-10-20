@@ -1,22 +1,14 @@
 import controller.MapController;
-import controller.PlayerController;
 import model.CollisionChecker;
 import model.MapModel;
-import model.MapStates.Dammen;
-import model.MapStates.Ekak;
 import model.MapStates.Gasquen;
 import model.PlayerModel;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.FadeInTransition;
-import org.newdawn.slick.state.transition.FadeOutTransition;
-import org.newdawn.slick.tiled.TiledMap;
 import view.MapView;
 import view.PlayerView;
-
-import java.awt.event.MouseEvent;
 
 /**
  * Represents the view when the game has ended
@@ -56,8 +48,8 @@ public class GameDoneView extends BasicGameState {
 
         mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);
+        mapModel.setCurrentMap(Gasquen.GASQUEN);
         mapModel.setTiledMap(Gasquen.GASQUEN.loadMap());
-        mapModel.setTiledMap(Gasquen.GASQUEN);
         mapView = new MapView();
 
     }
