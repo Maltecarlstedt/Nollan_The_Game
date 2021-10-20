@@ -5,13 +5,13 @@ import Tasks.taskModel.Cans;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
-/** The view of Gathering Cans
+/** The view of Gathering Cans printing the high-scores and time passed. Uses Gathering Cans Model.
  * @author Steffanie Kristiansson
  * @author Alexander Brunnegård
  */
 public class GatheringCansView {
 
-    /** Method to draw each can.
+    /** Method to draw each can and the timer box.
      * @param g represents the graphics context to be used for rendering.
      * @param pm representing the model to get data from it.
      */

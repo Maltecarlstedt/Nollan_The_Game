@@ -10,7 +10,8 @@ import org.newdawn.slick.state.transition.EmptyTransition;
 import org.newdawn.slick.state.transition.FadeInTransition;
 
 
-/** Controls the task "Gathering Cans".
+/** Controls the task "Gathering Cans" when resetting the task and collision between the mouse and the can.
+ *  Uses the Gathering Cans Model.
  * @author Steffanie Kristiansson
  * @author Alexander Brunnegård
  */

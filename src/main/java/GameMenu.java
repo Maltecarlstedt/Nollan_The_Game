@@ -12,7 +12,7 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import java.awt.*;
 
 
-/** Represents the start game menu.
+/** Represents the start game menu with some buttons, uses BasicStateGame.
  */
 public class GameMenu extends BasicGameState {
 
