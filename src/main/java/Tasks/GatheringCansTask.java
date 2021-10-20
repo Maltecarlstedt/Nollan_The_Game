@@ -1,21 +1,21 @@
 package Tasks;
 
-import Tasks.taskController.GatheringPantController;
-import Tasks.taskModel.GatheringPantModel;
-import Tasks.taskView.GatheringPantView;
+import Tasks.taskController.GatheringCansController;
+import Tasks.taskModel.GatheringCansModel;
+import Tasks.taskView.GatheringCansView;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 
-/** The task "Gathering pant".
- * @auther Steffanie Kristiansson
+/** The task "Gathering Cans".
+ * @author Steffanie Kristiansson
  */
-public class GatheringPantTask extends BasicGameState {
+public class GatheringCansTask extends BasicGameState {
 
-    private GatheringPantModel pm;
-    private GatheringPantController pc;
-    private GatheringPantView pv;
+    private GatheringCansModel pm;
+    private GatheringCansController pc;
+    private GatheringCansView pv;
 
 
     /** Initiating the task.
@@ -25,12 +25,12 @@ public class GatheringPantTask extends BasicGameState {
      */
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        pm = new GatheringPantModel();
-        pv = new GatheringPantView();
-        pc = new GatheringPantController(pm);
+        pm = new GatheringCansModel();
+        pv = new GatheringCansView();
+        pc = new GatheringCansController(pm);
     }
 
-    /** Render the pant.
+    /** Render the can.
      * @param gc represents the container that have the game.
      * @param sbg the current state of the game used to isolate the game from different aspects.
      * @param g represents the graphics context to be used for rendering.
@@ -42,7 +42,7 @@ public class GatheringPantTask extends BasicGameState {
     }
 
 
-    /** Update the frame of pant.
+    /** Update the frame of can.
      * @param gc represents the container that have the game.
      * @param sbg the current state of the game used to isolate the game from different aspects.
      * @param delta represents time in ms since last update.

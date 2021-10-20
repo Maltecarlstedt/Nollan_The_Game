@@ -1,19 +1,21 @@
 package Tasks.taskView;
 
-import Tasks.taskController.GatheringPantController;
-import Tasks.taskModel.GatheringPantModel;
-import Tasks.taskModel.Pant;
+import Tasks.taskModel.GatheringCansModel;
+import Tasks.taskModel.Cans;
 import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
-public class GatheringPantView {
+/** The view of Gathering Cans
+ * @author Steffanie Kristiansson
+ * @author Alexander Brunnegård
+ */
+public class GatheringCansView {
 
-    /** Method to draw each pant.
+    /** Method to draw each can.
      * @param g represents the graphics context to be used for rendering.
      * @param pm representing the model to get data from it.
      */
-    public void render (Graphics g, GatheringPantModel pm) {
+    public void render (Graphics g, GatheringCansModel pm) {
         pm.getBackground().render(0,0);
 
         g.drawImage(pm.timerBox,820, 40);
@@ -26,8 +28,8 @@ public class GatheringPantView {
         // Render the timer.
         g.drawString(String.valueOf(pm.getTaskTimer()), 835,55);
         g.drawString(String.valueOf(pm.getScore()), 835,75);
-        for(int i = 0; i < pm.getPantHighscore().size(); i++){
-            int number = pm.getPantHighscore().get(i).intValue();
+        for(int i = 0; i < pm.getCanHighscore().size(); i++){
+            int number = pm.getCanHighscore().get(i).intValue();
             g.drawString(String.valueOf(number), 835, 155 + i*35);
         }
 
@@ -45,8 +47,8 @@ public class GatheringPantView {
             g.drawString("Tryck F för att avsluta uppdraget.", 400, 440);
         }
 
-        for(Pant pant : pm.getPants()){
-            g.drawImage(pant.getImage(), pant.getPantLocation().getX(), pant.getPantLocation().getY());
+        for(Cans cans : pm.getCans()){
+            g.drawImage(cans.getImage(), cans.getCanLocation().getX(), cans.getCanLocation().getY());
 
         }
     }
