@@ -136,4 +136,9 @@
    H4sIAAAAAAAACu2VuQ3AQAzDPMDtv0z+GfLPkH+DqHCATGAVJwKsabiRWRxlMqtgnQKjPwZ0RziR+ju6Bzy9X5Du+OjJ/Y3cF0KIXMltfxr0Wth5N3p/ZvQWuJL+fqF7w0e7K5wXO7q6oAAMAAA=
   </data>
  </layer>
+ <layer id="28" name="topLayer" width="32" height="24">
+   <data encoding="base64" compression="gzip">
+    H4sIAAAAAAAACmNgIA3cYWZguMtMoqZhBPYA/b53AP0/Gv6j4T8KRsEoGAWjgDQw0uoOXP6lVzjg8u9gCQd6AWz+HQg3IdsJcxMA4tStdgAMAAA=
+   </data>
+  </layer>
 </map>

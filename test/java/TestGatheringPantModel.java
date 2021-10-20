@@ -1,3 +1,5 @@
+package java;
+
 import Tasks.taskModel.GatheringPantModel;
 import org.junit.jupiter.api.Test;
 import org.newdawn.slick.SlickException;
