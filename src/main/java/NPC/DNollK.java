@@ -9,14 +9,14 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class DNollK extends TaskHoldingNPC {
-    public DNollK(MapModel mp) throws SlickException {
+public class DNollK extends NPC {
+    public DNollK() throws SlickException {
         width = 64;
         height = 128;
         state = 0;
         current = DeltaP.DELTAP;
         location = new Point(500, 179);
-        initNPC(mp);
+        spriteSetupTask();
     }
 
     @Override
@@ -29,28 +29,12 @@ public class DNollK extends TaskHoldingNPC {
 
     @Override
     void spriteSetup() throws SlickException{
-        character = new SpriteSheet("data/NPC/dnollk64x64.png", 64, 128);
+        character = new SpriteSheet("data/NPC/dnollk64x64.png", 64, 64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 1);
     }
 
 
-
-    @Override
-    void initNPC(MapModel mp) throws SlickException {
-        if (!mp.taskDone) {
-            spriteSetupTask();
-        } else {
-            spriteSetup();
-
-        }
-    }
-
-    @Override
-    void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
-    }
 
     @Override
     public MapState getCurrent() {

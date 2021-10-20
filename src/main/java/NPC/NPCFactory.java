@@ -8,9 +8,9 @@ public class NPCFactory {
 
     public Hashtable<String, NPC> npcs;
 
-    public NPCFactory(MapModel mp) throws SlickException{
+    public NPCFactory() throws SlickException{
         npcs = new Hashtable<>();
-        initHashTable(mp);
+        initHashTable();
     }
 
     /**
@@ -18,15 +18,19 @@ public class NPCFactory {
      * @throws SlickException Generic exception
      */
 
-    public void initHashTable(MapModel mp) throws SlickException {
-        npcs.put("Webers", new Webers(mp));
+    public NPC createWebers() throws SlickException {
+        return new Webers();
+    }
+
+    public void initHashTable() throws SlickException {
+        npcs.put("Webers", new Webers());
         npcs.put("Kritan", new Kritan());
         npcs.put("Tango", new Tango());
-        npcs.put("Ekak1", new EKAK1(mp));
+        npcs.put("Ekak1", new EKAK1());
         npcs.put("Ekak2", new EKAK2());
         npcs.put("Kvalle", new Kvalle());
         npcs.put("Bieber", new Bieber());
-        npcs.put("DNollK", new DNollK(mp));
+        npcs.put("DNollK", new DNollK());
 
     }
 

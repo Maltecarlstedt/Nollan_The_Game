@@ -9,17 +9,16 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class Webers extends TaskHoldingNPC {
+public class Webers extends NPC {
 
-    //TODO: Gör till singleton
 
-    public Webers(MapModel mp) throws SlickException {
+    public Webers() throws SlickException {
         width = 64;
         height = 128;
         state = 0;
         current = Karhuset.KARHUSET;
         location = new Point(700, 255);
-        initNPC(mp);
+        spriteSetup();
     }
 
     @Override //för denna NPC ska det egentligen finnas ett task, och därför finns denna metoden kvar.
@@ -33,27 +32,11 @@ public class Webers extends TaskHoldingNPC {
 
     @Override
     void spriteSetup() throws SlickException{
-        character = new SpriteSheet("data/NPC/webers64x64.png", 64, 128);
+        character = new SpriteSheet("data/NPC/webers64x64.png", 64, 64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 1);
     }
 
-
-    @Override
-    public void initNPC(MapModel mp) throws SlickException {
-        if (!mp.taskDone) {
-            spriteSetupTask();
-        } else {
-            spriteSetup();
-
-        }
-    }
-
-    @Override
-    public void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
-    }
 
     @Override
     public MapState getCurrent() {

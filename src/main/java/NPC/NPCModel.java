@@ -9,7 +9,8 @@ public class NPCModel {
     NPCFactory factory; // = new NPCFactory();
     NPCView npcView;
     public ArrayList<NPC> NPCs; // = new ArrayList<>();
-    public ArrayList<NPC> taskHoldingNPCs;
+    //public ArrayList<TaskHoldingNPC> taskHoldingNPCs;
+
 
     NPC webers;
     NPC kritan;
@@ -21,13 +22,12 @@ public class NPCModel {
     NPC dnollk;
 
 
-
-    public NPCModel(MapModel mp) throws SlickException {
+    public NPCModel() throws SlickException {
         npcView = new NPCView();
-        factory = new NPCFactory(mp);
+        factory = new NPCFactory();
 
         NPCs = new ArrayList<>();
-        taskHoldingNPCs = new ArrayList<>();
+        //taskHoldingNPCs = new ArrayList<>();
 
         webers = factory.npcs.get("Webers");
         kritan = factory.npcs.get("Kritan");
@@ -38,12 +38,8 @@ public class NPCModel {
         kvalle = factory.npcs.get("Kvalle");
         dnollk = factory.npcs.get("DNollK");
 
-
     }
 
-    /**
-     *
-     */
 
     //TODO: Make this prettier, inte speciellt OCP
     public void initList() {
@@ -58,12 +54,6 @@ public class NPCModel {
 
     }
 
-    /*public void initTaskNPCList() {
-        for (NPC npc : NPCs) {
-            if (npc instanceof TaskHoldingNPC) {
-                taskHoldingNPCs.add(npc)
-
-     */
 
     /**
      * Displays the NPCs on the map that they belong to.
@@ -82,21 +72,20 @@ public class NPCModel {
 
     }
 
-   /* public void taskStateChanged(MapModel mapModel) {
-        initTaskNPCList();
-        for (NPC npc : taskHoldingNPCs) {
+    /*public void taskStateChanged(MapModel mapModel) {
+        for (NPC npc : NPCs) {
             if (!mapModel.taskDone) {
                 npc.state = 0;
-            }
-            else if (mapModel.taskDone){
+            } else {
                 npc.state = 1;
             }
 
+     */
 
 
         }
 
-    */
-    }
+
+
 
 

@@ -19,18 +19,20 @@ public class Kvalle extends NPC {
 }
 
     @Override
+    void spriteSetupTask() throws SlickException {
+        character = new SpriteSheet("data/NPC/ekak64x72.png", 64, 64);
+        animation = new Animation();
+        animation.addFrame(character.getSubImage(0, 0), 200);
+        //animation.addFrame(character.getSubImage(1, 0), 200);
+    }
+
+    @Override
     void spriteSetup() throws SlickException {
         character = new SpriteSheet("data/NPC/kvalle64x64.png", 64, 64);
         animation = new Animation();
         animation.addFrame(character.getSubImage(0, 0), 200);
     }
 
-
-    @Override
-    void setLocation(int x, int y) {
-        location.x = x;
-        location.y = y;
-    }
 
     @Override
     public MapState getCurrent() {

@@ -15,7 +15,6 @@ public class MarkenaTextBox extends AbstractTextBox {
         mapState = Markena.MARKENA;
         location = new Point(600, 600);
         SpriteSetup();
-
     }
     @Override
     public void SpriteSetup() throws SlickException {
@@ -23,6 +22,11 @@ public class MarkenaTextBox extends AbstractTextBox {
         textAnim = new Animation();
         textAnim.addFrame(backgroundBox, 1);
     }
+
+    //TODO: Om vi vill avsluta spelet med att gå till Kårhuset förbi NollKIT, skriv denna kod
+   // public void SpriteSetupDone(){}
+
+  //  public void initSprite(){ }
 
     @Override
     public MapState getCurrent() {
