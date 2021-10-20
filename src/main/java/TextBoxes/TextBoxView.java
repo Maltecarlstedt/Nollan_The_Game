@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 public class TextBoxView {
 
+    /**
+     * @author Julia
+     */
+
     public void render(Graphics g, ArrayList<AbstractTextBox> atbs) {
         for (AbstractTextBox atb : atbs) {
             if (atb.isShowing) {

@@ -7,6 +7,10 @@ import java.util.ArrayList;
 
 public class TextBoxModel {
 
+    /**
+     * @author Julia
+     */
+
     DeltaTextBox delta = new DeltaTextBox();
     ChalmersTextBox chalmers = new ChalmersTextBox();
     EkakTextBox ekak = new EkakTextBox();

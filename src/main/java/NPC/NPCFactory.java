@@ -1,16 +1,19 @@
 package NPC;
 import model.MapModel;
+import model.MapStates.*;
 import org.newdawn.slick.SlickException;
 import java.util.Hashtable;
 
 
 public class NPCFactory {
 
-    public Hashtable<String, NPC> npcs;
+    /**
+     * @author Julia
+     */
+
+
 
     public NPCFactory() throws SlickException{
-        npcs = new Hashtable<>();
-        initHashTable();
     }
 
     /**
@@ -18,22 +21,60 @@ public class NPCFactory {
      * @throws SlickException Generic exception
      */
 
-    public NPC createWebers() throws SlickException {
-        return new Webers();
+    public ConcreteNPC createWebers() throws SlickException {
+        return new ConcreteNPC(Karhuset.KARHUSET, 64, 64, 128,
+                0, 700, 255, "data/NPC/webers64x64.png",
+                "data/NPC/webersTASK128x128_NOBLINK.png", true);
     }
 
-    public void initHashTable() throws SlickException {
-        npcs.put("Webers", new Webers());
-        npcs.put("Kritan", new Kritan());
-        npcs.put("Tango", new Tango());
-        npcs.put("Ekak1", new EKAK1());
-        npcs.put("Ekak2", new EKAK2());
-        npcs.put("Kvalle", new Kvalle());
-        npcs.put("Bieber", new Bieber());
-        npcs.put("DNollK", new DNollK());
+    public ConcreteNPC createDNollK() throws SlickException {
+        return new ConcreteNPC(DeltaP.DELTAP, 64, 64, 128,
+                0, 700, 255, "data/NPC/dnollk64x64.png",
+                "data/NPC/dnollk128x128TASK.png", true);
+    }
+
+    public ConcreteNPC createEKAK1() throws SlickException {
+        return new ConcreteNPC(Ekak.EKAK, 64, 64, 128,
+                1, 700, 255, "data/NPC/ekak64x72.png",
+                "data/NPC/ekak64x72.png", true);
+    }
+
+    public ConcreteNPC createEKAK2() throws SlickException {
+        return new ConcreteNPC(Ekak.EKAK, 64, 64, 128,
+                0, 700, 255, "data/NPC/ekak64x72.png",
+                "data/NPC/ekak_TASK_128x115.png", true);
+    }
+
+    public ConcreteNPC createKritan() throws SlickException {
+        return new ConcreteNPC(Chalmersplatsen.CHALMERSPLATSEN, 64, 64, 128,
+                1, 700, 255, "data/NPC/webers64x64.png",
+                "data/NPC/webersTASK128x128_NOBLINK.png", true);
+    }
+
+    public ConcreteNPC createKvalle() throws SlickException {
+        return new ConcreteNPC(Markena.MARKENA, 64, 64, 128,
+                1, 700, 255, "data/NPC/kvalle64x64.png",
+                "data/NPC/kvalle64x64.png", true);
+    }
+
+    public ConcreteNPC createBieber() throws SlickException {
+        return new ConcreteNPC(Markena.MARKENA, 64, 90, 128,
+                1, 700, 255, "data/NPC/Bieber64x90.png",
+                "data/NPC/webersTASK128x128_NOBLINK.png", true);
+    }
+
+    public ConcreteNPC createTango() throws SlickException {
+        return new ConcreteNPC(Chalmersplatsen.CHALMERSPLATSEN, 64, 64, 128,
+                1, 700, 255, "data/NPC/tangoPRIT64x64.png",
+                "data/NPC/tangoPRIT64x64.png", true);
+    }
+
+
+
+
 
     }
 
-}
+
 
 
