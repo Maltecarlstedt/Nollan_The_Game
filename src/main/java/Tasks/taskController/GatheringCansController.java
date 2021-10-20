@@ -1,53 +1,52 @@
 package Tasks.taskController;
 
-import Tasks.taskModel.Pant;
+import Tasks.taskModel.Cans;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import Tasks.taskModel.GatheringPantModel;
+import Tasks.taskModel.GatheringCansModel;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.EmptyTransition;
 import org.newdawn.slick.state.transition.FadeInTransition;
 
 
-/** Controls the task "Gathering pant".
- * @auther Steffanie Kristiansson
+/** Controls the task "Gathering Cans".
+ * @author Steffanie Kristiansson
+ * @author Alexander Brunnegård
  */
-public class GatheringPantController {
+public class GatheringCansController {
 
-    private GatheringPantModel pm;
-
-    /** Finished the task
-     */
+    private GatheringCansModel pm;
     
-    /** The Controllers constructor, taking in the model and view to be able to use them.
-     * @param pm representing the model to get data from the it.
-     * @throws SlickException if file not found, slick-exception.
+    /** Taking in the model to be able to use it.
+     * @param pm representing the model to get data from it.
      */
-    public GatheringPantController (GatheringPantModel pm) throws SlickException {
+    public GatheringCansController(GatheringCansModel pm) {
         this.pm = pm;
     }
 
     /** To update the running task.
      * @param gc the container that have the game.
+     * @param sbg the current state of the game used to isolate the game from different aspects.
      * @param delta represents time in ms since last update.
      * @throws SlickException if file not found, slick-exception.
      */
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
         if(pm.isRunning) {
             mouseFollower(gc);
-            pantSpawner();
-            pantTimer(delta);
+            canSpawner();
+            canTimer(delta);
         }
         if(pm.finished)
-            pantGameOver(gc, sbg);
+            canGameOver(gc, sbg);
 
     }
 
-    /** Check if task is completed, else if timer is at 0, create a new pant.
-     * @throws SlickException if file not found, slick-exception.
+    /** Check if task is completed, else if timer is at 0, create a new can.
+     * @param gc the container that have the game.
+     * @param sbg the current state of the game used to isolate the game from different aspects.
      */
-    public void pantGameOver(GameContainer gc, StateBasedGame sbg){
+    public void canGameOver(GameContainer gc, StateBasedGame sbg){
         if(gc.getInput().isKeyDown(Input.KEY_F)) {
             // TODO: Make the ending display the players score etc
             resetTask();
@@ -56,11 +55,11 @@ public class GatheringPantController {
 
     }
 
-    /** If there is five pant on screen, it is game over, the time and amount pant gathered is shown.
+    /** If there is five cans on screen, it is game over, the time and amount cans gathered is shown.
      *  Else continue the time counting.
      * @param delta represents time in ms since last update.
      */
-    public void pantTimer(int delta) {
+    public void canTimer(int delta) {
         if (pm.getTaskTimer() <= 0 && pm.isRunning) {
             stopTimer();
             exitTask();
@@ -70,14 +69,19 @@ public class GatheringPantController {
         }
     }
 
+    /** Stop the timer.
+     */
     private void stopTimer(){
         pm.outOfTime();
     }
 
-    public void pantSpawner() throws SlickException {
-        if (pm.pantSpawnerTimer >= 3.0 && pm.getPants().size() < 5){
-            pm.addPant();
-            pm.pantSpawnerTimer = 0;
+    /** Adds a new can every 3 seconds.
+     * @throws SlickException if file not found, slick-exception.
+     */
+    public void canSpawner() throws SlickException {
+        if (pm.canSpawnerTimer >= 3.0 && pm.getCans().size() < 5){
+            pm.addCan();
+            pm.canSpawnerTimer = 0;
         }
     }
 
@@ -90,32 +94,36 @@ public class GatheringPantController {
         pm.mouseBall.setCenterX(gc.getInput().getMouseX());
         pm.mouseBall.setCenterY(gc.getInput().getMouseY());
 
-        for (Pant p : pm.getPants()) {
-            p.getPantLocation().getCenterX();
-            p.getPantLocation().getCenterY();
+        for (Cans p : pm.getCans()) {
+            p.getCanLocation().getCenterX();
+            p.getCanLocation().getCenterY();
         }
 
-        for (int i = pm.getPants().size() - 1; i >= 0; i--) {
-            Pant p = pm.getPants().get(i);
-            if (p.getPantLocation().intersects(pm.mouseBall)) {
-                pm.getPants().remove(i);
+        for (int i = pm.getCans().size() - 1; i >= 0; i--) {
+            Cans p = pm.getCans().get(i);
+            if (p.getCanLocation().intersects(pm.mouseBall)) {
+                pm.getCans().remove(i);
                 pm.increaseScore();
-                pm.pantRecieved();
-                // Not letting more than 5 pants spawn
-                if (pm.getPants().size() < 5){
-                    pm.addPant();
+                pm.canRecieved();
+                // Not letting more than 5 cans spawn
+                if (pm.getCans().size() < 5){
+                    pm.addCan();
                 }
             }
         }
     }
 
+    /** Exit the task with the high-score.
+     */
     public void exitTask(){
         pm.addHighScore();
-        pm.getPants().clear();
+        pm.getCans().clear();
         pm.finished = true;
         pm.isRunning = false;
     }
 
+    /** To restart the task and play again.
+     */
     private void resetTask(){
         pm.resetTimer();
         pm.resetScore();

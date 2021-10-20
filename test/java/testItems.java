@@ -1,4 +1,4 @@
-
+/*
 import Items.ItemModel;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,3 +24,4 @@ public class testItems {
     }
 
 }
+*/
