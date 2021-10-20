@@ -62,7 +62,7 @@ public class GameDoneView extends BasicGameState {
 
     }
 
-    private float getPositionX(){ return 1024/2f;}
+    private float getPositionX(){ return 200;}
     private float getPositionY(){ return 350;}
     /**
      * Draws the player and the map on the screen
@@ -75,7 +75,6 @@ public class GameDoneView extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         mapView.render(mapModel);
         playerView.render(g, playerModel);
-        mapView.renderTopLayer(mapModel);
         endGame.drawCentered(getPositionX(), getPositionY());
     }
 
