@@ -16,7 +16,7 @@ public class TextBoxController {
     }
 
     public void update(MapModel mp){
-        for(AbstractTextBox tb : model.textboxes){
+        for(TextBox tb : model.textboxes){
             if(!mp.taskDone){
                 tb.setShowing(false);
             }

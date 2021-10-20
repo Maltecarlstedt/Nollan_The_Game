@@ -1,5 +1,6 @@
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -7,6 +8,8 @@ import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
+
+import java.awt.*;
 
 
 /** Represents the start game menu.
@@ -20,6 +23,7 @@ public class GameMenu extends BasicGameState {
     Image background;
     Image nollan;
     Image help;
+    AppGameContainer apgcc;
 
     /** Initiating the images.
      * @param gc represents the container that have the game.
@@ -82,7 +86,10 @@ public class GameMenu extends BasicGameState {
             }
         }
 
+
     }
+
+
 
     // TODO: fix a "create player" with name and etc.
 

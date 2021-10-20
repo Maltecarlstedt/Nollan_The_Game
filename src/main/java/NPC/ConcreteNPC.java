@@ -7,11 +7,12 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
+/**
+ * @author Julia
+ */
+
 public class ConcreteNPC {
 
-    /**
-     * @author Julia
-     */
 
     boolean isShowing;
     int width;
