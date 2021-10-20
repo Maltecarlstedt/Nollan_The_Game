@@ -107,7 +107,7 @@ public class GameDoneView extends BasicGameState {
     private void startMusic(){
         try{
             Sound anthem = new Sound("data/music/Stad_i_ljus.wav");
-            anthem.play(1, 1);
+            anthem.play((float)1, 1);
             musicStarted = true;
         }catch(SlickException e){
             e.printStackTrace();
