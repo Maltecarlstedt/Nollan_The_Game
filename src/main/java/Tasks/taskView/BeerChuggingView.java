@@ -1,7 +1,6 @@
 package Tasks.taskView;
 
 import Tasks.taskModel.BeerChuggingModel;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 public class BeerChuggingView {
@@ -17,9 +16,9 @@ public class BeerChuggingView {
 
        if(bcm.isTaskRunning){
             // Renders the brown bar
-            g.drawImage(bcm.inidcatorImage, bcm.getIndicatorLocation().x, bcm.getIndicatorLocation().y);
+            g.drawImage(bcm.barIndicatorImage, bcm.getBarIndicatorLocation().x, bcm.getBarIndicatorLocation().y);
             // Renders the green indicator.
-            g.drawImage(bcm.greenThingy, bcm.getGreenThingyLocation().x, bcm.getGreenThingyLocation().y);
+            g.drawImage(bcm.greenIndicatorImage, bcm.getGreenIndicatorLocation().x, bcm.getGreenIndicatorLocation().y);
 
            //TODO: Make a method so that we do NOT have logic inside our render method.
            if (bcm.inside){
