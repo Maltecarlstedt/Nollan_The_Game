@@ -1,6 +1,6 @@
 import Tasks.BeerChugginTask;
 import Tasks.BuildBridgeTask;
-import Tasks.GatheringPantTask;
+import Tasks.GatheringCansTask;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
@@ -28,7 +28,7 @@ public class StateSetup extends StateBasedGame {
         this.addState(new HelpViewMenu());
         this.addState(new BeerChugginTask());
         this.addState(new BuildBridgeTask());
-        this.addState(new GatheringPantTask());
+        this.addState(new GatheringCansTask());
         this.addState(new GameDoneView());
         // Enters state 0
         enterState(0);
