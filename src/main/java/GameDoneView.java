@@ -30,7 +30,8 @@ public class GameDoneView extends BasicGameState {
      */
     private PlayerModel playerModel;
     private PlayerView playerView;
-    private PlayerController playerController;
+
+    private boolean musicStarted = false;
 
     private MapModel mapModel;
     private MapView mapView;
@@ -52,13 +53,13 @@ public class GameDoneView extends BasicGameState {
 
         playerModel = new PlayerModel();
         playerView = new PlayerView();
-        playerController = new PlayerController(playerModel, playerView, collisionChecker);
 
         mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);
         mapModel.setTiledMap(Gasquen.GASQUEN.loadMap());
         mapModel.setTiledMap(Gasquen.GASQUEN);
         mapView = new MapView();
+
     }
 
     private float getPositionX(){ return 1024/2f;}
@@ -87,7 +88,6 @@ public class GameDoneView extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        playerController.update(gc, sbg, delta);
         mapController.update(gc, delta);
 
         int posX = Mouse.getX();
@@ -97,6 +97,22 @@ public class GameDoneView extends BasicGameState {
         if (xPosIntersection(posX) && yPosIntersection(posY) && Mouse.isButtonDown(0)) {
             System.exit(0);
         }
+        if(!musicStarted){
+            startMusic();
+        }
+
+
+    }
+
+    private void startMusic(){
+        try{
+            Sound anthem = new Sound("data/music/Stad_i_ljus.wav");
+            anthem.play(1, 1);
+            musicStarted = true;
+        }catch(SlickException e){
+            e.printStackTrace();
+        }
+
     }
 
     private boolean xPosIntersection(int posX){
