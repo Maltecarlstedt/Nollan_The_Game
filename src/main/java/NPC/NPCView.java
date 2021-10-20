@@ -10,14 +10,18 @@ import java.util.ArrayList;
 
 public class NPCView {
 
+    /**
+     * @author Julia
+     */
+
 
     /**
      * Renders the NPCs on the map. depending on the boolean isShowing.
      * @param g The graphics context to be used for rendering
      */
 
-    public void render(Graphics g, ArrayList<NPC> NPCs) {
-        for (NPC npc : NPCs) {
+    public void render(Graphics g, ArrayList<ConcreteNPC> NPCs) {
+        for (ConcreteNPC npc : NPCs) {
             if (npc.isShowing) {
                 g.drawAnimation(npc.animation, npc.getLocation().x, npc.getLocation().y);
             }

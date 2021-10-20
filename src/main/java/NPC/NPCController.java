@@ -11,31 +11,28 @@ public class NPCController {
     }
 
     public void update(MapModel mp) throws SlickException {
-        setState(mp);
-        chooseSprite();
-    }
-
-
-    public void setState(MapModel mp) {
-        for (NPC npc : model.NPCs) {
+        for (ConcreteNPC npc : model.NPCs) {
             if (!mp.taskDone) {
                 npc.state = 0;
             } else {
                 npc.state = 1;
             }
+    }
 
 
         }
     }
 
-    public void chooseSprite() throws SlickException {
-        for (NPC npc : model.NPCs) {
+   /* public void chooseSprite() throws SlickException {
+        for (ConcreteNPC npc : model.NPCs) {
             if (npc.state == 0) {
-                npc.spriteSetupTask();
+                npc.spriteSetup();
             } else {
                 npc.spriteSetup();
             }
         }
     }
-}
+
+    */
+
 

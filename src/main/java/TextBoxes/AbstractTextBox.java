@@ -9,6 +9,10 @@ import java.awt.*;
 
 public abstract class AbstractTextBox {
 
+    /**
+     * @author Julia
+     */
+
     Point location;
     MapState mapState;
     Animation textAnim;

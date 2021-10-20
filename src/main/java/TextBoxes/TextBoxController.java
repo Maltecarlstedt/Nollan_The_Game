@@ -5,6 +5,10 @@ import org.newdawn.slick.SlickException;
 
 public class TextBoxController {
 
+    /**
+     * @author Julia
+     */
+
     TextBoxModel model;
 
     public TextBoxController() throws SlickException {
