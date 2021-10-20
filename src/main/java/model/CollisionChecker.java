@@ -10,6 +10,8 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import java.awt.*;
 
 /**
+ * @author Alexander Brunnegård
+ * @author Clara Simonsson
  * This class works as a mediator between the map and the player
  * Checks if the player is colliding with anything on said map
  */
@@ -36,22 +38,25 @@ public class CollisionChecker {
         return isInCollision;
     }
 
+    public boolean isNextOutside(PlayerModel player){
+        return isNextDownOutside(player) || isNextUpOutside(player)
+                || isNextLeftOutside(player) || isNextRightOutside(player);
+    }
     /**
      * All of these methods checks if the player's next location is outside the map
      * @param player - the player
      * @return true if outside, else false
      */
-
-    public boolean isNextRightOutside(PlayerModel player){
+    private boolean isNextRightOutside(PlayerModel player){
         return (player.nextX() + player.getWidth() > currentMap.getWidth());
     }
-    public boolean isNextLeftOutside(PlayerModel player){
+    private boolean isNextLeftOutside(PlayerModel player){
         return (player.nextX() < 0);
     }
-    public boolean isNextUpOutside(PlayerModel player){
+    private boolean isNextUpOutside(PlayerModel player){
         return (player.nextY() < 0);
     }
-    public boolean isNextDownOutside(PlayerModel player){
+    private boolean isNextDownOutside(PlayerModel player){
         return (player.nextY() + player.getHeight() > currentMap.getHeight());
     }
 

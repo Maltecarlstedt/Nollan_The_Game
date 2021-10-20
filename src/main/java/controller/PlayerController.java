@@ -9,13 +9,16 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.PlayerView;
 
 /**
-     * The class that dictates the updates of the player.
-     */
+ * @author Malte Carlstedt
+ * @author Alexander Brunnegård
+ * The class that dictates the updates of the player.
+ */
 public class PlayerController {
     /** Declarations of all the parameters that will be initiated in the constructor. */
     PlayerModel playerModel;
     PlayerView playerView;
     CollisionChecker collisionChecker;
+    boolean animationUpdateIsSet = false;
 
     /**
      * The constructor that initiates our player controller
@@ -39,46 +42,69 @@ public class PlayerController {
          */
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         // TODO: Ha någon annanstans?
-        playerModel.MoveRightAni.update(delta); // these line makes sure the speed of the Animation is true
-        playerModel.MoveUpAni.update(delta);
-        playerModel.MoveLeftAni.update(delta);
-        playerModel.MoveDownAni.update(delta);
+        if(!animationUpdateIsSet)
+            animationUpdate(delta);
+
+        System.out.println(delta);
 
         // TODO: Egen funk?
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_UP)) {
-            if (!collisionChecker.isColliding(playerModel)) {
-                if (collisionChecker.isNextUpOutside(playerModel)) {
-                    collisionChecker.checkMapState(playerModel, sbg);
-                } else {
-                    playerModel.moveUp();
-                }
-            }
+            checkMoveUp(sbg);
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
-            if (!collisionChecker.isColliding(playerModel)) {
-                if (collisionChecker.isNextLeftOutside(playerModel)) {
-                    collisionChecker.checkMapState(playerModel, sbg);
-                } else {
-                    playerModel.moveLeft();
-                }
-            }
+            checkMoveLeft(sbg);
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
-            if (!collisionChecker.isColliding(playerModel)) {
-                if (collisionChecker.isNextRightOutside(playerModel)) {
-                    collisionChecker.checkMapState(playerModel, sbg);
-                } else {
-                    playerModel.moveRight();
-                }
-            }
+            checkMoveRight(sbg);
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
-            if (!collisionChecker.isColliding(playerModel)) {
-                if (collisionChecker.isNextDownOutside(playerModel)) {
-                    collisionChecker.checkMapState(playerModel, sbg);
-                } else {
-                    playerModel.moveDown();
-                }
-            }
+            checkMoveDown(sbg);
         }else
-                playerModel.idlePlayer();
+            playerModel.idlePlayer();
     }
+
+    private void animationUpdate(int delta){
+        playerModel.MoveRightAni.update(delta); // these line makes sure the speed of the Animation is true
+        playerModel.MoveUpAni.update(delta);
+        playerModel.MoveLeftAni.update(delta);
+        playerModel.MoveDownAni.update(delta);
+        animationUpdateIsSet = true;
+
+    }
+
+    private void checkMoveUp(StateBasedGame sbg) throws SlickException {
+        if (!collisionChecker.isColliding(playerModel)) {
+            if (collisionChecker.isNextOutside(playerModel)) {
+                collisionChecker.checkMapState(playerModel, sbg);
+            } else {
+                playerModel.moveUp();
+            }
+        }
+    }
+    private void checkMoveDown(StateBasedGame sbg) throws SlickException {
+        if (!collisionChecker.isColliding(playerModel)) {
+            if (collisionChecker.isNextOutside(playerModel)) {
+                collisionChecker.checkMapState(playerModel, sbg);
+            } else {
+                playerModel.moveDown();
+            }
+        }
+    }
+    private void checkMoveLeft(StateBasedGame sbg) throws SlickException {
+        if (!collisionChecker.isColliding(playerModel)) {
+            if (collisionChecker.isNextOutside(playerModel)) {
+                collisionChecker.checkMapState(playerModel, sbg);
+            } else {
+                playerModel.moveLeft();
+            }
+        }
+    }
+    private void checkMoveRight(StateBasedGame sbg) throws SlickException {
+        if (!collisionChecker.isColliding(playerModel)) {
+            if (collisionChecker.isNextOutside(playerModel)) {
+                collisionChecker.checkMapState(playerModel, sbg);
+            } else {
+                playerModel.moveRight();
+            }
+        }
+    }
+
 }

@@ -4,14 +4,10 @@ import model.MapStates.*;
 import org.newdawn.slick.SlickException;
 import java.util.Hashtable;
 
-
+/**
+ * @author Julia Böckert
+ */
 public class NPCFactory {
-
-    /**
-     * @author Julia
-     */
-
-
 
     public NPCFactory() throws SlickException{
     }

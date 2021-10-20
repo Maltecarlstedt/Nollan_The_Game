@@ -14,7 +14,7 @@ import org.newdawn.slick.state.StateBasedGame;
  * This is not fully developed but it´s a start and
  * is left because we needed to prioritize more important things
  *
- * @author Clara
+ * @author Clara Simonsson
  */
 public class BuildBridgeTask extends BasicGameState {
     private BuildBridgeModel bridgeModel;

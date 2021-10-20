@@ -9,7 +9,9 @@ import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
 
-/** Represents the start game menu.
+/**
+ * @author Steffanie Kristiansson
+ * Represents the start game menu.
  */
 public class GameMenu extends BasicGameState {
 

@@ -19,6 +19,8 @@ import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
     /**
+     * @author Malte Carlstedt
+     * @author Alexander Brunnegård
      * Main class for controlling models, views and controllers
      */
 public class MainGame extends BasicGameState {

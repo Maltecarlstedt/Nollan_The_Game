@@ -2,6 +2,7 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.SlickException;
 
 /**
+ * @author Malte Carlstedt
  * Main class that setups and creates our game application.
  */
 public class main {
@@ -20,6 +21,7 @@ public class main {
             app.setTargetFrameRate(60);
             app.setShowFPS(false);
             app.setAlwaysRender(true);
+            app.setMaximumLogicUpdateInterval(34);
             app.setDisplayMode(canvasWidth,canvasHeight,false);
             app.start();
         } catch (SlickException e) {

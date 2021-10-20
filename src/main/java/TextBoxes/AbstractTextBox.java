@@ -10,7 +10,7 @@ import java.awt.*;
 public abstract class AbstractTextBox {
 
     /**
-     * @author Julia
+     * @author Julia Böckert
      */
 
     Point location;

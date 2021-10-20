@@ -9,7 +9,7 @@ import java.awt.*;
 /**
  * Abstract method that holds the common methods for the items
  *
- * @author Clara
+ * @author Clara Simonsson
  */
 public abstract class Item {
     /**

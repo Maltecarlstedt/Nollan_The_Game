@@ -6,7 +6,7 @@ import view.MapView;
 
 /**
  * Place holder for map
- * @author Clara
+ * @author Clara Simonsson
  */
 public class MapController {
     MapModel mapModel;

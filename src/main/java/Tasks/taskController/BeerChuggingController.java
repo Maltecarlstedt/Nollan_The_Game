@@ -10,6 +10,7 @@ import org.newdawn.slick.state.transition.HorizontalSplitTransition;
 import java.io.IOException;
 
 /**
+ * @author Malte Carlstedt
  * Controller for the Beer Chugging task
  */
 public class BeerChuggingController {

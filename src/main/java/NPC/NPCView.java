@@ -3,18 +3,12 @@ package NPC;
 import org.newdawn.slick.Graphics;
 
 import java.util.ArrayList;
+
 /**
+ * @author Julia Böckert
  * Our view of the NPCs. The class that draws the NPCs.
  */
-
-
 public class NPCView {
-
-    /**
-     * @author Julia
-     */
-
-
     /**
      * Renders the NPCs on the map. depending on the boolean isShowing.
      * @param g The graphics context to be used for rendering

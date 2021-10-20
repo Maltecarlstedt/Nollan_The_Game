@@ -8,7 +8,7 @@ import java.util.Hashtable;
 public class NPCModel {
 
     /**
-     * @author Julia
+     * @author Julia Böckert
      */
 
     NPCFactory factory; // = new NPCFactory();

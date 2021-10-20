@@ -10,7 +10,7 @@ import java.awt.*;
 public class ConcreteNPC {
 
     /**
-     * @author Julia
+     * @author Julia Böckert
      */
 
     boolean isShowing;

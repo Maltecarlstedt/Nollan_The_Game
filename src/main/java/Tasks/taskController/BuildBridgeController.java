@@ -8,7 +8,7 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.state.transition.HorizontalSplitTransition;
 
 /**
- * @author Clara
+ * @author Clara Simonsson
  */
 public class BuildBridgeController {
 

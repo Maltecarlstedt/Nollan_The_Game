@@ -7,7 +7,7 @@ import org.newdawn.slick.Graphics;
 import java.awt.image.PixelGrabber;
 
 /**
- * @author Clara
+ * @author Clara Simonsson
  */
 public class BuildBridgeView {
 

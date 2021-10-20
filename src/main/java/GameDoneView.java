@@ -21,7 +21,7 @@ import java.awt.event.MouseEvent;
 /**
  * Represents the view when the game has ended
  *
- * @author Clara
+ * @author Clara Simonsson
  */
 public class GameDoneView extends BasicGameState {
 

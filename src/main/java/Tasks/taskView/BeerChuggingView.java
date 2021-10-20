@@ -3,6 +3,9 @@ package Tasks.taskView;
 import Tasks.taskModel.BeerChuggingModel;
 import org.newdawn.slick.Graphics;
 
+/**
+ * @author Malte Carlstedt
+ */
 public class BeerChuggingView {
 
     /**

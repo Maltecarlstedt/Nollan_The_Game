@@ -11,9 +11,9 @@ import java.util.ArrayList;
 // TODO:: TA REDA PÅ IFALL VI VILL EXTENDA TILED MAPS??
 
 /**
+ * @author Clara Simonsson
+ * @author Alexander Brunnegård
  * Holds all the information for the map
- * @author Clara
- * @author Alexander
  */
 public class MapModel{
     /** The current map in the form of a MapState (interface) */

@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * The class that render all items on the canvas
  *
- * @author Clara
+ * @author Clara Simonsson
  */
 public class ItemView {
     MapState currentMap;
