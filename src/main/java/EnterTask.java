@@ -21,8 +21,6 @@ public class EnterTask {
      * @param mapModel represents the map in the game.
      * @param sbg the current state of the game used to isolate the game from different aspects.
      */
-
-
     // NOT AT ALL FINAL. JUST FOR DEV AND TESTING.
     public void update(GameContainer gc, MapModel mapModel, StateBasedGame sbg){
         input = gc.getInput();
