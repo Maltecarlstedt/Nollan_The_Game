@@ -11,7 +11,7 @@ import org.newdawn.slick.Graphics;
  */
 public class GatheringCansView {
 
-    /** Method to draw each can.
+    /** Method to draw each can and the timer box.
      * @param g represents the graphics context to be used for rendering.
      * @param pm representing the model to get data from it.
      */
