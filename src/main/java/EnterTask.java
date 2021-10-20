@@ -13,17 +13,14 @@ import org.newdawn.slick.state.transition.*;
  */
 public class EnterTask {
 
-    private Input input;
-    private String currMap;
-
     /** Checks the terms in the if-statements  is fulfilled. If it is fulfilled, we jump to the right state.
      * @param gc represents the container that have the game.
      * @param mapModel represents the map in the game.
      * @param sbg the current state of the game used to isolate the game from different aspects.
      */
     public void update(GameContainer gc, MapModel mapModel, StateBasedGame sbg){
-        input = gc.getInput();
-        currMap = mapModel.getCurrentMap().toString();
+        Input input = gc.getInput();
+        String currMap = mapModel.getCurrentMap().toString();
         if(input.isKeyDown(Input.KEY_F) && mapModel.hasTask()){
             mapModel.taskDone = true;
             int id = sbg.getCurrentStateID();
