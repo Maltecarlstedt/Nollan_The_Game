@@ -1,20 +1,17 @@
 package Items;
 
-import model.MapModel;
 import model.PlayerModel;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
-import java.awt.*;
-import java.lang.reflect.GenericDeclaration;
 import java.util.Iterator;
 import java.util.Map;
 
     /**
      * The class that dictates the update of the items
+     *
+     * @author Clara
      */
 public class ItemController {
     /** Declarations of all the parameters that will be initiated in the constructor. */

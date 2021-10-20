@@ -11,6 +11,9 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class Karkort extends Item {
 
     public Karkort() throws SlickException {

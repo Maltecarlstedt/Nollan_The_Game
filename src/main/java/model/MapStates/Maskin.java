@@ -7,6 +7,8 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map Maskin.
+ *
+ * @author Clara
  */
 public enum Maskin implements MapState{
     MASKIN;
@@ -26,11 +28,6 @@ public enum Maskin implements MapState{
                 return Maskin.MASKIN;
 
         }
-    }
-
-    @Override
-    public void setPosition(PlayerModel player) {
-
     }
 
     @Override

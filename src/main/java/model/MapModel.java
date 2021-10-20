@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 /**
  * Holds all the information for the map
+ * @author Clara
+ * @author Alexander
  */
 public class MapModel{
     /** The current map in the form of a MapState (interface) */
@@ -41,11 +43,11 @@ public class MapModel{
     }
 
     /**
-     * Initiates our first map, which is "karhuset", sets up all the collisions of the map with tileSetup
+     * Initiates our first map, which is "Chalmersplatsen", sets up all the collisions of the map with tileSetup
      * @throws SlickException - throws an exception if a filepath is not found
      */
     private void initMap() throws SlickException {
-        current = Karhuset.KARHUSET;
+        current = Chalmersplatsen.CHALMERSPLATSEN;
         tiledMap = current.loadMap();
         tileSetup();
     }
@@ -57,16 +59,20 @@ public class MapModel{
     }
 
     /**
-     * Changes the map, badly named still
+     * Changes the map
      * @throws SlickException - if the filepath to the next map is not found.
      */
-    public void checkState(PlayerModel playermodel) throws SlickException { //TODO: byta namn?
+    public void changeMap(PlayerModel playermodel) throws SlickException { //TODO: byta namn?
         current = current.nextMap(playermodel);
         tiledMap = current.loadMap();
         taskDone = false;
         tileSetup();
     }
 
+    /**
+     * Checks if there is a task on the map
+     * @return true if the map has a task
+     */
     public boolean hasTask(){
         return getCurrentMap().equals(Ekak.EKAK) || getCurrentMap().equals(DeltaP.DELTAP);
     }

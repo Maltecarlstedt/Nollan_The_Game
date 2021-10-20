@@ -20,6 +20,8 @@ import java.awt.event.MouseEvent;
 
 /**
  * Represents the view when the game has ended
+ *
+ * @author Clara
  */
 public class GameDoneView extends BasicGameState {
 

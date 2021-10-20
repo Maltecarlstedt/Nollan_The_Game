@@ -7,6 +7,9 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.state.transition.HorizontalSplitTransition;
 
+/**
+ * @author Clara
+ */
 public class BuildBridgeController {
 
     private BuildBridgeModel bbm;

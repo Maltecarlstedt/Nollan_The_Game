@@ -9,6 +9,9 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class Scissor extends Item {
 
     public Scissor() throws SlickException {

@@ -56,14 +56,14 @@ public class CollisionChecker {
     }
 
     /**
-     * Changes the map depending on which way the player is moving and which map it already is on.
+     * Checks if the map should be changed
      * @param player - the player
      * @param sbg - the current state of the game
      * @throws SlickException - if the filepath to the next map is not found.
      */
-    public void changeMap(PlayerModel player, StateBasedGame sbg) throws SlickException {
+    public void checkMapState(PlayerModel player, StateBasedGame sbg) throws SlickException {
         oldState = currentMap.getCurrentMap();
-        currentMap.checkState(player);
+        currentMap.changeMap(player);
         if (currentMap.getCurrentMap() != oldState){
             fadeOut(sbg);
             fadeIn(sbg);

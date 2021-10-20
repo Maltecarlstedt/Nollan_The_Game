@@ -9,6 +9,9 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class TurquoiseColor extends Item {
 
     public TurquoiseColor() throws SlickException {
