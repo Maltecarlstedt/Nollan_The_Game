@@ -4,12 +4,17 @@ import model.CollisionChecker;
 import model.MapModel;
 import model.MapStates.Dammen;
 import model.MapStates.Ekak;
+import model.MapStates.Gasquen;
 import model.PlayerModel;
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 import view.MapView;
 import view.PlayerView;
@@ -31,6 +36,8 @@ public class GameDoneView extends BasicGameState {
     private MapView mapView;
     private MapController mapController;
 
+    private Image endGame;
+
 
     /**
      * Initializes the player and map
@@ -48,9 +55,11 @@ public class GameDoneView extends BasicGameState {
 
         mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);
-        mapModel.setTiledMap(Ekak.EKAK.loadMap());
-        mapModel.setTiledMap(Ekak.EKAK);
+        mapModel.setTiledMap(Gasquen.GASQUEN.loadMap());
+        mapModel.setTiledMap(Gasquen.GASQUEN);
         mapView = new MapView();
+
+        endGame = new Image("data/maps/images/avslutaButton.png");
 
     }
 
@@ -66,6 +75,7 @@ public class GameDoneView extends BasicGameState {
         mapView.render(mapModel);
         playerView.render(g, playerModel);
         mapView.renderTopLayer(mapModel);
+        endGame.draw(1024/2,616);
     }
 
     /**
@@ -79,6 +89,13 @@ public class GameDoneView extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         playerController.update(gc, sbg, delta);
         mapController.update(gc, delta);
+
+        int posX = Mouse.getX();
+        int posY = Mouse.getY();
+
+        if (((posX > 243 && posX < 781) && (posY > 221 && posY < 315)) && Mouse.isButtonDown(0)) {
+            System.exit(0);
+        }
     }
 
     /** A special ID for this specific state.

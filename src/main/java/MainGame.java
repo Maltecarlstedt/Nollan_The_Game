@@ -108,13 +108,16 @@ public class MainGame extends BasicGameState {
         // Render the map
         mapView.render(mapModel);
 
-        itemView.renderItemsToFind(g, itemModel, mapModel);
-        itemView.renderUnfilledItems(g, itemModel);
+
 
         // Renders The player
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
+
+        itemView.renderItemsToFind(g, itemModel, mapModel);
+        itemView.renderUnfilledItems(g, itemModel);
+      
 
         //Renders the nps
         npcModel.showNPC(mapModel);
