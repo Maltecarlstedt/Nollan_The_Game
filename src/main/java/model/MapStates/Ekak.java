@@ -7,6 +7,8 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map Ekak.
+ *
+ * @author Clara
  */
 public enum Ekak implements MapState{
     EKAK;
@@ -26,11 +28,6 @@ public enum Ekak implements MapState{
                 return Ekak.EKAK;
 
         }
-    }
-
-    @Override
-    public void setPosition(PlayerModel player) {
-
     }
 
     @Override

@@ -7,6 +7,8 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map Rännan.
+ *
+ * @author Clara
  */
 public enum Rannan implements MapState{
     RANNAN;
@@ -28,11 +30,6 @@ public enum Rannan implements MapState{
             default:
                 return Rannan.RANNAN;
         }
-    }
-
-    @Override
-    public void setPosition(PlayerModel player) {
-
     }
 
     @Override

@@ -10,6 +10,9 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class Cardboard extends Item {
 
     public Cardboard() throws SlickException {

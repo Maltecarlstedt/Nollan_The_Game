@@ -8,6 +8,9 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class RopeUf extends Item {
 
     public RopeUf() throws SlickException {

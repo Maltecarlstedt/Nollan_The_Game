@@ -4,6 +4,7 @@ import model.MapModel;
 
 /**
  * A class that keeps the render methods for the map
+ * @author Alexander
  */
 public class MapView {
 

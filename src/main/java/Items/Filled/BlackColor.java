@@ -9,6 +9,9 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class BlackColor extends Item {
 
     public BlackColor() throws SlickException {

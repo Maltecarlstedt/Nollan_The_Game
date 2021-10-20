@@ -3,12 +3,13 @@ package Items;
 import model.MapStates.MapState;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
 /**
  * Abstract method that holds the common methods for the items
+ *
+ * @author Clara
  */
 public abstract class Item {
     /**

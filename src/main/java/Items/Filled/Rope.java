@@ -9,6 +9,9 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class Rope extends Item {
 
     public Rope() throws SlickException {

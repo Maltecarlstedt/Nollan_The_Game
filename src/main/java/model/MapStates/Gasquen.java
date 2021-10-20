@@ -4,6 +4,9 @@ import model.PlayerModel;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
+/**
+ * @author Clara
+ */
 public enum Gasquen implements MapState{
     GASQUEN;
 
@@ -12,11 +15,6 @@ public enum Gasquen implements MapState{
     @Override
     public MapState nextMap(PlayerModel playerModel) throws SlickException {
         return Gasquen.GASQUEN;
-    }
-
-    @Override
-    public void setPosition(PlayerModel player) {
-
     }
 
     @Override

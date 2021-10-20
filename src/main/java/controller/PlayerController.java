@@ -1,23 +1,14 @@
 package controller;
 
 import model.CollisionChecker;
-import model.MapModel;
-import model.Orientation;
 import model.PlayerModel;
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.EmptyTransition;
-import org.newdawn.slick.state.transition.FadeInTransition;
-import org.newdawn.slick.state.transition.FadeOutTransition;
-import org.newdawn.slick.state.transition.Transition;
 import view.PlayerView;
 
-import java.awt.*;
-
-    /**
+/**
      * The class that dictates the updates of the player.
      */
 public class PlayerController {
@@ -58,7 +49,7 @@ public class PlayerController {
         if (input.isKeyDown(Input.KEY_UP)) {
             if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextUpOutside(playerModel)) {
-                    collisionChecker.changeMap(playerModel, sbg);
+                    collisionChecker.checkMapState(playerModel, sbg);
                 } else {
                     playerModel.moveUp();
                 }
@@ -66,7 +57,7 @@ public class PlayerController {
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
             if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextLeftOutside(playerModel)) {
-                    collisionChecker.changeMap(playerModel, sbg);
+                    collisionChecker.checkMapState(playerModel, sbg);
                 } else {
                     playerModel.moveLeft();
                 }
@@ -74,7 +65,7 @@ public class PlayerController {
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
             if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextRightOutside(playerModel)) {
-                    collisionChecker.changeMap(playerModel, sbg);
+                    collisionChecker.checkMapState(playerModel, sbg);
                 } else {
                     playerModel.moveRight();
                 }
@@ -82,7 +73,7 @@ public class PlayerController {
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
             if (!collisionChecker.isColliding(playerModel)) {
                 if (collisionChecker.isNextDownOutside(playerModel)) {
-                    collisionChecker.changeMap(playerModel, sbg);
+                    collisionChecker.checkMapState(playerModel, sbg);
                 } else {
                     playerModel.moveDown();
                 }
