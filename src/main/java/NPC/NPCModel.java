@@ -11,34 +11,38 @@ import java.util.Hashtable;
 
 public class NPCModel {
 
-    NPCFactory factory; // = new NPCFactory();
-    NPCView npcView;
+    NPCFactory factory;
+            //= new NPCFactory();
+   // NPCView npcView;
    // public Hashtable<String, ConcreteNPC> npcs;
     //public ArrayList<NPC> NPCs; // = new ArrayList<>();
     //public ArrayList<TaskHoldingNPC> taskHoldingNPCs;
 
-    public ArrayList<ConcreteNPC> NPCs;
+    public ArrayList<ConcreteNPC> NPCs = new ArrayList<>();
 
 
-    ConcreteNPC webers;
-    ConcreteNPC kritan;
-    ConcreteNPC tango;
-    ConcreteNPC ekak1;
-    ConcreteNPC ekak2;
-    ConcreteNPC bieber;
-    ConcreteNPC kvalle;
-    ConcreteNPC dnollk;
+    ConcreteNPC webers; //factory.createWebers();
+    ConcreteNPC kritan; // factory.createKritan();
+    ConcreteNPC tango; //factory.createTango();
+    ConcreteNPC ekak1; //factory.createEKAK1();
+    ConcreteNPC ekak2; //factory.createEKAK2();
+    ConcreteNPC bieber; //factory.createBieber();
+    ConcreteNPC kvalle;//factory.createKvalle();
+    ConcreteNPC dnollk; //factory.createDNollK();
 
 
-    public NPCModel() throws SlickException {
-        npcView = new NPCView();
+
+
+    //ConcreteNPC tango; //factory.createTango();
+
+
+    public NPCModel()  {
+        //initList();
+
         factory = new NPCFactory();
-        //npcs = new Hashtable<>();
         NPCs = new ArrayList<>();
 
-        //taskHoldingNPCs = new ArrayList<>();
-
-        webers = factory.createWebers();
+       webers = factory.createWebers();
         kritan = factory.createKritan();
         tango = factory.createTango();
         ekak1 = factory.createEKAK1();
@@ -50,11 +54,14 @@ public class NPCModel {
 
 
 
+        //tango = factory.createTango();
+
     }
 
 
     //TODO: Make this prettier, inte speciellt OCP
     public void initList() {
+
         NPCs.add(webers);
         NPCs.add(kritan);
         NPCs.add(tango);
@@ -63,6 +70,8 @@ public class NPCModel {
         NPCs.add(bieber);
         NPCs.add(kvalle);
         NPCs.add(dnollk);
+
+
 
     }
 

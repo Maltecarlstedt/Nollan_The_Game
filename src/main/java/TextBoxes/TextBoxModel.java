@@ -1,6 +1,7 @@
 package TextBoxes;
 
 import model.MapModel;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class TextBoxModel {
         markena = factory.createMarkenaTextBox();
 
 
+
     }
 
     public void initTextBoxes(){
@@ -44,19 +46,12 @@ public class TextBoxModel {
         textboxes.add(markena);
 
 
+
     }
 
-    public void showTextBox(MapModel mapModel) {
-        textboxes.forEach(textBox -> {
-            if (textBox.getCurrent().equals(mapModel.getCurrentMap())) {
-                textBox.setShowing(true);
-            }
-            if ((textBox.getCurrent() != mapModel.getCurrentMap())) {
-                textBox.setShowing(false);
-            }
-        });
+    public void render(Graphics g){
+        g.drawAnimation(markena.textAnim, markena.getLocation().x, markena.getLocation().y);
     }
-
 
 
 }
