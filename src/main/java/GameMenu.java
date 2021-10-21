@@ -13,6 +13,7 @@ import java.awt.*;
 
 
 /** Represents the start game menu with some buttons, uses BasicStateGame.
+ * @author Steffanie Kristiansson
  */
 public class GameMenu extends BasicGameState {
 
