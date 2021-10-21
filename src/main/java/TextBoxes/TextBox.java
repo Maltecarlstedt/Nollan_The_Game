@@ -7,12 +7,12 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
+/**
+ * @author Julia
+ */
+
 
     public class TextBox {
-
-        /**
-         * @author Julia
-         */
 
         Point location;
         MapState mapState;

@@ -5,11 +5,12 @@ import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
 
+/**
+ * @author Julia
+ */
+
 public class TextBoxModel {
 
-    /**
-     * @author Julia
-     */
 
     TextBoxFactory factory;
 
