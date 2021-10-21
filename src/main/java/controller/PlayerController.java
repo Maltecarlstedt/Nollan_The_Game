@@ -45,7 +45,7 @@ public class PlayerController {
         if(!animationUpdateIsSet)
             animationUpdate(delta);
 
-        System.out.println(delta);
+        //System.out.println(delta);
 
         // TODO: Egen funk?
         Input input = gc.getInput();

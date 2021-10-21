@@ -2,7 +2,6 @@ package Items;
 
 import Items.Filled.*;
 import Items.Unfilled.*;
-import org.newdawn.slick.SlickException;
 import java.util.HashMap;
 
 /**
@@ -21,9 +20,8 @@ public class ItemModel {
 
     /**
      * The constructor of the ItemModel. It puts all the items in the lists
-     * @throws SlickException - throws an exception if a filepath to the image or map is not found
      */
-    public ItemModel() throws SlickException {
+    public ItemModel(){
         initMaterialsToFind();
         initMaterialsUnfilled();
     }
@@ -50,9 +48,8 @@ public class ItemModel {
 
     /**
      * Puts all items to be collected in a hashmap
-     * @throws SlickException - throws an exception if a filepath to the image or map is not found
      */
-    private void initMaterialsToFind() throws SlickException {
+    private void initMaterialsToFind(){
         materialsFilled.put("Scissor", new Scissor());
         materialsFilled.put("Karkort", new Karkort());
         materialsFilled.put("Cardboard", new Cardboard());
@@ -63,9 +60,8 @@ public class ItemModel {
 
     /**
      * Puts all items that are not found yet in a hashmap
-     * @throws SlickException - throws an exception if a filepath to the image or map is not found
      */
-    private void initMaterialsUnfilled() throws SlickException {
+    private void initMaterialsUnfilled(){
         materialsUnfilled.put("ScissorUf", new ScissorUf());
         materialsUnfilled.put("KarkortUf", new KarkortUf());
         materialsUnfilled.put("CardboardUf", new CardboardUf());

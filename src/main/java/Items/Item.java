@@ -16,16 +16,9 @@ public abstract class Item {
      * The variables that are needed to get an item connected to a map
      * and to get the specific item
      */
-    public boolean isShowing;
     public MapState currentMap;
     public Rectangle location;
-    public Image img;
-
-    /**
-     * Draws the item on the canvas
-     * @param g - The grapchic context to be used for rendering
-     */
-    public abstract void render(Graphics g);
+    public String str;
 
     /**
      * Gets the map that the player is on now

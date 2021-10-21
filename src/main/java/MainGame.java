@@ -105,7 +105,7 @@ public class MainGame extends BasicGameState {
      * @throws SlickException
      */
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics g){
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         // Render the map
         mapView.render(mapModel);
 
@@ -118,6 +118,7 @@ public class MainGame extends BasicGameState {
 
         itemView.renderItemsToFind(g, itemModel, mapModel);
         itemView.renderUnfilledItems(g, itemModel);
+       // itemView.renderImages(g, itemModel);
 
         //Renders the textBoxes
         textBoxView.render(g, textBoxModel.textboxes);
