@@ -10,7 +10,7 @@ import java.awt.*;
 public class KarkortUf extends Item {
 
     public KarkortUf(){
-        str = "data/material/karkortet_uf.png";
+        filePathToItem = "data/material/karkortet_uf.png";
         location = new Rectangle(getStartX() + 50,getStartY(),32,32);
     }
 }

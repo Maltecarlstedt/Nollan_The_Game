@@ -11,7 +11,7 @@ import java.awt.*;
 public class Karkort extends Item {
 
     public Karkort(){
-        str = "data/material/karkortet.png";
+        filePathToItem = "data/material/karkortet.png";
         location = new Rectangle(250,250,32,32);
         currentMap = Karhuset.KARHUSET;
     }

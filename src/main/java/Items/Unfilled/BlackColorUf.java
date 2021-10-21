@@ -10,7 +10,7 @@ import java.awt.*;
 public class BlackColorUf extends Item {
 
     public BlackColorUf(){
-        str = "data/material/black_color_uf.png";
+        filePathToItem = "data/material/black_color_uf.png";
         location = new Rectangle(getStartX() + 200,getStartY(),32,32);
     }
 }

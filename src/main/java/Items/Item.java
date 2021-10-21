@@ -18,7 +18,11 @@ public abstract class Item {
      */
     public MapState currentMap;
     public Rectangle location;
-    public String str;
+    /**
+     * To separate the different file paths of the items.
+     * It will be used to find the right image in the view.
+     */
+    public String filePathToItem;
 
     /**
      * Gets the map that the player is on now

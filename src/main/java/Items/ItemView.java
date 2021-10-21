@@ -24,7 +24,7 @@ public class ItemView {
      */
     public void renderUnfilledItems(Graphics g, ItemModel im) throws SlickException {
         for (Item item : im.getItemsUf().values()){
-            Image img = new Image(item.str);
+            Image img = new Image(item.filePathToItem);
             g.drawImage(img, item.location.x, item.location.y);
         }
     }
@@ -41,7 +41,7 @@ public class ItemView {
         for (Map.Entry<String, Item> material : im.getItemsToFind().entrySet()) {
             Item value = material.getValue();
             if (value.getCurrentMap().equals(currentMap) && (!mm.hasTask() || mm.taskDone)){
-                Image img = new Image(value.str);
+                Image img = new Image(value.filePathToItem);
                 g.drawImage(img, value.location.x, value.location.y);
             }
         }
