@@ -5,11 +5,9 @@ import org.newdawn.slick.SlickException;
 import java.util.Hashtable;
 
 /**
- * @author Julia
+ * @author Julia Böckert
  */
-
 public class NPCFactory {
-
 
     public NPCFactory() throws SlickException{
     }

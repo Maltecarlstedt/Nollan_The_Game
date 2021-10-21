@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * @author Malte Carlstedt
  * Model for the beer chugging task
  */
 public class BeerChuggingModel {

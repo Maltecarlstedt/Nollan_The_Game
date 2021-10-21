@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Holds the information for the items to be found and the unfilled items
  *
- * @author Clara
+ * @author Clara Simonsson
  */
 public class ItemModel {
 

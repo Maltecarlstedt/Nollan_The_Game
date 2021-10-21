@@ -3,9 +3,8 @@ package NPC;
 import model.MapModel;
 import org.newdawn.slick.SlickException;
 
-
 /**
- * @author Julia
+ * @author Julia Böckert
  */
 
 public class NPCController {

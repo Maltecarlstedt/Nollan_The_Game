@@ -9,7 +9,7 @@ import java.awt.Font;
 import java.io.InputStream;
 
 /**
- * @author Clara
+ * @author Clara Simonsson
  */
 public class BuildBridgeModel {
 

@@ -11,7 +11,7 @@ import java.util.Map;
     /**
      * The class that dictates the update of the items
      *
-     * @author Clara
+     * @author Clara Simonsson
      */
 public class ItemController {
     /** Declarations of all the parameters that will be initiated in the constructor. */

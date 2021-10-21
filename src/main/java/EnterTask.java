@@ -9,7 +9,8 @@ import org.newdawn.slick.state.transition.*;
 
 /** Represents the entering to a task-state
  *
- * @author Clara & Malte
+ * @author Clara Simonsson
+ * @author Malte Carlstedt
  */
 public class EnterTask {
 

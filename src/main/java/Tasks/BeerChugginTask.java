@@ -12,6 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import java.io.IOException;
 
 /**
+ * @author Malte Carlstedt
  * A class that represents the Beer chugging task within it's own state.
  */
 

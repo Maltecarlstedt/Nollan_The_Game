@@ -6,6 +6,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 /**
+ * @author Malte Carlstedt
  * A class for keeping all of our different states.
  */
 

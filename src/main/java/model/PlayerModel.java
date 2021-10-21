@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 /**
+ * @author Alexander Brunnegård
+ * @author Malte Carlstedt
  * A class that holds all the data on our player
  */
 public class PlayerModel {

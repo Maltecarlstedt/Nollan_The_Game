@@ -13,7 +13,9 @@ import java.awt.*;
 
 
 public class ConcreteNPC {
-
+    /**
+     * @author Julia Böckert
+     */
 
     boolean isShowing;
     int width;

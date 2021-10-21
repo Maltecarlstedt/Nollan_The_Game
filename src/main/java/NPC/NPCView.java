@@ -3,14 +3,11 @@ package NPC;
 import org.newdawn.slick.Graphics;
 
 import java.util.ArrayList;
+
 /**
+ * @author Julia Böckert
  * Our view of the NPCs. The class that draws the NPCs.
  */
-
-/**
- * @author Julia
- */
-
 public class NPCView {
 
     /**
