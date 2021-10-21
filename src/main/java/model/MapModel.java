@@ -19,11 +19,9 @@ public class MapModel{
     /** The current map in the form of a MapState (interface) */
     private MapState current;
     /** The width and height of every tile of the map */
-    private final int tileWidth = 32, tileHeight = 32;
+    private static final int tileWidth = 32, tileHeight = 32;
     /** The actual map in form of a TiledMap. makes us able to interact with specific tiles */
     private TiledMap tiledMap;
-    /** Makes a concrete size for our tiles in the form of a rectangle */
-    private Rectangle tile = new Rectangle(0,0,tileWidth,tileHeight);
     /** This will keep a list of Tiles that are blocked */
     private boolean blocked[][];
     /** For collision detection, we have a list of Rectangles that contains all the collisions of the map */
@@ -121,13 +119,13 @@ public class MapModel{
                     //Create the specific collisions for tiles that behaves differently than a perfect square.
                     //E.G. tileID = 190 is the specific collision for a thin treetrunk
                     if(tileID == 190) {
-                        blocks.add(new Rectangle((i * tile.width) + 25, ((j) * tile.height), 8, (int) tile.getHeight() - 28));
+                        blocks.add(new Rectangle((i * tileWidth) + 25, ((j) * tileHeight), 8, tileHeight - 28));
                     }else if(tileID == 191) {
-                        blocks.add(new Rectangle((i * tile.width) + 16, ((j) * tile.height), 16, (int) tile.getHeight() - 28));
+                        blocks.add(new Rectangle((i * tileWidth) + 16, ((j) * tileHeight), 16, tileHeight - 28));
                     }else if(tileID == 192){
-                        blocks.add(new Rectangle((i * tile.width), ((j) * tile.height), 8, (int) tile.getHeight() - 28));
+                        blocks.add(new Rectangle((i * tileWidth), ((j) * tileHeight), 8, tileHeight - 28));
                     }else{
-                        blocks.add(new Rectangle((i * tile.width), ((j) * tile.height), (int) tile.getWidth(), (int) tile.getHeight()-28));
+                        blocks.add(new Rectangle((i * tileWidth), ((j) * tileHeight), tileWidth, tileHeight-28));
                     }
                 }
             }
