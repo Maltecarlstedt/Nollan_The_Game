@@ -60,14 +60,11 @@ public class ItemController {
          * @param im - the items
          */
     private void deleteFoundItem(PlayerModel pm, ItemModel im){
-        for (Iterator<Map.Entry<String, Item>> it = im.getItemsToFind().entrySet().iterator(); it.hasNext();){
-            Map.Entry<String, Item> material = it.next();
+        for (Map.Entry<String, Item> material : im.getItemsToFind().entrySet()) {
             String key = material.getKey();
             Item value = material.getValue();
-            if (itemFound(pm, iv, value)){
+            if (itemFound(pm, iv, value)) {
                 replace(key, value);
-                //Todo will be removed even if it doesn`t match an item in the unfilled list, do something about it?
-                it.remove();
                 break;
             }
         }
@@ -91,13 +88,13 @@ public class ItemController {
          * @param value - the item with a location and image
          */
     private void replace(String key, Item value){
-        for (Iterator<Map.Entry<String, Item>> it = im.getItemsUf().entrySet().iterator(); it.hasNext();){
-            Map.Entry<String,Item> material = it.next();
-            String replacableKey = material.getKey();
-            Item replacableValue = material.getValue();
-            if (replacableKey.contains(key)){
-                value.location = replacableValue.location;
-                im.getItemsUf().replace(replacableKey, replacableValue, value);
+        for (Map.Entry<String, Item> material : im.getItemsUf().entrySet()) {
+            String replaceableKey = material.getKey();
+            Item replaceableValue = material.getValue();
+            if (replaceableKey.contains(key)) {
+                value.location = replaceableValue.location;
+                im.getItemsUf().replace(replaceableKey, replaceableValue, value);
+                im.getItemsToFind().remove(key, value);
                 break;
             }
         }
