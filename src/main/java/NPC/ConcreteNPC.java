@@ -11,6 +11,7 @@ import java.awt.*;
  * @author Julia
  */
 
+
 public class ConcreteNPC {
     /**
      * @author Julia Böckert

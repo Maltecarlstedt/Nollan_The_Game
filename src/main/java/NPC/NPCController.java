@@ -6,6 +6,7 @@ import org.newdawn.slick.SlickException;
 /**
  * @author Julia Böckert
  */
+
 public class NPCController {
     NPCModel model;
 

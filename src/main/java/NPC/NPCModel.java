@@ -5,11 +5,11 @@ import org.newdawn.slick.SlickException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class NPCModel {
-
     /**
      * @author Julia Böckert
      */
+
+public class NPCModel {
 
     NPCFactory factory; // = new NPCFactory();
     NPCView npcView;
