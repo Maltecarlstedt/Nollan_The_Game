@@ -13,30 +13,30 @@ public class GatheringCansView {
 
     /** Method to draw each can and the timer box.
      * @param g represents the graphics context to be used for rendering.
-     * @param pm representing the model to get data from it.
+     * @param gcm representing the model to get data from it.
      */
-    public void render (Graphics g, GatheringCansModel pm) {
-        pm.getBackground().render(0,0);
+    public void render (Graphics g, GatheringCansModel gcm) {
+        gcm.getBackground().render(0,0);
 
-        g.drawImage(pm.timerBox,820, 40);
+        g.drawImage(gcm.timerBox,820, 40);
 
-        g.drawImage(pm.highScoreBox, 820, 140);
+        g.drawImage(gcm.highScoreBox, 820, 140);
 
         g.drawString("Your score: ", 820, 20);
         g.drawString("Highscore: ", 820, 120);
 
         // Render the timer.
-        g.drawString(String.valueOf(pm.getTaskTimer()), 835,55);
-        g.drawString(String.valueOf(pm.getScore()), 835,75);
-        for(int i = 0; i < pm.getCanHighscore().size(); i++){
-            int number = pm.getCanHighscore().get(i).intValue();
+        g.drawString(String.valueOf(gcm.getTaskTimer()), 835,55);
+        g.drawString(String.valueOf(gcm.getScore()), 835,75);
+        for(int i = 0; i < gcm.getCanHighscore().size(); i++){
+            int number = gcm.getCanHighscore().get(i).intValue();
             g.drawString(String.valueOf(number), 835, 155 + i*35);
         }
 
         // the mouse
-        if(pm.isRunning){
+        if(gcm.isRunning){
             g.setColor(Color.cyan);
-            g.fill(pm.mouseBall);
+            g.fill(gcm.mouseBall);
 
             g.setColor(Color.white);
 
@@ -47,7 +47,7 @@ public class GatheringCansView {
             g.drawString("Tryck F för att avsluta uppdraget.", 400, 440);
         }
 
-        for(Cans cans : pm.getCans()){
+        for(Cans cans : gcm.getCans()){
             g.drawImage(cans.getImage(), cans.getCanLocation().getX(), cans.getCanLocation().getY());
 
         }
