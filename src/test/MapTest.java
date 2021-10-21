@@ -1,12 +1,13 @@
 
-/*
+import junit.framework.TestCase;
 import model.CollisionChecker;
 import model.MapModel;
+import model.MapStates.Karhuset;
 import org.junit.Before;
 import org.junit.Test;
 import org.newdawn.slick.SlickException;
 
-public class testMap {
+public class MapTest extends TestCase {
     MapModel mapModel;
 
     CollisionChecker collisionChecker;
@@ -17,14 +18,13 @@ public class testMap {
         mapModel = new MapModel(collisionChecker);
     }
 
-
-    @Test
-    public void testSetMap(){
+    public void testGetCurrentMap(){
         assertEquals(mapModel.getCurrentMap(), Karhuset.KARHUSET);
+    }
+
+    public void testSetTiledMap(){
     }
 
 
 
 }
-
- */

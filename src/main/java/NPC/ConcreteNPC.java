@@ -7,8 +7,11 @@ import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
-public class ConcreteNPC {
+/**
+ * @author Julia
+ */
 
+public class ConcreteNPC {
     /**
      * @author Julia Böckert
      */

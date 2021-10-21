@@ -52,17 +52,21 @@ public class MapModel{
         tileSetup();
     }
 
-    public void setTiledMap(MapState current){ this.current = current;}
+    public MapState getCurrentMap(){ return current; }
+
+    public void setCurrentMap(MapState current){ this.current = current; }
 
     public TiledMap getTiledMap(){
         return tiledMap;
     }
 
+    public void setTiledMap(TiledMap tiledMap) { this.tiledMap = tiledMap; }
+
     /**
      * Changes the map
      * @throws SlickException - if the filepath to the next map is not found.
      */
-    public void changeMap(PlayerModel playermodel) throws SlickException { //TODO: byta namn?
+    public void changeMap(PlayerModel playermodel) throws SlickException {
         current = current.nextMap(playermodel);
         tiledMap = current.loadMap();
         taskDone = false;
@@ -76,7 +80,6 @@ public class MapModel{
     public boolean hasTask(){
         return getCurrentMap().equals(Ekak.EKAK) || getCurrentMap().equals(DeltaP.DELTAP);
     }
-
 
     /**
      * The method that actually creates the collision tiles of the map
@@ -139,16 +142,8 @@ public class MapModel{
         return tiledMap.getWidth() * tiledMap.getTileWidth();
     }
 
-    public void setTiledMap(TiledMap tiledMap) {
-        this.tiledMap = tiledMap;
-    }
-
     public ArrayList<Rectangle> getBlocks() {
         return blocks;
-    }
-
-    public MapState getCurrentMap(){
-        return current;
     }
 
     public int getCurrentTopLayers(){

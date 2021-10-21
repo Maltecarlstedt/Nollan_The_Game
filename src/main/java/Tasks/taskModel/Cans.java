@@ -6,7 +6,7 @@ import org.newdawn.slick.geom.Rectangle;
 
 import java.util.Random;
 
-/** Creates the basics behind a can for the task "Gathering can".
+/** Creates the basics behind a can for the task "Gathering can" with image and coordinates.
  * @author Steffanie Kristiansson
  * @author Alexander Brunnegård
  */

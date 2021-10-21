@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/** Model of the task "Gathering ".
+/** Model of the task "Gathering Cans". Starts the task and keeps track of high-scores and the timers.
  * @author Steffanie Kristiansson
  * @author Alexander Brunnegård
  */

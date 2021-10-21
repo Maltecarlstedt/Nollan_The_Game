@@ -2,7 +2,6 @@ import Items.ItemModel;
 import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
-import TextBoxes.KarhusetTextBox;
 import TextBoxes.TextBoxController;
 import TextBoxes.TextBoxModel;
 import TextBoxes.TextBoxView;
@@ -119,18 +118,18 @@ public class MainGame extends BasicGameState {
 
         itemView.renderItemsToFind(g, itemModel, mapModel);
         itemView.renderUnfilledItems(g, itemModel);
-      
 
+        //Renders the textBoxes
+        textBoxView.render(g, textBoxModel.textboxes);
+        textBoxModel.initTextBoxes();
+        textBoxModel.showTextBox(mapModel);
         //Renders the nps
         npcModel.showNPC(mapModel);
         npcModel.initList();
         npcView.render(g, npcModel.NPCs);
 
         //test(mapModel);
-        //Renders the textBoxes
-        textBoxView.render(g, textBoxModel.textboxes);
-        textBoxModel.initTextBoxes();
-        textBoxModel.showTextBox(mapModel);
+
     }
 
     /**
