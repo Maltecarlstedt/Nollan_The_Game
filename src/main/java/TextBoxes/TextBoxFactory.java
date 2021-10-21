@@ -3,6 +3,10 @@ package TextBoxes;
 import model.MapStates.*;
 import org.newdawn.slick.SlickException;
 
+/**
+ * @author Julia
+ */
+
 public class TextBoxFactory {
 
     public TextBoxFactory(){

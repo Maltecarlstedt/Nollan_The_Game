@@ -7,13 +7,11 @@ import java.util.ArrayList;
  * Our view of the NPCs. The class that draws the NPCs.
  */
 
+/**
+ * @author Julia
+ */
 
 public class NPCView {
-
-    /**
-     * @author Julia
-     */
-
 
     /**
      * Renders the NPCs on the map. depending on the boolean isShowing.

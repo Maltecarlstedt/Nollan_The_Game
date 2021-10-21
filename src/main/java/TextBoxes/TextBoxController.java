@@ -3,11 +3,12 @@ package TextBoxes;
 import model.MapModel;
 import org.newdawn.slick.SlickException;
 
+/**
+ * @author Julia
+ */
+
 public class TextBoxController {
 
-    /**
-     * @author Julia
-     */
 
     TextBoxModel model;
 

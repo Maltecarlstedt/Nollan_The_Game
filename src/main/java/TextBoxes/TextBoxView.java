@@ -4,11 +4,12 @@ import org.newdawn.slick.Graphics;
 
 import java.util.ArrayList;
 
+/**
+ * @author Julia
+ */
+
 public class TextBoxView {
 
-    /**
-     * @author Julia
-     */
 
     public void render(Graphics g, ArrayList<TextBox> tbs) {
         for (TextBox tb : tbs) {
