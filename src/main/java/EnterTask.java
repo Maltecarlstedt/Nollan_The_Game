@@ -1,8 +1,5 @@
 import model.MapModel;
-import model.MapStates.MapState;
-import model.PlayerModel;
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.*;
