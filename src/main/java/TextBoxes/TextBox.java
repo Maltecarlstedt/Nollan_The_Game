@@ -31,18 +31,19 @@ import java.awt.*;
             this.mapState = mapState;
             this.width = width;
             this.height = height;
-
-            SpriteSetup();
+            textAnim = new Animation();
 
 
         }
 
-        void SpriteSetup () throws SlickException {
+        /*void SpriteSetup () throws SlickException {
             textAnim = new Animation();
             backgroundBox = new SpriteSheet(textBoxFile, width, height);
             textAnim.addFrame(backgroundBox.getSubImage(0, 0), 1);
 
         }
+
+         */
 
         /**
          * Gets the current map so that the correlated TextBox can be drawn.
