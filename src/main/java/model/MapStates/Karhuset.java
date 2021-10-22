@@ -13,7 +13,7 @@ import org.newdawn.slick.tiled.TiledMap;
  */
 public enum Karhuset implements MapState{
     KARHUSET;
-private String dPath = "data/maps/karhuset.tmx";
+    private String dPath = "data/maps/karhuset.tmx";
 
     @Override
     public MapState nextMap(PlayerModel playerModel){
