@@ -7,28 +7,22 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * @author Clara
  */
-public enum Gasquen implements MapState{
-    GASQUEN;
+public class Gasquen extends TiledMapFactory implements MapState{
+    public static final Gasquen INSTANCE = new Gasquen();
+    private static final String DPATH = "data/maps/gasquen.tmx";
 
-    private String dPath = "data/maps/gasquen.tmx";
+    protected Gasquen() {
+        super(DPATH);
+    }
 
     @Override
     public MapState nextMap(PlayerModel playerModel){
-        return Gasquen.GASQUEN;
+        return Gasquen.INSTANCE;
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(dPath);
-    }
-    @Override
-    public String getDPath() {
-        return dPath;
-    }
-
-    @Override
-    public MapState map(){
-        return this;
+        return getMap();
     }
 
     @Override

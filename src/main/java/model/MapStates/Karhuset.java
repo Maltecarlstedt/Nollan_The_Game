@@ -11,9 +11,11 @@ import org.newdawn.slick.tiled.TiledMap;
  *
  * @author Clara
  */
-public enum Karhuset implements MapState{
-    KARHUSET;
-    private String dPath = "data/maps/karhuset.tmx";
+public class Karhuset extends TiledMapFactory implements MapState{
+    public static final Karhuset INSTANCE = new Karhuset();
+    private static final String DPATH = "data/maps/karhuset.tmx";
+
+    private Karhuset(){ super(DPATH);}
 
     @Override
     public MapState nextMap(PlayerModel playerModel){
@@ -21,30 +23,21 @@ public enum Karhuset implements MapState{
         switch (playerModel.getOrientation()){
             case DOWN:
                 playerModel.setNewPlayerTile(200, 50);
-                return Chalmersplatsen.CHALMERSPLATSEN;
+                return Chalmersplatsen.INSTANCE;
             case UP:
                 playerModel.setNewPlayerTile(220, 700);
-                return Dammen.ADAMMEN;
+                return Dammen.INSTANCE;
             case LEFT:
                 playerModel.setNewPlayerTile(956, 360);
-                return Markena.MARKENA;
+                return Markena.INSTANCE;
             default:
-                return Karhuset.KARHUSET;
+                return Karhuset.INSTANCE;
         }
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap("data/maps/karhuset.tmx");
-    }
-    @Override
-    public String getDPath() {
-        return dPath;
-    }
-
-    @Override
-    public MapState map(){
-        return this;
+        return getMap();
     }
 
     @Override

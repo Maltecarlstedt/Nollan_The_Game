@@ -10,41 +10,32 @@ import org.newdawn.slick.tiled.TiledMap;
  *
  * @author Clara
  */
-public enum Markena implements MapState{
-    MARKENA;
+public class Markena extends TiledMapFactory implements MapState{
+    public static final Markena INSTANCE = new Markena();
+    private static final String DPATH = "data/maps/markena.tmx";
 
-    private String dPath = "data/maps/markena.tmx";
+    private Markena(){ super(DPATH);}
 
     @Override
     public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case RIGHT:
                 playerModel.setNewPlayerTile(180, 344);
-                return Karhuset.KARHUSET;
+                return Karhuset.INSTANCE;
             case LEFT:
                 playerModel.setNewPlayerTile(956, 424);
-                return Maskin.MASKIN;
+                return Maskin.INSTANCE;
             case UP:
                 playerModel.setNewPlayerTile(540, 700);
-                return Rannan.RANNAN;
+                return Rannan.INSTANCE;
             default:
-                return Markena.MARKENA;
+                return Markena.INSTANCE;
         }
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(dPath);
-    }
-
-    @Override
-    public String getDPath() {
-        return dPath;
-    }
-
-    @Override
-    public MapState map(){
-        return this;
+        return getMap();
     }
 
     @Override

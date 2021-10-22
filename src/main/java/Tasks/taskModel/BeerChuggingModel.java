@@ -70,7 +70,7 @@ public class BeerChuggingModel {
         initTimerSetup();
         initHighScoreBox();
         readHighScoreList();
-        background = Ekak.EKAK.loadMap();
+        background = Ekak.INSTANCE.loadMap();
     }
 
     /**

@@ -23,13 +23,6 @@ public interface MapState {
      */
     TiledMap loadMap() throws SlickException;
 
-    String getDPath();
-
-    /**
-     * @return the current MapState
-     */
-    MapState map();
-
     /**
      * The top layers are those layers that should be rendered after the player so that it looks like
      * the player is behind the object. Most of the maps only have 1 top layer, but some need 2 (might be even more)

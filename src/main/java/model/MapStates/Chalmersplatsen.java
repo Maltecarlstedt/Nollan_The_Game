@@ -11,7 +11,7 @@ import org.newdawn.slick.tiled.TiledMap;
  * @author Clara
  */
 public class Chalmersplatsen extends TiledMapFactory implements MapState {
-    private static final Chalmersplatsen INSTANCE = new Chalmersplatsen();
+    public static final Chalmersplatsen INSTANCE = new Chalmersplatsen();
     private static final String DPATH = "data/maps/chalmershallplatsen.tmx";
 
     private Chalmersplatsen() {
@@ -23,7 +23,7 @@ public class Chalmersplatsen extends TiledMapFactory implements MapState {
         switch (playerModel.getOrientation()){
             case UP:
                 playerModel.setNewPlayerTile(440, 700);
-                return Karhuset.KARHUSET;
+                return Karhuset.INSTANCE;
             default:
                 return Chalmersplatsen.INSTANCE;
         }
@@ -32,16 +32,6 @@ public class Chalmersplatsen extends TiledMapFactory implements MapState {
     @Override
     public TiledMap loadMap() throws SlickException {
         return getMap();
-    }
-
-    @Override
-    public String getDPath() {
-        return DPATH;
-    }
-
-    @Override
-    public MapState map(){
-        return this;
     }
 
     @Override

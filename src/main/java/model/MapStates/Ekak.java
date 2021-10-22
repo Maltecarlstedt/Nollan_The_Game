@@ -10,38 +10,30 @@ import org.newdawn.slick.tiled.TiledMap;
  *
  * @author Clara
  */
-public enum Ekak implements MapState{
-    EKAK;
+public class Ekak extends TiledMapFactory implements MapState{
+    public static final Ekak INSTANCE = new Ekak();
+    private static final String DPATH = "data/maps/ekak.tmx";
 
-    private String dPath = "data/maps/ekak.tmx";
+    private Ekak(){ super(DPATH);}
 
     @Override
     public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case RIGHT:
                 playerModel.setNewPlayerTile(4, 440);
-                return Rannan.RANNAN;
+                return Rannan.INSTANCE;
             case LEFT:
                 playerModel.setNewPlayerTile(956, 240);
-                return Sandladan.SANDLADAN;
+                return Sandladan.INSTANCE;
             default:
-                return Ekak.EKAK;
+                return Ekak.INSTANCE;
 
         }
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(dPath);
-    }
-    @Override
-    public String getDPath() {
-        return dPath;
-    }
-
-    @Override
-    public MapState map(){
-        return this;
+        return getMap();
     }
 
     @Override

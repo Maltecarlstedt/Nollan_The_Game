@@ -45,7 +45,8 @@ public class GameDoneView extends BasicGameState {
 
 
         mapModel = new MapModel(collisionChecker);
-        mapModel.setCurrentMap(Gasquen.GASQUEN);
+       // mapModel.setCurrentMap(Gasquen.INSTANCE);
+
         mapView = new MapView(mapModel);
         mapController = new MapController(mapModel, mapView);
 

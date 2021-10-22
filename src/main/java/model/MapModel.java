@@ -17,10 +17,9 @@ import java.util.ArrayList;
  */
 public class MapModel{
     /** The current map in the form of a MapState (interface) */
-    private MapState current;
+    private static MapState current = Chalmersplatsen.INSTANCE;
     public MapState oldState;
 
-    public boolean mapChanged = false;
     /** The width and height of every tile of the map */
     private static final int tileWidth = 32, tileHeight = 32;
     /** The actual map in form of a TiledMap. makes us able to interact with specific tiles */
@@ -48,7 +47,7 @@ public class MapModel{
      * @throws SlickException - throws an exception if a filepath is not found
      */
     private void initMap(){
-        current = Chalmersplatsen.CHALMERSPLATSEN;
+        current = Chalmersplatsen.INSTANCE;
         oldState = getCurrentMap();
         //tiledMap = current.loadMap();
         //tileSetup();
@@ -84,7 +83,7 @@ public class MapModel{
      * @return true if the map has a task
      */
     public boolean hasTask(){
-        return getCurrentMap().equals(Ekak.EKAK) || getCurrentMap().equals(DeltaP.DELTAP);
+        return getCurrentMap().equals(Ekak.INSTANCE) || getCurrentMap().equals(DeltaP.INSTANCE);
     }
 
     /**
