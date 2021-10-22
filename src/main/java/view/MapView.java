@@ -18,14 +18,12 @@ public class MapView{
         initMapView(mapModel);
     }
 
-    public void initMapView(MapModel mapModel) throws SlickException {
+    private void initMapView(MapModel mapModel) throws SlickException {
         currentState = mapModel.getCurrentMap();
         loadTiledMap(mapModel);
-        //mapModel.tileSetup(tiledMap);
     }
 
     public void loadTiledMap(MapModel mapModel) throws SlickException {
-//        tiledMap = ViewTranslator.mapModel.getCurrentMap().loadMap();
         tiledMap = ViewTranslator.translateToView(mapModel.getCurrentMap());
     }
 

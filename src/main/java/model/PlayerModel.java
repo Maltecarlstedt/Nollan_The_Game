@@ -19,7 +19,7 @@ public class PlayerModel {
     private Orientation orientation;
     public int speed = 3;
     /** The location stored as a rectangle so we can use the "intercepts(Shape s)"-method in CollisionChecker */
-    private static Rectangle playerLocation = new Rectangle(250, 384, width, height);
+    private Rectangle playerLocation = new Rectangle(250, 384, width, height);
 
     /**
      * Creates an idle, basic player in the center of our window

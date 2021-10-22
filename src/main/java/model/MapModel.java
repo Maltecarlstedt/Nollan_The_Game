@@ -17,13 +17,11 @@ import java.util.ArrayList;
  */
 public class MapModel{
     /** The current map in the form of a MapState (interface) */
-    private static MapState current = Chalmersplatsen.INSTANCE;
+    private MapState current = Chalmersplatsen.INSTANCE;
     public MapState oldState;
 
     /** The width and height of every tile of the map */
     private static final int tileWidth = 32, tileHeight = 32;
-    /** The actual map in form of a TiledMap. makes us able to interact with specific tiles */
-   // private TiledMap tiledMap;
     /** This will keep a list of Tiles that are blocked */
     private boolean blocked[][];
     /** For collision detection, we have a list of Rectangles that contains all the collisions of the map */
@@ -35,7 +33,6 @@ public class MapModel{
     /**
      * The constructor that creates our map
      * @param collisionChecker - the collisionChecker that will make sure that the player cannot move to an obstructed tile
-     * @throws SlickException - throws an exception if a filepath is not found
      */
     public MapModel(CollisionChecker collisionChecker){
         initMap();
@@ -44,13 +41,10 @@ public class MapModel{
 
     /**
      * Initiates our first map, which is "Chalmersplatsen", sets up all the collisions of the map with tileSetup
-     * @throws SlickException - throws an exception if a filepath is not found
      */
     private void initMap(){
         current = Chalmersplatsen.INSTANCE;
         oldState = getCurrentMap();
-        //tiledMap = current.loadMap();
-        //tileSetup();
     }
 
     public MapState getCurrentMap(){ return current; }
