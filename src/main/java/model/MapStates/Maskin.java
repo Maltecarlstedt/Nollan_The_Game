@@ -16,7 +16,7 @@ public enum Maskin implements MapState{
     private String dPath = "data/maps/maskin.tmx";
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case RIGHT:
                 playerModel.setNewPlayerTile(4, 364);

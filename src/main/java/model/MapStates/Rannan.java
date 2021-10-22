@@ -16,7 +16,7 @@ public enum Rannan implements MapState{
     private String dPath = "data/maps/rannan.tmx";
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case DOWN:
                 playerModel.setNewPlayerTile(60, 4);

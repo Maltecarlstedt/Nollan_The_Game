@@ -17,7 +17,7 @@ public enum Dammen implements MapState{
     private String dPath = "data/maps/aDammen.tmx";
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case DOWN:
                 playerModel.setNewPlayerTile(360, 4);

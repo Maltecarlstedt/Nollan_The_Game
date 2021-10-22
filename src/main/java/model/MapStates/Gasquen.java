@@ -13,7 +13,7 @@ public enum Gasquen implements MapState{
     private String dPath = "data/maps/gasquen.tmx";
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
         return Gasquen.GASQUEN;
     }
 

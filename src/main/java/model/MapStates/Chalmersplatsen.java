@@ -16,7 +16,7 @@ public enum Chalmersplatsen implements MapState {
     private String dPath = "data/maps/chalmershallplatsen.tmx";
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException{
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case UP:
                 playerModel.setNewPlayerTile(440, 700);

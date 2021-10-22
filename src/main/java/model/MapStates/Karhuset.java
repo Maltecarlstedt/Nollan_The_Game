@@ -15,7 +15,7 @@ public enum Karhuset implements MapState{
     KARHUSET;
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
 
         switch (playerModel.getOrientation()){
             case DOWN:
