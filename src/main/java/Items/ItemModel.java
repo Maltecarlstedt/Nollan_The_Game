@@ -3,9 +3,6 @@ package Items;
 import Items.Filled.*;
 import Items.Unfilled.*;
 import model.PlayerModel;
-import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.FadeInTransition;
-import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,16 +40,6 @@ public class ItemModel {
      * @return the list of unfilled items
      */
     HashMap<String, Item> getItemsUf(){ return materialsUnfilled;}
-
-    /**
-     * Checks if the player has collected all items and so on won the game.
-     * @param sbg - the canvas which to be changed
-     */
-    void gameDone(StateBasedGame sbg){
-        if (itemsCollected()){
-            sbg.enterState(100, new FadeOutTransition(), new FadeInTransition());
-        }
-    }
 
     /**
      * Checks if all items has been found
