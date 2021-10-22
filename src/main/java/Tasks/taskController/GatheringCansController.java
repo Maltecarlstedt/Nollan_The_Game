@@ -1,10 +1,10 @@
 package Tasks.taskController;
 
-import Tasks.taskModel.Cans;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import Tasks.taskModel.GatheringCansModel;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.EmptyTransition;
 import org.newdawn.slick.state.transition.FadeInTransition;
@@ -95,17 +95,17 @@ public class GatheringCansController {
         gcm.mouseBall.setCenterX(gc.getInput().getMouseX());
         gcm.mouseBall.setCenterY(gc.getInput().getMouseY());
 
-        for (Cans p : gcm.getCans()) {
-            p.getCanLocation().getCenterX();
-            p.getCanLocation().getCenterY();
+        for (Rectangle p : gcm.getCans()) {
+            p.getCenterX();
+            p.getCenterY();
         }
 
         for (int i = gcm.getCans().size() - 1; i >= 0; i--) {
-            Cans p = gcm.getCans().get(i);
-            if (p.getCanLocation().intersects(gcm.mouseBall)) {
+            Rectangle p = gcm.getCans().get(i);
+            if (p.intersects(gcm.mouseBall)) {
                 gcm.getCans().remove(i);
                 gcm.increaseScore();
-                gcm.canRecieved();
+                gcm.canReceived();
                 // Not letting more than 5 cans spawn
                 if (gcm.getCans().size() < 5){
                     gcm.addCan();

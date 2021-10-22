@@ -30,7 +30,7 @@ public class ConcreteNPC {
     public Animation animation;
 
     public ConcreteNPC(MapState current, int width, int height, int taskHeight, int state, int x, int y,
-                       String characterString, String taskString, boolean isShowing) throws SlickException {
+                       String characterString, String taskString, boolean isShowing)  {
         this.current = current;
         this.width = width;
         this.height = height;
@@ -40,7 +40,8 @@ public class ConcreteNPC {
         this.characterString = characterString;
         this.taskString = taskString;
         this.isShowing = isShowing;
-        spriteSetup();
+        animation = new Animation();
+       // animation = new Animation();
 
     }
 
@@ -48,7 +49,7 @@ public class ConcreteNPC {
      * Fetches correct Sprite and creates the animation
      * @throws SlickException Generic Exception
      */
-    void spriteSetup() throws SlickException {
+   /* void spriteSetup() throws SlickException {
         animation = new Animation();
         if (state == 0) {
             character = new SpriteSheet(taskString, width, taskHeight);
@@ -60,6 +61,8 @@ public class ConcreteNPC {
         }
 
     }
+
+    */
 
 
     /**
@@ -73,9 +76,6 @@ public class ConcreteNPC {
     Point getLocation(){
         return location;
     }
-
-
-
 
     /**
      * Sets visibility.

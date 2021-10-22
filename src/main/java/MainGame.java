@@ -109,8 +109,6 @@ public class MainGame extends BasicGameState {
         // Render the map
         mapView.render(mapModel);
 
-
-
         // Renders The player
         playerView.render(g, playerModel);
         // Renders the top layer
@@ -121,15 +119,12 @@ public class MainGame extends BasicGameState {
        // itemView.renderImages(g, itemModel);
 
         //Renders the textBoxes
-        textBoxView.render(g, textBoxModel.textboxes);
         textBoxModel.initTextBoxes();
-        textBoxModel.showTextBox(mapModel);
-        //Renders the nps
-        npcModel.showNPC(mapModel);
-        npcModel.initList();
-        npcView.render(g, npcModel.NPCs);
+        textBoxView.render(g, textBoxModel.textboxes, mapModel);
 
-        //test(mapModel);
+        //Renders the nps
+        npcModel.initList();
+        npcView.render(g, npcModel.NPCs, mapModel);
 
     }
 
