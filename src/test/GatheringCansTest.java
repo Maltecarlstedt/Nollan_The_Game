@@ -2,6 +2,7 @@ import Tasks.Highscores;
 import Tasks.taskModel.GatheringCansModel;
 import junit.framework.TestCase;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -9,89 +10,86 @@ import java.lang.reflect.Field;
 
 
 public class GatheringCansTest extends TestCase {
+    GatheringCansModel gcm;
+
+    @Before
+    public void init() {
+        gcm = new GatheringCansModel();
+    }
 
     @Test
     public void testGetScore() {
-        GatheringCansModel testScore = new GatheringCansModel();
-        testScore.increaseScore();
-        Assert.assertEquals(1,testScore.getScore());
-        Assert.assertTrue(testScore.getScore() == 1);
+        gcm.increaseScore();
+        Assert.assertEquals(1,gcm.getScore());
+        Assert.assertTrue(gcm.getScore() == 1);
     }
 
     @Test
     public void testAddCan() {
-        GatheringCansModel testCan = new GatheringCansModel();
+        gcm.addCan();
+        gcm.addCan();
+        gcm.addCan();
 
-        testCan.addCan();
-        testCan.addCan();
-        testCan.addCan();
-
-        Assert.assertEquals(3,testCan.getCans().size());
+        Assert.assertEquals(3,gcm.getCans().size());
     }
 
     @Test
     public void testAddResetHighscore() {
-        GatheringCansModel testCan = new GatheringCansModel();
+        gcm.increaseScore();
+        gcm.increaseScore();
 
-        testCan.increaseScore();
-        testCan.increaseScore();
+        gcm.resetScore();
 
-        testCan.resetScore();
+        gcm.increaseScore();
+        gcm.increaseScore();
+        gcm.increaseScore();
 
-        testCan.increaseScore();
-        testCan.increaseScore();
-        testCan.increaseScore();
-
-        Assert.assertEquals(3,testCan.getScore());
+        Assert.assertEquals(3,gcm.getScore());
     }
 
     @Test
     public void testArrayHighscore() {
-        GatheringCansModel testCan = new GatheringCansModel();
+        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
+        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
+        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
+        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
+        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
+        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
 
-        testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();
-        testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();
-        testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();
-        testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();
-        testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();
-        testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();testCan.increaseScore();
-
-        testCan.addHighScore();
-        Assert.assertTrue(testCan.getCanHighscore().get(2) == 42);
+        gcm.addHighScore();
+        Assert.assertTrue(gcm.getCanHighscore().get(2) == 42);
     }
 
     @Test
     public void testTimer() {
-        GatheringCansModel testCan = new GatheringCansModel();
+        double test = gcm.getTaskTimer();
 
-        double test = testCan.getTaskTimer();
+        gcm.outOfTime();
 
-        testCan.outOfTime();
+        gcm.resetTimer();
+        gcm.canReceived();
+        gcm.canReceived();
+        gcm.canReceived();
+        gcm.canReceived();
 
-        testCan.resetTimer();
-        testCan.canReceived();
-        testCan.canReceived();
-        testCan.canReceived();
-        testCan.canReceived();
-
-        testCan.timerUpdate(2);
-
-        Assert.assertTrue(testCan.getTaskTimer() > test);
+        gcm.timerUpdate(2);
+        System.out.println(test);
+        System.out.println(gcm.getTaskTimer());
+        Assert.assertTrue(gcm.getTaskTimer() > test);
     }
 
     // förväntat fel, catches it.
     @Test (expected = IOException.class)
     public void testCatchHighscore() {
-        GatheringCansModel test = new GatheringCansModel();
         try {
             Field privateHighscoreField = GatheringCansModel.class.getDeclaredField("hs");
             privateHighscoreField.setAccessible(true);
             // skapar filepath som inte finns aka tom.
-            privateHighscoreField.set(test, new Highscores(""));
+            privateHighscoreField.set(gcm, new Highscores(""));
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        test.addHighScore();
+        gcm.addHighScore();
 
 
 
