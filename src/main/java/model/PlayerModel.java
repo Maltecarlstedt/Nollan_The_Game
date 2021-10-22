@@ -50,32 +50,32 @@ public class PlayerModel {
      * Moves the character up and changes the current animation accordingly
      */
     public void moveUp() {
-        orientation = Orientation.UP;
         move();
+        orientation = Orientation.UP;
     }
 
     /**
      * Moves the character left and changes the current animation accordingly
      */
     public void moveLeft() {
-        orientation = Orientation.LEFT;
         move();
+        orientation = Orientation.LEFT;
     }
 
     /**
      * Moves the character right and changes the current animation accordingly
      */
     public void moveRight() {
-        orientation = Orientation.RIGHT;
         move();
+        orientation = Orientation.RIGHT;
     }
 
     /**
      * Moves the character down and changes the current animation accordingly
      */
     public void moveDown() {
-        orientation = Orientation.DOWN;
         move();
+        orientation = Orientation.DOWN;
     }
 
     /**

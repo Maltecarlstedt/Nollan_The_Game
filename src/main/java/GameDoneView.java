@@ -80,6 +80,7 @@ public class GameDoneView extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         mapController.update(gc, delta, mapModel);
 
+
         int posX = Mouse.getX();
         int posY = Mouse.getY();
 
