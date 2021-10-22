@@ -13,13 +13,13 @@ public class MapTest extends TestCase {
     CollisionChecker collisionChecker;
 
     @Before
-    public void init() throws SlickException {
+    public void init(){
         collisionChecker = new CollisionChecker();
         mapModel = new MapModel(collisionChecker);
     }
 
     public void testGetCurrentMap(){
-        assertEquals(mapModel.getCurrentMap(), Karhuset.KARHUSET);
+        assertEquals(mapModel.getCurrentMap(), Karhuset.INSTANCE);
     }
 
     public void testSetTiledMap(){

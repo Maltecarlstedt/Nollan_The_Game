@@ -13,6 +13,6 @@ public class Karkort extends Item {
     public Karkort(){
         filePathToItem = "data/material/karkortet.png";
         location = new Rectangle(250,250,32,32);
-        currentMap = Karhuset.KARHUSET;
+        currentMap = Karhuset.INSTANCE;
     }
 }

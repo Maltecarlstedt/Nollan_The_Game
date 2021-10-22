@@ -19,7 +19,7 @@ public class PlayerModel {
     private Orientation orientation;
     public int speed = 3;
     /** The location stored as a rectangle so we can use the "intercepts(Shape s)"-method in CollisionChecker */
-    private static Rectangle playerLocation = new Rectangle(250, 384, width, height);
+    private Rectangle playerLocation = new Rectangle(250, 384, width, height);
 
     /**
      * Creates an idle, basic player in the center of our window
@@ -50,32 +50,32 @@ public class PlayerModel {
      * Moves the character up and changes the current animation accordingly
      */
     public void moveUp() {
-        orientation = Orientation.UP;
         move();
+        orientation = Orientation.UP;
     }
 
     /**
      * Moves the character left and changes the current animation accordingly
      */
     public void moveLeft() {
-        orientation = Orientation.LEFT;
         move();
+        orientation = Orientation.LEFT;
     }
 
     /**
      * Moves the character right and changes the current animation accordingly
      */
     public void moveRight() {
-        orientation = Orientation.RIGHT;
         move();
+        orientation = Orientation.RIGHT;
     }
 
     /**
      * Moves the character down and changes the current animation accordingly
      */
     public void moveDown() {
-        orientation = Orientation.DOWN;
         move();
+        orientation = Orientation.DOWN;
     }
 
     /**

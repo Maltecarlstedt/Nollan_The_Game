@@ -11,37 +11,35 @@ import org.newdawn.slick.tiled.TiledMap;
  *
  * @author Clara
  */
-public enum DeltaP implements MapState{
-    DELTAP;
+public class DeltaP extends TiledMapFactory implements MapState{
+    public static final DeltaP INSTANCE = new DeltaP();
+    private static final String DPATH = "data/maps/deltaP.tmx";
 
-    private String dPath = "data/maps/deltaP.tmx";
+    protected DeltaP() {
+        super(DPATH);
+    }
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case DOWN:
                 playerModel.setNewPlayerTile(600, 4);
-                return Rannan.RANNAN;
+                return Rannan.INSTANCE;
             case RIGHT:
                 playerModel.setNewPlayerTile(4, 340);
-                return Dammen.ADAMMEN;
+                return Dammen.INSTANCE;
             case LEFT:
                 playerModel.setNewPlayerTile(396, 4);
                 playerModel.moveDown();
-                return Sandladan.SANDLADAN;
+                return Sandladan.INSTANCE;
             default:
-                return DeltaP.DELTAP;
+                return DeltaP.INSTANCE;
         }
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(dPath);
-    }
-
-    @Override
-    public MapState map(){
-        return this;
+        return getMap();
     }
 
     @Override

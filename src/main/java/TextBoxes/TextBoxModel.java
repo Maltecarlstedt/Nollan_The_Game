@@ -35,7 +35,7 @@ public class TextBoxModel {
         markena = factory.createMarkenaTextBox();
 
 
-
+        initTextBoxes();
     }
 
     public void initTextBoxes(){

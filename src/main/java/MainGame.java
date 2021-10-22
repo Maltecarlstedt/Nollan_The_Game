@@ -85,9 +85,9 @@ public class MainGame extends BasicGameState {
         itemView = new ItemView();
         itemController = new ItemController(itemModel, itemView,playerModel);
 
-        mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);
-        mapView = new MapView();
+        mapView = new MapView(mapModel);
+        mapController = new MapController(mapModel, mapView);
 
         npcModel = new NPCModel();
         npcView = new NPCView();
@@ -119,11 +119,9 @@ public class MainGame extends BasicGameState {
        // itemView.renderImages(g, itemModel);
 
         //Renders the textBoxes
-        textBoxModel.initTextBoxes();
         textBoxView.render(g, textBoxModel.textboxes, mapModel);
 
         //Renders the nps
-        npcModel.initList();
         npcView.render(g, npcModel.NPCs, mapModel);
 
     }
@@ -141,7 +139,7 @@ public class MainGame extends BasicGameState {
         // Updates our player
         playerController.update(gc, sbg, delta);
         // Updates our map
-        mapController.update(gc, delta);
+        mapController.update(gc, delta, mapModel);
         // Checks if a task should be started and entered.
         enterTask.update(gc, mapModel, sbg);
 
