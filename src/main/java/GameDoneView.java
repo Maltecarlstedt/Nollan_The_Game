@@ -2,6 +2,7 @@ import controller.MapController;
 import model.CollisionChecker;
 import model.MapModel;
 import model.MapStates.Gasquen;
+import model.MapStates.MapState;
 import model.PlayerModel;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
@@ -40,13 +41,9 @@ public class GameDoneView extends BasicGameState {
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         CollisionChecker collisionChecker = new CollisionChecker();
-
         endGame = new Image("data/maps/images/avslutaSpeletButton.png");
 
-
         mapModel = new MapModel(collisionChecker);
-
-
         mapModel.setCurrentMap(Gasquen.INSTANCE);
         mapView = new MapView(mapModel);
         mapController = new MapController(mapModel, mapView);
