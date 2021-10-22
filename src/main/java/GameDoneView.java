@@ -45,8 +45,9 @@ public class GameDoneView extends BasicGameState {
 
 
         mapModel = new MapModel(collisionChecker);
-       // mapModel.setCurrentMap(Gasquen.INSTANCE);
 
+
+        mapModel.setCurrentMap(Gasquen.INSTANCE);
         mapView = new MapView(mapModel);
         mapController = new MapController(mapModel, mapView);
 
@@ -81,6 +82,7 @@ public class GameDoneView extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         mapController.update(gc, delta, mapModel);
+
 
         int posX = Mouse.getX();
         int posY = Mouse.getY();

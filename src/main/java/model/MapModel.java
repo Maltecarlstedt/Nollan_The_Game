@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class MapModel{
     /** The current map in the form of a MapState (interface) */
-    private static MapState current = Chalmersplatsen.INSTANCE;
+    private MapState current;
     public MapState oldState;
 
     /** The width and height of every tile of the map */
@@ -91,7 +91,8 @@ public class MapModel{
      * (may be some redundant code, the body of the method is taken from the internet.
      * Some slight changes made to adapt to our specific case)
      */
-    public void tileSetup(TiledMap tiledMap){ //TODO: ta bort onödig kod i denna metod (till exempel value? sätta in direkt i blocked arrayen istället?)
+    public void tileSetup() throws SlickException { //TODO: ta bort onödig kod i denna metod (till exempel value? sätta in direkt i blocked arrayen istället?)
+        TiledMap tiledMap = current.loadMap();
         // This will create an Array with all the Tiles in your map. When set to true, it means that Tile is blocked.
         blocked = new boolean[tiledMap.getWidth()][tiledMap.getHeight()];
         //clear the arraylist of collision tiles everytime you change map
@@ -102,24 +103,25 @@ public class MapModel{
         for(int i = 0; i < tiledMap.getWidth(); i++) {
             for(int j = 0; j < tiledMap.getHeight(); j++) {
 
-                String value;
+                boolean isCollision;
                 //Read the specific tile at place [i][j] in the array of the tiledmap
 
                 //Read the tileID at place [i][j] from the collision layer of the tiled map.
                 //each different type of tile have a specific tile ID.
                 //If no tile is placed in this layer -> tileID = 0
+
                 int tileID = tiledMap.getTileId(i, j, tiledMap.getLayerIndex("collision"));
 
                 // Get the value of the Property named "blocked"
                 if(tileID != 0){
-                    value = "true";
+                    isCollision = true;
                 }else{
-                    value = "false";
+                    isCollision = false;
                 }
 
 
                 // If the tile is in the collision layer, then...
-                if(value.equals("true")) {
+                if(isCollision) {
                     // We set that index of the TileMap as blocked
                     blocked[i][j] = true;
 
