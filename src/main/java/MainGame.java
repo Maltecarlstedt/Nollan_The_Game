@@ -116,6 +116,7 @@ public class MainGame extends BasicGameState {
 
         itemView.renderItemsToFind(g, itemModel, mapModel);
         itemView.renderUnfilledItems(g, itemModel);
+       // itemView.renderImages(g, itemModel);
 
         //Renders the textBoxes
         textBoxModel.initTextBoxes();
