@@ -4,6 +4,10 @@ import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
+
+
 public class GatheringCansTest extends TestCase {
 
     @Test
@@ -54,6 +58,43 @@ public class GatheringCansTest extends TestCase {
 
         testCan.addHighScore();
         Assert.assertTrue(testCan.getCanHighscore().get(2) == 42);
+    }
+
+    @Test
+    public void testTimer() {
+        GatheringCansModel testCan = new GatheringCansModel();
+
+        double test = testCan.getTaskTimer();
+
+        testCan.outOfTime();
+
+        testCan.resetTimer();
+        testCan.canReceived();
+        testCan.canReceived();
+        testCan.canReceived();
+        testCan.canReceived();
+
+        testCan.timerUpdate(2);
+
+        Assert.assertTrue(testCan.getTaskTimer() > test);
+    }
+
+    // förväntat fel, catches it.
+    @Test (expected = IOException.class)
+    public void testCatchHighscore() {
+        GatheringCansModel test = new GatheringCansModel();
+        try {
+            Field privateHighscoreField = GatheringCansModel.class.getDeclaredField("hs");
+            privateHighscoreField.setAccessible(true);
+            // skapar filepath som inte finns aka tom.
+            privateHighscoreField.set(test, new Highscores(""));
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        test.addHighScore();
+
+
+
     }
 
 }
