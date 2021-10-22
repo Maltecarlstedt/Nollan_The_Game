@@ -38,6 +38,11 @@ public enum Markena implements MapState{
     }
 
     @Override
+    public String getDPath() {
+        return dPath;
+    }
+
+    @Override
     public MapState map(){
         return this;
     }

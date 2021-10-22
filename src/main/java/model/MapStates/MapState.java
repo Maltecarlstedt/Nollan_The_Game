@@ -23,6 +23,8 @@ public interface MapState {
      */
     TiledMap loadMap() throws SlickException;
 
+    String getDPath();
+
     /**
      * @return the current MapState
      */

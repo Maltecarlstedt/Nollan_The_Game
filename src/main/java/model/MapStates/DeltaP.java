@@ -38,6 +38,10 @@ public enum DeltaP implements MapState{
     public TiledMap loadMap() throws SlickException {
         return new TiledMap(dPath);
     }
+    @Override
+    public String getDPath() {
+        return dPath;
+    }
 
     @Override
     public MapState map(){

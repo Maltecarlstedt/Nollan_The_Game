@@ -52,7 +52,7 @@ public class NPCModel {
         dnollk = factory.createDNollK();
 
 
-
+        initList();
 
         //tango = factory.createTango();
 

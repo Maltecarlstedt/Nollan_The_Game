@@ -48,7 +48,7 @@ public class CollisionChecker {
      * @return true if outside, else false
      */
     private boolean isNextRightOutside(PlayerModel player){
-        return (player.nextX() + player.getWidth() > currentMap.getWidth());
+        return (player.nextX() + player.getWidth() > 1024);
     }
     private boolean isNextLeftOutside(PlayerModel player){
         return (player.nextX() < 0);
@@ -57,7 +57,7 @@ public class CollisionChecker {
         return (player.nextY() < 0);
     }
     private boolean isNextDownOutside(PlayerModel player){
-        return (player.nextY() + player.getHeight() > currentMap.getHeight());
+        return (player.nextY() + player.getHeight() > 769);
     }
 
     /**

@@ -18,10 +18,13 @@ import java.util.ArrayList;
 public class MapModel{
     /** The current map in the form of a MapState (interface) */
     private MapState current;
+    public MapState oldState;
+
+    public boolean mapChanged = false;
     /** The width and height of every tile of the map */
     private static final int tileWidth = 32, tileHeight = 32;
     /** The actual map in form of a TiledMap. makes us able to interact with specific tiles */
-    private TiledMap tiledMap;
+   // private TiledMap tiledMap;
     /** This will keep a list of Tiles that are blocked */
     private boolean blocked[][];
     /** For collision detection, we have a list of Rectangles that contains all the collisions of the map */
@@ -35,7 +38,7 @@ public class MapModel{
      * @param collisionChecker - the collisionChecker that will make sure that the player cannot move to an obstructed tile
      * @throws SlickException - throws an exception if a filepath is not found
      */
-    public MapModel(CollisionChecker collisionChecker) throws SlickException {
+    public MapModel(CollisionChecker collisionChecker){
         initMap();
         collisionChecker.setCurrentMap(this);
     }
@@ -44,31 +47,36 @@ public class MapModel{
      * Initiates our first map, which is "Chalmersplatsen", sets up all the collisions of the map with tileSetup
      * @throws SlickException - throws an exception if a filepath is not found
      */
-    private void initMap() throws SlickException {
+    private void initMap(){
         current = Chalmersplatsen.CHALMERSPLATSEN;
-        tiledMap = current.loadMap();
-        tileSetup();
+        oldState = getCurrentMap();
+        //tiledMap = current.loadMap();
+        //tileSetup();
     }
 
     public MapState getCurrentMap(){ return current; }
 
     public void setCurrentMap(MapState current){ this.current = current; }
 
+    /*
     public TiledMap getTiledMap(){
         return tiledMap;
     }
 
     public void setTiledMap(TiledMap tiledMap) { this.tiledMap = tiledMap; }
 
+     */
+
     /**
      * Changes the map
      * @throws SlickException - if the filepath to the next map is not found.
      */
-    public void changeMap(PlayerModel playermodel) throws SlickException {
+    public void changeMap(PlayerModel playermodel){
+        oldState = getCurrentMap();
         current = current.nextMap(playermodel);
-        tiledMap = current.loadMap();
+        //tiledMap = current.loadMap();
         taskDone = false;
-        tileSetup();
+        //tileSetup();
     }
 
     /**
@@ -84,7 +92,7 @@ public class MapModel{
      * (may be some redundant code, the body of the method is taken from the internet.
      * Some slight changes made to adapt to our specific case)
      */
-    private void tileSetup(){ //TODO: ta bort onödig kod i denna metod (till exempel value? sätta in direkt i blocked arrayen istället?)
+    public void tileSetup(TiledMap tiledMap){ //TODO: ta bort onödig kod i denna metod (till exempel value? sätta in direkt i blocked arrayen istället?)
         // This will create an Array with all the Tiles in your map. When set to true, it means that Tile is blocked.
         blocked = new boolean[tiledMap.getWidth()][tiledMap.getHeight()];
         //clear the arraylist of collision tiles everytime you change map
@@ -132,6 +140,7 @@ public class MapModel{
         }
     }
 
+    /*
     public int getHeight(){
         return tiledMap.getHeight() * tiledMap.getTileHeight();
     }
@@ -139,6 +148,8 @@ public class MapModel{
     public int getWidth(){
         return tiledMap.getWidth() * tiledMap.getTileWidth();
     }
+
+     */
 
     public ArrayList<Rectangle> getBlocks() {
         return blocks;

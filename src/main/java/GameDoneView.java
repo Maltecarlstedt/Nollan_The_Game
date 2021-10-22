@@ -43,14 +43,14 @@ public class GameDoneView extends BasicGameState {
 
         endGame = new Image("data/maps/images/avslutaSpeletButton.png");
 
-        playerModel = new PlayerModel();
-        playerView = new PlayerView();
 
-        mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);
         mapModel.setCurrentMap(Gasquen.GASQUEN);
-        mapModel.setTiledMap(Gasquen.GASQUEN.loadMap());
-        mapView = new MapView();
+        mapView = new MapView(mapModel);
+        mapController = new MapController(mapModel, mapView);
+
+        playerModel = new PlayerModel();
+        playerView = new PlayerView();
 
     }
 
@@ -79,7 +79,7 @@ public class GameDoneView extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        mapController.update(gc, delta);
+        mapController.update(gc, delta, mapModel);
 
         int posX = Mouse.getX();
         int posY = Mouse.getY();
