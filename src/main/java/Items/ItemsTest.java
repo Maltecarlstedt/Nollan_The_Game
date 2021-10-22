@@ -1,19 +1,21 @@
 package Items;
 
 import junit.framework.TestCase;
+import model.PlayerModel;
 import org.junit.Before;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
 
 public class ItemsTest extends TestCase {
     private ItemModel im = new ItemModel();
 
     public void testGetUnfilledItems(){
-        im = new ItemModel();
         assertFalse(im.getItemsToFind().isEmpty());
         assertEquals(6, im.getItemsUf().size());
     }
 
     public void testGetItemsToFind(){
-        im = new ItemModel();
         assertFalse(im.getItemsToFind().isEmpty());
         assertEquals(6, im.getItemsToFind().size());
     }

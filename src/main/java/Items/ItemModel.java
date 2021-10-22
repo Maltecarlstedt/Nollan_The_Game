@@ -53,7 +53,7 @@ public class ItemModel {
             sbg.enterState(100, new FadeOutTransition(), new FadeInTransition());
         }
     }
-    
+
     /**
      * Checks if all items has been found
      * @return true if the list of items to be found is empty
