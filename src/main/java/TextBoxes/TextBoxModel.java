@@ -35,7 +35,6 @@ public class TextBoxModel {
         markena = factory.createMarkenaTextBox();
 
         initTextBoxes();
-
     }
 
     public void initTextBoxes() {
@@ -44,8 +43,6 @@ public class TextBoxModel {
         textboxes.add(ekak);
         textboxes.add(karhuset);
         textboxes.add(markena);
-
-
     }
 
     void showTextBoxes(MapModel mp) {
@@ -59,8 +56,4 @@ public class TextBoxModel {
         }
     });
 }
-
-
-
-
 }
