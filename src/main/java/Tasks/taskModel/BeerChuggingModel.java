@@ -1,16 +1,9 @@
 package Tasks.taskModel;
 
 import Tasks.Highscores;
-import model.MapStates.Ekak;
-import org.newdawn.slick.*;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.tiled.TiledMap;
-import org.newdawn.slick.util.ResourceLoader;
 
 import java.awt.*;
-import java.awt.Font;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -39,16 +32,16 @@ public class BeerChuggingModel {
     public ArrayList<Double> beerChuggingHighScore;
 
     /** Boolean for our green indicator to make sure it changes direction when reaching it's height*/
-    private boolean upDir = true;
+    public boolean upDir = true;
 
     /** Variable for time that has passed since the task started */
     public float timePassed;
 
     /** The speed at which the green indicator moves at */
-    private double greenIndicatorSpeed = 3;
+    public double greenIndicatorSpeed = 3;
 
     /** Boolean for if the jumping beer is inside the green indicator */
-    public boolean inside;
+    public boolean beerInside;
 
     public boolean isTaskFinished = false;
     public boolean isTaskRunning;
@@ -61,8 +54,7 @@ public class BeerChuggingModel {
     public float vY = 0;
 
     /**
-     * Constructor for beerchuggingmodel.
-     * @throws SlickException Generic exception
+     * Constructor for beerchuggingmodel. Starts the task and read from highscore
      */
     public BeerChuggingModel(){
         isTaskRunning = true;
@@ -90,10 +82,10 @@ public class BeerChuggingModel {
         }catch (IOException e){
             e.printStackTrace();
         }
-        // Even though the player might not be top 5 we add his or hers score either way.
         beerChuggingHighScore.add(Double.parseDouble(time));
-        beerChuggingHighScore = hs.readHighScore();
+        //beerChuggingHighScore = hs.readHighScore();
         Collections.sort(beerChuggingHighScore);
+        // Remove all but top 5
         hs.trimHighscore(beerChuggingHighScore);
     }
     /**
@@ -104,14 +96,14 @@ public class BeerChuggingModel {
         if(greenIndicatorRect.intersects(jumpingBeerRect) || greenIndicatorRect.contains(jumpingBeerRect)){
             numberOfChugs++;
             // Changes a boolean to indicate for player that the jumping beer is inside or intersected with the indicator.
-            inside = true;
+            beerInside = true;
         }else{
-            inside = false;
+            beerInside = false;
         }
         return numberOfChugs;
     }
     /**
-     * SKRIV OM
+     * Updates location for the jumping beer for each time the user has pressed the spacebar.
      */
     public void beerJump() {
         setJumpingBeerLocationY(getJumpingBeerLocationY() - 25);
@@ -121,6 +113,7 @@ public class BeerChuggingModel {
     /**
      * If the player has managed to be inside the green indicator for 30 updates. The sprite changes one image.
      * Resets the numberOfChugs until we have reached the last sprite.
+     * If task if finished we add our score. The score will only be added if we manage to beat the top 5 scores
      */
     public void updateChugAnimation(){
         if(numberOfChugs > 30){
@@ -130,6 +123,7 @@ public class BeerChuggingModel {
             // Task finished, add score and reset stuff
             if(isTaskRunning){
                 addHighScore();
+                beerChuggingHighScore = hs.readHighScore();
             }
             isTaskRunning = false;
         }
@@ -137,45 +131,46 @@ public class BeerChuggingModel {
 
     /**
      * A timer that updates the time it takes for player to chug beer.
-     * @param delta
+     * @param delta time in ms since last update
      */
     public void chugTimer(int delta){
-        // Stop when the beer is empty. AKA when reaching the last sprite.
-        if(chugIndexAnimation > 8){
-            // TODO:: Stanna tiden
-        }else
-            // Changes from ms to seconds
+        // Stop when the beer is empty.
+        if(!isTaskFinished){
+            // Changes from ms to seconds and adds to our variable
             timePassed += (double) delta/1000;
             // Round to two decimals.
             timePassed = (float) (Math.round(timePassed * 100.0) / 100.0);
+        }
     }
 
     /**
      * Updates the green indicator that moves up and down. Also increases its speed each time it changes dir.
      */
     public void loopGreenIndicatorLocation() {
-        if (upDir) {
-            if(getGreenIndicatorLocation().y > 326){
-                setGreenIndicatorLocation((int) (getGreenIndicatorLocation().y - greenIndicatorSpeed));
-            }else
-                upDir = false;
-            // Increasing speed each time it changes direction
-            greenIndicatorSpeed += 0.001;
+        if (upDir && getGreenIndicatorLocation().y > 326) {
+            setGreenIndicatorLocationY((int) (getGreenIndicatorLocation().y - greenIndicatorSpeed));
         }else{
-            if(getGreenIndicatorLocation().y < 630){
-                setGreenIndicatorLocation((int) (getGreenIndicatorLocation().y + greenIndicatorSpeed));
-            }else
-                upDir = true;
+            upDir = false;
             // Increasing speed each time it changes direction
-            greenIndicatorSpeed += 0.001;
         }
+
+        greenIndicatorSpeed += 0.002;
+
+        if (!upDir && getGreenIndicatorLocation().y < 630){
+            setGreenIndicatorLocationY((int) (getGreenIndicatorLocation().y + greenIndicatorSpeed));
+        }else{
+            upDir = true;
+            // Increasing speed each time it changes direction
+
+        }
+        greenIndicatorSpeed += 0.002;
     }
 
     public Rectangle getGreenIndicatorLocation(){
         return greenIndicatorRect;
     }
 
-    public void setGreenIndicatorLocation(int greenIndicatorReactLocation) {
+    public void setGreenIndicatorLocationY(int greenIndicatorReactLocation) {
         this.greenIndicatorRect.y = greenIndicatorReactLocation;
     }
 
@@ -191,8 +186,10 @@ public class BeerChuggingModel {
         this.jumpingBeerRect.y = jumpingBeerLocation;
     }
 
+    /**
+     * Resets the task so that it can be played again
+     */
     public void resetBeerChuggingTask() {
-        // TODO: Make sure the next time we enter the task the correct sprite is shown.
         chugIndexAnimation = 0;
         timePassed = 0;
         greenIndicatorSpeed = 3;

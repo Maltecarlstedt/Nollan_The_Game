@@ -8,8 +8,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.tiled.TiledMap;
 
-import java.awt.*;
-
 /**
  * @author Malte Carlstedt
  */
@@ -45,7 +43,7 @@ public class BeerChuggingView {
             g.drawImage(greenIndicatorImage, bcm.getGreenIndicatorLocation().x, bcm.getGreenIndicatorLocation().y);
 
            //TODO: Make a method so that we do NOT have logic inside our render method.
-           if (bcm.inside){
+           if (bcm.beerInside){
                // Draw a flash variant of the image to indicate that the jumping beer is inside.
                jumpingBeer.drawFlash(bcm.getJumpingBeerLocationX(), bcm.getJumpingBeerLocationY());
            }else{
