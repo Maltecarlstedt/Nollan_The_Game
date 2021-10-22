@@ -3,40 +3,31 @@ package NPC;
 import model.MapModel;
 import org.newdawn.slick.SlickException;
 
+import java.util.ArrayList;
+
 /**
  * @author Julia Böckert
  */
 
 public class NPCController {
-    NPCModel model;
+
+    boolean animationUpdateIsSet = false;
 
     public NPCController() throws SlickException {
-        model = new NPCModel();
+
     }
 
-    public void update(MapModel mp) throws SlickException {
-        for (ConcreteNPC npc : model.NPCs) {
-            if (!mp.taskDone) {
-                npc.state = 0;
-            } else {
-                npc.state = 1;
-            }
-    }
-
-
-        }
-    }
-
-   /* public void chooseSprite() throws SlickException {
-        for (ConcreteNPC npc : model.NPCs) {
-            if (npc.state == 0) {
-                npc.spriteSetup();
-            } else {
-                npc.spriteSetup();
+    public void update(ArrayList<ConcreteNPC> NPCs, int delta) {
+        if (animationUpdateIsSet) {
+            for (ConcreteNPC npc : NPCs) {
+                npc.animation.update(delta);
+                animationUpdateIsSet = true;
             }
         }
     }
 
-    */
+}
+
+
 
 

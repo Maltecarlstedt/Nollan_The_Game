@@ -1,10 +1,7 @@
 package TextBoxes;
 
 import model.MapModel;
-import org.newdawn.slick.Animation;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.*;
 
 import java.util.ArrayList;
 
@@ -14,37 +11,33 @@ import java.util.ArrayList;
 
 public class TextBoxView {
 
-
-    public void render(Graphics g, ArrayList<TextBox> tbs, MapModel mp) throws SlickException {
+    public TextBoxView(ArrayList<TextBox> tbs) throws SlickException {
         SpriteSetup(tbs);
-        drawTextBox(g, tbs);
-        showTextBox(mp, tbs);
     }
 
-    void drawTextBox(Graphics g, ArrayList<TextBox> tbs){
+
+    public void render(ArrayList<TextBox> tbs, TextBoxModel model, MapModel mp) throws SlickException {
+        //SpriteSetup(tbs);
+        model.showTextBoxes(mp);
+        drawTextBox(tbs);
+    }
+
+    void drawTextBox(ArrayList<TextBox> tbs){
         for (TextBox tb : tbs) {
             if (tb.isShowing) {
-                g.drawAnimation(tb.textAnim, tb.getLocation().x, tb.getLocation().y);
+                tb.backgroundBox.startUse();
+                tb.backgroundBox.drawEmbedded(tb.getLocation().x, tb.getLocation().y, tb.width, tb.height);
+                tb.backgroundBox.endUse();
             }
         }
     }
 
     void SpriteSetup (ArrayList<TextBox> tbs) throws SlickException {
         for(TextBox tb : tbs) {
-            tb.backgroundBox = new SpriteSheet(tb.textBoxFile, tb.width, tb.height);
-            tb.textAnim.addFrame(tb.backgroundBox.getSubImage(0, 0), 1);
+            tb.backgroundBox = new Image(tb.textBoxFile);
 
         }
     }
 
-    void showTextBox(MapModel mapModel, ArrayList<TextBox> tbs) {
-        tbs.forEach(textBox -> {
-            if (textBox.getCurrent().equals(mapModel.getCurrentMap())) {
-                textBox.setShowing(true);
-            }
-            if ((textBox.getCurrent() != mapModel.getCurrentMap())) {
-                textBox.setShowing(false);
-            }
-        });
-    }
+
 }

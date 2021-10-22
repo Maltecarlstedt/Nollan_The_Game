@@ -8,14 +8,10 @@ import org.newdawn.slick.SpriteSheet;
 import java.awt.*;
 
 /**
- * @author Julia
+ * @author Julia Böckert
  */
 
-
 public class ConcreteNPC {
-    /**
-     * @author Julia Böckert
-     */
 
     boolean isShowing;
     int width;
@@ -27,7 +23,10 @@ public class ConcreteNPC {
     String characterString;
     String taskString;
     public SpriteSheet character;
-    public Animation animation;
+    public SpriteSheet taskCharacter;
+    Animation animation;
+    Animation taskAnimation;
+
 
     public ConcreteNPC(MapState current, int width, int height, int taskHeight, int state, int x, int y,
                        String characterString, String taskString, boolean isShowing)  {
@@ -41,7 +40,8 @@ public class ConcreteNPC {
         this.taskString = taskString;
         this.isShowing = isShowing;
         animation = new Animation();
-       // animation = new Animation();
+        taskAnimation = new Animation();
+
 
     }
 
@@ -73,7 +73,7 @@ public class ConcreteNPC {
         return current;
     }
 
-    Point getLocation(){
+    public Point getLocation(){
         return location;
     }
 

@@ -1,4 +1,5 @@
 import Items.ItemModel;
+import NPC.ConcreteNPC;
 import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
@@ -17,9 +18,15 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
-    /**
+
+import java.util.ArrayList;
+
+/**
      * @author Malte Carlstedt
      * @author Alexander Brunnegård
+     * @author Steffanie Kristiansson
+     * @author Julia Böckert
+     * @author Clara Simonsson
      * Main class for controlling models, views and controllers
      */
 public class MainGame extends BasicGameState {
@@ -90,12 +97,13 @@ public class MainGame extends BasicGameState {
         mapView = new MapView();
 
         npcModel = new NPCModel();
-        npcView = new NPCView();
+        npcView = new NPCView(npcModel.NPCs);
         npcController = new NPCController();
 
         textBoxModel = new TextBoxModel();
-        textBoxView = new TextBoxView();
+        textBoxView = new TextBoxView(textBoxModel.textboxes);
         textBoxController = new TextBoxController();
+
     }
     /**
      * Our head render function that renders everything that needs to be drawn on the canvas
@@ -104,6 +112,8 @@ public class MainGame extends BasicGameState {
      * @param g The graphics context to be used for rendering
      * @throws SlickException
      */
+
+
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         // Render the map
@@ -119,12 +129,10 @@ public class MainGame extends BasicGameState {
        // itemView.renderImages(g, itemModel);
 
         //Renders the textBoxes
-        textBoxModel.initTextBoxes();
-        textBoxView.render(g, textBoxModel.textboxes, mapModel);
+        textBoxView.render(textBoxModel.textboxes, textBoxModel, mapModel);
 
         //Renders the nps
-        npcModel.initList();
-        npcView.render(g, npcModel.NPCs, mapModel);
+        npcView.render(g, npcModel, npcModel.NPCs, mapModel);
 
     }
 
@@ -147,12 +155,12 @@ public class MainGame extends BasicGameState {
 
         itemController.update(playerModel, itemModel, sbg);
 
-        npcController.update(mapModel);
+        npcController.update(npcModel.NPCs, delta);
 
-        textBoxController.update(mapModel);
-
-
+        textBoxController.update(mapModel, textBoxModel.textboxes);
     }
+
+
     /**
      * The id for this state
      * @return state number

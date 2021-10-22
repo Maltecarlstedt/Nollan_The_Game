@@ -4,7 +4,7 @@ import model.MapStates.*;
 import org.newdawn.slick.SlickException;
 
 /**
- * @author Julia
+ * @author Julia Böckert
  */
 
 public class TextBoxFactory {
