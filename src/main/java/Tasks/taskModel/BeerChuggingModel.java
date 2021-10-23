@@ -59,7 +59,7 @@ public class BeerChuggingModel {
     public BeerChuggingModel(){
         isTaskRunning = true;
         readHighScoreList();
-        background = Ekak.INSTANCE.loadMap();
+        //background = Ekak.INSTANCE.loadMap();
     }
 
    
