@@ -13,9 +13,9 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class GatheringCansTask extends BasicGameState {
 
-    private GatheringCansModel pm;
-    private GatheringCansController pc;
-    private GatheringCansView pv;
+    private GatheringCansModel gcm;
+    private GatheringCansController gcc;
+    private GatheringCansView gcv;
 
 
     /** Initiating the task.
@@ -25,9 +25,9 @@ public class GatheringCansTask extends BasicGameState {
      */
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        pm = new GatheringCansModel();
-        pv = new GatheringCansView();
-        pc = new GatheringCansController(pm);
+        gcm = new GatheringCansModel();
+        gcv = new GatheringCansView();
+        gcc = new GatheringCansController(gcm);
     }
 
     /** Render the can.
@@ -38,7 +38,7 @@ public class GatheringCansTask extends BasicGameState {
      */
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        pv.render(g, pm);
+        gcv.render(g, gcm);
     }
 
 
@@ -50,7 +50,7 @@ public class GatheringCansTask extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        pc.update(gc, sbg, delta);
+        gcc.update(gc, sbg, delta);
     }
 
 

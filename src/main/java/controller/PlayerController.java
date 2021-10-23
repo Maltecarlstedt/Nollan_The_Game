@@ -45,8 +45,8 @@ public class PlayerController {
         if(!animationUpdateIsSet)
             animationUpdate(delta);
 
-        System.out.println(delta);
         playerModel.getOrientation();
+
 
         Input input = gc.getInput();
 

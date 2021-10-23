@@ -2,6 +2,7 @@ package view;
 
 import model.MapModel;
 import model.MapStates.MapState;
+import model.TileSetup;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
@@ -25,7 +26,7 @@ public class MapView{
 
     public void loadTiledMap(MapModel mapModel) throws SlickException {
         tiledMap = ViewTranslator.translateToView(mapModel.getCurrentMap());
-        mapModel.tileSetup();
+        TileSetup.tileSetup(tiledMap);
     }
 
     /**
@@ -47,7 +48,7 @@ public class MapView{
      */
     public void renderTopLayer(MapModel mapModel){
         for(int i=0; i < mapModel.getCurrentTopLayers(); i++){
-            tiledMap.render(0, 0, tiledMap.getLayerCount()- mapModel.getCurrentTopLayers() + (i));
+            tiledMap.render(0, 0, tiledMap.getLayerCount()- currentState.getTopLayers() + (i));
         }
     }
 }

@@ -17,7 +17,7 @@ public class GatheringCansModel {
 
     /** Represents time passed on can-task.
      */
-    private float taskTimer = 10;
+    private float taskTimer = 5;
     public float canSpawnerTimer = 3;
     public Circle mouseBall;
     private int score = 0;
@@ -105,7 +105,7 @@ public class GatheringCansModel {
     }
 
     public void resetTimer(){
-        taskTimer = 10;
+        taskTimer = 5;
     }
 
     public float getTaskTimer() {

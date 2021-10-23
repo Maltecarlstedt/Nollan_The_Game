@@ -3,29 +3,31 @@ package TextBoxes;
 import model.MapModel;
 import org.newdawn.slick.SlickException;
 
+import java.util.ArrayList;
+
 /**
- * @author Julia
+ * @author Julia Böckert
  */
 
 public class TextBoxController {
 
 
-    TextBoxModel model;
 
     public TextBoxController() throws SlickException {
-        model = new TextBoxModel();
-    }
-
-    public void update(MapModel mp){
-        for(TextBox tb : model.textboxes){
-            if(!mp.taskDone){
-                tb.setShowing(false);
-            }
-            else{
-                tb.setShowing(true);
-            }
-        }
-
 
     }
-}
+
+    public void update(MapModel mp, ArrayList<TextBox> tbs){
+        tbs.forEach(textBox -> {
+            if ((textBox.getCurrent().equals(mp.getCurrentMap()))) {
+                textBox.setShowing(true);
+            }
+            if ((textBox.getCurrent() != mp.getCurrentMap())) {
+                textBox.setShowing(false);
+            }
+        });
+    }
+    }
+
+
+

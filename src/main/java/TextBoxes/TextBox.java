@@ -2,13 +2,14 @@ package TextBoxes;
 
 import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
 /**
- * @author Julia
+ * @author Julia Böckert
  */
 
 
@@ -16,8 +17,7 @@ import java.awt.*;
 
         Point location;
         MapState mapState;
-        Animation textAnim;
-        SpriteSheet backgroundBox;
+        Image backgroundBox;
         String textBoxFile;
         boolean isShowing;
 
@@ -31,19 +31,10 @@ import java.awt.*;
             this.mapState = mapState;
             this.width = width;
             this.height = height;
-            textAnim = new Animation();
 
 
         }
 
-        /*void SpriteSetup () throws SlickException {
-            textAnim = new Animation();
-            backgroundBox = new SpriteSheet(textBoxFile, width, height);
-            textAnim.addFrame(backgroundBox.getSubImage(0, 0), 1);
-
-        }
-
-         */
 
         /**
          * Gets the current map so that the correlated TextBox can be drawn.
