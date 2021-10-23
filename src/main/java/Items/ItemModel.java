@@ -2,8 +2,10 @@ package Items;
 
 import Items.Filled.*;
 import Items.Unfilled.*;
-import org.newdawn.slick.SlickException;
+import model.PlayerModel;
+
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Holds the information for the items to be found and the unfilled items
@@ -21,9 +23,8 @@ public class ItemModel {
 
     /**
      * The constructor of the ItemModel. It puts all the items in the lists
-     * @throws SlickException - throws an exception if a filepath to the image or map is not found
      */
-    public ItemModel() throws SlickException {
+    public ItemModel(){
         initMaterialsToFind();
         initMaterialsUnfilled();
     }
@@ -32,7 +33,7 @@ public class ItemModel {
      * Gets the list with the items that needs to be found.
      * @return the list of items to be found
      */
-    public HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
+    HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
 
     /**
      * Gets the list of items that are not found yet
@@ -49,10 +50,55 @@ public class ItemModel {
     }
 
     /**
-     * Puts all items to be collected in a hashmap
-     * @throws SlickException - throws an exception if a filepath to the image or map is not found
+     * Deletes the item when the player
+     * has either intersected with it on the map or won a task.
+     * @param pm - the player
+     * @param iv - our view of the item
      */
-    private void initMaterialsToFind() throws SlickException {
+    void deleteFoundItem(PlayerModel pm, ItemView iv){
+        for (Map.Entry<String, Item> material : getItemsToFind().entrySet()) {
+            String key = material.getKey();
+            Item value = material.getValue();
+            if (itemFound(pm, iv, value)) {
+                replace(key, value);
+                break;
+            }
+        }
+    }
+    /**
+     * Checks if the player has either intersected with the item on the map
+     * or completed a task on the map.
+     * @param pm - the player
+     * @param iv - our view of the item
+     * @param item - the specific item in our list
+     * @return true if the criteria are achieved
+     */
+    private boolean itemFound(PlayerModel pm, ItemView iv, Item item){
+        return (pm.getNextLocation().intersects(item.location) && iv.currentMap.equals(item.getCurrentMap()));
+    }
+
+    /**
+     * Replaces an item that isn´t found with the collected item.
+     * @param key - The name of the item that are found
+     * @param value - the item with a location and image
+     */
+    private void replace(String key, Item value){
+        for (Map.Entry<String, Item> material : getItemsUf().entrySet()) {
+            String replaceableKey = material.getKey();
+            Item replaceableValue = material.getValue();
+            if (replaceableKey.contains(key)) {
+                value.location = replaceableValue.location;
+                getItemsUf().replace(replaceableKey, replaceableValue, value);
+                getItemsToFind().remove(key, value);
+                break;
+            }
+        }
+    }
+
+    /**
+     * Puts all items to be collected in a hashmap
+     */
+    private void initMaterialsToFind(){
         materialsFilled.put("Scissor", new Scissor());
         materialsFilled.put("Karkort", new Karkort());
         materialsFilled.put("Cardboard", new Cardboard());
@@ -63,9 +109,8 @@ public class ItemModel {
 
     /**
      * Puts all items that are not found yet in a hashmap
-     * @throws SlickException - throws an exception if a filepath to the image or map is not found
      */
-    private void initMaterialsUnfilled() throws SlickException {
+    private void initMaterialsUnfilled(){
         materialsUnfilled.put("ScissorUf", new ScissorUf());
         materialsUnfilled.put("KarkortUf", new KarkortUf());
         materialsUnfilled.put("CardboardUf", new CardboardUf());

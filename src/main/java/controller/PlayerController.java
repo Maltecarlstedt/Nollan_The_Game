@@ -45,8 +45,16 @@ public class PlayerController {
         if(!animationUpdateIsSet)
             animationUpdate(delta);
 
-        // TODO: Egen funk?
+        playerModel.getOrientation();
+
+
         Input input = gc.getInput();
+
+        if (input.isKeyDown(Input.KEY_LSHIFT)){
+            playerModel.speed = 6;
+        }else{
+            playerModel.speed = 3;
+        }
         if (input.isKeyDown(Input.KEY_UP)) {
             checkMoveUp(sbg);
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
@@ -55,17 +63,18 @@ public class PlayerController {
             checkMoveRight(sbg);
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
             checkMoveDown(sbg);
-        }else
+        }else {
+            playerView.idlePlayer();
             playerModel.idlePlayer();
+        }
     }
 
     private void animationUpdate(int delta){
-        playerModel.MoveRightAni.update(delta); // these line makes sure the speed of the Animation is true
-        playerModel.MoveUpAni.update(delta);
-        playerModel.MoveLeftAni.update(delta);
-        playerModel.MoveDownAni.update(delta);
+        PlayerView.moveRightAni.update(delta); // these line makes sure the speed of the Animation is true
+        PlayerView.moveUpAni.update(delta);
+        PlayerView.moveLeftAni.update(delta);
+        PlayerView.moveDownAni.update(delta);
         animationUpdateIsSet = true;
-
     }
 
     private void checkMoveUp(StateBasedGame sbg) throws SlickException {
@@ -73,6 +82,7 @@ public class PlayerController {
             if (collisionChecker.isNextOutside(playerModel)) {
                 collisionChecker.checkMapState(playerModel, sbg);
             } else {
+                playerView.movingUp();
                 playerModel.moveUp();
             }
         }
@@ -82,6 +92,7 @@ public class PlayerController {
             if (collisionChecker.isNextOutside(playerModel)) {
                 collisionChecker.checkMapState(playerModel, sbg);
             } else {
+                playerView.movingDown();
                 playerModel.moveDown();
             }
         }
@@ -91,6 +102,7 @@ public class PlayerController {
             if (collisionChecker.isNextOutside(playerModel)) {
                 collisionChecker.checkMapState(playerModel, sbg);
             } else {
+                playerView.movingLeft();
                 playerModel.moveLeft();
             }
         }
@@ -100,6 +112,7 @@ public class PlayerController {
             if (collisionChecker.isNextOutside(playerModel)) {
                 collisionChecker.checkMapState(playerModel, sbg);
             } else {
+                playerView.movingRight();
                 playerModel.moveRight();
             }
         }

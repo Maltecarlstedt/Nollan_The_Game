@@ -10,30 +10,28 @@ import org.newdawn.slick.tiled.TiledMap;
  *
  * @author Clara
  */
-public enum Chalmersplatsen implements MapState {
-    CHALMERSPLATSEN;
+public class Chalmersplatsen extends TiledMapFactory implements MapState {
+    public static final Chalmersplatsen INSTANCE = new Chalmersplatsen();
+    private static final String DPATH = "data/maps/chalmershallplatsen.tmx";
 
-    private String dPath = "data/maps/chalmershallplatsen.tmx";
+    private Chalmersplatsen() {
+        super(DPATH);
+    }
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException{
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case UP:
                 playerModel.setNewPlayerTile(440, 700);
-                return Karhuset.KARHUSET;
+                return Karhuset.INSTANCE;
             default:
-                return Chalmersplatsen.CHALMERSPLATSEN;
+                return Chalmersplatsen.INSTANCE;
         }
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(dPath);
-    }
-
-    @Override
-    public MapState map(){
-        return this;
+        return getMap();
     }
 
     @Override
