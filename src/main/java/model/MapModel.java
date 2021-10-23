@@ -1,23 +1,18 @@
 package model;
 
-import controller.MapController;
 import model.MapStates.*;
-import org.lwjgl.Sys;
-import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.FadeInTransition;
-import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.tiled.TiledMap;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Map;
 
 
 // TODO:: TA REDA PÅ IFALL VI VILL EXTENDA TILED MAPS??
 
 /**
+ * @author Clara Simonsson
+ * @author Alexander Brunnegård
  * Holds all the information for the map
  */
 public class MapModel{
@@ -48,39 +43,43 @@ public class MapModel{
     }
 
     /**
-     * Initiates our first map, which is "karhuset", sets up all the collisions of the map with tileSetup
+     * Initiates our first map, which is "Chalmersplatsen", sets up all the collisions of the map with tileSetup
      * @throws SlickException - throws an exception if a filepath is not found
      */
     private void initMap() throws SlickException {
-        current = Karhuset.KARHUSET;
+        current = Chalmersplatsen.CHALMERSPLATSEN;
         tiledMap = current.loadMap();
         tileSetup();
     }
 
-    public void setTiledMap(MapState current){ this.current = current;}
+    public MapState getCurrentMap(){ return current; }
+
+    public void setCurrentMap(MapState current){ this.current = current; }
 
     public TiledMap getTiledMap(){
         return tiledMap;
     }
 
+    public void setTiledMap(TiledMap tiledMap) { this.tiledMap = tiledMap; }
+
     /**
-     * Changes the map, badly named still
+     * Changes the map
      * @throws SlickException - if the filepath to the next map is not found.
      */
-    public void checkState(PlayerModel playermodel) throws SlickException { //TODO: byta namn?
+    public void changeMap(PlayerModel playermodel) throws SlickException {
         current = current.nextMap(playermodel);
         tiledMap = current.loadMap();
         taskDone = false;
         tileSetup();
     }
 
+    /**
+     * Checks if there is a task on the map
+     * @return true if the map has a task
+     */
     public boolean hasTask(){
-        if (getCurrentMap().equals(Ekak.EKAK) || getCurrentMap().equals(DeltaP.DELTAP)){
-            return true;
-        }
-        return false;
+        return getCurrentMap().equals(Ekak.EKAK) || getCurrentMap().equals(DeltaP.DELTAP);
     }
-
 
     /**
      * The method that actually creates the collision tiles of the map
@@ -143,16 +142,8 @@ public class MapModel{
         return tiledMap.getWidth() * tiledMap.getTileWidth();
     }
 
-    public void setTiledMap(TiledMap tiledMap) {
-        this.tiledMap = tiledMap;
-    }
-
     public ArrayList<Rectangle> getBlocks() {
         return blocks;
-    }
-
-    public MapState getCurrentMap(){
-        return current;
     }
 
     public int getCurrentTopLayers(){

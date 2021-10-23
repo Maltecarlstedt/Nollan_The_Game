@@ -3,57 +3,55 @@ import model.MapModel;
 import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
+
+    /**
+     * @author Julia Böckert
+     */
 
 public class NPCModel {
 
     NPCFactory factory; // = new NPCFactory();
     NPCView npcView;
-    public ArrayList<NPC> NPCs; // = new ArrayList<>();
+   // public Hashtable<String, ConcreteNPC> npcs;
+    //public ArrayList<NPC> NPCs; // = new ArrayList<>();
+    //public ArrayList<TaskHoldingNPC> taskHoldingNPCs;
 
-    NPC webers;
-    NPC kritan;
-    NPC tango;
-    NPC ekak1;
-    NPC ekak2;
-    NPC bieber;
-    NPC kvalle;
-    NPC dnollk;
+    public ArrayList<ConcreteNPC> NPCs;
 
- /*
-    NPC webers = factory.npcs.get("Webers");
-    NPC  kritan = factory.npcs.get("Kritan");
-    NPC tango = factory.npcs.get("Tango");
-    NPC ekak1 = factory.npcs.get("Ekak1");
-    NPC ekak2 = factory.npcs.get("Ekak2");
-    NPC bieber = factory.npcs.get("Bieber");
-    NPC kvalle = factory.npcs.get("Kvalle");
-    NPC dnollk = factory.npcs.get("DNollK");
 
-  */
+    ConcreteNPC webers;
+    ConcreteNPC kritan;
+    ConcreteNPC tango;
+    ConcreteNPC ekak1;
+    ConcreteNPC ekak2;
+    ConcreteNPC bieber;
+    ConcreteNPC kvalle;
+    ConcreteNPC dnollk;
 
 
     public NPCModel() throws SlickException {
         npcView = new NPCView();
         factory = new NPCFactory();
-
+        //npcs = new Hashtable<>();
         NPCs = new ArrayList<>();
 
-        webers = factory.npcs.get("Webers");
-        kritan = factory.npcs.get("Kritan");
-        tango = factory.npcs.get("Tango");
-        ekak1 = factory.npcs.get("Ekak1");
-        ekak2 = factory.npcs.get("Ekak2");
-        bieber = factory.npcs.get("Bieber");
-        kvalle = factory.npcs.get("Kvalle");
-        dnollk = factory.npcs.get("DNollK");
+        //taskHoldingNPCs = new ArrayList<>();
+
+        webers = factory.createWebers();
+        kritan = factory.createKritan();
+        tango = factory.createTango();
+        ekak1 = factory.createEKAK1();
+        ekak2 = factory.createEKAK2();
+        bieber = factory.createBieber();
+        kvalle = factory.createKvalle();
+        dnollk = factory.createDNollK();
+
 
 
 
     }
 
-    /**
-     *
-     */
 
     //TODO: Make this prettier, inte speciellt OCP
     public void initList() {
@@ -65,10 +63,13 @@ public class NPCModel {
         NPCs.add(bieber);
         NPCs.add(kvalle);
         NPCs.add(dnollk);
-}
+
+    }
+
 
     /**
      * Displays the NPCs on the map that they belong to.
+     *
      * @param mapModel
      */
     public void showNPC(MapModel mapModel) {
@@ -76,10 +77,42 @@ public class NPCModel {
             if (npc.getCurrent().equals(mapModel.getCurrentMap())) {
                 npc.setShowing(true);
             }
-                if ((npc.getCurrent() != mapModel.getCurrentMap())) {
+            if ((npc.getCurrent() != mapModel.getCurrentMap())) {
                 npc.setShowing(false);
             }
         });
 
     }
-}
+
+    /*public void initHashTable() throws SlickException {
+        npcs.put("Webers", factory.createWebers());
+        npcs.put("Kritan", factory.createKritan());
+        npcs.put("Tango", factory.createTango());
+        npcs.put("Ekak1", factory.createEKAK1());
+        npcs.put("Ekak2", factory.createEKAK2());
+        npcs.put("Kvalle", factory.createKvalle());
+        npcs.put("Bieber", factory.createBieber());
+        npcs.put("DNollK", factory.createDNollK());
+
+     */
+
+
+    }
+
+    /*public void taskStateChanged(MapModel mapModel) {
+        for (NPC npc : NPCs) {
+            if (!mapModel.taskDone) {
+                npc.state = 0;
+            } else {
+                npc.state = 1;
+            }
+
+     */
+
+
+
+
+
+
+
+

@@ -25,3 +25,6 @@ build/
 /bin1/
 java/build/**
 out/
+
+# Highscore files
+*.txt

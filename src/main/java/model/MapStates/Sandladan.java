@@ -7,6 +7,8 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map Sandlådan.
+ *
+ * @author Clara
  */
 public enum Sandladan implements MapState{
     SANDLADAN;
@@ -29,11 +31,6 @@ public enum Sandladan implements MapState{
             default:
                 return Sandladan.SANDLADAN;
         }
-    }
-
-    @Override
-    public void setPosition(PlayerModel player) {
-
     }
 
     @Override

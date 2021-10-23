@@ -4,16 +4,22 @@ import model.MapModel;
 
 /**
  * A class that keeps the render methods for the map
+ * @author Alexander Brunnegård
  */
 public class MapView {
 
     /**
-     * Renders the entire map, i.e every single layer of the tiled map
+     * Renders the entire map except the toplayers
+     * (those who are rendered after the player)
      * @param mapModel - the current map
      */
     public void render(MapModel mapModel){
-        mapModel.getTiledMap().render(0,0);
+        for(int i=0; i < mapModel.getTiledMap().getLayerCount() - mapModel.getCurrentTopLayers(); i++) {
+            mapModel.getTiledMap().render(0, 0, i);
+        }
     }
+
+
 
     /**
      * Renders only the top layers, which are the layers that should be rendered after the player, so that it looks like

@@ -7,6 +7,8 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map Chalmershållplatsen.
+ *
+ * @author Clara
  */
 public enum Chalmersplatsen implements MapState {
     CHALMERSPLATSEN;
@@ -22,11 +24,6 @@ public enum Chalmersplatsen implements MapState {
             default:
                 return Chalmersplatsen.CHALMERSPLATSEN;
         }
-    }
-
-    @Override
-    public void setPosition(PlayerModel player) {
-
     }
 
     @Override

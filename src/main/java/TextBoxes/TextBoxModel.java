@@ -5,19 +5,35 @@ import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
 
+/**
+ * @author Julia
+ */
+
 public class TextBoxModel {
 
-    DeltaTextBox delta = new DeltaTextBox();
-    ChalmersTextBox chalmers = new ChalmersTextBox();
-    EkakTextBox ekak = new EkakTextBox();
-    KarhusetTextBox karhuset = new KarhusetTextBox();
-    MarkenaTextBox markena = new MarkenaTextBox();
+
+    TextBoxFactory factory;
+
+    TextBox delta;
+    TextBox chalmers;
+    TextBox ekak;
+    TextBox karhuset;
+    TextBox markena;
 
 
-    public ArrayList<AbstractTextBox> textboxes;
+    public ArrayList<TextBox> textboxes;
 
     public TextBoxModel() throws SlickException {
         textboxes = new ArrayList<>();
+        factory = new TextBoxFactory();
+
+        delta = factory.createDeltaTextBox();
+        chalmers = factory.createChalmersText();
+        ekak = factory.createEkakTextBox();
+        karhuset = factory.createKarhusetTextBox();
+        markena = factory.createMarkenaTextBox();
+
+
     }
 
     public void initTextBoxes(){
@@ -40,4 +56,7 @@ public class TextBoxModel {
             }
         });
     }
+
+
+
 }

@@ -9,21 +9,19 @@ import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class TurquoiseColor extends Item {
 
     public TurquoiseColor() throws SlickException {
         img = new Image("data/material/turqoise_color.png");
         location = new Rectangle(450,450,32,32);
-        currentMap = Maskin.MASKIN;
+        currentMap = Karhuset.KARHUSET;//Maskin.MASKIN;
     }
 
     @Override
     public void render(Graphics g) {
         g.drawImage(img, location.x, location.y);
-    }
-
-    @Override
-    public void setShowing(boolean isItShowing) {
-        isShowing = isItShowing;
     }
 }

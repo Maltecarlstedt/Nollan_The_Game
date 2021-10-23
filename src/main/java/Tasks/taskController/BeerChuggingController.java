@@ -1,7 +1,5 @@
 package Tasks.taskController;
 
-import Items.ItemController;
-import Items.ItemModel;
 import Tasks.taskModel.BeerChuggingModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -12,6 +10,7 @@ import org.newdawn.slick.state.transition.HorizontalSplitTransition;
 import java.io.IOException;
 
 /**
+ * @author Malte Carlstedt
  * Controller for the Beer Chugging task
  */
 public class BeerChuggingController {
@@ -19,7 +18,7 @@ public class BeerChuggingController {
     /** An instance of our beerchugging model and View */
     private BeerChuggingModel bcm;
     /** The speed at which the green indicator moves at */
-    private double indicatorSpeed = 3;
+    private double greenIndicatorSpeed = 3;
     /** The negative downforce for pulling the jumpingbeer down after a jump*/
     private final static float gravity = 0.7f;
     /** The height of each jump when pressing the jump button */
@@ -48,7 +47,7 @@ public class BeerChuggingController {
      * @throws SlickException Generic Exception
      */
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException, IOException {
-        loopGreenThingyLocation();
+        loopGreenIndicatorLocation();
         beerJump(gc, delta);
         checkIntersect();
         updateChugAnimation();
@@ -76,22 +75,22 @@ public class BeerChuggingController {
     /**
      * Updates the green indicator that moves up and down. Also increases its speed each time it changes dir.
      */
-    public void loopGreenThingyLocation() {
+    public void loopGreenIndicatorLocation() {
         if (upDir) {
-            if(bcm.getGreenThingyLocation().y > 326){
-                bcm.setGreenThingyLocation((int) (bcm.getGreenThingyLocation().y - indicatorSpeed));
+            if(bcm.getGreenIndicatorLocation().y > 326){
+                bcm.setGreenIndicatorLocation((int) (bcm.getGreenIndicatorLocation().y - greenIndicatorSpeed));
             }else
                 upDir = false;
                 // Increasing speed each time it changed direction
-                indicatorSpeed += 0.001;
+                greenIndicatorSpeed += 0.001;
             }else{
-            if(bcm.getGreenThingyLocation().y < 630){
-                bcm.setGreenThingyLocation((int) (bcm.getGreenThingyLocation().y + indicatorSpeed));
+            if(bcm.getGreenIndicatorLocation().y < 630){
+                bcm.setGreenIndicatorLocation((int) (bcm.getGreenIndicatorLocation().y + greenIndicatorSpeed));
 
             }else
                 upDir = true;
             // Increasing speed each time it changed direction
-            indicatorSpeed += 0.001;
+            greenIndicatorSpeed += 0.001;
         }
     }
 
@@ -100,7 +99,7 @@ public class BeerChuggingController {
      * @return How many times the beer has been inside or intersected with the indicator.
      */
     public int checkIntersect(){
-        if(bcm.greenThingyReact.intersects(bcm.jumpingBeerRect) || bcm.greenThingyReact.contains(bcm.jumpingBeerRect)){
+        if(bcm.greenIndicatorRect.intersects(bcm.jumpingBeerRect) || bcm.greenIndicatorRect.contains(bcm.jumpingBeerRect)){
             numberOfChugs++;
             // Changes a boolean to indicate for player that the jumping beer is inside or intersected with the indicator.
             bcm.inside = true;
@@ -168,7 +167,7 @@ public class BeerChuggingController {
         // TODO: Make sure the next time we enter the task the correct sprite is shown.
         chugIndexAnimation = 0;
         bcm.timePassed = 0;
-        indicatorSpeed = 3;
+        greenIndicatorSpeed = 3;
         bcm.isTaskRunning = true;
         bcm.isTaskFinished = false;
     }

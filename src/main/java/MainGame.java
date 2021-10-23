@@ -1,7 +1,8 @@
 import Items.ItemModel;
+import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
-import TextBoxes.KarhusetTextBox;
+import TextBoxes.TextBoxController;
 import TextBoxes.TextBoxModel;
 import TextBoxes.TextBoxView;
 import controller.MapController;
@@ -17,6 +18,8 @@ import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
     /**
+     * @author Malte Carlstedt
+     * @author Alexander Brunnegård
      * Main class for controlling models, views and controllers
      */
 public class MainGame extends BasicGameState {
@@ -36,6 +39,7 @@ public class MainGame extends BasicGameState {
 
     private NPCView npcView;
     private NPCModel npcModel;
+    private NPCController npcController;
 
     private EnterTask enterTask;
 
@@ -43,11 +47,23 @@ public class MainGame extends BasicGameState {
 
     private TextBoxModel textBoxModel;
     private TextBoxView textBoxView;
+    private TextBoxController textBoxController;
 
 
     public MainGame(){
 
     }
+
+    /*public void test(MapModel m){
+        if(){
+            System.out.println("inte done");
+        }
+        else {
+           System.out.println("done");
+        }
+    }
+
+     */
 
     /**
      * Our head init function that initialize the different models of the game.
@@ -59,6 +75,7 @@ public class MainGame extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         // TODO:: Make this prettier
+
         collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
@@ -74,9 +91,11 @@ public class MainGame extends BasicGameState {
 
         npcModel = new NPCModel();
         npcView = new NPCView();
+        npcController = new NPCController();
 
         textBoxModel = new TextBoxModel();
         textBoxView = new TextBoxView();
+        textBoxController = new TextBoxController();
     }
     /**
      * Our head render function that renders everything that needs to be drawn on the canvas
@@ -90,25 +109,27 @@ public class MainGame extends BasicGameState {
         // Render the map
         mapView.render(mapModel);
 
-        itemView.renderItemsToFind(g, itemModel, mapModel);
-        itemView.renderUnfilledItems(g, itemModel);
+
 
         // Renders The player
         playerView.render(g, playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
-      
 
-    
-        //Renders the nps
-        npcModel.showNPC(mapModel);
-        npcModel.initList();
-        npcView.render(g, npcModel.NPCs);
+        itemView.renderItemsToFind(g, itemModel, mapModel);
+        itemView.renderUnfilledItems(g, itemModel);
 
         //Renders the textBoxes
         textBoxView.render(g, textBoxModel.textboxes);
         textBoxModel.initTextBoxes();
         textBoxModel.showTextBox(mapModel);
+        //Renders the nps
+        npcModel.showNPC(mapModel);
+        npcModel.initList();
+        npcView.render(g, npcModel.NPCs);
+
+        //test(mapModel);
+
     }
 
     /**
@@ -126,11 +147,13 @@ public class MainGame extends BasicGameState {
         // Updates our map
         mapController.update(gc, delta);
         // Checks if a task should be started and entered.
-
         enterTask.update(gc, mapModel, sbg);
 
-        itemController.update(playerModel, itemModel);
+        itemController.update(playerModel, itemModel, sbg);
 
+        npcController.update(mapModel);
+
+        textBoxController.update(mapModel);
 
 
     }

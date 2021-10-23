@@ -2,70 +2,75 @@ package Items;
 
 import Items.Filled.*;
 import Items.Unfilled.*;
-import model.MapStates.MapState;
 import org.newdawn.slick.SlickException;
-
-import java.awt.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Holds the information for the items to be found and the unfilled items
+ *
+ * @author Clara Simonsson
+ */
 public class ItemModel {
 
-    public Rectangle rect;
+    /**
+     * All items to be found and all unfilled items with their specific characteristics.
+     * The hashmaps/lists with the items
+     */
+    private final HashMap<String, Item> materialsFilled = new HashMap<>();
+    private final HashMap<String, Item> materialsUnfilled = new HashMap<>();
 
-    private Item scissor = new Scissor();
-    private Item karkort = new Karkort();
-    private Item cardboard = new Cardboard();
-    private Item rope = new Rope();
-    private Item blackColor = new BlackColor();
-    private Item turquoiseColor = new TurquoiseColor();
-
-    private Item scissorUf = new ScissorUf();
-    private Item karkortUf = new KarkortUf();
-    private Item cardboardUf = new CardboardUf();
-    private Item ropeUf = new RopeUf();
-    private Item blackColorUf = new BlackColorUf();
-    private Item turquoiseColorUf = new TurquoiseColorUf();
-
-    private HashMap<String, Item> materialsFilled = new HashMap<>();
-    private HashMap<String, Item> materialsUnfilled = new HashMap<>();
-    private ArrayList<MapState> itemMaps = new ArrayList<>();
-
-    public HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
-    public HashMap<String, Item> getItemsUf(){ return materialsUnfilled;}
-    public ArrayList<MapState> getItemMaps(){ return itemMaps; }
-
-
+    /**
+     * The constructor of the ItemModel. It puts all the items in the lists
+     * @throws SlickException - throws an exception if a filepath to the image or map is not found
+     */
     public ItemModel() throws SlickException {
-        initModel();
-
-        materialsFilled.put("Scissor", scissor);
-        materialsFilled.put("Karkort", karkort);
-        materialsFilled.put("Cardboard", cardboard);
-        materialsFilled.put("Rope", rope);
-        materialsFilled.put("BlackColor", blackColor);
-        materialsFilled.put("TurquoiseColor", turquoiseColor);
-
-
-        materialsUnfilled.put("ScissorUf", scissorUf);
-        materialsUnfilled.put("KarkortUf", karkortUf);
-        materialsUnfilled.put("CardboardUf", cardboardUf);
-        materialsUnfilled.put("RopeUf", ropeUf);
-        materialsUnfilled.put("BlackColorUf", blackColorUf);
-        materialsUnfilled.put("TurquoiseColorUf", turquoiseColorUf);
-
-
-    }
-    public void initModel(){
-        itemMaps.add(scissor.getCurrentMap());
-        itemMaps.add(karkort.getCurrentMap());
-        itemMaps.add(cardboard.getCurrentMap());
-        itemMaps.add(rope.getCurrentMap());
-        itemMaps.add(blackColor.getCurrentMap());
-        itemMaps.add(turquoiseColor.getCurrentMap());
+        initMaterialsToFind();
+        initMaterialsUnfilled();
     }
 
-    public void initRect(){
-        rect = new Rectangle(700,710, 350, 70);
+    /**
+     * Gets the list with the items that needs to be found.
+     * @return the list of items to be found
+     */
+    public HashMap<String, Item> getItemsToFind(){ return materialsFilled;}
+
+    /**
+     * Gets the list of items that are not found yet
+     * @return the list of unfilled items
+     */
+    HashMap<String, Item> getItemsUf(){ return materialsUnfilled;}
+
+    /**
+     * Checks if all items has been found
+     * @return true if the list of items to be found is empty
+     */
+    boolean itemsCollected(){
+        return getItemsToFind().size() == 0;
+    }
+
+    /**
+     * Puts all items to be collected in a hashmap
+     * @throws SlickException - throws an exception if a filepath to the image or map is not found
+     */
+    private void initMaterialsToFind() throws SlickException {
+        materialsFilled.put("Scissor", new Scissor());
+        materialsFilled.put("Karkort", new Karkort());
+        materialsFilled.put("Cardboard", new Cardboard());
+        materialsFilled.put("Rope", new Rope());
+        materialsFilled.put("BlackColor", new BlackColor());
+        materialsFilled.put("TurquoiseColor", new TurquoiseColor());
+    }
+
+    /**
+     * Puts all items that are not found yet in a hashmap
+     * @throws SlickException - throws an exception if a filepath to the image or map is not found
+     */
+    private void initMaterialsUnfilled() throws SlickException {
+        materialsUnfilled.put("ScissorUf", new ScissorUf());
+        materialsUnfilled.put("KarkortUf", new KarkortUf());
+        materialsUnfilled.put("CardboardUf", new CardboardUf());
+        materialsUnfilled.put("RopeUf", new RopeUf());
+        materialsUnfilled.put("BlackColorUf", new BlackColorUf());
+        materialsUnfilled.put("TurquoiseColorUf", new TurquoiseColorUf());
     }
 }

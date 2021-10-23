@@ -4,12 +4,17 @@ import org.newdawn.slick.Graphics;
 
 import java.util.ArrayList;
 
+/**
+ * @author Julia
+ */
+
 public class TextBoxView {
 
-    public void render(Graphics g, ArrayList<AbstractTextBox> atbs) {
-        for (AbstractTextBox atb : atbs) {
-            if (atb.isShowing) {
-                g.drawAnimation(atb.textAnim, atb.getLocation().x, atb.getLocation().y);
+
+    public void render(Graphics g, ArrayList<TextBox> tbs) {
+        for (TextBox tb : tbs) {
+            if (tb.isShowing) {
+                g.drawAnimation(tb.textAnim, tb.getLocation().x, tb.getLocation().y);
             }
         }
     }
