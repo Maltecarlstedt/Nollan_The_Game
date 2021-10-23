@@ -70,7 +70,7 @@ public class BeerChuggingController {
     public void exitTask(Input input, StateBasedGame sbg){
         if (input.isKeyDown(Input.KEY_F)){
             bcm.resetBeerChuggingTask();
-            sbg.enterState(1, new FadeOutTransition(), new HorizontalSplitTransition());
+            sbg.enterState(101, new FadeOutTransition(), new HorizontalSplitTransition());
         }
     }
 }

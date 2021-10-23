@@ -25,12 +25,12 @@ public class StateSetup extends StateBasedGame {
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
         this.addState(new GameMenu());
-        this.addState(new MainGame());
         this.addState(new HelpViewMenu());
         this.addState(new BeerChugginTask());
         this.addState(new BuildBridgeTask());
         this.addState(new GatheringCansTask());
         this.addState(new GameDoneView());
+        this.addState(new MainGame());
         // Enters state 0
         enterState(0);
     }

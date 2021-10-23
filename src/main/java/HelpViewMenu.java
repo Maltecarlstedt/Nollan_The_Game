@@ -63,7 +63,7 @@ public class HelpViewMenu extends BasicGameState {
         // start the game button
         if ((posX > 243 && posX < 781) && (posY > 106 && posY < 194)) {
             if (Mouse.isButtonDown(0)) {
-                sbg.enterState(1, new FadeOutTransition(), new FadeInTransition());
+                sbg.enterState(101, new FadeOutTransition(), new FadeInTransition());
             }
         }
         // TODO: fix a back "button" to get to the main menu

@@ -10,6 +10,7 @@ import controller.MapController;
 import Items.ItemController;
 import controller.PlayerController;
 import model.*;
+import model.MapStates.Chalmersplatsen;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -50,8 +51,6 @@ public class MainGame extends BasicGameState {
 
     private EnterTask enterTask;
 
-    private CollisionChecker collisionChecker;
-
     private TextBoxModel textBoxModel;
     private TextBoxView textBoxView;
     private TextBoxController textBoxController;
@@ -71,7 +70,7 @@ public class MainGame extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         // TODO:: Make this prettier
 
-        collisionChecker = new CollisionChecker();
+        CollisionChecker collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
@@ -83,6 +82,7 @@ public class MainGame extends BasicGameState {
         mapModel = new MapModel(collisionChecker);
         mapView = new MapView(mapModel);
         mapController = new MapController(mapModel, mapView);
+
 
         npcModel = new NPCModel();
         npcView = new NPCView(npcModel.NPCs);
@@ -158,6 +158,6 @@ public class MainGame extends BasicGameState {
      */
     @Override
     public int getID() {
-        return 1;
+        return 101;
     }
 }

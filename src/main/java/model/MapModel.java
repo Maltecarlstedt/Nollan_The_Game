@@ -37,6 +37,7 @@ public class MapModel{
      */
     private void initMap(){
         current = Chalmersplatsen.INSTANCE;
+        System.out.println(current);
         oldState = getCurrentMap();
     }
 

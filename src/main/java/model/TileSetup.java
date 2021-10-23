@@ -67,7 +67,4 @@ public class TileSetup {
         CollisionChecker.setCollisionTiles(blocks);
     }
 
-    public static ArrayList<Rectangle> getBlocks() {
-        return blocks;
-    }
 }

@@ -26,6 +26,8 @@ public class MapView{
 
     public void loadTiledMap(MapModel mapModel) throws SlickException {
         tiledMap = ViewTranslator.translateToView(mapModel.getCurrentMap());
+        System.out.println(tiledMap);
+        currentState = mapModel.getCurrentMap();
         TileSetup.tileSetup(tiledMap);
     }
 
