@@ -13,7 +13,7 @@ public class NPCModel {
 
         NPCFactory factory;
 
-        ArrayList<ConcreteNPC> NPCs;
+        public ArrayList<ConcreteNPC> NPCs;
 
 
         ConcreteNPC webers; //factory.createWebers();
