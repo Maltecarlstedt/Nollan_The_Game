@@ -8,8 +8,6 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map aDammen.
- *
- * @author Clara
  */
 public enum Dammen implements MapState{
     ADAMMEN;
@@ -33,6 +31,11 @@ public enum Dammen implements MapState{
                 return Dammen.ADAMMEN;
 
         }
+    }
+
+    @Override
+    public void setPosition(PlayerModel player) {
+
     }
 
     @Override

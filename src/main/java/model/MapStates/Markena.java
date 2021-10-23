@@ -7,8 +7,6 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map märkena.
- *
- * @author Clara
  */
 public enum Markena implements MapState{
     MARKENA;
@@ -30,6 +28,11 @@ public enum Markena implements MapState{
             default:
                 return Markena.MARKENA;
         }
+    }
+
+    @Override
+    public void setPosition(PlayerModel player) {
+
     }
 
     @Override

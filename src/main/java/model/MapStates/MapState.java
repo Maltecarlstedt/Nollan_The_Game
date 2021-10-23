@@ -18,6 +18,12 @@ public interface MapState {
     MapState nextMap(PlayerModel playerModel) throws SlickException;
 
     /**
+     * Sets the position in this map.
+     * @param player possible to change its location. (old, will probably be deleted)
+     */
+    void setPosition(PlayerModel player);
+
+    /**
      * Makes the right tiled map come in frame when it's supposed to be used.
      * @return the right tiled map for this state.
      * @throws SlickException throws an exception if the file for the TiledMap is not found.

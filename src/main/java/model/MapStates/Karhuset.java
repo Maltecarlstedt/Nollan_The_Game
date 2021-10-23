@@ -8,11 +8,15 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map Kårhuset.
- *
- * @author Clara
  */
 public enum Karhuset implements MapState{
     KARHUSET;
+
+    @Override
+    public void setPosition(PlayerModel player) {
+
+    }
+
 
     @Override
     public MapState nextMap(PlayerModel playerModel) throws SlickException {

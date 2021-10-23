@@ -8,8 +8,6 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 /**
- * @author Alexander Brunnegård
- * @author Malte Carlstedt
  * A class that holds all the data on our player
  */
 public class PlayerModel {
@@ -35,6 +33,8 @@ public class PlayerModel {
 
     /** The current animation, this changes depending on which direction the player is moving in */
     public Animation currentAnimation;
+
+
 
     /**
      * Creates an idle, basic player in the center of our window

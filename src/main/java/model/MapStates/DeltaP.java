@@ -8,8 +8,6 @@ import org.newdawn.slick.tiled.TiledMap;
 /**
  * Creates an enum for one map piece which holds the specific methods for just that map.
  * This map is for the tiled map deltaP.
- *
- * @author Clara
  */
 public enum DeltaP implements MapState{
     DELTAP;
@@ -32,6 +30,11 @@ public enum DeltaP implements MapState{
             default:
                 return DeltaP.DELTAP;
         }
+    }
+
+    @Override
+    public void setPosition(PlayerModel player) {
+
     }
 
     @Override

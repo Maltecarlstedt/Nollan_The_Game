@@ -10,8 +10,6 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import java.awt.*;
 
 /**
- * @author Alexander Brunnegård
- * @author Clara Simonsson
  * This class works as a mediator between the map and the player
  * Checks if the player is colliding with anything on said map
  */
@@ -38,37 +36,34 @@ public class CollisionChecker {
         return isInCollision;
     }
 
-    public boolean isNextOutside(PlayerModel player){
-        return isNextDownOutside(player) || isNextUpOutside(player)
-                || isNextLeftOutside(player) || isNextRightOutside(player);
-    }
     /**
      * All of these methods checks if the player's next location is outside the map
      * @param player - the player
      * @return true if outside, else false
      */
-    private boolean isNextRightOutside(PlayerModel player){
+
+    public boolean isNextRightOutside(PlayerModel player){
         return (player.nextX() + player.getWidth() > currentMap.getWidth());
     }
-    private boolean isNextLeftOutside(PlayerModel player){
+    public boolean isNextLeftOutside(PlayerModel player){
         return (player.nextX() < 0);
     }
-    private boolean isNextUpOutside(PlayerModel player){
+    public boolean isNextUpOutside(PlayerModel player){
         return (player.nextY() < 0);
     }
-    private boolean isNextDownOutside(PlayerModel player){
+    public boolean isNextDownOutside(PlayerModel player){
         return (player.nextY() + player.getHeight() > currentMap.getHeight());
     }
 
     /**
-     * Checks if the map should be changed
+     * Changes the map depending on which way the player is moving and which map it already is on.
      * @param player - the player
      * @param sbg - the current state of the game
      * @throws SlickException - if the filepath to the next map is not found.
      */
-    public void checkMapState(PlayerModel player, StateBasedGame sbg) throws SlickException {
+    public void changeMap(PlayerModel player, StateBasedGame sbg) throws SlickException {
         oldState = currentMap.getCurrentMap();
-        currentMap.changeMap(player);
+        currentMap.checkState(player);
         if (currentMap.getCurrentMap() != oldState){
             fadeOut(sbg);
             fadeIn(sbg);

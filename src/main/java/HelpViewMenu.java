@@ -8,9 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
-/**
- * @author Steffanie Kristiansson
- * Represents the help view menu.
+/** Represents the help view menu.
  */
 public class HelpViewMenu extends BasicGameState {
 
