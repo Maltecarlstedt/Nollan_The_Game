@@ -46,7 +46,6 @@ public class MapModel{
 
     /**
      * Changes the map
-     * @throws SlickException - if the filepath to the next map is not found.
      */
     public void changeMap(PlayerModel playermodel){
         oldState = getCurrentMap();
@@ -61,7 +60,7 @@ public class MapModel{
     public boolean hasTask(){
         return getCurrentMap().equals(Ekak.INSTANCE) || getCurrentMap().equals(DeltaP.INSTANCE);
     }
-
+  
     public int getCurrentTopLayers(){
         return current.getTopLayers();
     }

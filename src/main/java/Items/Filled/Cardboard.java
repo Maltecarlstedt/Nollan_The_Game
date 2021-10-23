@@ -1,7 +1,7 @@
 package Items.Filled;
 
 import Items.Item;
-import model.MapStates.Karhuset;
+import model.MapStates.Dammen;
 
 import java.awt.*;
 
@@ -13,6 +13,6 @@ public class Cardboard extends Item {
     public Cardboard(){
         filePathToItem = "data/material/cardboard.png";
         location = new Rectangle(300,300,32,32);
-        currentMap = Karhuset.INSTANCE;//Dammen.ADAMMEN;
+        currentMap = Dammen.INSTANCE;
     }
 }

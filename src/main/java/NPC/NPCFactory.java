@@ -14,7 +14,6 @@ public class NPCFactory {
 
     /**
      * Adds every key-value-combination to the HashTable
-     * @throws SlickException Generic exception
      */
 
     public ConcreteNPC createWebers() {
