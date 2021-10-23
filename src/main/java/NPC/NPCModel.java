@@ -11,6 +11,7 @@ import java.util.Hashtable;
 
 public class NPCModel {
 
+
         NPCFactory factory;
 
         public ArrayList<ConcreteNPC> NPCs;
@@ -72,13 +73,3 @@ public class NPCModel {
             });
 
         }
-
-    }
-
-
-
-
-
-
-
-

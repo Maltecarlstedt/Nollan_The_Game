@@ -60,6 +60,7 @@ public class Highscores {
                 highScoresSorted.add(Double.parseDouble(highScoreData));
             }
             Collections.sort(highScoresSorted);
+            trimHighscore(highScoresSorted);
             readHighScore.close();
         }catch (FileNotFoundException e){
             System.out.println("File not Found");

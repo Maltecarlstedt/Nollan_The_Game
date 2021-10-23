@@ -34,6 +34,7 @@ public class TextBoxModel {
         karhuset = factory.createKarhusetTextBox();
         markena = factory.createMarkenaTextBox();
 
+
         initTextBoxes();
     }
 
