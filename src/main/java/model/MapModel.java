@@ -62,7 +62,6 @@ public class MapModel{
 
     /**
      * Changes the map
-     * @throws SlickException - if the filepath to the next map is not found.
      */
     public void changeMap(PlayerModel playermodel){
         oldState = getCurrentMap();
@@ -134,6 +133,7 @@ public class MapModel{
             }
         }
     }
+
 
     /*
     public int getHeight(){

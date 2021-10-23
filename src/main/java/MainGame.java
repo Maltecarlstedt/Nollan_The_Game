@@ -54,17 +54,6 @@ public class MainGame extends BasicGameState {
 
     }
 
-    /*public void test(MapModel m){
-        if(){
-            System.out.println("inte done");
-        }
-        else {
-           System.out.println("done");
-        }
-    }
-
-     */
-
     /**
      * Our head init function that initialize the different models of the game.
      * @param gc The container that have the game

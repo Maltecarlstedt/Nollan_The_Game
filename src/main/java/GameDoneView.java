@@ -3,6 +3,7 @@ import model.CollisionChecker;
 import model.MapModel;
 import model.MapStates.Gasquen;
 import model.MapStates.MapState;
+import model.Orientation;
 import model.PlayerModel;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
@@ -51,9 +52,11 @@ public class GameDoneView extends BasicGameState {
         playerModel = new PlayerModel();
         playerView = new PlayerView();
 
+
+
     }
 
-    private float getPositionX(){ return 200;}
+    private float getPositionX(){ return 800;}
     private float getPositionY(){ return 350;}
     /**
      * Draws the player and the map on the screen
