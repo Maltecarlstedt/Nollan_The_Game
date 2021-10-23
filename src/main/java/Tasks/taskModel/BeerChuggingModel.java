@@ -1,16 +1,9 @@
 package Tasks.taskModel;
 
 import Tasks.Highscores;
-import model.MapStates.Ekak;
-import org.newdawn.slick.*;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.tiled.TiledMap;
-import org.newdawn.slick.util.ResourceLoader;
 
 import java.awt.*;
-import java.awt.Font;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -39,13 +32,13 @@ public class BeerChuggingModel {
     public ArrayList<Double> beerChuggingHighScore;
 
     /** Boolean for our green indicator to make sure it changes direction when reaching it's height*/
-    private boolean upDir = true;
+    public boolean upDir = true;
 
     /** Variable for time that has passed since the task started */
     public float timePassed;
 
     /** The speed at which the green indicator moves at */
-    private double greenIndicatorSpeed = 3;
+    public double greenIndicatorSpeed = 3;
 
     /** Boolean for if the jumping beer is inside the green indicator */
     public boolean beerInside;
@@ -61,8 +54,7 @@ public class BeerChuggingModel {
     public float vY = 0;
 
     /**
-     * Constructor for beerchuggingmodel.
-     * @throws SlickException Generic exception
+     * Constructor for beerchuggingmodel. Starts the task and read from highscore
      */
     public BeerChuggingModel(){
         isTaskRunning = true;
@@ -92,9 +84,10 @@ public class BeerChuggingModel {
         }catch (IOException e){
             e.printStackTrace();
         }
-        // Even though the player might not be top 5 we add his or hers score either way.
         beerChuggingHighScore.add(Double.parseDouble(time));
+
         Collections.sort(beerChuggingHighScore);
+        // Remove all but top 5
         hs.trimHighscore(beerChuggingHighScore);
     }
      /**
@@ -122,6 +115,7 @@ public class BeerChuggingModel {
     /**
      * If the player has managed to be inside the green indicator for 30 updates. The sprite changes one image.
      * Resets the numberOfChugs until we have reached the last sprite.
+     * If task if finished we add our score. The score will only be added if we manage to beat the top 5 scores
      */
     public void updateChugAnimation(){
         if(numberOfChugs > 30){
@@ -178,7 +172,7 @@ public class BeerChuggingModel {
         return greenIndicatorRect;
     }
 
-    public void setGreenIndicatorLocation(int greenIndicatorReactLocation) {
+    public void setGreenIndicatorLocationY(int greenIndicatorReactLocation) {
         this.greenIndicatorRect.y = greenIndicatorReactLocation;
     }
 
@@ -194,8 +188,10 @@ public class BeerChuggingModel {
         this.jumpingBeerRect.y = jumpingBeerLocation;
     }
 
+    /**
+     * Resets the task so that it can be played again
+     */
     public void resetBeerChuggingTask() {
-        // TODO: Make sure the next time we enter the task the correct sprite is shown.
         chugIndexAnimation = 0;
         timePassed = 0;
         greenIndicatorSpeed = 3;
