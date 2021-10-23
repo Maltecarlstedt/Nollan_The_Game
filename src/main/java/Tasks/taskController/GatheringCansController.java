@@ -102,7 +102,7 @@ public class GatheringCansController {
 
         for (int i = gcm.getCans().size() - 1; i >= 0; i--) {
             Rectangle p = gcm.getCans().get(i);
-            if (p.intersects(gcm.mouseBall)) {
+            if (p.intersects(gcm.mouseBall)) {//TODO: Innehållet här borde va i Model?
                 gcm.getCans().remove(i);
                 gcm.increaseScore();
                 gcm.canReceived();

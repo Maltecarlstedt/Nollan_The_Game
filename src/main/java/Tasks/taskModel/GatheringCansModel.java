@@ -82,7 +82,6 @@ public class GatheringCansModel {
             e.printStackTrace();
         }
         // Even though the player might not be top 5, we add his or hers score either way.
-        canHighscore.add((double)score);
         canHighscore = hs.readHighScore();
         Collections.reverse(canHighscore);
         hs.trimHighscore(canHighscore);
