@@ -8,6 +8,7 @@ import org.newdawn.slick.state.transition.EmptyTransition;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * @author Alexander Brunnegård
@@ -19,6 +20,7 @@ public class CollisionChecker {
 
     private MapModel currentMap;
     private MapState oldState;
+    private static ArrayList<Rectangle> collisionTiles;
 
     public CollisionChecker(){
     }
@@ -30,7 +32,7 @@ public class CollisionChecker {
      */
     public boolean isColliding(PlayerModel playerModel){
         boolean isInCollision = false;
-        for(Rectangle ret : currentMap.getBlocks()) {
+        for(Rectangle ret : collisionTiles) {
             if(playerModel.getNextLocation().intersects(ret)) {
                 isInCollision = true;
             }
@@ -57,7 +59,7 @@ public class CollisionChecker {
         return (player.nextY() < 0);
     }
     private boolean isNextDownOutside(PlayerModel player){
-        return (player.nextY() + player.getHeight() > 769);
+        return (player.nextY() + player.getHeight() > 768);
     }
 
     /**
@@ -87,5 +89,9 @@ public class CollisionChecker {
 
     public void setCurrentMap(MapModel currentMap) {
         this.currentMap = currentMap;
+    }
+
+    public static void setCollisionTiles(ArrayList<Rectangle> collisionTiles) {
+        CollisionChecker.collisionTiles = collisionTiles;
     }
 }
