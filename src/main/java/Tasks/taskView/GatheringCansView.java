@@ -24,7 +24,7 @@ public class GatheringCansView {
     }
 
     public void init() throws SlickException {
-        background = DeltaP.DELTAP.loadMap();
+        background = DeltaP.INSTANCE.loadMap();
         initHighScoreBox();
         initTimerSetup();
     }

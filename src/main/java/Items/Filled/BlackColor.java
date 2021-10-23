@@ -13,6 +13,6 @@ public class BlackColor extends Item {
     public BlackColor() {
         filePathToItem = "data/material/black_color.png";
         location = new Rectangle(400, 400, 32, 32);
-        currentMap = Karhuset.KARHUSET;//DeltaP.DELTAP;
+        currentMap = Karhuset.INSTANCE;//DeltaP.DELTAP;
     }
 }

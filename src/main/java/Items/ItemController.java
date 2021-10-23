@@ -2,8 +2,10 @@ package Items;
 
 import model.PlayerModel;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
-    /**
+/**
      * The class that dictates the update of the items
      *
      * @author Clara Simonsson
@@ -35,6 +37,16 @@ public class ItemController {
          */
     public void update(PlayerModel pm, ItemModel im, StateBasedGame sbg) {
         im.deleteFoundItem(pm, iv);
-        im.gameDone(sbg);
+        gameDone(sbg);
+    }
+
+    /**
+     * Checks if the player has collected all items and so on won the game.
+     * @param sbg - the canvas which to be changed
+     */
+    void gameDone(StateBasedGame sbg){
+        if (im.itemsCollected()){
+            sbg.enterState(100, new FadeOutTransition(), new FadeInTransition());
+        }
     }
 }

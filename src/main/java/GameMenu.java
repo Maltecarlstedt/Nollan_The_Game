@@ -23,6 +23,7 @@ public class GameMenu extends BasicGameState {
     Image background;
     Image nollan;
     Image help;
+    Image fullScreen;
     AppGameContainer apgcc;
 
     /** Initiating the images.
@@ -37,6 +38,7 @@ public class GameMenu extends BasicGameState {
         startGame = new Image("data/maps/images/startaButton.png");
         exitGame = new Image("data/maps/images/avslutaButton.png");
         help = new Image("data/maps/images/hjalpButton.png");
+        fullScreen = new Image("data/fullscreen_V2.png");
     }
 
     /** Render all the images.
@@ -52,6 +54,7 @@ public class GameMenu extends BasicGameState {
         startGame.drawCentered(1024/2,768/2);
         exitGame.drawCentered(1024/2,616);
         help.drawCentered(1024/2,500);
+        fullScreen.draw(950, 700);
     }
 
     /** Check the mouse, if clicked in specific area, move to state.
@@ -85,6 +88,14 @@ public class GameMenu extends BasicGameState {
                 System.exit(0);
             }
         }
+
+        // fullscreen button
+        if ((posX > 950 && posX < 1011) && (posY > 8 && posY < 65)){
+            if (Mouse.isButtonDown(0)){
+                gc.setFullscreen(true);
+            }
+        }
+
 
 
     }
