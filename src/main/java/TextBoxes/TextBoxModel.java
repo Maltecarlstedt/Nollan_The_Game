@@ -7,7 +7,7 @@ import org.newdawn.slick.SlickException;
 import java.util.ArrayList;
 
 /**
- * @author Julia
+ * @author Julia Böckert
  */
 
 public class TextBoxModel {
@@ -38,20 +38,23 @@ public class TextBoxModel {
         initTextBoxes();
     }
 
-    public void initTextBoxes(){
+    public void initTextBoxes() {
         textboxes.add(delta);
         textboxes.add(chalmers);
         textboxes.add(ekak);
         textboxes.add(karhuset);
         textboxes.add(markena);
-
-
-
     }
 
-    public void render(Graphics g){
-        g.drawAnimation(markena.textAnim, markena.getLocation().x, markena.getLocation().y);
-    }
-
-
+    void showTextBoxes(MapModel mp) {
+     textboxes.forEach(textBox ->
+    {
+        if ((textBox.getCurrent().equals(mp.getCurrentMap()))) {
+            textBox.setShowing(true);
+        }
+        if ((textBox.getCurrent() != mp.getCurrentMap())) {
+            textBox.setShowing(false);
+        }
+    });
+}
 }
