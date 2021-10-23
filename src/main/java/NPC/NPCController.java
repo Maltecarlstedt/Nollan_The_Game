@@ -13,7 +13,7 @@ public class NPCController {
 
     boolean animationUpdateIsSet = false;
 
-    public NPCController() throws SlickException {
+    public NPCController() {
 
     }
 

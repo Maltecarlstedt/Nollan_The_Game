@@ -17,7 +17,6 @@ public class TextBoxView {
 
 
     public void render(ArrayList<TextBox> tbs, TextBoxModel model, MapModel mp) throws SlickException {
-        //SpriteSetup(tbs);
         model.showTextBoxes(mp);
         drawTextBox(tbs);
     }

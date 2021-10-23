@@ -31,19 +31,3 @@ public class TextBoxController {
 
 
 
-
-    /*void showTextBox(MapModel mapModel, ArrayList<TextBox> tbs) {
-        tbs.forEach(textBox -> {
-            if (!mapModel.taskDone) {
-                textBox.setShowing(true);
-            }
-            if (mapModel.taskDone) {
-                textBox.setShowing(false);
-            }
-        });
-    }
-
-     */
-
-
-

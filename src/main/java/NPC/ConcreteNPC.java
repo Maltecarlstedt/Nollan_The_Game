@@ -22,8 +22,8 @@ public class ConcreteNPC {
     Point location;
     String characterString;
     String taskString;
-    public SpriteSheet character;
-    public SpriteSheet taskCharacter;
+    SpriteSheet character;
+    SpriteSheet taskCharacter;
     Animation animation;
     Animation taskAnimation;
 
@@ -44,26 +44,6 @@ public class ConcreteNPC {
 
 
     }
-
-    /**
-     * Fetches correct Sprite and creates the animation
-     * @throws SlickException Generic Exception
-     */
-   /* void spriteSetup() throws SlickException {
-        animation = new Animation();
-        if (state == 0) {
-            character = new SpriteSheet(taskString, width, taskHeight);
-            animation.addFrame(character.getSubImage(0, 0), 200);
-            animation.addFrame(character.getSubImage(1, 0), 200);
-        } else if (state == 1){
-            character = new SpriteSheet(characterString, width, height);
-            animation.addFrame(character.getSubImage(0, 0), 200);
-        }
-
-    }
-
-    */
-
 
     /**
      * Gets the current map so that the correlated NPC can be drawn.

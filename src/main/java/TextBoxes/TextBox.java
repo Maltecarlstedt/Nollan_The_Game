@@ -17,7 +17,6 @@ import java.awt.*;
 
         Point location;
         MapState mapState;
-        //Animation textAnim;
         Image backgroundBox;
         String textBoxFile;
         boolean isShowing;
@@ -32,7 +31,6 @@ import java.awt.*;
             this.mapState = mapState;
             this.width = width;
             this.height = height;
-            //textAnim = new Animation();
 
 
         }

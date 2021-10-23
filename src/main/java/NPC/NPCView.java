@@ -17,7 +17,6 @@ public class NPCView {
 
     public NPCView(ArrayList<ConcreteNPC> NPCs) throws SlickException {
         spriteSetup(NPCs);
-        //showNPC(mp, model, NPCs);
     }
 
 
@@ -55,7 +54,6 @@ public class NPCView {
                 npc.setShowing(false);
             }
         });
-
     }
 
     void spriteSetup(ArrayList<ConcreteNPC> NPCs) throws SlickException {
