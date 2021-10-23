@@ -3,6 +3,7 @@ package model;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
+import view.PlayerView;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
@@ -14,85 +15,18 @@ import java.awt.geom.Rectangle2D;
  */
 public class PlayerModel {
 
-    private final int width = 64, height = 64;
+    private static final int width = 64, height = 64;
     private Orientation orientation;
+    public int speed = 3;
     /** The location stored as a rectangle so we can use the "intercepts(Shape s)"-method in CollisionChecker */
-    private Rectangle playerLocation = new Rectangle(512, 384, width, height);
-
-    /** The different sprites (an image that can be split up into multiple images) and animations
-     * depending on the orientation the player moves in */
-    public SpriteSheet MoveRight; // initate a SpriteSheet
-    public Animation MoveRightAni; // initate an Animation
-
-    public SpriteSheet MoveLeft; // initate a SpriteSheet
-    public Animation MoveLeftAni; // initate an Animation
-
-    public SpriteSheet MoveUp; // initate a SpriteSheet
-    public Animation MoveUpAni; // initate an Animation
-
-    public SpriteSheet MoveDown; // initate a SpriteSheet
-    public Animation MoveDownAni; // initate an Animation
-
-    /** The current animation, this changes depending on which direction the player is moving in */
-    public Animation currentAnimation;
+    private Rectangle playerLocation = new Rectangle(250, 384, width, height);
 
     /**
      * Creates an idle, basic player in the center of our window
      */
-    public PlayerModel() throws SlickException {
+    public PlayerModel() {
         //TODO: Gör en try catch här för att slippa throwa slickException i playerController?
         orientation = Orientation.IDLE;
-        initPlayer();
-    }
-
-    /**
-     * Sets up our animation that we use for walking in game
-     */
-    public void animationSetup(){
-        MoveDownAni = new Animation();
-        MoveLeftAni = new Animation();
-        MoveRightAni = new Animation();
-        MoveUpAni = new Animation();
-
-
-        for(int i = 0; i <= 3; i++){
-            MoveDownAni.addFrame(MoveDown.getSubImage(i, 0), 200);
-            MoveRightAni.addFrame(MoveRight.getSubImage(i, 0), 200);
-            MoveLeftAni.addFrame(MoveLeft.getSubImage(i, 0), 200);
-            MoveUpAni.addFrame(MoveUp.getSubImage(i, 0), 200);
-        }
-    }
-
-    /**
-     * Creates all of our sprites, which basically is an image that we split up into 4 different subimages.
-     * Reason being that we use these 4 subimages to create an animation.
-     * @throws SlickException throws an exception if the file for the SpriteSheet is not found.
-     */
-    public void spriteSetup() throws SlickException {
-
-        MoveRight = new SpriteSheet("data/playerAnimation/gubbeRIGHT.spritesheet_V3.png",64,64); // declare a SpriteSheet and load it into java with its dimentions
-        MoveLeft = new SpriteSheet("data/playerAnimation/gubbeLEFT.spritesheet_V4.png",64,64); // declare a SpriteSheet and load it into java with its dimentions
-        MoveUp = new SpriteSheet("data/playerAnimation/gubbeUP.spritesheet_V3.png",64,64); // declare a SpriteSheet and load it into java with its dimentions
-        MoveDown = new SpriteSheet("data/playerAnimation/gubbeDOWN.spritesheet_V5.png",64,64); // declare a SpriteSheet and load it into java with its dimentions
-    }
-
-    /**
-     * Initiates all the attributes for our player.
-     * @throws SlickException throws an exception if the file for the SpriteSheet is not found.
-     */
-    public void initPlayer() throws SlickException {
-        spriteSetup();
-        animationSetup();
-        currentAnimation = MoveDownAni;
-    }
-
-    /**
-     * Starts the walking animation if it is stopped (it gets stopped when the player has been idle)
-     */
-    public void startAnimation(){
-        if(currentAnimation.isStopped()){
-            currentAnimation.start();
-        }
     }
 
     /**
@@ -100,7 +34,6 @@ public class PlayerModel {
      * (check the model.Orientation enum for more precise explanation)
      */
     public void move() {
-        startAnimation();
         setNewPlayerTile(nextX(), nextY());
     }
 
@@ -111,7 +44,6 @@ public class PlayerModel {
      */
     public void setNewPlayerTile(int x, int y) {
         playerLocation.setRect(x, y, width, height);
-
     }
 
     /**
@@ -120,7 +52,6 @@ public class PlayerModel {
     public void moveUp() {
         move();
         orientation = Orientation.UP;
-        currentAnimation = MoveUpAni;
     }
 
     /**
@@ -129,7 +60,6 @@ public class PlayerModel {
     public void moveLeft() {
         move();
         orientation = Orientation.LEFT;
-        currentAnimation = MoveLeftAni;
     }
 
     /**
@@ -138,7 +68,6 @@ public class PlayerModel {
     public void moveRight() {
         move();
         orientation = Orientation.RIGHT;
-        currentAnimation = MoveRightAni;
     }
 
     /**
@@ -147,16 +76,12 @@ public class PlayerModel {
     public void moveDown() {
         move();
         orientation = Orientation.DOWN;
-        currentAnimation = MoveDownAni;
     }
 
     /**
      * Stops the walking animation and makes the player idle.
      */
     public void idlePlayer() {
-        currentAnimation.stop();
-        currentAnimation.setCurrentFrame(1);
-
         orientation = Orientation.IDLE;
     }
 
@@ -184,14 +109,14 @@ public class PlayerModel {
      * @return the next X position for the player
      */
     public int nextX(){
-        return playerLocation.x + orientation.deltaX;
+        return playerLocation.x + orientation.deltaX * speed;
     }
 
     /**
      * @return the next Y position for the player
      */
     public int nextY(){
-        return playerLocation.y + orientation.deltaY;
+        return playerLocation.y + orientation.deltaY * speed;
     }
 
     /**
@@ -201,7 +126,7 @@ public class PlayerModel {
         return new Rectangle(nextX(), nextY(), width, height);
     }
 
-    public Rectangle2D getPlayerLocation() {
+    public Rectangle getPlayerLocation() {
         return playerLocation;
     }
 }

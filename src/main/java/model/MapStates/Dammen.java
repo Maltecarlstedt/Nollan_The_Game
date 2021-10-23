@@ -11,38 +11,36 @@ import org.newdawn.slick.tiled.TiledMap;
  *
  * @author Clara
  */
-public enum Dammen implements MapState{
-    ADAMMEN;
+public class Dammen extends TiledMapFactory implements MapState{
+    public static final Dammen INSTANCE = new Dammen();
+    private static final String DPATH = "data/maps/aDammen.tmx";
 
-    private String dPath = "data/maps/aDammen.tmx";
+    protected Dammen() {
+        super(DPATH);
+    }
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case DOWN:
                 playerModel.setNewPlayerTile(360, 4);
-                return Karhuset.KARHUSET;
+                return Karhuset.INSTANCE;
             case UP:
                 playerModel.setNewPlayerTile(900, 90);
                 playerModel.moveDown();
-                return DeltaP.DELTAP;
+                return DeltaP.INSTANCE;
             case LEFT:
                 playerModel.setNewPlayerTile(956, 460);
-                return DeltaP.DELTAP;
+                return DeltaP.INSTANCE;
             default:
-                return Dammen.ADAMMEN;
+                return Dammen.INSTANCE;
 
         }
     }
 
     @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(dPath);
-    }
-
-    @Override
-    public MapState map(){
-        return this;
+        return getMap();
     }
 
     @Override

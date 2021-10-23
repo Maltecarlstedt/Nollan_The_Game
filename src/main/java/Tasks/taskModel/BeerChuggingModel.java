@@ -59,8 +59,10 @@ public class BeerChuggingModel {
     public BeerChuggingModel(){
         isTaskRunning = true;
         readHighScoreList();
+        background = Ekak.INSTANCE.loadMap();
     }
 
+   
     /**
      * Reads the top 5 highscore for this task and adds them to an arrayList
      */
@@ -83,12 +85,12 @@ public class BeerChuggingModel {
             e.printStackTrace();
         }
         beerChuggingHighScore.add(Double.parseDouble(time));
-        //beerChuggingHighScore = hs.readHighScore();
+
         Collections.sort(beerChuggingHighScore);
         // Remove all but top 5
         hs.trimHighscore(beerChuggingHighScore);
     }
-    /**
+     /**
      * Checks if the jumping beer is inside or intersects with the green indicator
      * @return How many times the beer has been inside or intersected with the indicator.
      */
