@@ -1,16 +1,13 @@
 package Tasks.taskModel;
 
-
 import Tasks.Highscores;
-import model.MapStates.DeltaP;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
-import org.newdawn.slick.tiled.TiledMap;
+import org.newdawn.slick.geom.Rectangle;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 /** Model of the task "Gathering Cans". Starts the task and keeps track of high-scores and the timers.
  * @author Steffanie Kristiansson
@@ -23,9 +20,6 @@ public class GatheringCansModel {
     private float taskTimer = 10;
     public float canSpawnerTimer = 3;
     public Circle mouseBall;
-    public Image timerBox;
-    private TiledMap background;
-    public Image highScoreBox;
     private int score = 0;
 
     public boolean finished = false;
@@ -37,47 +31,37 @@ public class GatheringCansModel {
 
     /** An ArrayList of all the cans.
      */
-    ArrayList<Cans> cans = new ArrayList<>();
+    ArrayList<Rectangle> cans = new ArrayList<>();
+
+    private Random random = new Random();
 
 
     /** Gets the list of all the cans.
      * @return An array-list of all the cans.
      */
-    public ArrayList<Cans> getCans() {
+    public ArrayList<Rectangle> getCans() {
         return cans;
     }
 
     /** Initializing the Can Model.
-     * @throws SlickException if file not found, slick-exception.
      */
-    public GatheringCansModel() throws SlickException {
+    public GatheringCansModel() {
         init();
-        initTimerSetup();
     }
 
     /** Creates a new can.
-     * @throws SlickException if file not found, slick-exception.
      */
-    public void addCan() throws SlickException {
-        cans.add(new Cans());
+    public void addCan() {
+        cans.add(newCan());
     }
 
-
-    /** Initialize the mouse-"ball"
+    /** Initialize the mouse-"ball" and "create a new can".
      */
-    public void init() throws SlickException {
+    public void init() {
         // the mouse with a circle and radius to collide with the cans
         mouseBall = new Circle(0,0,10);
-        background = DeltaP.DELTAP.loadMap();
-        initHighScoreBox();
         readHighScoreList();
-    }
-
-    /** Initialize the high-score box.
-     * @throws SlickException if file not found, slick-exception.
-     */
-    public void initHighScoreBox() throws SlickException {
-        highScoreBox = new Image("data/boxes/highScoreBox_V2.png");
+        newCan();
     }
 
     /** Read the top 5 score from our save, and sort them.
@@ -104,18 +88,6 @@ public class GatheringCansModel {
         hs.trimHighscore(canHighscore);
     }
 
-    /**
-     * Fetches the image for the box where the timer will be placed inside
-     * @throws SlickException Generic exception
-     */
-    public void initTimerSetup() throws SlickException {
-        timerBox = new Image("data/boxes/timerBox.png");
-    }
-
-    public TiledMap getBackground() {
-        return background;
-    }
-
     public void increaseScore(){
         score++;
     }
@@ -140,7 +112,7 @@ public class GatheringCansModel {
         return taskTimer;
     }
 
-    public void canRecieved(){
+    public void canReceived(){
         taskTimer += 0.3;
     }
 
@@ -157,5 +129,14 @@ public class GatheringCansModel {
         // round to two decimals
         canSpawnerTimer = (float) (Math.round(canSpawnerTimer * 100.0) / 100.0);
         taskTimer = (float) (Math.round(taskTimer * 100.0) / 100.0);
+    }
+
+    /** Create new can randomly on the screen.
+     */
+    public Rectangle newCan() {
+        int x = random.nextInt((int)(1024/32))*32; // can on a square 32x32
+        int y = random.nextInt((int)(768/32))*32; // can on a square 32x32
+
+        return new Rectangle(x, y, 32, 32);
     }
 }

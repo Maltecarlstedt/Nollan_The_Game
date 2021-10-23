@@ -1,4 +1,8 @@
 import model.MapModel;
+
+import model.MapStates.*;
+import model.PlayerModel;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;
@@ -19,22 +23,16 @@ public class EnterTask {
 
     public void update(GameContainer gc, MapModel mapModel, StateBasedGame sbg){
         Input input = gc.getInput();
-        String currMap = mapModel.getCurrentMap().toString();
+        MapState currMap = mapModel.getCurrentMap();
         if(input.isKeyDown(Input.KEY_F) && mapModel.hasTask()){
             mapModel.taskDone = true;
-            int id = sbg.getCurrentStateID();
-            switch (currMap){
-                case "EKAK":
-                    id = 69;
-                    break;
-                case "DELTAP":
-                    id = 420;
-                    break;
-                case "ADAMMEN":
-                    id = 21;
-                    break;
+            if (Ekak.INSTANCE.equals(currMap)) {
+                sbg.enterState(69, new FadeInTransition(), new HorizontalSplitTransition());
+            } else if (DeltaP.INSTANCE.equals(currMap)) {
+                sbg.enterState(420, new FadeInTransition(), new HorizontalSplitTransition());
+            } else if (Dammen.INSTANCE.equals(currMap)) {
+                sbg.enterState(21, new FadeInTransition(), new HorizontalSplitTransition());
             }
-            sbg.enterState(id, new FadeInTransition(), new HorizontalSplitTransition());
         }
     }
 }

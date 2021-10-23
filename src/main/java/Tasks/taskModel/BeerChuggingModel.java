@@ -48,7 +48,7 @@ public class BeerChuggingModel {
     private double greenIndicatorSpeed = 3;
 
     /** Boolean for if the jumping beer is inside the green indicator */
-    public boolean inside;
+    public boolean beerInside;
 
     public boolean isTaskFinished = false;
     public boolean isTaskRunning;
@@ -67,8 +67,10 @@ public class BeerChuggingModel {
     public BeerChuggingModel(){
         isTaskRunning = true;
         readHighScoreList();
+        background = Ekak.INSTANCE.loadMap();
     }
 
+   
     /**
      * Reads the top 5 highscore for this task and adds them to an arrayList
      */
@@ -92,11 +94,10 @@ public class BeerChuggingModel {
         }
         // Even though the player might not be top 5 we add his or hers score either way.
         beerChuggingHighScore.add(Double.parseDouble(time));
-        beerChuggingHighScore = hs.readHighScore();
         Collections.sort(beerChuggingHighScore);
         hs.trimHighscore(beerChuggingHighScore);
     }
-    /**
+     /**
      * Checks if the jumping beer is inside or intersects with the green indicator
      * @return How many times the beer has been inside or intersected with the indicator.
      */
@@ -104,14 +105,14 @@ public class BeerChuggingModel {
         if(greenIndicatorRect.intersects(jumpingBeerRect) || greenIndicatorRect.contains(jumpingBeerRect)){
             numberOfChugs++;
             // Changes a boolean to indicate for player that the jumping beer is inside or intersected with the indicator.
-            inside = true;
+            beerInside = true;
         }else{
-            inside = false;
+            beerInside = false;
         }
         return numberOfChugs;
     }
     /**
-     * SKRIV OM
+     * Updates location for the jumping beer for each time the user has pressed the spacebar.
      */
     public void beerJump() {
         setJumpingBeerLocationY(getJumpingBeerLocationY() - 25);
@@ -130,6 +131,7 @@ public class BeerChuggingModel {
             // Task finished, add score and reset stuff
             if(isTaskRunning){
                 addHighScore();
+                beerChuggingHighScore = hs.readHighScore();
             }
             isTaskRunning = false;
         }
@@ -137,38 +139,39 @@ public class BeerChuggingModel {
 
     /**
      * A timer that updates the time it takes for player to chug beer.
-     * @param delta
+     * @param delta time in ms since last update
      */
     public void chugTimer(int delta){
-        // Stop when the beer is empty. AKA when reaching the last sprite.
-        if(chugIndexAnimation > 8){
-            // TODO:: Stanna tiden
-        }else
-            // Changes from ms to seconds
+        // Stop when the beer is empty.
+        if(!isTaskFinished){
+            // Changes from ms to seconds and adds to our variable
             timePassed += (double) delta/1000;
             // Round to two decimals.
             timePassed = (float) (Math.round(timePassed * 100.0) / 100.0);
+        }
     }
 
     /**
      * Updates the green indicator that moves up and down. Also increases its speed each time it changes dir.
      */
     public void loopGreenIndicatorLocation() {
-        if (upDir) {
-            if(getGreenIndicatorLocation().y > 326){
-                setGreenIndicatorLocation((int) (getGreenIndicatorLocation().y - greenIndicatorSpeed));
-            }else
-                upDir = false;
-            // Increasing speed each time it changes direction
-            greenIndicatorSpeed += 0.001;
+        if (upDir && getGreenIndicatorLocation().y > 326) {
+            setGreenIndicatorLocationY((int) (getGreenIndicatorLocation().y - greenIndicatorSpeed));
         }else{
-            if(getGreenIndicatorLocation().y < 630){
-                setGreenIndicatorLocation((int) (getGreenIndicatorLocation().y + greenIndicatorSpeed));
-            }else
-                upDir = true;
+            upDir = false;
             // Increasing speed each time it changes direction
-            greenIndicatorSpeed += 0.001;
         }
+
+        greenIndicatorSpeed += 0.002;
+
+        if (!upDir && getGreenIndicatorLocation().y < 630){
+            setGreenIndicatorLocationY((int) (getGreenIndicatorLocation().y + greenIndicatorSpeed));
+        }else{
+            upDir = true;
+            // Increasing speed each time it changes direction
+
+        }
+        greenIndicatorSpeed += 0.002;
     }
 
     public Rectangle getGreenIndicatorLocation(){
