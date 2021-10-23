@@ -8,14 +8,10 @@ import org.newdawn.slick.SpriteSheet;
 import java.awt.*;
 
 /**
- * @author Julia
+ * @author Julia Böckert
  */
 
-
 public class ConcreteNPC {
-    /**
-     * @author Julia Böckert
-     */
 
     boolean isShowing;
     int width;
@@ -26,11 +22,14 @@ public class ConcreteNPC {
     Point location;
     String characterString;
     String taskString;
-    public SpriteSheet character;
-    public Animation animation;
+    SpriteSheet character;
+    SpriteSheet taskCharacter;
+    Animation animation;
+    Animation taskAnimation;
+
 
     public ConcreteNPC(MapState current, int width, int height, int taskHeight, int state, int x, int y,
-                       String characterString, String taskString, boolean isShowing) throws SlickException {
+                       String characterString, String taskString, boolean isShowing)  {
         this.current = current;
         this.width = width;
         this.height = height;
@@ -40,27 +39,11 @@ public class ConcreteNPC {
         this.characterString = characterString;
         this.taskString = taskString;
         this.isShowing = isShowing;
-        spriteSetup();
-
-    }
-
-    /**
-     * Fetches correct Sprite and creates the animation
-     * @throws SlickException Generic Exception
-     */
-    void spriteSetup() throws SlickException {
         animation = new Animation();
-        if (state == 0) {
-            character = new SpriteSheet(taskString, width, taskHeight);
-            animation.addFrame(character.getSubImage(0, 0), 200);
-            animation.addFrame(character.getSubImage(1, 0), 200);
-        } else if (state == 1){
-            character = new SpriteSheet(characterString, width, height);
-            animation.addFrame(character.getSubImage(0, 0), 200);
-        }
+        taskAnimation = new Animation();
+
 
     }
-
 
     /**
      * Gets the current map so that the correlated NPC can be drawn.
@@ -70,12 +53,9 @@ public class ConcreteNPC {
         return current;
     }
 
-    Point getLocation(){
+    public Point getLocation(){
         return location;
     }
-
-
-
 
     /**
      * Sets visibility.

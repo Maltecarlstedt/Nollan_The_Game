@@ -27,4 +27,5 @@ java/build/**
 out/
 
 # Highscore files
-*.txt
+higscore.txt
+canHighscore.txt

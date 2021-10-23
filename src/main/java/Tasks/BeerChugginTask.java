@@ -33,7 +33,7 @@ public class BeerChugginTask extends BasicGameState {
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         beerChuggingModel = new BeerChuggingModel();
         beerChuggingView = new BeerChuggingView();
-        beerChuggingController = new BeerChuggingController(beerChuggingModel);
+        beerChuggingController = new BeerChuggingController(beerChuggingModel, beerChuggingView);
     }
 
     /**
@@ -58,12 +58,8 @@ public class BeerChugginTask extends BasicGameState {
      * @throws SlickException A generic exception
      */
     @Override
-    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        try {
-            beerChuggingController.update(gc, sbg, delta);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void update(GameContainer gc, StateBasedGame sbg, int delta){
+        beerChuggingController.update(gc, sbg, delta);
     }
 
     @Override
