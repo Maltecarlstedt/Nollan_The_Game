@@ -1,6 +1,7 @@
 package Tasks.taskController;
 
 import Tasks.taskModel.BeerChuggingModel;
+import Tasks.taskView.BeerChuggingView;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
@@ -17,158 +18,59 @@ public class BeerChuggingController {
 
     /** An instance of our beerchugging model and View */
     private BeerChuggingModel bcm;
-    /** The speed at which the green indicator moves at */
-    private double greenIndicatorSpeed = 3;
-    /** The negative downforce for pulling the jumpingbeer down after a jump*/
-    private final static float gravity = 0.7f;
-    /** The height of each jump when pressing the jump button */
-    private final static float jumpStrength = -5;
-    /** The vertical Y direction for our jump, alterning depending if going up or down*/
-    private float vY = 0;
-    /** Boolean for our green indicator to make sure it changes direction when reaching it's height*/
-    private boolean upDir = true;
-    /** The number of times the jumpingbeer intersects or contains inside the green indicator each update */
-    private int numberOfChugs = 0;
-    /** Index for which sprite is to be drawn for indicating the animation drinking */
-    private int chugIndexAnimation = 0;
+    private BeerChuggingView bcv;
+
 
     /**
      * Constructor for beer chugging controller. Initialize which model to work on.
      * @param bcm The model
      */
-    public BeerChuggingController(BeerChuggingModel bcm){
+    public BeerChuggingController(BeerChuggingModel bcm, BeerChuggingView bcv){
         this.bcm = bcm;
+        this.bcv = bcv;
     }
     /**
      * Update function for the logic of the task.
      *
      * @param gc The container that have the game
      * @param delta Time in ms since last update
-     * @throws SlickException Generic Exception
      */
-    public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException, IOException {
-        loopGreenIndicatorLocation();
-        beerJump(gc, delta);
-        checkIntersect();
-        updateChugAnimation();
-        chugTimer(delta);
+    public void update(GameContainer gc, StateBasedGame sbg, int delta){
+        Input input = gc.getInput();
+        bcm.loopGreenIndicatorLocation();
+        bcm.checkIntersect();
+        bcm.updateChugAnimation();
+        chugAnimationUpdate();
+        bcm.chugTimer(delta);
+        jump(input);
         if(bcm.isTaskFinished){
-            exitTask(gc, sbg);
+            exitTask(input, sbg);
         }
     }
 
-    /**
-     * A timer that updates the time it takes for player to chug beer.
-     * @param delta
-     */
-    public void chugTimer(int delta){ //TODO: Borde va i modellen
-        // Stop when the beer is empty. AKA when reaching the last sprite.
-        if(chugIndexAnimation > 8){
-            //System.out.println("Bra hävt! Din tid blev: " + bcm.timePassed);
-        }else
-        // Changes from ms to seconds
-        bcm.timePassed += (double) delta/1000;
-        // Round to two decimals.
-        bcm.timePassed = (float) (Math.round(bcm.timePassed * 100.0) / 100.0);
-    }
-
-    /**
-     * Updates the green indicator that moves up and down. Also increases its speed each time it changes dir.
-     */
-    public void loopGreenIndicatorLocation() {
-        if (upDir) {
-            if(bcm.getGreenIndicatorLocation().y > 326){
-                bcm.setGreenIndicatorLocation((int) (bcm.getGreenIndicatorLocation().y - greenIndicatorSpeed));
-            }else
-                upDir = false;
-                // Increasing speed each time it changed direction
-                greenIndicatorSpeed += 0.001;
-            }else{
-            if(bcm.getGreenIndicatorLocation().y < 630){
-                bcm.setGreenIndicatorLocation((int) (bcm.getGreenIndicatorLocation().y + greenIndicatorSpeed));
-
-            }else
-                upDir = true;
-            // Increasing speed each time it changed direction
-            greenIndicatorSpeed += 0.001;
-        }
-    }
-
-    /**
-     * Checks if the jumping beer is inside or intersects with the green indicator
-     * @return How many times the beer has been inside or intersected with the indicator.
-     */
-    public int checkIntersect(){
-        if(bcm.greenIndicatorRect.intersects(bcm.jumpingBeerRect) || bcm.greenIndicatorRect.contains(bcm.jumpingBeerRect)){
-            numberOfChugs++;
-            // Changes a boolean to indicate for player that the jumping beer is inside or intersected with the indicator.
-            bcm.inside = true;
-        }else{
-            bcm.inside = false;
-        }
-        return numberOfChugs;
-    }
-
-    /**
-     * A jump algorithm that makes the jumping beer jump each time pressing the space bar and then fall down.
-     * @param gc The container that have the game
-     * @param delta Time in ms since last update
-     */
-    public void beerJump(GameContainer gc, int delta) {
-        // TODO: Write the jump algorithm using delta instead to make the jump smoother.
+    public void jump(Input input){
         // Adds the constant pull downwards from gravity
-        vY += gravity;
-        // Input from player
-        Input input = gc.getInput();
-        // Makes sure that we cant jump outside of our bar indicator.
-        // TODO: Make use of variables here instead of hardcoded numbers.
-        if(bcm.getJumpingBeerLocationY() < 370){
+        bcm.vY += bcm.gravity;
+        if (input.isKeyPressed(Input.KEY_SPACE ) && bcm.getJumpingBeerLocationY() >= 370){
+            bcm.beerJump();
+        }
+        if (bcm.getJumpingBeerLocationY() <= 665) {
+            bcm.setJumpingBeerLocationY((int) (bcm.getJumpingBeerLocationY() + 0.2f + bcm.vY));
+        }
+    }
+
+    /** Changes sprite image to be drawn to illustrate the player drinking*/
+    private void chugAnimationUpdate(){
+        if (bcm.chugIndexAnimation <= 8){
+            bcv.currentChugAnimation = bcv.chuggingAnimation.getSubImage(bcm.chugIndexAnimation, 0);
         }else
-            if (input.isKeyPressed(Input.KEY_SPACE)) {
-                bcm.setJumpingBeerLocationY(bcm.getJumpingBeerLocationY() - 25);
-                vY = jumpStrength;
-        }
-        if(bcm.getJumpingBeerLocationY() >= 665){
-        }
-        else {
-            bcm.setJumpingBeerLocationY((int) (bcm.getJumpingBeerLocationY() + 0.2f + vY));
-        }
+            bcm.isTaskFinished = true;
     }
 
-    /**
-     * If the player has managed to be inside the green indicator for 30 updates. The sprite changes one image.
-     * Resets the numberOfChugs until we have reached the last sprite.
-     */
-    public void updateChugAnimation(){
-        if(numberOfChugs > 30){
-            numberOfChugs = 0;
-            chugIndexAnimation++;
-            if(chugIndexAnimation <= 8){
-                bcm.updateChug(chugIndexAnimation);
-            }else{
-                // Task finished, add score and reset stuff
-                bcm.addHighScore();
-                bcm.isTaskFinished = true;
-                bcm.isTaskRunning = false;
-            }
-        }
-    }
-
-    public void exitTask(GameContainer gc, StateBasedGame sbg){
-        Input input = gc.getInput();
+    public void exitTask(Input input, StateBasedGame sbg){
         if (input.isKeyDown(Input.KEY_F)){
-            resetBeerChuggingTask();
+            bcm.resetBeerChuggingTask();
             sbg.enterState(1, new FadeOutTransition(), new HorizontalSplitTransition());
         }
-
-    }
-
-    private void resetBeerChuggingTask() {
-        // TODO: Make sure the next time we enter the task the correct sprite is shown.
-        chugIndexAnimation = 0;
-        bcm.timePassed = 0;
-        greenIndicatorSpeed = 3;
-        bcm.isTaskRunning = true;
-        bcm.isTaskFinished = false;
     }
 }

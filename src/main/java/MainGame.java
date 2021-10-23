@@ -49,21 +49,9 @@ public class MainGame extends BasicGameState {
     private TextBoxView textBoxView;
     private TextBoxController textBoxController;
 
-
     public MainGame(){
 
     }
-
-    /*public void test(MapModel m){
-        if(){
-            System.out.println("inte done");
-        }
-        else {
-           System.out.println("done");
-        }
-    }
-
-     */
 
     /**
      * Our head init function that initialize the different models of the game.
@@ -124,6 +112,7 @@ public class MainGame extends BasicGameState {
         //Renders the nps
         npcView.render(g, npcModel.NPCs, mapModel);
 
+
     }
 
     /**
@@ -148,7 +137,6 @@ public class MainGame extends BasicGameState {
         npcController.update(mapModel);
 
         textBoxController.update(mapModel);
-
 
     }
     /**
