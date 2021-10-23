@@ -83,7 +83,6 @@ public class BeerChuggingModel {
             e.printStackTrace();
         }
         beerChuggingHighScore.add(Double.parseDouble(time));
-        //beerChuggingHighScore = hs.readHighScore();
         Collections.sort(beerChuggingHighScore);
         // Remove all but top 5
         hs.trimHighscore(beerChuggingHighScore);

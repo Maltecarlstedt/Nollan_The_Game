@@ -45,8 +45,6 @@ public class PlayerController {
         if(!animationUpdateIsSet)
             animationUpdate(delta);
 
-        System.out.println(delta);
-
         // TODO: Egen funk?
         Input input = gc.getInput();
         if (input.isKeyDown(Input.KEY_UP)) {
