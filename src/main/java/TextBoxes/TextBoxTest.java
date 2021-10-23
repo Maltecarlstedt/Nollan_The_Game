@@ -22,7 +22,7 @@ public class TextBoxTest {
     public void init() throws SlickException {
         model = new TextBoxModel();
         factory = new TextBoxFactory();
-        textbox = new TextBox(Karhuset.KARHUSET,"data/Text-related/datatext.png", 90, 200, true, 400, 106 );
+        textbox = new TextBox(Karhuset.INSTANCE,"data/Text-related/datatext.png", 90, 200, true, 400, 106 );
 
     }
 

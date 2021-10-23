@@ -138,6 +138,6 @@ public class BeerChuggingView {
         initHighScoreBox();
         initTimerSetup();
         initChuggingAnimation();
-        background = Ekak.EKAK.loadMap();
+        background = Ekak.INSTANCE.loadMap();
     }
 }

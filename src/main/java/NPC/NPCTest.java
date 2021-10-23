@@ -26,7 +26,7 @@ public class NPCTest {
     public void init() throws SlickException {
         model = new NPCModel();
         factory = new NPCFactory();
-        npc = new ConcreteNPC(Karhuset.KARHUSET, 64, 64, 128, 0, 200, 200, "data/compressedNPCs/dnollk64x64-min.png", "data/compressedNPCs/dnollk128x128TASK (1)-min.png", true);
+        npc = new ConcreteNPC(Karhuset.INSTANCE, 64, 64, 128, 0, 200, 200, "data/compressedNPCs/dnollk64x64-min.png", "data/compressedNPCs/dnollk128x128TASK (1)-min.png", true);
         collisionChecker = new CollisionChecker();
         //mapModel = new MapModel(collisionChecker);
     }
