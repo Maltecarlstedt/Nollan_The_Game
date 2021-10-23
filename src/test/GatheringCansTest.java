@@ -10,12 +10,7 @@ import java.lang.reflect.Field;
 
 
 public class GatheringCansTest extends TestCase {
-    GatheringCansModel gcm;
-
-    @Before
-    public void init() {
-        gcm = new GatheringCansModel();
-    }
+    GatheringCansModel gcm = new GatheringCansModel();
 
     @Test
     public void testGetScore() {
@@ -49,15 +44,11 @@ public class GatheringCansTest extends TestCase {
 
     @Test
     public void testArrayHighscore() {
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-
+        for (int i = 0; i < 10000; i++) {
+            gcm.increaseScore();
+        }
         gcm.addHighScore();
-        Assert.assertTrue(gcm.getCanHighscore().get(2) == 42);
+        Assert.assertTrue(gcm.getCanHighscore().get(0) == 10000);
     }
 
     @Test
