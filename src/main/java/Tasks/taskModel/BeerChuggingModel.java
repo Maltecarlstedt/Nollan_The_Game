@@ -126,6 +126,7 @@ public class BeerChuggingModel {
             if(isTaskRunning){
                 addHighScore();
                 beerChuggingHighScore = hs.readHighScore();
+                hs.trimHighscore(beerChuggingHighScore);
             }
             isTaskRunning = false;
         }
