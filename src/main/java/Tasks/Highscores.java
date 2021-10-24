@@ -9,6 +9,7 @@ import java.util.Scanner;
  * @author Alexander Brunnegård
  * @author Malte Carlstedt
  * This class enables the writing and reading from a highscore file
+ * Used by BeerChuggingModel and GatheringCansModel
  */
 public class Highscores {
 
@@ -60,7 +61,6 @@ public class Highscores {
                 highScoresSorted.add(Double.parseDouble(highScoreData));
             }
             Collections.sort(highScoresSorted);
-            trimHighscore(highScoresSorted);
             readHighScore.close();
         }catch (FileNotFoundException e){
             System.out.println("File not Found");

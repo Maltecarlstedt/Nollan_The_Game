@@ -1,5 +1,4 @@
 import Items.ItemModel;
-import NPC.ConcreteNPC;
 import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
@@ -18,8 +17,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
-
-import java.util.ArrayList;
 
 /**
      * @author Malte Carlstedt
@@ -69,7 +66,6 @@ public class MainGame extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        // TODO:: Make this prettier
 
         collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
@@ -100,8 +96,6 @@ public class MainGame extends BasicGameState {
      * @param g The graphics context to be used for rendering
      * @throws SlickException
      */
-
-
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         // Render the map
@@ -114,7 +108,6 @@ public class MainGame extends BasicGameState {
 
         itemView.renderItemsToFind(g, itemModel, mapModel);
         itemView.renderUnfilledItems(g, itemModel);
-       // itemView.renderImages(g, itemModel);
 
         //Renders the textBoxes
 
@@ -122,9 +115,6 @@ public class MainGame extends BasicGameState {
 
         //Renders the nps
         npcView.render(g, npcModel, npcModel.NPCs, mapModel);
-
-
-
     }
 
     /**
@@ -143,11 +133,11 @@ public class MainGame extends BasicGameState {
         mapController.update(mapModel);
         // Checks if a task should be started and entered.
         enterTask.update(gc, mapModel, sbg);
-
+        // Updates the items
         itemController.update(playerModel, itemModel, sbg);
-
+        // Updates the NPCs
         npcController.update(npcModel.NPCs, delta);
-
+        // Updates the textBoxes
         textBoxController.update(mapModel, textBoxModel.textboxes);
     }
 

@@ -3,15 +3,15 @@ package Tasks.taskModel;
 import Tasks.Highscores;
 import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Rectangle;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-/** Model of the task "Gathering Cans". Starts the task and keeps track of high-scores and the timers.
+/**
  * @author Steffanie Kristiansson
  * @author Alexander Brunnegård
+ * Model of the task "Gathering Cans". Starts the task and keeps track of high-scores and the timers.
  */
 public class GatheringCansModel {
 
@@ -55,7 +55,7 @@ public class GatheringCansModel {
         cans.add(newCan());
     }
 
-    /** Initialize the mouse-"ball" and "create a new can".
+    /** Initialize the mouse-"ball" and create the first can to catch.
      */
     public void init() {
         // the mouse with a circle and radius to collide with the cans
@@ -82,7 +82,6 @@ public class GatheringCansModel {
             e.printStackTrace();
         }
         // Even though the player might not be top 5, we add his or hers score either way.
-        canHighscore.add((double)score);
         canHighscore = hs.readHighScore();
         Collections.reverse(canHighscore);
         hs.trimHighscore(canHighscore);
