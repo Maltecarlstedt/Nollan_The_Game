@@ -1,5 +1,4 @@
 import Items.ItemModel;
-import NPC.ConcreteNPC;
 import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
@@ -18,8 +17,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
-
-import java.util.ArrayList;
 
 /**
      * @author Malte Carlstedt
@@ -69,8 +66,6 @@ public class MainGame extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        // TODO:: Make this prettier
-
         collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
