@@ -7,28 +7,38 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * A class that keeps the render methods for the map
  * @author Alexander Brunnegård
+ * A class that keeps the visual aspects of our maps and render said aspects
+ * Uses MapState, MapModel, TileSetup
  */
 public class MapView{
 
-    public TiledMap tiledMap;
-    MapState currentState;
+    private TiledMap tiledMap;
+    private MapState currentState;
 
     public MapView(MapModel mapModel) throws SlickException {
         initMapView(mapModel);
     }
 
+    /**
+     * Sets the first map of the MapView instance
+     * @param mapModel - the MapModel.
+     * @throws SlickException - if the tiledmap file is not found
+     */
     private void initMapView(MapModel mapModel) throws SlickException {
         currentState = mapModel.getCurrentMap();
         loadTiledMap(mapModel);
     }
 
+    /**
+     * Updates the map by translating a MapState to a TiledMap and updates the collisionArray.
+     * @param mapModel - the MapModel
+     * @throws SlickException - if the TiledMap is not found
+     */
     public void loadTiledMap(MapModel mapModel) throws SlickException {
         tiledMap = ViewTranslator.translateToView(mapModel.getCurrentMap());
-        System.out.println(tiledMap);
         currentState = mapModel.getCurrentMap();
-        TileSetup.tileSetup(tiledMap);
+        TileSetup.setUpCollisionTiles(tiledMap);
     }
 
     /**
@@ -50,7 +60,7 @@ public class MapView{
      */
     public void renderTopLayer(MapModel mapModel){
         for(int i=0; i < mapModel.getCurrentTopLayers(); i++){
-            tiledMap.render(0, 0, tiledMap.getLayerCount()- currentState.getTopLayers() + (i));
+            tiledMap.render(0, 0, tiledMap.getLayerCount() - currentState.getTopLayers() + (i));
         }
     }
 }

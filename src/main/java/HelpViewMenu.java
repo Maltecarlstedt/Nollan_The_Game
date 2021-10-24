@@ -19,7 +19,6 @@ public class HelpViewMenu extends BasicGameState {
     Image bg;
     Image infoText;
     Image startGame;
-    // Image backButton;
 
 
     /** Initiating the images.
@@ -32,7 +31,6 @@ public class HelpViewMenu extends BasicGameState {
         bg = new Image("data/maps/images/startscreen.png");
         infoText = new Image("data/maps/images/helpText.png");
         startGame = new Image("data/maps/images/borjaSpela.png");
-        //backButton = new Image("data/maps/images/backButton.png");
     }
 
     /** Rendering all the images.
@@ -46,7 +44,6 @@ public class HelpViewMenu extends BasicGameState {
         bg.draw();
         infoText.drawCentered(1024/2,768/2);
         startGame.drawCentered(1024/2,616);
-        //backButton.drawCentered(1024/2,616);
     }
 
     /** Checks the mouse, and enters a state if "if-statement" is fulfilled.

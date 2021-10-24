@@ -5,7 +5,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Interface which holds the common methods for the different map enums.
+ * Interface which holds the common methods for the different map classes.
  */
 public interface MapState {
 

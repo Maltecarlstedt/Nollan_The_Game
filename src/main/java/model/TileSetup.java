@@ -1,14 +1,19 @@
 package model;
 
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * @author Alexander Brunnegård
+ * Sets up the arraylist that is to be the collisionLayer.
+ * Used by MapView (should be refactored so the different MapStates changes the tileSetup.)
+ * Uses CollisionChecker, sets the static ArrayList
+ */
 public class TileSetup {
     /** For collision detection, we have a list of Rectangles that contains all the collisions of the map */
-    private static ArrayList<Rectangle> blocks = new ArrayList<>();
+    private static final ArrayList<Rectangle> blocks = new ArrayList<>();
     /** Constants for the ID of the collision tiles */
     private static final int THIN_TREE_TRUNK_ID = 190, HALF_RIGHT_COLLISION_ID = 191,
             HALF_LEFT_COLLISION_ID = 192;
@@ -23,7 +28,7 @@ public class TileSetup {
      * (may be some redundant code, the body of the method is taken from the internet.
      * Some slight changes made to adapt to our specific case)
      */
-    public static void tileSetup(TiledMap tiledMap) {
+    public static void setUpCollisionTiles(TiledMap tiledMap) {
         //clear the arraylist of collision tiles everytime you change map
         //(otherwise it will be adding the collision layer from multiple maps)
         blocks.clear();

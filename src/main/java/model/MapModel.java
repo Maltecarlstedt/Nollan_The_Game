@@ -13,7 +13,9 @@ import java.util.ArrayList;
 /**
  * @author Clara Simonsson
  * @author Alexander Brunnegård
- * Holds all the information for the map
+ * Changes the map when told to do so. Also hold the information for the particular maps.
+ * Used by CollisionChecker, MapView
+ * Uses MapState
  */
 public class MapModel{
     /** The current map in the form of a MapState (interface) */

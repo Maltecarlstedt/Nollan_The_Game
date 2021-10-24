@@ -2,15 +2,16 @@ package view;
 
 import model.PlayerModel;
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
-import java.util.ArrayList;
 
 
 /**
- * Our view of the player. The class that draws the player.
+ * @author Alexander Brunnegård
+ * Holds the visual information on our player and draws the appropriate information on the screen
+ * Used by PlayerController
+ * Uses PlayerModel
  */
 public class PlayerView {
 
@@ -34,14 +35,16 @@ public class PlayerView {
 
     /**
      * Draws the player on the canvas
-     * @param g The graphics context to be used for rendering
      * @param playerModel Model of the player that is to be rendered
      */
-    public void render(Graphics g, PlayerModel playerModel){
-        //g.drawAnimation(currentAnimation, (float)playerModel.getPlayerLocation().getX(), (float)playerModel.getPlayerLocation().getY());
+    public void render(PlayerModel playerModel){
         currentAnimation.draw((float)playerModel.getPlayerLocation().getX(), (float)playerModel.getPlayerLocation().getY(), playerModel.getWidth(), playerModel.getHeight());
     }
 
+    /**
+     * Sets up the sprites and animations for the player
+     * @throws SlickException throws an exception if any of the files for the SpriteSheets are not found.
+     */
     private void initView() throws SlickException {
         spriteSetup();
         animationSetup();
@@ -50,7 +53,7 @@ public class PlayerView {
     /**
      * Creates all of our sprites, which basically is an image that we split up into 4 different subimages.
      * Reason being that we use these 4 subimages to create an animation.
-     * @throws SlickException throws an exception if the file for the SpriteSheet is not found.
+     * @throws SlickException throws an exception if any of the files for the SpriteSheets are not found.
      */
     public void spriteSetup() throws SlickException {
         moveRight = new SpriteSheet("data/playerAnimation/gubbeRIGHT.spritesheet_V3.png",64,64); // declare a SpriteSheet and load it into java with its dimentions
@@ -77,32 +80,34 @@ public class PlayerView {
 
         currentAnimation = moveDownAni;
     }
+    /** Changes the animation to DOWN and starts it if it is currently standing still */
     public void movingDown() {
         startAnimation();
         currentAnimation = moveDownAni;
     }
+    /** Changes the animation to UP and starts it if it is currently standing still */
     public void movingUp() {
         startAnimation();
         currentAnimation = moveUpAni;
     }
+    /** Changes the animation to LEFT and starts it if it is currently standing still */
     public void movingLeft() {
         startAnimation();
         currentAnimation = moveLeftAni;
     }
+    /** Changes the animation to RIGHT and starts it if it is currently standing still */
     public void movingRight() {
         startAnimation();
         currentAnimation = moveRightAni;
 
     }
-
+    /** Stops the animation at frame 1 so it looks like the player is standing still */
     public void idlePlayer(){
         currentAnimation.stop();
         currentAnimation.setCurrentFrame(1);
     }
 
-    /**
-     * Starts the walking animation if it is stopped (it gets stopped when the player has been idle)
-     */
+    /** Starts the walking animation if it is stopped (it gets stopped when the player has been idle) */
     public void startAnimation(){
         if(currentAnimation.isStopped()){
             currentAnimation.start();

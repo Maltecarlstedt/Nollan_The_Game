@@ -15,6 +15,8 @@ import java.util.ArrayList;
  * @author Clara Simonsson
  * This class works as a mediator between the map and the player
  * Checks if the player is colliding with anything on said map
+ * Used by PlayerModel
+ * Uses TileSetup, MapModel, Mapstate
  */
 public class CollisionChecker {
 

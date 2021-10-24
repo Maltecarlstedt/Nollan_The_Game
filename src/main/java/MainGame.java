@@ -1,5 +1,4 @@
 import Items.ItemModel;
-import NPC.ConcreteNPC;
 import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
@@ -10,7 +9,6 @@ import controller.MapController;
 import Items.ItemController;
 import controller.PlayerController;
 import model.*;
-import model.MapStates.Chalmersplatsen;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -20,7 +18,6 @@ import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
 
-import java.util.ArrayList;
 
 /**
      * @author Malte Carlstedt
@@ -108,16 +105,14 @@ public class MainGame extends BasicGameState {
         mapView.render(mapModel);
 
         // Renders The player
-        playerView.render(g, playerModel);
+        playerView.render(playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
 
         itemView.renderItemsToFind(g, itemModel, mapModel);
         itemView.renderUnfilledItems(g, itemModel);
-       // itemView.renderImages(g, itemModel);
 
         //Renders the textBoxes
-
         textBoxView.render(textBoxModel.textboxes, textBoxModel, mapModel);
 
         //Renders the nps
@@ -140,7 +135,7 @@ public class MainGame extends BasicGameState {
         // Updates our player
         playerController.update(gc, sbg, delta);
         // Updates our map
-        mapController.update(gc, delta, mapModel);
+        mapController.update(mapModel);
         // Checks if a task should be started and entered.
         enterTask.update(gc, mapModel, sbg);
 

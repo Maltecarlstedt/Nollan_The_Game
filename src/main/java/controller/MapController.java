@@ -19,7 +19,7 @@ public class MapController {
         this.mapView = mapView;
     }
 
-    public void update(GameContainer gc, int delta, MapModel mapModel) throws SlickException {
+    public void update(MapModel mapModel) throws SlickException {
         if (mapModel.getCurrentMap() != mapModel.oldState){
             mapModel.oldState = mapModel.getCurrentMap();
             mapView.loadTiledMap(mapModel);

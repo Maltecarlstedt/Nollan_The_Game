@@ -68,7 +68,7 @@ public class GameDoneView extends BasicGameState {
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         mapView.render(mapModel);
-        playerView.render(g, playerModel);
+        playerView.render(playerModel);
         endGame.drawCentered(getPositionX(), getPositionY());
     }
 
@@ -81,7 +81,7 @@ public class GameDoneView extends BasicGameState {
      */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        mapController.update(gc, delta, mapModel);
+        mapController.update(mapModel);
 
 
         int posX = Mouse.getX();
@@ -98,6 +98,9 @@ public class GameDoneView extends BasicGameState {
 
     }
 
+    /**
+     * Starts the anthem for gasquen
+     */
     private void startMusic(){
         try{
             Sound anthem = new Sound("data/music/Stad_i_ljus.wav");

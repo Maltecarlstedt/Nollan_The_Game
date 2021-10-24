@@ -23,7 +23,7 @@ public class StateSetup extends StateBasedGame {
      * @throws SlickException Generic exception
      */
     @Override
-    public void initStatesList(GameContainer gameContainer) throws SlickException {
+    public void initStatesList(GameContainer gameContainer) {
         this.addState(new GameMenu());
         this.addState(new HelpViewMenu());
         this.addState(new BeerChugginTask());
