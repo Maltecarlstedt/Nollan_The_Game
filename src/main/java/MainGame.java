@@ -1,7 +1,7 @@
 import Items.ItemModel;
+import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
-import TextBoxes.KarhusetTextBox;
 import TextBoxes.TextBoxModel;
 import TextBoxes.TextBoxView;
 import controller.MapController;
@@ -16,7 +16,13 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
-    /**
+
+/**
+     * @author Malte Carlstedt
+     * @author Alexander Brunnegård
+     * @author Steffanie Kristiansson
+     * @author Julia Böckert
+     * @author Clara Simonsson
      * Main class for controlling models, views and controllers
      */
 public class MainGame extends BasicGameState {
@@ -36,14 +42,12 @@ public class MainGame extends BasicGameState {
 
     private NPCView npcView;
     private NPCModel npcModel;
+    private NPCController npcController;
 
     private EnterTask enterTask;
 
-    private CollisionChecker collisionChecker;
-
     private TextBoxModel textBoxModel;
     private TextBoxView textBoxView;
-
 
     public MainGame(){
 
@@ -58,8 +62,8 @@ public class MainGame extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        // TODO:: Make this prettier
-        collisionChecker = new CollisionChecker();
+
+        CollisionChecker collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
@@ -68,15 +72,18 @@ public class MainGame extends BasicGameState {
         itemView = new ItemView();
         itemController = new ItemController(itemModel, itemView,playerModel);
 
-        mapController = new MapController(mapModel, mapView);
         mapModel = new MapModel(collisionChecker);
-        mapView = new MapView();
+        mapView = new MapView(mapModel);
+        mapController = new MapController(mapModel, mapView);
+
 
         npcModel = new NPCModel();
-        npcView = new NPCView();
+        npcView = new NPCView(npcModel.NPCs);
+        npcController = new NPCController();
 
         textBoxModel = new TextBoxModel();
-        textBoxView = new TextBoxView();
+        textBoxView = new TextBoxView(textBoxModel.textboxes);
+
     }
     /**
      * Our head render function that renders everything that needs to be drawn on the canvas
@@ -86,29 +93,23 @@ public class MainGame extends BasicGameState {
      * @throws SlickException
      */
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics g){
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         // Render the map
         mapView.render(mapModel);
+
+        // Renders The player
+        playerView.render(playerModel);
+        // Renders the top layer
+        mapView.renderTopLayer(mapModel);
 
         itemView.renderItemsToFind(g, itemModel, mapModel);
         itemView.renderUnfilledItems(g, itemModel);
 
-        // Renders The player
-        playerView.render(g, playerModel);
-        // Renders the top layer
-        mapView.renderTopLayer(mapModel);
-      
-
-    
-        //Renders the nps
-        npcModel.showNPC(mapModel);
-        npcModel.initList();
-        npcView.render(g, npcModel.NPCs);
-
         //Renders the textBoxes
-        textBoxView.render(g, textBoxModel.textboxes);
-        textBoxModel.initTextBoxes();
-        textBoxModel.showTextBox(mapModel);
+        textBoxView.render(textBoxModel.textboxes, textBoxModel, mapModel);
+
+        //Renders the nps
+        npcView.render(g, npcModel, npcModel.NPCs, mapModel);
     }
 
     /**
@@ -124,22 +125,23 @@ public class MainGame extends BasicGameState {
         // Updates our player
         playerController.update(gc, sbg, delta);
         // Updates our map
-        mapController.update(gc, delta);
+        mapController.update(mapModel);
         // Checks if a task should be started and entered.
-
         enterTask.update(gc, mapModel, sbg);
-
-        itemController.update(playerModel, itemModel);
-
-
+        // Updates the items
+        itemController.update(playerModel, itemModel, sbg);
+        // Updates the NPCs
+        npcController.update(npcModel.NPCs, delta);
 
     }
+
+
     /**
      * The id for this state
      * @return state number
      */
     @Override
     public int getID() {
-        return 1;
+        return 101;
     }
 }

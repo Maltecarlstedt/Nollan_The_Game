@@ -5,45 +5,41 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map Rännan.
+ * Creates a class for one map piece which holds the specific methods for just that map.
+ * This map is for the tile map Rännan.
+ * @author Clara Simonsson
  */
-public enum Rannan implements MapState{
-    RANNAN;
+public class Rannan extends TiledMapFactory implements MapState{
+    public static final Rannan INSTANCE = new Rannan();
+    private static final String DPATH = "data/maps/rannan.tmx";
 
-    private String dPath = "data/maps/rannan.tmx";
+    /**
+     * Creates a tile map for Rännan
+     */
+    private Rannan(){ super(DPATH);}
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case DOWN:
                 playerModel.setNewPlayerTile(60, 4);
-                return Markena.MARKENA;
+                return Markena.INSTANCE;
             case UP:
                 playerModel.setNewPlayerTile(940, 700);
-                return DeltaP.DELTAP;
+                return DeltaP.INSTANCE;
             case LEFT:
                 playerModel.setNewPlayerTile(956, 360);
-                return Ekak.EKAK;
+                return Ekak.INSTANCE;
             default:
-                return Rannan.RANNAN;
+                return Rannan.INSTANCE;
         }
     }
 
     @Override
-    public void setPosition(PlayerModel player) {
-
-    }
-
-    @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(dPath);
+        return getMap();
     }
 
-    @Override
-    public MapState map(){
-        return this;
-    }
     @Override
     public int getTopLayers(){
         return 2;

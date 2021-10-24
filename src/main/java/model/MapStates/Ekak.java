@@ -5,42 +5,37 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map Ekak.
+ * Creates a class for one map piece which holds the specific methods for just that map.
+ * This map is for the tile map Ekak.
+ * @author Clara Simonsson
  */
-public enum Ekak implements MapState{
-    EKAK;
+public class Ekak extends TiledMapFactory implements MapState{
+    public static final Ekak INSTANCE = new Ekak();
+    private static final String DPATH = "data/maps/ekak.tmx";
 
-    private String dPath = "data/maps/ekak.tmx";
+    /**
+     * Creates a tile map for Ekak
+     */
+    private Ekak(){ super(DPATH);}
 
     @Override
-    public MapState nextMap(PlayerModel playerModel) throws SlickException {
+    public MapState nextMap(PlayerModel playerModel){
         switch (playerModel.getOrientation()){
             case RIGHT:
                 playerModel.setNewPlayerTile(4, 440);
-                return Rannan.RANNAN;
+                return Rannan.INSTANCE;
             case LEFT:
                 playerModel.setNewPlayerTile(956, 240);
-                return Sandladan.SANDLADAN;
+                return Sandladan.INSTANCE;
             default:
-                return Ekak.EKAK;
+                return Ekak.INSTANCE;
 
         }
     }
 
     @Override
-    public void setPosition(PlayerModel player) {
-
-    }
-
-    @Override
     public TiledMap loadMap() throws SlickException {
-        return new TiledMap(dPath);
-    }
-
-    @Override
-    public MapState map(){
-        return this;
+        return getMap();
     }
 
     @Override

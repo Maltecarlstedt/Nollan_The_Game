@@ -2,28 +2,22 @@ package Items.Filled;
 
 import Items.Item;
 import model.MapStates.Ekak;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import model.MapStates.Karhuset;
+import model.MapStates.MapState;
 
 import java.awt.*;
 
+/**
+ * @author Clara
+ */
 public class Scissor extends Item {
 
-    public Scissor() throws SlickException {
-        img = new Image("data/material/scissor.png");
-        location = new Rectangle(400,200,32,32);
-        currentMap = Ekak.EKAK;
+    public Scissor(){
+        filePathToItem = "data/material/scissor.png";
+        location = new Rectangle(400,400,32,32);
     }
 
     @Override
-    public void render(Graphics g) {
-        g.drawImage(img, location.x, location.y);
-    }
-
-    @Override
-    public void setShowing(boolean isItShowing) {
-        isShowing = isItShowing;
-    }
+    public MapState getMap(){return Ekak.INSTANCE;}
 
 }

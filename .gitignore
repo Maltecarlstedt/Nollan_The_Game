@@ -25,3 +25,7 @@ build/
 /bin1/
 java/build/**
 out/
+
+# Highscore files
+higscore.txt
+canHighscore.txt

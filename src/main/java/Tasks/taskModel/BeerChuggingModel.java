@@ -1,176 +1,177 @@
 package Tasks.taskModel;
-
 import Tasks.Highscores;
-import model.MapStates.Ekak;
-import org.newdawn.slick.*;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.tiled.TiledMap;
-import org.newdawn.slick.util.ResourceLoader;
-
 import java.awt.*;
-import java.awt.Font;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * @author Malte Carlstedt
  * Model for the beer chugging task
+ * Used by BeerChuggingController
+ * Uses Highscore
  */
 public class BeerChuggingModel {
 
-    private Highscores hs = new Highscores("data/highscore.txt", true); // TODO kommentera
-    private final int greenThingyHeight = 64, greenThingyWidth = 30;
+    private final Highscores hs = new Highscores("data/highscores/highscore.txt", true);
+    private final int greenIndicatorHeight = 64, greenIndicatorWidth = 30;
     private final int jumpingBeerHeight = 24, jumpingBeerWidth = 30;
 
     /** Invisible rectangle for the jumping beer and green indicator location.
-     * Using a rectangle to make calculate when the two are intersecting
+     * Using a rectangle to be able to calculate when the two are intersecting
      */
-    public Rectangle jumpingBeerRect;
-    public Rectangle greenThingyReact;
-    /** Where the indicator bar is to be drawn */
-    private Point indicatorLocation;
-    public Image inidcatorImage;
-    public Image greenThingy;
-    public Image jumpingBeer;
-    public Image timerBox;
-    public Image highScoreBox;
+    private final Rectangle greenIndicatorRect = new Rectangle(158, 630, jumpingBeerWidth, jumpingBeerHeight);
+    private final Rectangle jumpingBeerRect = new Rectangle(160, 665, greenIndicatorWidth, greenIndicatorHeight);
 
-    public ArrayList<Double> beerChuggingHighScore; //todo kommentera
+    /** The number of times the jumpingbeer intersects or contains inside the green indicator each update */
+    public int numberOfChugs = 0;
+    /** Index for which sprite is to be drawn for indicating the animation drinking */
+    public int chugIndexAnimation = 0;
 
-    public TrueTypeFont trueTypePixelFont;
+    /** An array with the top 5 best score from highscore.txt file */
+    public ArrayList<Double> beerChuggingHighScore;
+
+    /** Boolean for our green indicator to make sure it changes direction when reaching it's end*/
+    public boolean upDir = true;
 
     /** Variable for time that has passed since the task started */
     public float timePassed;
 
-    /** Boolean for if the jumping beer is inside the green indicator */
-    public boolean inside;
+    /** The speed at which the green indicator moves at */
+    public double greenIndicatorSpeed = 3;
 
-    public SpriteSheet chuggingAnimation;
-    public Image currentChugAnimation;
+    /** Boolean for if the jumping beer is inside the green indicator */
+    public boolean beerInside;
 
     public boolean isTaskFinished = false;
     public boolean isTaskRunning;
 
-    private TiledMap background;
+    /** The negative downforce for pulling the jumpingbeer down after a jump*/
+    public final static float gravity = 0.7f;
+    /** The height of each jump when pressing the jump button */
+    private final static float jumpStrength = -5;
+    /** The vertical Y direction for our jump, alterning depending if going up or down*/
+    public float vY = 0;
+
     /**
-     * A constructor that initiates all resources needed for this task when created.
-     * @throws SlickException Generic exception
+     * Constructor for beerchuggingmodel. Starts the task and read from highscore
      */
-    public BeerChuggingModel() throws SlickException{
-        // TODO: Make this prettier if possible.
-        //TODO: Sätt ihop dom här till en lol
+    public BeerChuggingModel(){
         isTaskRunning = true;
-        initBeerChuggingIndicator();
-        initGreenThingy();
-        initJumpingBeer();
-        initChuggingAnimation();
-        fontLoader();
-        initTimerSetup();
-        initHighScoreBox();
         readHighScoreList();
-        background = Ekak.EKAK.loadMap();
     }
 
+   
     /**
-     * Function for fetching and loading a custom pixel font for the timer.
+     * Reads the top 5 highscore for this task and adds them to an arrayList
      */
-    public void fontLoader(){
-        //TODO: Make a font loading class on its own since it's not really makes sense having here.
-
-        try {
-            InputStream inputStream = ResourceLoader.getResourceAsStream("/data/slkscr.ttf");
-            Font font = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-            font = font.deriveFont(32f); // set font size
-            trueTypePixelFont = new TrueTypeFont(font, false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Fetches the image for the box where the timer will be placed inside
-     * @throws SlickException Generic exception
-     */
-    public void initTimerSetup() throws SlickException {
-        timerBox = new Image("data/timerBox.png");
-    }
-
-    /**
-     * Fetches the image for the jumping beer and sets it's starting location.
-     * @throws SlickException Generic exception
-     */
-    public void initJumpingBeer() throws SlickException{
-        jumpingBeer = new Image("data/beerChugging/jumpingBeer_V2.png");
-        jumpingBeerRect = new Rectangle(160, 665, greenThingyWidth, greenThingyHeight);
-    }
-
-    /**
-     * Fetches the image for the jumping beer and sets it's starting location.
-     * @throws SlickException Generic exception
-     */
-    public void initGreenThingy() throws SlickException{
-        greenThingy = new Image("data/beerChugging/green_thingy_V2.png");
-        greenThingyReact = new Rectangle(158, 630, jumpingBeerWidth, jumpingBeerHeight);
-    }
-
-    /**
-     * Fetches the image for the jumping beer and sets it's starting location.
-     * @throws SlickException Generic exception
-     */
-    public void initBeerChuggingIndicator() throws SlickException {
-        inidcatorImage = new Image("data/beerChugging/Bar_Indicator_v3.png");
-        indicatorLocation = new Point(100, 300);
-    }
-
-    /**
-     * Fetches the image for the jumping beer and sets it's starting image.
-     * @throws SlickException Generic exception
-     */
-    public void initChuggingAnimation() throws SlickException {
-        chuggingAnimation = new SpriteSheet("data/beerChugging/beerchugging_mini_V3.png", 64,64);
-        currentChugAnimation = chuggingAnimation.getSubImage(0,0);
-    }
-
-    public void initHighScoreBox() throws SlickException {
-        highScoreBox = new Image("data/highScoreBox.png");
-
-    }
-
     public void readHighScoreList(){
-        //Read the top 5 score from our save
+        // Read the top score
         beerChuggingHighScore = hs.readHighScore();
+        // Remove all but five
         hs.trimHighscore(beerChuggingHighScore);
     }
 
+    /**
+     * Adds our highscore for this task which in this case will be the time taken to finish drinking up.
+     */
     public void addHighScore(){
-        // Try to add our score we just got.
+        // Add our score we just got.
         String time = String.valueOf(timePassed);
         try {
             hs.writeHighScore(time);
         }catch (IOException e){
             e.printStackTrace();
         }
-        // Even though the player might not be top 5 we add his or hers score either way.
         beerChuggingHighScore.add(Double.parseDouble(time));
+        // Order it by desc
         Collections.sort(beerChuggingHighScore);
+        // Remove all but top 5
+        hs.trimHighscore(beerChuggingHighScore);
+    }
+     /**
+     * Checks if the jumping beer is inside or intersects with the green indicator
+     * @return How many times the beer has been inside or intersected with the indicator.
+     */
+    public int checkIntersect(){
+        if(greenIndicatorRect.intersects(jumpingBeerRect) || greenIndicatorRect.contains(jumpingBeerRect)){
+            numberOfChugs++;
+            // Changes a boolean to indicate for player that the jumping beer is inside or intersected with the indicator.
+            beerInside = true;
+        }else{
+            beerInside = false;
+        }
+        return numberOfChugs;
+    }
+    /**
+     * Updates location for the jumping beer for each time the user has pressed the spacebar.
+     */
+    public void beerJump() {
+        setJumpingBeerLocationY(getJumpingBeerLocationY() - 25);
+        vY = jumpStrength;
     }
 
-    /** Changes sprite image to be drawn */
-    public void updateChug(int index){
-        currentChugAnimation = chuggingAnimation.getSubImage(index, 0);
+    /**
+     * If the player has managed to be inside the green indicator for 30 updates. The sprite changes one image.
+     * Resets the numberOfChugs until we have reached the last sprite.
+     * If task if finished we add our score. The score will only be added if we manage to beat the top 5 scores
+     */
+    public void updateChugAnimation(){
+        if(numberOfChugs > 30){
+            numberOfChugs = 0;
+            chugIndexAnimation++;
+        }else if (isTaskFinished){
+            // Task finished, add score and reset stuff
+            if(isTaskRunning){
+                addHighScore();
+                beerChuggingHighScore = hs.readHighScore();
+                hs.trimHighscore(beerChuggingHighScore);
+            }
+            isTaskRunning = false;
+        }
     }
 
-    public Point getIndicatorLocation() {
-        return indicatorLocation;
+    /**
+     * A timer that updates the time it takes for player to chug beer.
+     * @param delta time in ms since last update
+     */
+    public void chugTimer(int delta){
+        // Stop the timer when the player has drunken up.
+        if(!isTaskFinished){
+            // Changes from ms to seconds and adds to our variable
+            timePassed += (double) delta/1000;
+            // Round to two decimals.
+            timePassed = (float) (Math.round(timePassed * 100.0) / 100.0);
+        }
     }
 
-    public Rectangle getGreenThingyLocation(){
-        return greenThingyReact;
+    /**
+     * Updates the green indicator that moves up and down. Also increases its speed each time it changes dir.
+     */
+    public void loopGreenIndicatorLocation() {
+        if (upDir && getGreenIndicatorLocation().y > 326) {
+            setGreenIndicatorLocationY((int) (getGreenIndicatorLocation().y - greenIndicatorSpeed));
+        }else{
+            upDir = false;
+        }
+        // Increasing speed each time it changes direction
+        greenIndicatorSpeed += 0.002;
+
+        if (!upDir && getGreenIndicatorLocation().y < 630){
+            setGreenIndicatorLocationY((int) (getGreenIndicatorLocation().y + greenIndicatorSpeed));
+        }else{
+            upDir = true;
+        }
+        // Increasing speed each time it changes direction
+        greenIndicatorSpeed += 0.002;
     }
 
-    public void setGreenThingyLocation(int greenThingyReactLocation) {
-        this.greenThingyReact.y = greenThingyReactLocation;
+    public Rectangle getGreenIndicatorLocation(){
+        return greenIndicatorRect;
+    }
+
+    public void setGreenIndicatorLocationY(int greenIndicatorReactLocation) {
+        this.greenIndicatorRect.y = greenIndicatorReactLocation;
     }
 
     public int getJumpingBeerLocationY() {
@@ -181,11 +182,18 @@ public class BeerChuggingModel {
         return jumpingBeerRect.x;
     }
 
-    public TiledMap getBackground() {
-        return background;
-    }
-
     public void setJumpingBeerLocationY(int jumpingBeerLocation) {
         this.jumpingBeerRect.y = jumpingBeerLocation;
+    }
+
+    /**
+     * Resets the task so that it can be played again
+     */
+    public void resetBeerChuggingTask() {
+        chugIndexAnimation = 0;
+        timePassed = 0;
+        greenIndicatorSpeed = 3;
+        isTaskRunning = true;
+        isTaskFinished = false;
     }
 }

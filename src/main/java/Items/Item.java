@@ -1,25 +1,44 @@
 package Items;
 
 import model.MapStates.MapState;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 
 import java.awt.*;
 
+/**
+ * Abstract method that holds the common methods for the items
+ * Used by: ItemModel
+ * Uses: MapState
+ * @author Clara Simonsson
+ */
 public abstract class Item {
-    public boolean isShowing;
-    public MapState currentMap;
+    /**
+     * The variables that are needed to get an item connected to a map
+     * and to get the specific item
+     */
+    public MapState map;
     public Rectangle location;
-    public Image img;
+    /**
+     * To separate the different file paths of the items.
+     * It will be used to find the right image in the view.
+     */
+    public String filePathToItem;
 
-    public abstract void render(Graphics g);
+    /**
+     * Gets the map that the player is on now
+     * @return a specific map
+     */
+    public MapState getMap(){ return map;}
 
-    public abstract void setShowing(boolean isItShowing);
+    /**
+     * Gets the start index for the x-position for the items that are unfilled and needs to be collected
+     * @return the x-position
+     */
+    public int getStartX(){ return 20;}
 
-    public MapState getCurrentMap(){return currentMap;}
-
-    public int getStartX(){ return 710;}
-    public int getStartY(){ return 725;}
+    /**
+     * Gets the y-position for the items that are unfilled and needs to be collected
+     * @return the y-position
+     */
+    public int getStartY(){ return 20;}
 
 }
