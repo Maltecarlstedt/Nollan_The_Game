@@ -1,0 +1,2 @@
+Class-Path: src/main/java/
+Main-Class: main
