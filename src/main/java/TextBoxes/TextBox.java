@@ -31,18 +31,13 @@ import java.awt.*;
             this.mapState = mapState;
             this.width = width;
             this.height = height;
-
-
         }
-
-
         /**
          * Gets the current map so that the correlated TextBox can be drawn.
          * @return current MapState
          */
         MapState getCurrent(){
             return mapState;
-
         }
 
         /**
@@ -55,7 +50,6 @@ import java.awt.*;
 
         void setShowing(boolean isItShowing){
             isShowing = isItShowing;
-
         }
     }
 

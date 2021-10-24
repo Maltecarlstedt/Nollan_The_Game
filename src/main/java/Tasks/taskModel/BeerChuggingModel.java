@@ -1,7 +1,5 @@
 package Tasks.taskModel;
-
 import Tasks.Highscores;
-
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,18 +8,20 @@ import java.util.Collections;
 /**
  * @author Malte Carlstedt
  * Model for the beer chugging task
+ * Used by BeerChuggingController
+ * Uses Highscore
  */
 public class BeerChuggingModel {
 
-    private Highscores hs = new Highscores("data/highscores/highscore.txt", true); // TODO kommentera
+    private final Highscores hs = new Highscores("data/highscores/highscore.txt", true);
     private final int greenIndicatorHeight = 64, greenIndicatorWidth = 30;
     private final int jumpingBeerHeight = 24, jumpingBeerWidth = 30;
 
     /** Invisible rectangle for the jumping beer and green indicator location.
      * Using a rectangle to be able to calculate when the two are intersecting
      */
-    public Rectangle greenIndicatorRect = new Rectangle(158, 630, jumpingBeerWidth, jumpingBeerHeight);
-    public Rectangle jumpingBeerRect = new Rectangle(160, 665, greenIndicatorWidth, greenIndicatorHeight);
+    private final Rectangle greenIndicatorRect = new Rectangle(158, 630, jumpingBeerWidth, jumpingBeerHeight);
+    private final Rectangle jumpingBeerRect = new Rectangle(160, 665, greenIndicatorWidth, greenIndicatorHeight);
 
     /** The number of times the jumpingbeer intersects or contains inside the green indicator each update */
     public int numberOfChugs = 0;
@@ -31,7 +31,7 @@ public class BeerChuggingModel {
     /** An array with the top 5 best score from highscore.txt file */
     public ArrayList<Double> beerChuggingHighScore;
 
-    /** Boolean for our green indicator to make sure it changes direction when reaching it's height*/
+    /** Boolean for our green indicator to make sure it changes direction when reaching it's end*/
     public boolean upDir = true;
 
     /** Variable for time that has passed since the task started */
@@ -49,7 +49,7 @@ public class BeerChuggingModel {
     /** The negative downforce for pulling the jumpingbeer down after a jump*/
     public final static float gravity = 0.7f;
     /** The height of each jump when pressing the jump button */
-    public final static float jumpStrength = -5;
+    private final static float jumpStrength = -5;
     /** The vertical Y direction for our jump, alterning depending if going up or down*/
     public float vY = 0;
 
@@ -59,7 +59,6 @@ public class BeerChuggingModel {
     public BeerChuggingModel(){
         isTaskRunning = true;
         readHighScoreList();
-        //background = Ekak.INSTANCE.loadMap();
     }
 
    
@@ -85,7 +84,7 @@ public class BeerChuggingModel {
             e.printStackTrace();
         }
         beerChuggingHighScore.add(Double.parseDouble(time));
-
+        // Order it by desc
         Collections.sort(beerChuggingHighScore);
         // Remove all but top 5
         hs.trimHighscore(beerChuggingHighScore);
@@ -137,7 +136,7 @@ public class BeerChuggingModel {
      * @param delta time in ms since last update
      */
     public void chugTimer(int delta){
-        // Stop when the beer is empty.
+        // Stop the timer when the player has drunken up.
         if(!isTaskFinished){
             // Changes from ms to seconds and adds to our variable
             timePassed += (double) delta/1000;
@@ -154,18 +153,16 @@ public class BeerChuggingModel {
             setGreenIndicatorLocationY((int) (getGreenIndicatorLocation().y - greenIndicatorSpeed));
         }else{
             upDir = false;
-            // Increasing speed each time it changes direction
         }
-
+        // Increasing speed each time it changes direction
         greenIndicatorSpeed += 0.002;
 
         if (!upDir && getGreenIndicatorLocation().y < 630){
             setGreenIndicatorLocationY((int) (getGreenIndicatorLocation().y + greenIndicatorSpeed));
         }else{
             upDir = true;
-            // Increasing speed each time it changes direction
-
         }
+        // Increasing speed each time it changes direction
         greenIndicatorSpeed += 0.002;
     }
 
