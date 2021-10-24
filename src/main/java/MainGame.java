@@ -2,7 +2,6 @@ import Items.ItemModel;
 import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
-import TextBoxes.TextBoxController;
 import TextBoxes.TextBoxModel;
 import TextBoxes.TextBoxView;
 import controller.MapController;
@@ -51,7 +50,6 @@ public class MainGame extends BasicGameState {
 
     private TextBoxModel textBoxModel;
     private TextBoxView textBoxView;
-    private TextBoxController textBoxController;
 
     public MainGame(){
 
@@ -86,7 +84,6 @@ public class MainGame extends BasicGameState {
 
         textBoxModel = new TextBoxModel();
         textBoxView = new TextBoxView(textBoxModel.textboxes);
-        textBoxController = new TextBoxController();
 
     }
     /**
@@ -137,8 +134,7 @@ public class MainGame extends BasicGameState {
         itemController.update(playerModel, itemModel, sbg);
         // Updates the NPCs
         npcController.update(npcModel.NPCs, delta);
-        // Updates the textBoxes
-        textBoxController.update(mapModel, textBoxModel.textboxes);
+
     }
 
 
