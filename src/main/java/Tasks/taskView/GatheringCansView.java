@@ -9,9 +9,10 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.tiled.TiledMap;
 
-/** The view of Gathering Cans printing the high-scores and time passed. Uses Gathering Cans Model.
+/**
  * @author Steffanie Kristiansson
  * @author Alexander Brunnegård
+ * The view of Gathering Cans printing the high-scores and time passed. Used by Gathering Cans Model.
  */
 public class GatheringCansView {
 
@@ -23,6 +24,9 @@ public class GatheringCansView {
         init();
     }
 
+    /** Initialize the view.
+     * @throws SlickException Generic exception
+     */
     public void init() throws SlickException {
         background = DeltaP.INSTANCE.loadMap();
         initHighScoreBox();
@@ -51,14 +55,12 @@ public class GatheringCansView {
             g.drawString(String.valueOf(number), 835, 155 + i*35);
         }
 
-        // the mouse
+        // the mouse with a circle
         if(gcm.isRunning){
             g.setColor(Color.cyan);
             g.fill(gcm.mouseBall);
 
             g.setColor(Color.white);
-
-            // Render our box that will have the timer inside of it.
 
         } else{
             g.drawString("Bra plockat!", 400, 400);
@@ -81,7 +83,7 @@ public class GatheringCansView {
     }
 
     /** Initialize the high-score box.
-     * @throws SlickException if file not found, slick-exception.
+     * @throws SlickException Generic exception
      */
     public void initHighScoreBox() throws SlickException {
         highScoreBox = new Image("data/boxes/highScoreBox_V2.png");

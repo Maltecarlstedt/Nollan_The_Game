@@ -2,9 +2,7 @@ import Tasks.Highscores;
 import Tasks.taskModel.GatheringCansModel;
 import junit.framework.TestCase;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-
 import java.io.IOException;
 import java.lang.reflect.Field;
 
@@ -69,13 +67,13 @@ public class GatheringCansTest extends TestCase {
         Assert.assertTrue(gcm.getTaskTimer() > test);
     }
 
-    // förväntat fel, catches it.
+    // expected exception, catches it.
     @Test (expected = IOException.class)
     public void testCatchHighscore() {
         try {
             Field privateHighscoreField = GatheringCansModel.class.getDeclaredField("hs");
             privateHighscoreField.setAccessible(true);
-            // skapar filepath som inte finns aka tom.
+            // Creates new filepath which is empty.
             privateHighscoreField.set(gcm, new Highscores(""));
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
