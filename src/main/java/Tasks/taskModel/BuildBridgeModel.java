@@ -9,6 +9,11 @@ import java.awt.Font;
 import java.io.InputStream;
 
 /**
+ * The logic behind the BuildBridgeTask.
+ * This class has some view attributes which shouldn't be in the model.
+ * If we should continue to work with this class, we would focus on get rid of the methods that
+ * needs to throw a SlickException because that should be in the view instead.
+ * Used by: BuildBridgeView, BuildBridgeController, BuildBridgeTask
  * @author Clara Simonsson
  */
 public class BuildBridgeModel {
