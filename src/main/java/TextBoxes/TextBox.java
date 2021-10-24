@@ -1,15 +1,14 @@
 package TextBoxes;
 
 import model.MapStates.MapState;
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
-
 import java.awt.*;
 
 /**
  * @author Julia Böckert
+ * Contains instantiation logic for a TextBox
+ * Used by TextBoxFactory, TextBoxController, TextBoxView, TextBoxModel
+ * Uses MapState
  */
 
 
@@ -24,25 +23,20 @@ import java.awt.*;
         int width;
         int height;
 
-        public TextBox(MapState mapState, String textBoxFile, int x, int y, boolean isShowing, int width, int height) throws SlickException {
+        public TextBox(MapState mapState, String textBoxFile, int x, int y, boolean isShowing, int width, int height){
             this.textBoxFile = textBoxFile;
             this.location = new Point(x, y);
             this.isShowing = isShowing;
             this.mapState = mapState;
             this.width = width;
             this.height = height;
-
-
         }
-
-
         /**
          * Gets the current map so that the correlated TextBox can be drawn.
          * @return current MapState
          */
         MapState getCurrent(){
             return mapState;
-
         }
 
         /**
@@ -53,9 +47,12 @@ import java.awt.*;
             return location;
         }
 
+    /**
+     * Sets the visibility for the textbox
+     * @param isItShowing boolean for false or true regarding if the NPC is to be shown or not
+     */
         void setShowing(boolean isItShowing){
             isShowing = isItShowing;
-
         }
     }
 

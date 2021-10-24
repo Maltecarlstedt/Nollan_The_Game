@@ -12,8 +12,8 @@ import org.newdawn.slick.state.StateBasedGame;
 /**
  * Task for Adammen-map.
  * This is not fully developed but it´s a start and
- * is left because we needed to prioritize more important things
- *
+ * is left because we needed to prioritize more important things.
+ * Uses: BuildBridge MVC
  * @author Clara Simonsson
  */
 public class BuildBridgeTask extends BasicGameState {
@@ -35,7 +35,7 @@ public class BuildBridgeTask extends BasicGameState {
 
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
-        bridgeController.update(gc, sbg, delta);
+        bridgeController.update(gc, sbg);
     }
 
     @Override

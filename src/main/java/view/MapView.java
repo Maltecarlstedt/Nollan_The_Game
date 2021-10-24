@@ -7,9 +7,11 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
+ * A class that keeps the render methods for the map
+ * Uses: MapModel, TiledMap, MapState, ViewTranslator
+ * Used by: MapController
  * @author Alexander Brunnegård
- * A class that keeps the visual aspects of our maps and render said aspects
- * Uses MapState, MapModel, TileSetup
+ * @co-author Clara Simonsson
  */
 public class MapView{
 
@@ -31,9 +33,10 @@ public class MapView{
     }
 
     /**
-     * Updates the map by translating a MapState to a TiledMap and updates the collisionArray.
-     * @param mapModel - the MapModel
-     * @throws SlickException - if the TiledMap is not found
+     * Loads the tiledMap of the current mapState via the mapModel.
+     * Uses the viewTranslator the check which map to be loaded.
+     * @param mapModel the map
+     * @throws SlickException - throws an exception if a filepath to the image or map is not found
      */
     public void loadTiledMap(MapModel mapModel) throws SlickException {
         tiledMap = ViewTranslator.translateToView(mapModel.getCurrentMap());

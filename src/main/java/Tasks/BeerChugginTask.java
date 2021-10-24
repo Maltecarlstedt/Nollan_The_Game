@@ -1,5 +1,4 @@
 package Tasks;
-
 import Tasks.taskController.BeerChuggingController;
 import Tasks.taskModel.BeerChuggingModel;
 import Tasks.taskView.BeerChuggingView;
@@ -8,9 +7,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-
-import java.io.IOException;
-
 /**
  * @author Malte Carlstedt
  * A class that represents the Beer chugging task within it's own state.
@@ -45,7 +41,7 @@ public class BeerChugginTask extends BasicGameState {
      * @throws SlickException A generic exception
      */
     @Override
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g){
         beerChuggingView.render(g, beerChuggingModel);
     }
 

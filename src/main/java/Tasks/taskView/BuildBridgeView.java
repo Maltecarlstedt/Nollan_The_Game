@@ -7,6 +7,9 @@ import org.newdawn.slick.Graphics;
 import java.awt.image.PixelGrabber;
 
 /**
+ * Draws the view of the task
+ * Uses: BuildBridgeModel
+ * Used by: BuildBridgeController, BuildBridgeTask
  * @author Clara Simonsson
  */
 public class BuildBridgeView {

@@ -1,24 +1,21 @@
 package NPC;
 
-import model.MapModel;
-import org.newdawn.slick.SlickException;
-
 import java.util.ArrayList;
 
 /**
  * @author Julia Böckert
+ * Controlls the animation of the NPCs
+ * Used by MainGame
+ * Uses ConcreteNPC
  */
 
 public class NPCController {
 
     boolean animationUpdateIsSet = false;
 
-    public NPCController() {
-
-    }
 
     public void update(ArrayList<ConcreteNPC> NPCs, int delta) {
-        if (animationUpdateIsSet) {
+       if (animationUpdateIsSet) {
             for (ConcreteNPC npc : NPCs) {
                 npc.animation.update(delta);
                 animationUpdateIsSet = true;

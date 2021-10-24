@@ -1,21 +1,12 @@
 package model;
 
 import model.MapStates.*;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.tiled.TiledMap;
-
-import java.awt.*;
-import java.util.ArrayList;
-
-
-// TODO:: TA REDA PÅ IFALL VI VILL EXTENDA TILED MAPS??
 
 /**
- * @author Clara Simonsson
- * @author Alexander Brunnegård
- * Changes the map when told to do so. Also hold the information for the particular maps.
- * Used by CollisionChecker, MapView
- * Uses MapState
+ * Holds all the information for the map
+ * Uses: MapStates
+ * Used by: mapController, mapView, CollisionChecker
+ * @author Clara Simonsson & Alexander Brunnegård
  */
 public class MapModel{
     /** The current map in the form of a MapState (interface) */
@@ -35,7 +26,8 @@ public class MapModel{
     }
 
     /**
-     * Initiates our first map, which is "Chalmersplatsen", sets up all the collisions of the map with tileSetup
+     * Initiates our first map, which is "Chalmersplatsen".
+     * Sets the first oldstate to the current state because it's in the start.
      */
     private void initMap(){
         current = Chalmersplatsen.INSTANCE;

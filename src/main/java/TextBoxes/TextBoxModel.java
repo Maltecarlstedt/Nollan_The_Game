@@ -1,7 +1,6 @@
 package TextBoxes;
 
 import model.MapModel;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
  */
 
 public class TextBoxModel {
-
 
     TextBoxFactory factory;
 
@@ -27,24 +25,31 @@ public class TextBoxModel {
     public TextBoxModel() throws SlickException {
         textboxes = new ArrayList<>();
         factory = new TextBoxFactory();
-
         delta = factory.createDeltaTextBox();
         chalmers = factory.createChalmersText();
         ekak = factory.createEkakTextBox();
         karhuset = factory.createKarhusetTextBox();
         markena = factory.createMarkenaTextBox();
-
-
         initTextBoxes();
     }
 
-    public void initTextBoxes() {
+    /**
+     * Initializes the list of NPCs
+     */
+
+    private void initTextBoxes() {
         textboxes.add(delta);
         textboxes.add(chalmers);
         textboxes.add(ekak);
         textboxes.add(karhuset);
         textboxes.add(markena);
     }
+
+    /**
+     * Displays the textboxes on the map that they belong to.
+     *
+     * @param mp A MapModel
+     */
 
     void showTextBoxes(MapModel mp) {
      textboxes.forEach(textBox ->

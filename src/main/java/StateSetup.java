@@ -20,10 +20,10 @@ public class StateSetup extends StateBasedGame {
     /**
      * Adds all the different states so that they can be referenced to later on. Then enters the first state
      * @param gameContainer The container that have the game
-     * @throws SlickException Generic exception
      */
     @Override
     public void initStatesList(GameContainer gameContainer) {
+
         this.addState(new GameMenu());
         this.addState(new HelpViewMenu());
         this.addState(new BeerChugginTask());

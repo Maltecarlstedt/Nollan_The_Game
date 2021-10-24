@@ -3,11 +3,12 @@ package controller;
 import model.MapModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.tiled.TiledMap;
 import view.MapView;
 
 /**
  * Place holder for map
+ * Uses: MapModel, MapView
+ * Used by: MainGame
  * @author Clara Simonsson
  */
 public class MapController {

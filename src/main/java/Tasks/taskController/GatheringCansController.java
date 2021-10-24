@@ -10,10 +10,11 @@ import org.newdawn.slick.state.transition.EmptyTransition;
 import org.newdawn.slick.state.transition.FadeInTransition;
 
 
-/** Controls the task "Gathering Cans" when resetting the task and collision between the mouse and the can.
- *  Uses the Gathering Cans Model.
+/**
  * @author Steffanie Kristiansson
  * @author Alexander Brunnegård
+ * Controls the task "Gathering Cans" when resetting the task and collision between the mouse and the can.
+ * Uses Gathering Cans Model.
  */
 public class GatheringCansController {
 
@@ -30,7 +31,7 @@ public class GatheringCansController {
      * @param gc the container that have the game.
      * @param sbg the current state of the game used to isolate the game from different aspects.
      * @param delta represents time in ms since last update.
-     * @throws SlickException if file not found, slick-exception.
+     * @throws SlickException Generic exception
      */
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
         if(gcm.isRunning) {
@@ -49,7 +50,6 @@ public class GatheringCansController {
      */
     public void canGameOver(GameContainer gc, StateBasedGame sbg){
         if(gc.getInput().isKeyDown(Input.KEY_F)) {
-            // TODO: Make the ending display the players score etc
             resetTask();
             sbg.enterState(101, new EmptyTransition(), new FadeInTransition());
         }
@@ -77,9 +77,8 @@ public class GatheringCansController {
     }
 
     /** Adds a new can every 3 seconds.
-     * @throws SlickException if file not found, slick-exception.
      */
-    public void canSpawner() throws SlickException {
+    public void canSpawner() {
         if (gcm.canSpawnerTimer >= 3.0 && gcm.getCans().size() < 5){
             gcm.addCan();
             gcm.canSpawnerTimer = 0;
@@ -88,9 +87,8 @@ public class GatheringCansController {
 
     /** Track the mouse and score point if intersect
      * @param gc the container that have the game.
-     * @throws SlickException if file not found, slick-exception.
      */
-    public void mouseFollower(GameContainer gc) throws SlickException{
+    public void mouseFollower(GameContainer gc){
         // track the mouse
         gcm.mouseBall.setCenterX(gc.getInput().getMouseX());
         gcm.mouseBall.setCenterY(gc.getInput().getMouseY());
@@ -102,7 +100,7 @@ public class GatheringCansController {
 
         for (int i = gcm.getCans().size() - 1; i >= 0; i--) {
             Rectangle p = gcm.getCans().get(i);
-            if (p.intersects(gcm.mouseBall)) {//TODO: Innehållet här borde va i Model?
+            if (p.intersects(gcm.mouseBall)) {
                 gcm.getCans().remove(i);
                 gcm.increaseScore();
                 gcm.canReceived();

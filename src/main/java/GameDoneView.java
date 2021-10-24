@@ -2,8 +2,6 @@ import controller.MapController;
 import model.CollisionChecker;
 import model.MapModel;
 import model.MapStates.Gasquen;
-import model.MapStates.MapState;
-import model.Orientation;
 import model.PlayerModel;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
@@ -14,11 +12,10 @@ import view.PlayerView;
 
 /**
  * Represents the view when the game has ended
- *
+ * Uses: Player MV, Map MVC,
  * @author Clara Simonsson
  */
 public class GameDoneView extends BasicGameState {
-
     /**
      * The player and map
      */
@@ -51,9 +48,6 @@ public class GameDoneView extends BasicGameState {
 
         playerModel = new PlayerModel();
         playerView = new PlayerView();
-
-
-
     }
 
     private float getPositionX(){ return 800;}
@@ -82,7 +76,6 @@ public class GameDoneView extends BasicGameState {
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
         mapController.update(mapModel);
-
 
         int posX = Mouse.getX();
         int posY = Mouse.getY();

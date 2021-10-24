@@ -2,20 +2,13 @@ import Tasks.Highscores;
 import Tasks.taskModel.GatheringCansModel;
 import junit.framework.TestCase;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-
 import java.io.IOException;
 import java.lang.reflect.Field;
 
 
 public class GatheringCansTest extends TestCase {
-    GatheringCansModel gcm;
-
-    @Before
-    public void init() {
-        gcm = new GatheringCansModel();
-    }
+    GatheringCansModel gcm = new GatheringCansModel();
 
     @Test
     public void testGetScore() {
@@ -49,15 +42,11 @@ public class GatheringCansTest extends TestCase {
 
     @Test
     public void testArrayHighscore() {
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-        gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();gcm.increaseScore();
-
+        for (int i = 0; i < 10000; i++) {
+            gcm.increaseScore();
+        }
         gcm.addHighScore();
-        Assert.assertTrue(gcm.getCanHighscore().get(2) == 42);
+        Assert.assertTrue(gcm.getCanHighscore().get(0) == 10000);
     }
 
     @Test
@@ -78,13 +67,13 @@ public class GatheringCansTest extends TestCase {
         Assert.assertTrue(gcm.getTaskTimer() > test);
     }
 
-    // förväntat fel, catches it.
+    // expected exception, catches it.
     @Test (expected = IOException.class)
     public void testCatchHighscore() {
         try {
             Field privateHighscoreField = GatheringCansModel.class.getDeclaredField("hs");
             privateHighscoreField.setAccessible(true);
-            // skapar filepath som inte finns aka tom.
+            // Creates new filepath which is empty.
             privateHighscoreField.set(gcm, new Highscores(""));
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();

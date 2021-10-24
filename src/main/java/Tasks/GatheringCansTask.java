@@ -8,8 +8,9 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 
-/** The task "Gathering Cans" which calls everything to start the task. Uses Gathering Cans model, controller and view.
+/**
  * @author Steffanie Kristiansson
+ * The task "Gathering Cans" which calls everything to start the task. Uses Gathering Cans model, controller and view.
  */
 public class GatheringCansTask extends BasicGameState {
 

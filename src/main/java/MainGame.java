@@ -2,7 +2,6 @@ import Items.ItemModel;
 import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
-import TextBoxes.TextBoxController;
 import TextBoxes.TextBoxModel;
 import TextBoxes.TextBoxView;
 import controller.MapController;
@@ -17,7 +16,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
-
 
 /**
      * @author Malte Carlstedt
@@ -50,7 +48,6 @@ public class MainGame extends BasicGameState {
 
     private TextBoxModel textBoxModel;
     private TextBoxView textBoxView;
-    private TextBoxController textBoxController;
 
     public MainGame(){
 
@@ -65,7 +62,6 @@ public class MainGame extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        // TODO:: Make this prettier
 
         CollisionChecker collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
@@ -87,7 +83,6 @@ public class MainGame extends BasicGameState {
 
         textBoxModel = new TextBoxModel();
         textBoxView = new TextBoxView(textBoxModel.textboxes);
-        textBoxController = new TextBoxController();
 
     }
     /**
@@ -97,8 +92,6 @@ public class MainGame extends BasicGameState {
      * @param g The graphics context to be used for rendering
      * @throws SlickException
      */
-
-
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         // Render the map
@@ -117,9 +110,6 @@ public class MainGame extends BasicGameState {
 
         //Renders the nps
         npcView.render(g, npcModel, npcModel.NPCs, mapModel);
-
-
-
     }
 
     /**
@@ -138,12 +128,11 @@ public class MainGame extends BasicGameState {
         mapController.update(mapModel);
         // Checks if a task should be started and entered.
         enterTask.update(gc, mapModel, sbg);
-
+        // Updates the items
         itemController.update(playerModel, itemModel, sbg);
-
+        // Updates the NPCs
         npcController.update(npcModel.NPCs, delta);
 
-        textBoxController.update(mapModel, textBoxModel.textboxes);
     }
 
 
