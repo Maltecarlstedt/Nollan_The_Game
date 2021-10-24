@@ -6,16 +6,18 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map deltaP.
- *
- * @author Clara
+ *  Creates a class for one map piece which holds the specific methods for just that map.
+ *  This map is for the tile map Delta parken.
+ *  @author Clara Simonsson
  */
 public class DeltaP extends TiledMapFactory implements MapState{
     public static final DeltaP INSTANCE = new DeltaP();
     private static final String DPATH = "data/maps/deltaP.tmx";
 
-    protected DeltaP() {
+    /**
+     * Creates a tile map for Delta parken
+     */
+    private DeltaP() {
         super(DPATH);
     }
 

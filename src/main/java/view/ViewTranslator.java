@@ -7,6 +7,12 @@ import org.newdawn.slick.tiled.TiledMap;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Creates a list of all MapState classes with their respective viewModel.
+ * Uses: Tiledmap, all MapState classes
+ * Used by: MapView
+ * @author Clara Simonsson & Alexander Brunnegård
+ */
 public enum ViewTranslator {
     ;
     private static final Map<Class<? extends MapState>, ScreenViewModel> screenViews;
@@ -25,6 +31,12 @@ public enum ViewTranslator {
         screenViews.put(Sandladan.class, new SandladanViewModel());
     }
 
+    /**
+     * Translates a mapState to a tiledMap
+     * @param m - the current mapState
+     * @return - the new TiledMap
+     * @throws SlickException - throws an exception if a filepath to the image or map is not found
+     */
     public static TiledMap translateToView(MapState m) throws SlickException {
         return screenViews.get(m.getClass()).loadMap();
     }

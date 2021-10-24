@@ -9,7 +9,8 @@ import java.util.Map;
 
 /**
  * Holds the information for the items to be found and the unfilled items
- *
+ * Uses: Item
+ * Used by: ItemView, ItemController
  * @author Clara Simonsson
  */
 public class ItemModel {
@@ -74,7 +75,7 @@ public class ItemModel {
      * @return true if the criteria are achieved
      */
     private boolean itemFound(PlayerModel pm, ItemView iv, Item item){
-        return (pm.getNextLocation().intersects(item.location) && iv.currentMap.equals(item.getCurrentMap()));
+        return (pm.getNextLocation().intersects(item.location) && iv.currentMap.equals(item.getMap()));
     }
 
     /**

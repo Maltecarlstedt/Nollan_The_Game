@@ -7,7 +7,8 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 
 /**
      * The class that dictates the update of the items
-     *
+     * Uses: ItemModel, ItemView, PlayerModel
+     * Used by: MainGame
      * @author Clara Simonsson
      */
 public class ItemController {

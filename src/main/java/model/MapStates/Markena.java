@@ -5,15 +5,17 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map märkena.
- *
- * @author Clara
+ * Creates a class for one map piece which holds the specific methods for just that map.
+ * This map is for the tile map Märkena.
+ * @author Clara Simonsson
  */
 public class Markena extends TiledMapFactory implements MapState{
     public static final Markena INSTANCE = new Markena();
     private static final String DPATH = "data/maps/markena.tmx";
 
+    /**
+     * Creates a tile map for Märkena
+     */
     private Markena(){ super(DPATH);}
 
     @Override

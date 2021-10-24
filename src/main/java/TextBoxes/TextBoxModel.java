@@ -25,14 +25,11 @@ public class TextBoxModel {
     public TextBoxModel() throws SlickException {
         textboxes = new ArrayList<>();
         factory = new TextBoxFactory();
-
         delta = factory.createDeltaTextBox();
         chalmers = factory.createChalmersText();
         ekak = factory.createEkakTextBox();
         karhuset = factory.createKarhusetTextBox();
         markena = factory.createMarkenaTextBox();
-
-
         initTextBoxes();
     }
 

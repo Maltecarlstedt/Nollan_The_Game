@@ -5,13 +5,18 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * @author Clara
+ *  Creates a class for one map piece which holds the specific methods for just that map.
+ *  This map is for the tile map Gasquen.
+ *  @author Clara Simonsson
  */
 public class Gasquen extends TiledMapFactory implements MapState{
     public static final Gasquen INSTANCE = new Gasquen();
     private static final String DPATH = "data/maps/gasquen.tmx";
 
-    protected Gasquen() {
+    /**
+     * Creates a tile map for Gasquen
+     */
+    private Gasquen() {
         super(DPATH);
     }
 

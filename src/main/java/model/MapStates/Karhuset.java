@@ -6,15 +6,17 @@ import org.newdawn.slick.tiled.TiledMap;
 
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map Kårhuset.
- *
- * @author Clara
+ *  Creates a class for one map piece which holds the specific methods for just that map.
+ *  This map is for the tile map Kårhuset.
+ *  @author Clara Simonsson
  */
 public class Karhuset extends TiledMapFactory implements MapState{
     public static final Karhuset INSTANCE = new Karhuset();
     private static final String DPATH = "data/maps/karhuset.tmx";
 
+    /**
+     * Creates a tile map for Kårhuset
+     */
     private Karhuset(){ super(DPATH);}
 
     @Override

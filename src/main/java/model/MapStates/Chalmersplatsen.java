@@ -5,15 +5,17 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map Chalmershållplatsen.
- *
- * @author Clara
+ * Creates a class for one map piece which holds the specific methods for just that map.
+ * This map is for the tile map Chalmershållplatsen.
+ * @author Clara Simonsson
  */
 public class Chalmersplatsen extends TiledMapFactory implements MapState {
     public static final Chalmersplatsen INSTANCE = new Chalmersplatsen();
     private static final String DPATH = "data/maps/chalmershallplatsen.tmx";
 
+    /**
+     * Creates a tiledMap for Chalmersplatsen
+     */
     private Chalmersplatsen() {
         super(DPATH);
     }

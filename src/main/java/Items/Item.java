@@ -1,14 +1,13 @@
 package Items;
 
 import model.MapStates.MapState;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 
 import java.awt.*;
 
 /**
  * Abstract method that holds the common methods for the items
- *
+ * Used by: ItemModel
+ * Uses: MapState
  * @author Clara Simonsson
  */
 public abstract class Item {
@@ -16,7 +15,7 @@ public abstract class Item {
      * The variables that are needed to get an item connected to a map
      * and to get the specific item
      */
-    public MapState currentMap;
+    public MapState map;
     public Rectangle location;
     /**
      * To separate the different file paths of the items.
@@ -28,7 +27,7 @@ public abstract class Item {
      * Gets the map that the player is on now
      * @return a specific map
      */
-    MapState getCurrentMap(){return currentMap;}
+    public MapState getMap(){ return map;}
 
     /**
      * Gets the start index for the x-position for the items that are unfilled and needs to be collected
