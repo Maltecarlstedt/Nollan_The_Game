@@ -6,16 +6,18 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map aDammen.
- *
- * @author Clara
+ * Creates a class for one map piece which holds the specific methods for just that map.
+ *  * This map is for the tile map A-dammen.
+ *  * @author Clara Simonsson
  */
 public class Dammen extends TiledMapFactory implements MapState{
     public static final Dammen INSTANCE = new Dammen();
     private static final String DPATH = "data/maps/aDammen.tmx";
 
-    protected Dammen() {
+    /**
+     * Creates a tile map for A-dammen
+     */
+    private Dammen() {
         super(DPATH);
     }
 

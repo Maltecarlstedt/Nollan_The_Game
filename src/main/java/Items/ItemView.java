@@ -11,7 +11,8 @@ import java.util.Map;
 
 /**
  * The class that render all items on the canvas
- *
+ * Uses: MapState, ItemModel, MapModel
+ * Used by: ItemController
  * @author Clara Simonsson
  */
 public class ItemView {
@@ -40,7 +41,7 @@ public class ItemView {
         currentMap = mm.getCurrentMap();
         for (Map.Entry<String, Item> material : im.getItemsToFind().entrySet()) {
             Item value = material.getValue();
-            if (value.getCurrentMap().equals(currentMap) && (!mm.hasTask() || mm.taskDone)){
+            if (value.getMap().equals(currentMap) && (!mm.hasTask() || mm.taskDone)){
                 Image img = new Image(value.filePathToItem);
                 g.drawImage(img, value.location.x, value.location.y);
             }

@@ -5,15 +5,17 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map Sandlådan.
- *
- * @author Clara
+ * Creates a class for one map piece which holds the specific methods for just that map.
+ * This map is for the tile map Sandlådan.
+ * @author Clara Simonsson
  */
 public class Sandladan extends TiledMapFactory implements MapState{
     public static final Sandladan INSTANCE = new Sandladan();
     private static final String DPATH = "data/maps/sandladan.tmx";
 
+    /**
+     * Creates a tile map for sandlådan
+     */
     private Sandladan(){ super(DPATH);}
 
     @Override

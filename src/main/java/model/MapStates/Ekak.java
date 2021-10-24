@@ -5,15 +5,17 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Creates an enum for one map piece which holds the specific methods for just that map.
- * This map is for the tiled map Ekak.
- *
- * @author Clara
+ * Creates a class for one map piece which holds the specific methods for just that map.
+ * This map is for the tile map Ekak.
+ * @author Clara Simonsson
  */
 public class Ekak extends TiledMapFactory implements MapState{
     public static final Ekak INSTANCE = new Ekak();
     private static final String DPATH = "data/maps/ekak.tmx";
 
+    /**
+     * Creates a tile map for Ekak
+     */
     private Ekak(){ super(DPATH);}
 
     @Override

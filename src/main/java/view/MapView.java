@@ -8,7 +8,10 @@ import org.newdawn.slick.tiled.TiledMap;
 
 /**
  * A class that keeps the render methods for the map
+ * Uses: MapModel, TiledMap, MapState, ViewTranslator
+ * Used by: MapController
  * @author Alexander Brunnegård
+ * @co-author Clara Simonsson
  */
 public class MapView{
 
@@ -24,6 +27,12 @@ public class MapView{
         loadTiledMap(mapModel);
     }
 
+    /**
+     * Loads the tiledMap of the current mapState via the mapModel.
+     * Uses the viewTranslator the check which map to be loaded.
+     * @param mapModel the map
+     * @throws SlickException - throws an exception if a filepath to the image or map is not found
+     */
     public void loadTiledMap(MapModel mapModel) throws SlickException {
         tiledMap = ViewTranslator.translateToView(mapModel.getCurrentMap());
         TileSetup.tileSetup(tiledMap);
