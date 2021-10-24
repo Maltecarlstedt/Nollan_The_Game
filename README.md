@@ -4,7 +4,7 @@ A game for a new student at Chalmers Uni called "Nollan" discovering it's first 
 
 # HOW TO RUN 
 
-To run this project the project structure need to be configured. The libraries that need to be added to the project structure are: 
+To run this project the project structure need to be configured. These libraries can be find in the projects library folder. The libraries that need to be added to the project structure are: 
 
 1. $Root/libraries/slick.jar 
 2. $Root/libraries/lwjgl-2.9.3/jar/lwjgl.jar
