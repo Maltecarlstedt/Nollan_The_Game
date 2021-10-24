@@ -66,6 +66,7 @@ public class MainGame extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+
         collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
@@ -95,8 +96,6 @@ public class MainGame extends BasicGameState {
      * @param g The graphics context to be used for rendering
      * @throws SlickException
      */
-
-
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         // Render the map
@@ -109,7 +108,6 @@ public class MainGame extends BasicGameState {
 
         itemView.renderItemsToFind(g, itemModel, mapModel);
         itemView.renderUnfilledItems(g, itemModel);
-       // itemView.renderImages(g, itemModel);
 
         //Renders the textBoxes
 
@@ -117,9 +115,6 @@ public class MainGame extends BasicGameState {
 
         //Renders the nps
         npcView.render(g, npcModel, npcModel.NPCs, mapModel);
-
-
-
     }
 
     /**
@@ -138,11 +133,11 @@ public class MainGame extends BasicGameState {
         mapController.update(gc, delta, mapModel);
         // Checks if a task should be started and entered.
         enterTask.update(gc, mapModel, sbg);
-
+        // Updates the items
         itemController.update(playerModel, itemModel, sbg);
-
+        // Updates the NPCs
         npcController.update(npcModel.NPCs, delta);
-
+        // Updates the textBoxes
         textBoxController.update(mapModel, textBoxModel.textboxes);
     }
 

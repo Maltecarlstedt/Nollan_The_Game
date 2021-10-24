@@ -13,6 +13,9 @@ import java.io.IOException;
 /**
  * @author Malte Carlstedt
  * Controller for the Beer Chugging task
+ *
+ * Uses BeerChuggingModel and BeerChuggingView
+ * Used by BeerChuggingTask
  */
 public class BeerChuggingController {
 
@@ -30,7 +33,7 @@ public class BeerChuggingController {
         this.bcv = bcv;
     }
     /**
-     * Update function for the logic of the task.
+     * Update function for the logic of the task each update.
      *
      * @param gc The container that have the game
      * @param delta Time in ms since last update
@@ -48,12 +51,19 @@ public class BeerChuggingController {
         }
     }
 
+    /**
+     * Handles the input from the user pressing the spacebar to simulate an actual jump in game.
+     *
+     * @param input the input from the user
+     */
     public void jump(Input input){
         // Adds the constant pull downwards from gravity
         bcm.vY += bcm.gravity;
+        // Make sure that the jump is disabled if we are out of bound.
         if (input.isKeyPressed(Input.KEY_SPACE ) && bcm.getJumpingBeerLocationY() >= 370){
             bcm.beerJump();
         }
+        // Make sure to catch the beer so it doesnt fall of the screen.
         if (bcm.getJumpingBeerLocationY() <= 665) {
             bcm.setJumpingBeerLocationY((int) (bcm.getJumpingBeerLocationY() + 0.2f + bcm.vY));
         }
@@ -67,6 +77,11 @@ public class BeerChuggingController {
             bcm.isTaskFinished = true;
     }
 
+    /**
+     * Changes state back to maingame when player presses 'F'. Also resets the task.
+     * @param input Input from the user
+     * @param sbg A state of the game so that we can change state back to maingame.
+     */
     public void exitTask(Input input, StateBasedGame sbg){
         if (input.isKeyDown(Input.KEY_F)){
             bcm.resetBeerChuggingTask();

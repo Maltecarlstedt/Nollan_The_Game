@@ -9,6 +9,7 @@ import java.util.Scanner;
  * @author Alexander Brunnegård
  * @author Malte Carlstedt
  * This class enables the writing and reading from a highscore file
+ * Used by BeerChuggingModel and GatheringCansModel
  */
 public class Highscores {
 
