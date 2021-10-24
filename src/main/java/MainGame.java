@@ -1,9 +1,7 @@
 import Items.ItemModel;
-import NPC.ConcreteNPC;
 import NPC.NPCController;
 import NPC.NPCModel;
 import NPC.NPCView;
-import TextBoxes.TextBoxController;
 import TextBoxes.TextBoxModel;
 import TextBoxes.TextBoxView;
 import controller.MapController;
@@ -18,8 +16,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import view.MapView;
 import Items.ItemView;
 import view.PlayerView;
-
-import java.util.ArrayList;
 
 /**
      * @author Malte Carlstedt
@@ -54,7 +50,6 @@ public class MainGame extends BasicGameState {
 
     private TextBoxModel textBoxModel;
     private TextBoxView textBoxView;
-    private TextBoxController textBoxController;
 
     public MainGame(){
 
@@ -90,7 +85,6 @@ public class MainGame extends BasicGameState {
 
         textBoxModel = new TextBoxModel();
         textBoxView = new TextBoxView(textBoxModel.textboxes);
-        textBoxController = new TextBoxController();
 
     }
     /**
@@ -148,7 +142,6 @@ public class MainGame extends BasicGameState {
 
         npcController.update(npcModel.NPCs, delta);
 
-        textBoxController.update(mapModel, textBoxModel.textboxes);
     }
 
 

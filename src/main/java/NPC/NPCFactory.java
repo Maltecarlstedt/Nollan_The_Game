@@ -1,11 +1,11 @@
 package NPC;
-import model.MapModel;
 import model.MapStates.*;
-import org.newdawn.slick.SlickException;
-import java.util.Hashtable;
 
 /**
  * @author Julia Böckert
+ * Initializes NPC instances
+ * Used by NPCModel
+ * Uses ConcreteNPC
  */
 public class NPCFactory {
 
@@ -13,60 +13,56 @@ public class NPCFactory {
     }
 
     /**
-     * Adds every key-value-combination to the HashTable
+     * Creates an NPC-instance
      */
 
     public ConcreteNPC createWebers() {
         return new ConcreteNPC(Karhuset.INSTANCE, 64, 64, 128,
-                0, 710, 205, "data/compressedNPCs/webers64x64-min.png",
-                "data/compressedNPCs/webersTASK128x128SOMINTEBLINKAR-min.png", true);
+                0, 710, 205, "data/NPC/webers64x64.png",
+                "data/NPC/webersTASK128x128_NOBLINK.png", true);
     }
 
     public ConcreteNPC createDNollK() {
         return new ConcreteNPC(DeltaP.INSTANCE, 64, 64, 128,
-                0, 200, 250, "data/compressedNPCs/dnollk64x64-min.png",
-                "data/compressedNPCs/dnollk128x128TASK (1)-min.png", true);
+                0, 200, 250, "data/NPC/dnollk64x64.png",
+                "data/NPC/dnollk128x128TASK.png", true);
     }
 
     public ConcreteNPC createEKAK1()  {
         return new ConcreteNPC(Ekak.INSTANCE, 64, 72, 128,
-                1, 460, 160, "data/compressedNPCs/ekak64x72-min.png",
-                "data/compressedNPCs/ekak64x72-min.png", true);
+                1, 460, 160, "data/NPC/ekak64x72.png",
+                "data/NPC/ekak64x72.png", true);
     }
 
     public ConcreteNPC createEKAK2(){
         return new ConcreteNPC(Ekak.INSTANCE, 64, 64, 128,
-                0, 400, 120, "data/compressedNPCs/ekak64x72-min.png",
-                "data/compressedNPCs/ekak_TASK_128x115-min.png", true);
+                0, 400, 120, "data/NPC/ekak64x72.png",
+                "data/NPC/ekak_TASK_128x115.png", true);
     }
 
     public ConcreteNPC createKritan()  {
         return new ConcreteNPC(Chalmersplatsen.INSTANCE, 64, 64, 128,
-                1, 600, 210, "data/compressedNPCs/kritanPRIT64x64-min.png",
-                "data/compressedNPCs/kritanPRIT64x64-min.png", true);
+                1, 600, 210, "data/NPC/kritanPRIT64x64.png",
+                "data/NPC/kritanPRIT64x64.png", true);
     }
 
     public ConcreteNPC createKvalle()  {
         return new ConcreteNPC(Markena.INSTANCE, 64, 64, 128,
-                1, 600, 220, "data/compressedNPCs/kvalle64x64-min.png",
-                "data/compressedNPCs/kvalle64x64-min.png", true);
+                1, 600, 220, "data/NPC/kvalle64x64.png",
+                "data/NPC/kvalle64x64.png", true);
     }
 
     public ConcreteNPC createBieber() {
         return new ConcreteNPC(Markena.INSTANCE, 64, 90, 128,
-                1, 530, 200, "data/compressedNPCs/Bieber64x90-min.png",
-                "data/compressedNPCs/Bieber64x90-min.png", true);
+                1, 530, 200, "data/NPC/Bieber64x90.png",
+                "data/NPC/Bieber64x90.png", true);
     }
 
     public ConcreteNPC createTango() {
         return new ConcreteNPC(Chalmersplatsen.INSTANCE, 64, 64, 128,
-                1, 530, 210, "data/compressedNPCs/tangoPRIT64x64-min.png",
-                "data/compressedNPCs/tangoPRIT64x64-min.png", true);
+                1, 530, 210, "data/NPC/tangoPRIT64x64.png",
+                "data/NPC/tangoPRIT64x64.png", true);
     }
-
-
-
-
 
     }
 

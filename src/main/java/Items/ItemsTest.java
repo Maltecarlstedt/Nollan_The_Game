@@ -6,14 +6,8 @@ import Items.Filled.Scissor;
 import Items.Unfilled.CardboardUf;
 import Items.Unfilled.KarkortUf;
 import junit.framework.TestCase;
-import model.MapStates.Karhuset;
 import model.PlayerModel;
-import org.junit.Before;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.StateBasedGame;
 
-import java.util.Objects;
 
 public class ItemsTest extends TestCase {
     private final ItemModel im = new ItemModel();

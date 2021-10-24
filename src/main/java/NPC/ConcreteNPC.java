@@ -2,13 +2,15 @@ package NPC;
 
 import model.MapStates.MapState;
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 import java.awt.*;
 
 /**
  * @author Julia Böckert
+ * Contains instantiation logic for an NPC
+ * Used by NPCFactory, NPCController, NPCView, NPCModel
+ * Uses MapState
  */
 
 public class ConcreteNPC {
@@ -23,7 +25,6 @@ public class ConcreteNPC {
     String characterString;
     String taskString;
     SpriteSheet character;
-    SpriteSheet taskCharacter;
     Animation animation;
     Animation taskAnimation;
 
@@ -53,13 +54,18 @@ public class ConcreteNPC {
         return current;
     }
 
+    /**
+     * Gets the current location of the NPC.
+     * @return current location
+     */
+
     public Point getLocation(){
         return location;
     }
 
     /**
      * Sets visibility.
-     * @param isItShowing boolean for false or true regarding if its to be shown or not
+     * @param isItShowing boolean for false or true regarding if the NPC is to be shown or not
      */
     public void setShowing(boolean isItShowing){
         isShowing = isItShowing;
