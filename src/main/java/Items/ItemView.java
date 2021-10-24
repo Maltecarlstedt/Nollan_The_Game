@@ -11,7 +11,8 @@ import java.util.Map;
 
 /**
  * The class that render all items on the canvas
- *
+ * Uses: MapState, ItemModel, MapModel
+ * Used by: ItemController
  * @author Clara Simonsson
  */
 public class ItemView {

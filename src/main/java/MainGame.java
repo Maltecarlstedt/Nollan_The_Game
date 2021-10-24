@@ -140,7 +140,7 @@ public class MainGame extends BasicGameState {
         // Updates our player
         playerController.update(gc, sbg, delta);
         // Updates our map
-        mapController.update(gc, delta, mapModel);
+        mapController.update(mapModel);
         // Checks if a task should be started and entered.
         enterTask.update(gc, mapModel, sbg);
 

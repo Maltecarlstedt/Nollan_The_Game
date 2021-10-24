@@ -3,11 +3,12 @@ package controller;
 import model.MapModel;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.tiled.TiledMap;
 import view.MapView;
 
 /**
  * Place holder for map
+ * Uses: MapModel, MapView
+ * Used by: MainGame
  * @author Clara Simonsson
  */
 public class MapController {
@@ -19,7 +20,7 @@ public class MapController {
         this.mapView = mapView;
     }
 
-    public void update(GameContainer gc, int delta, MapModel mapModel) throws SlickException {
+    public void update(MapModel mapModel) throws SlickException {
         if (mapModel.getCurrentMap() != mapModel.oldState){
             mapModel.oldState = mapModel.getCurrentMap();
             mapView.loadTiledMap(mapModel);

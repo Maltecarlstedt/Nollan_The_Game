@@ -6,7 +6,8 @@ import java.awt.*;
 
 /**
  * Abstract method that holds the common methods for the items
- *
+ * Used by: ItemModel
+ * Uses: MapState
  * @author Clara Simonsson
  */
 public abstract class Item {

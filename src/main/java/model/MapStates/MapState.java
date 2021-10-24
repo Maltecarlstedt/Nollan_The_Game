@@ -5,7 +5,10 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 /**
- * Interface which holds the common methods for the different map enums.
+ * Interface which holds the common methods for the different map classes.
+ * Used by: All MapState classes
+ * All the MapState classes are used by MapModel, ItemView, NPC and textBoxes
+ * @author Clara Simonsson & Alexander Brunnegård
  */
 public interface MapState {
 
