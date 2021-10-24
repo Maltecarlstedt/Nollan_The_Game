@@ -68,7 +68,7 @@ public class GameMenu extends BasicGameState {
         // start game button
         if ((posX > 243 && posX < 781) && (posY > 337 && posY < 431)) {
             if (Mouse.isButtonDown(0)) {
-                sbg.enterState(1, new FadeOutTransition(), new FadeInTransition());
+                sbg.enterState(101, new FadeOutTransition(), new FadeInTransition());
             }
         }
 

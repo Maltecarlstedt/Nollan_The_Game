@@ -51,7 +51,7 @@ public class GatheringCansController {
     public void canGameOver(GameContainer gc, StateBasedGame sbg){
         if(gc.getInput().isKeyDown(Input.KEY_F)) {
             resetTask();
-            sbg.enterState(1, new EmptyTransition(), new FadeInTransition());
+            sbg.enterState(101, new EmptyTransition(), new FadeInTransition());
         }
 
     }

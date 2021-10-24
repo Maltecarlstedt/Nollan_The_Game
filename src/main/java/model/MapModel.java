@@ -5,7 +5,7 @@ import model.MapStates.*;
 /**
  * Holds all the information for the map
  * Uses: MapStates
- * Used by: mapController, mapView
+ * Used by: mapController, mapView, CollisionChecker
  * @author Clara Simonsson & Alexander Brunnegård
  */
 public class MapModel{
@@ -31,6 +31,7 @@ public class MapModel{
      */
     private void initMap(){
         current = Chalmersplatsen.INSTANCE;
+        System.out.println(current);
         oldState = getCurrentMap();
     }
 

@@ -28,7 +28,7 @@ public class BuildBridgeController {
      */
     public void update(GameContainer gc, StateBasedGame sbg){
         if(gc.getInput().isKeyDown(Input.KEY_F)){
-            sbg.enterState(1, new FadeOutTransition(), new HorizontalSplitTransition());
+            sbg.enterState(101, new FadeOutTransition(), new HorizontalSplitTransition());
         }
     }
 }

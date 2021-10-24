@@ -15,6 +15,8 @@ import java.util.ArrayList;
  * @author Clara Simonsson
  * This class works as a mediator between the map and the player
  * Checks if the player is colliding with anything on said map
+ * Used by PlayerModel
+ * Uses TileSetup, MapModel, Mapstate
  */
 public class CollisionChecker {
 
@@ -81,10 +83,10 @@ public class CollisionChecker {
      * @param sbg - the current state of the game
      */
     public void fadeOut(StateBasedGame sbg){
-        sbg.enterState(1,new FadeOutTransition(org.newdawn.slick.Color.black, 2000), new EmptyTransition());
+        sbg.enterState(101,new FadeOutTransition(org.newdawn.slick.Color.black, 2000), new EmptyTransition());
     }
     public void fadeIn(StateBasedGame sbg){
-        sbg.enterState(1, new EmptyTransition(), new FadeInTransition(Color.black, 1000));
+        sbg.enterState(101, new EmptyTransition(), new FadeInTransition(Color.black, 1000));
     }
 
     public void setCurrentMap(MapModel currentMap) {

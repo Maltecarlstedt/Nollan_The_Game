@@ -4,6 +4,7 @@ package model;
  * @author Alexander Brunnegård
  * Creates an enum for the Player's orientation.
  * The orientation holds the speeds of which the player move in each axis.
+ * Used by PlayerModel
  */
 
 public enum Orientation {

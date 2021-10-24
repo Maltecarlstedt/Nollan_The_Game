@@ -12,6 +12,8 @@ import java.awt.geom.Rectangle2D;
  * @author Alexander Brunnegård
  * @author Malte Carlstedt
  * A class that holds all the data on our player
+ * Used by PlayerView, PlayerController, CollisionChecker, MapState
+ * Uses Orientation,
  */
 public class PlayerModel {
 
@@ -19,7 +21,7 @@ public class PlayerModel {
     private Orientation orientation;
     public int speed = 3;
     /** The location stored as a rectangle so we can use the "intercepts(Shape s)"-method in CollisionChecker */
-    private Rectangle playerLocation = new Rectangle(250, 384, width, height);
+    private final Rectangle playerLocation = new Rectangle(250, 384, width, height);
 
     /**
      * Creates an idle, basic player in the center of our window

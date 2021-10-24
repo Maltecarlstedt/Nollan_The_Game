@@ -15,13 +15,18 @@ import org.newdawn.slick.tiled.TiledMap;
  */
 public class MapView{
 
-    public TiledMap tiledMap;
-    MapState currentState;
+    private TiledMap tiledMap;
+    private MapState currentState;
 
     public MapView(MapModel mapModel) throws SlickException {
         initMapView(mapModel);
     }
 
+    /**
+     * Sets the first map of the MapView instance
+     * @param mapModel - the MapModel.
+     * @throws SlickException - if the tiledmap file is not found
+     */
     private void initMapView(MapModel mapModel) throws SlickException {
         currentState = mapModel.getCurrentMap();
         loadTiledMap(mapModel);
@@ -35,7 +40,8 @@ public class MapView{
      */
     public void loadTiledMap(MapModel mapModel) throws SlickException {
         tiledMap = ViewTranslator.translateToView(mapModel.getCurrentMap());
-        TileSetup.tileSetup(tiledMap);
+        currentState = mapModel.getCurrentMap();
+        TileSetup.setUpCollisionTiles(tiledMap);
     }
 
     /**
@@ -57,7 +63,7 @@ public class MapView{
      */
     public void renderTopLayer(MapModel mapModel){
         for(int i=0; i < mapModel.getCurrentTopLayers(); i++){
-            tiledMap.render(0, 0, tiledMap.getLayerCount()- currentState.getTopLayers() + (i));
+            tiledMap.render(0, 0, tiledMap.getLayerCount() - currentState.getTopLayers() + (i));
         }
     }
 }

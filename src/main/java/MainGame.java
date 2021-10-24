@@ -46,8 +46,6 @@ public class MainGame extends BasicGameState {
 
     private EnterTask enterTask;
 
-    private CollisionChecker collisionChecker;
-
     private TextBoxModel textBoxModel;
     private TextBoxView textBoxView;
 
@@ -65,7 +63,7 @@ public class MainGame extends BasicGameState {
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
-        collisionChecker = new CollisionChecker();
+        CollisionChecker collisionChecker = new CollisionChecker();
         playerModel = new PlayerModel();
         playerView = new PlayerView();
         playerController = new PlayerController(playerModel, playerView, collisionChecker);
@@ -77,6 +75,7 @@ public class MainGame extends BasicGameState {
         mapModel = new MapModel(collisionChecker);
         mapView = new MapView(mapModel);
         mapController = new MapController(mapModel, mapView);
+
 
         npcModel = new NPCModel();
         npcView = new NPCView(npcModel.NPCs);
@@ -99,7 +98,7 @@ public class MainGame extends BasicGameState {
         mapView.render(mapModel);
 
         // Renders The player
-        playerView.render(g, playerModel);
+        playerView.render(playerModel);
         // Renders the top layer
         mapView.renderTopLayer(mapModel);
 
@@ -107,7 +106,6 @@ public class MainGame extends BasicGameState {
         itemView.renderUnfilledItems(g, itemModel);
 
         //Renders the textBoxes
-
         textBoxView.render(textBoxModel.textboxes, textBoxModel, mapModel);
 
         //Renders the nps
@@ -144,6 +142,6 @@ public class MainGame extends BasicGameState {
      */
     @Override
     public int getID() {
-        return 1;
+        return 101;
     }
 }
