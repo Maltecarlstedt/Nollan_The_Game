@@ -1,3 +1,5 @@
+![](pics/header.png | width = 100)
+
 # Nollan The Game
 A OOP-Project in the course TDA367 @ Chalmers University of Technology
 A game for a new student at Chalmers Uni called "Nollan" discovering it's first day at Chalmers Campus
@@ -15,4 +17,4 @@ Many attempts was made to create an executable .jar file from maven but unfortun
 Please contact anyone in the group if you cant run it.
 
 
-![](pics/gif.gif)
+![](pics/gif.gif | 250x250)
