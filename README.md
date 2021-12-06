@@ -15,4 +15,4 @@ Many attempts was made to create an executable .jar file from maven but unfortun
 Please contact anyone in the group if you cant run it.
 
 
-![](gif.gif)
+![](pics/gif.gif)
