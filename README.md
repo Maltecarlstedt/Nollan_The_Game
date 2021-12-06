@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/header.png">
+  <img width="250" height="200" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/header.png">
 </p>
 
 # Nollan The Game
