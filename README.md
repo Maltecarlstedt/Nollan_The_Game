@@ -1,4 +1,4 @@
-# Laget_Fore_Jaget
+# Nollan The Game
 A OOP-Project in the course TDA367 @ Chalmers University of Technology
 A game for a new student at Chalmers Uni called "Nollan" discovering it's first day at Chalmers Campus
 
@@ -13,3 +13,6 @@ To run this project the project structure need to be configured. These libraries
 Many attempts was made to create an executable .jar file from maven but unfortunately we weren't able to do this because of the dependencies from the slick library. We also asked help from TA but unfortunately we couldnt get it to work either. 
 
 Please contact anyone in the group if you cant run it.
+
+
+![](gif.gif)
