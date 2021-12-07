@@ -4,18 +4,19 @@
 
 # Nollan The Game
 
-The game takes place at Chalmers University of Technology and the player is playing the famous character "Nollan" about to embark on his first day at Chalmers. The player will se familliar sites such as
+The game takes place at Chalmers University of Technology and the player is playing the famous character "Nollan" about to embark on his first day at Chalmers where the player needs to collect the materials needed to create Nollans "nollbricka". However, to earn the materials needed, Nollan have to complete missions given by committees at Chalmers. The player will se familliar sites such as
 
 ## Chalmersplatsen
 <p align="left">
-  <img width="500" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/chalmersplatsen.png">
+  <img width="600" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/chalmersplatsen.png">
 </p>
 
 ## Chalmers Kårhus
 <p align="right">
-  <img width="500" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/k%C3%A5r.png">
+  <img width="600" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/k%C3%A5r.png">
 </p>
 
+And ofcourse
 
 
 # HOW TO RUN 
