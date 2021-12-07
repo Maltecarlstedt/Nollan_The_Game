@@ -16,7 +16,23 @@ The game takes place at Chalmers University of Technology and the player is play
   <img width="600" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/k%C3%A5r.png">
 </p>
 
-And ofcourse
+## A-dammen
+<p align="left">
+  <img width="600" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/adamm.png">
+</p>
+
+## Märkena
+<p align="right">
+  <img width="600" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/markena.png">
+</p>
+
+## Häfv
+
+Ofcourse Nollan has to learn how to properly häfva Øhl
+
+<p align="center">
+  <img width="600" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/gif.gif">
+</p>
 
 
 # HOW TO RUN 
@@ -34,6 +50,3 @@ Please contact anyone in the group if you cant run it.
 # The project
 
 This is a object oriented project created for the course TDA367 at Chalmers University of Technology. The purpose of the project was to create a game or application with as much object oriented skills as possible. This include following the SOLID principles aswell as using the MVC design pattern for our code. The other half of the project was to be able to work as a group in a software development project. This include using techniques such as sprints, git, user stories, git issues etc to make our project come to life. We also had to create a SDD and RAD for our project. The project was very successfull and we are very happy with the outcome.
-
-
-![](pics/gif.gif | 250x250)
