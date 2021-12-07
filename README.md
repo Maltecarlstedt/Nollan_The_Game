@@ -8,7 +8,12 @@ The game takes place at Chalmers University of Technology and the player is play
 
 ## Chalmersplatsen
 <p align="left">
-  <img width="450" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/chalmersplatsen.png">
+  <img width="500" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/chalmersplatsen.png">
+</p>
+
+## Chalmers Kårhus
+<p align="right">
+  <img width="500" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/k%C3%A5r.png">
 </p>
 
 
