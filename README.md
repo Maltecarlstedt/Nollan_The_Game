@@ -6,8 +6,9 @@
 
 The game takes place at Chalmers University of Technology and the player is playing the famous character "Nollan" about to embark on his first day at Chalmers. The player will se familliar sites such as
 
+## Chalmersplatsen
 <p align="left">
-  <img width="250" height="250" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/chalmersplatsen.png">
+  <img width="450" height="400" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/chalmersplatsen.png">
 </p>
 
 
