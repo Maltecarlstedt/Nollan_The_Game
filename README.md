@@ -31,7 +31,7 @@ The game takes place at Chalmers University of Technology and the player is play
 Of course Nollan has to learn how to properly häfva Øhl
 
 <p align="center">
-  <img width="700" height="500" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/gif.gif">
+  <img width="700" height="450" src="https://github.com/Maltecarlstedt/Nollan_The_Game/blob/main/pics/gif.gif">
 </p>
 
 
